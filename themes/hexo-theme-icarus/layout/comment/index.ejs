@@ -1,0 +1,11 @@
+<% if (post.comments) { %>
+    <section id="comments">
+    <% if (theme.comment.changyan) { %>
+        <%- partial('comment/changyan') %>
+    <% } else if (theme.comment.duoshuo) { %>
+        <%- partial('comment/duoshuo') %>
+    <% } else if (theme.comment.youyan) { %>
+        <%- partial('comment/youyan') %>
+    <% } %>
+    </section>
+<% } %>

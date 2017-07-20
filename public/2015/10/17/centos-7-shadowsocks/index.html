@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Centos 7安装配置Shadowsocks | DragonBlog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="源网页1. 安装shadowsocksyum install python-setuptools &amp;&amp; easy_install pip pip install shadowsocks  2. 新建shadowsocks的配置文件mkdir -p /etc/shadowsocks vi /etc/shadowsocks/config.json  输入以下内容： {  &quot;server&quot;:&quot;0.0.0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Centos 7安装配置Shadowsocks">
+<meta property="og:url" content="https://dragon-yuan.github.io/2015/10/17/centos-7-shadowsocks/index.html">
+<meta property="og:site_name" content="DragonBlog">
+<meta property="og:description" content="源网页1. 安装shadowsocksyum install python-setuptools &amp;&amp; easy_install pip pip install shadowsocks  2. 新建shadowsocks的配置文件mkdir -p /etc/shadowsocks vi /etc/shadowsocks/config.json  输入以下内容： {  &quot;server&quot;:&quot;0.0.0">
+<meta property="og:updated_time" content="2016-12-23T08:30:25.838Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Centos 7安装配置Shadowsocks">
+<meta name="twitter:description" content="源网页1. 安装shadowsocksyum install python-setuptools &amp;&amp; easy_install pip pip install shadowsocks  2. 新建shadowsocks的配置文件mkdir -p /etc/shadowsocks vi /etc/shadowsocks/config.json  输入以下内容： {  &quot;server&quot;:&quot;0.0.0">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-97008058-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d0cb966ae2e1a5c380fbb5b232f01178";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">DragonBlog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/categories/Gallery">Gallery</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories/Gallery">Gallery</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.jpg" />
+            <h2 id="name">Dragon</h2>
+            <h3 id="title">Java Web Developer</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Beijing (Harbin), China</span>
+            <a id="follow" target="_blank" href="https://github.com/dragon-yuan">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                92
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                0
+                <span>tag</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/dragon-yuan" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://twitter.com/p17856001" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://www.facebook.com/idragonyuan" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="http://weibo.com/529383542" target="_blank" title="weibo" class=tooltip>
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+	</div>
+</aside>
+
+            
+            <section id="main"><article id="post-centos-7-shadowsocks" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Centos 7安装配置Shadowsocks
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2015/10/17/centos-7-shadowsocks/">
+            <time datetime="2015-10-16T23:52:38.000Z" itemprop="datePublished">2015-10-17</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Operations/">Operations</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="源网页"><a href="#源网页" class="headerlink" title="源网页"></a><a href="源网页https:/www.ifshow.com/centos-7-installation-and-configuration-shadowsocks/">源网页</a></h2><h2 id="1-安装shadowsocks"><a href="#1-安装shadowsocks" class="headerlink" title="1. 安装shadowsocks"></a>1. 安装shadowsocks</h2><pre style="border: 1px solid #7fb5ff; font-family: 'Courier 10 Pitch', Courier, monospace; font-size: 13px; margin-top: 0px; margin-bottom: 1.625em; outline: 0px; padding: 0.75em 1.625em; vertical-align: baseline; font-stretch: normal; line-height: 1.5; overflow: auto; color: #373737; background: #d9e9ff;">yum install python-setuptools && easy_install pip
+pip install shadowsocks</pre>
+
+<h2 id="2-新建shadowsocks的配置文件"><a href="#2-新建shadowsocks的配置文件" class="headerlink" title="2. 新建shadowsocks的配置文件"></a>2. 新建shadowsocks的配置文件</h2><pre style="border: 1px solid #7fb5ff; font-family: 'Courier 10 Pitch', Courier, monospace; font-size: 13px; margin-top: 0px; margin-bottom: 1.625em; outline: 0px; padding: 0.75em 1.625em; vertical-align: baseline; font-stretch: normal; line-height: 1.5; overflow: auto; color: #373737; background: #d9e9ff;">mkdir -p /etc/shadowsocks
+vi /etc/shadowsocks/config.json</pre>
+
+<p>输入以下内容：</p>
+<pre style="border: 1px solid #7fb5ff; font-family: 'Courier 10 Pitch', Courier, monospace; font-size: 13px; margin-top: 0px; margin-bottom: 1.625em; outline: 0px; padding: 0.75em 1.625em; vertical-align: baseline; font-stretch: normal; line-height: 1.5; overflow: auto; color: #373737; background: #d9e9ff;">{
+ "server":"0.0.0.0",
+ "server_port":8888,
+ "local_address": "127.0.0.1",
+ "local_port":1080,
+ "password":"mypassword",
+ "timeout":300,
+ "method":"aes-256-cfb",
+ "fast_open": false,
+ "workers": 1
+}</pre>
+
+<p>说明：服务器IP，服务端口（建议自定义），本地监听IP，本地监听端口，密码（建议自定义），超时时间，加密算法，关闭fast-open，工作进程数量为1。</p>
+<h2 id="3-新建shadowsocks的-service文件"><a href="#3-新建shadowsocks的-service文件" class="headerlink" title="3. 新建shadowsocks的.service文件"></a>3. 新建shadowsocks的.service文件</h2><pre style="border: 1px solid #7fb5ff; font-family: 'Courier 10 Pitch', Courier, monospace; font-size: 13px; margin-top: 0px; margin-bottom: 1.625em; outline: 0px; padding: 0.75em 1.625em; vertical-align: baseline; font-stretch: normal; line-height: 1.5; overflow: auto; color: #373737; background: #d9e9ff;">vi /etc/systemd/system/shadowsocks-server.service</pre>
+
+<p>输入以下内容：</p>
+<pre style="border: 1px solid #7fb5ff; font-family: 'Courier 10 Pitch', Courier, monospace; font-size: 13px; margin-top: 0px; margin-bottom: 1.625em; outline: 0px; padding: 0.75em 1.625em; vertical-align: baseline; font-stretch: normal; line-height: 1.5; overflow: auto; color: #373737; background: #d9e9ff;">[Unit]
+Description=Shadowsocks Server
+After=network.target
+
+[Service]
+Type=forking
+PIDFile=/run/shadowsocks/server.pid
+PermissionsStartOnly=true
+ExecStartPre=/bin/mkdir -p /run/shadowsocks
+ExecStartPre=/bin/chown root:root /run/shadowsocks
+ExecStart=/usr/bin/ssserver --pid-file /var/run/shadowsocks/server.pid -c /etc/shadowsocks/config.json -d start
+Restart=on-abort
+User=root
+Group=root
+UMask=0027
+
+[Install]
+WantedBy=multi-user.target</pre>
+
+<h2 id="4-运行shadowsocks服务并设置为开机自启："><a href="#4-运行shadowsocks服务并设置为开机自启：" class="headerlink" title="4. 运行shadowsocks服务并设置为开机自启："></a>4. 运行shadowsocks服务并设置为开机自启：</h2><pre style="border: 1px solid #7fb5ff; font-family: 'Courier 10 Pitch', Courier, monospace; font-size: 13px; margin-top: 0px; margin-bottom: 1.625em; outline: 0px; padding: 0.75em 1.625em; vertical-align: baseline; font-stretch: normal; line-height: 1.5; overflow: auto; color: #373737; background: #d9e9ff;">systemctl start shadowsocks-server.service
+systemctl enable shadowsocks-server.service</pre>
+
+<h2 id="5-防火墙开放shadowsocks服务端口："><a href="#5-防火墙开放shadowsocks服务端口：" class="headerlink" title="5. 防火墙开放shadowsocks服务端口："></a>5. 防火墙开放shadowsocks服务端口：</h2><pre style="border: 1px solid #7fb5ff; font-family: 'Courier 10 Pitch', Courier, monospace; font-size: 13px; margin-top: 0px; margin-bottom: 1.625em; outline: 0px; padding: 0.75em 1.625em; vertical-align: baseline; font-stretch: normal; line-height: 1.5; overflow: auto; color: #373737; background: #d9e9ff;">firewall-cmd --permanent --add-port=8888/tcp
+firewall-cmd --reload</pre>
+
+<h2 id="6-常用操作"><a href="#6-常用操作" class="headerlink" title="6. 常用操作"></a>6. 常用操作</h2><p>升级shadowsocks</p>
+<pre style="border: 1px solid #7fb5ff; font-family: 'Courier 10 Pitch', Courier, monospace; font-size: 13px; margin-top: 0px; margin-bottom: 1.625em; outline: 0px; padding: 0.75em 1.625em; vertical-align: baseline; font-stretch: normal; line-height: 1.5; overflow: auto; color: #373737; background: #d9e9ff;">pip install -U shadowsocks</pre>
+
+<p>卸载shadowsocks</p>
+<pre style="border: 1px solid #7fb5ff; font-family: 'Courier 10 Pitch', Courier, monospace; font-size: 13px; margin-top: 0px; margin-bottom: 1.625em; outline: 0px; padding: 0.75em 1.625em; vertical-align: baseline; font-stretch: normal; line-height: 1.5; overflow: auto; color: #373737; background: #d9e9ff;">pip uninstall shadowsocks
+</pre>
+
+<p>查询已安装的shadowsocks</p>
+<pre style="border: 1px solid #7fb5ff; font-family: 'Courier 10 Pitch', Courier, monospace; font-size: 13px; margin-top: 0px; margin-bottom: 1.625em; outline: 0px; padding: 0.75em 1.625em; vertical-align: baseline; font-stretch: normal; line-height: 1.5; overflow: auto; color: #373737; background: #d9e9ff;">pip search "shadowsocks"</pre>
+
+<p>停止shadowsocks服务</p>
+<pre style="border: 1px solid #7fb5ff; font-family: 'Courier 10 Pitch', Courier, monospace; font-size: 13px; margin-top: 0px; margin-bottom: 1.625em; outline: 0px; padding: 0.75em 1.625em; vertical-align: baseline; font-stretch: normal; line-height: 1.5; overflow: auto; color: #373737; background: #d9e9ff;">systemctl stop shadowsocks-server.service</pre>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="https://dragon-yuan.github.io/2015/10/17/centos-7-shadowsocks/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2015/10/17/centos-7-shadowsocks/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2015/10/17/centos-7-64bit-apache-mysql-php/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    CentOS-7-64bit 配置Apache + MySQL + PHP 
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2015/10/13/myeclipse10-0-key/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">MyEclipse10.0 KEY</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        <!-- 代码1：放在页面需要展示的位置  -->
+<div id="cyReward" role="cylabs" data-use="reward"></div>
+<!-- 代码2：用来读取评论框配置，此代码需放置在代码1之后。 -->
+<!-- 如果当前页面有评论框，代码2请勿放置在评论框代码之前。 -->
+<!-- 如果页面同时使用多个实验室项目，以下代码只需要引入一次，只配置上面的div标签即可 -->
+<script type="text/javascript" charset="utf-8" src="https://changyan.itc.cn/js/lib/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://changyan.sohu.com/js/changyan.labs.https.js?appid=cyt6NLeqm"></script>
+<div id="SOHUCS" ></div>
+<script type="text/javascript"> 
+(function(){ 
+var appid = 'cyt6NLeqm'; 
+var conf = 'prod_ea00622159dfcb4d47e875bcf56d23d7'; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+	<div style="height:30px;widget:300px;"></div>
+	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=300 height=497 src="//music.163.com/outchain/player?type=0&id=696141306&auto=0&height=430"></iframe>
+	<div style="margin-top:20px;">
+        
+			
+		
+			
+		
+    </div>
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2017 dragon<br>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'dragon-yuan'};
+    (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
