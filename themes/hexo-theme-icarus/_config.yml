@@ -1,0 +1,76 @@
+# Menus
+menu:
+  Home: .
+  Archives: archives
+  Categories: categories
+  Gallery: categories/Gallery
+  About: about
+
+# Customize
+customize:
+    logo:
+        enabled: true
+        width: 40
+        height: 40
+        url: images/logo.png
+    profile:
+        enabled: true # Whether to show profile bar
+        avatar: css/images/avatar.jpg
+        gravatar: # Gravatar email address, if you enable Gravatar, your avatar config will be overriden
+        author: Dragon
+        author_title: Java Web Developer
+        location: Beijing (Harbin), China
+        follow: https://github.com/dragon-yuan
+    highlight: monokai
+    sidebar: right # sidebar position, options: left, right
+    thumbnail: true # enable posts thumbnail, options: true, false
+    favicon: css/images/favicon.ico
+    social_links:
+        github: https://github.com/dragon-yuan
+        twitter: https://twitter.com/p17856001
+        facebook: https://www.facebook.com/idragonyuan
+        weibo: http://weibo.com/529383542
+    social_link_tooltip: true # enable the social link tooltip, options: true, false
+    insight: true
+
+# Widgets: - recent_posts
+#          - category
+widgets:
+    - tag
+    - tagcloud
+
+# Search
+search:
+    insight: true # you need to install `hexo-generator-json-content` before using Insight Search
+    swiftype: # enter swiftype install key here
+    baidu: true # you need to disable other search engines to use Baidu search, options: true, false
+
+# Comment
+comment:
+    disqus: # hexo-theme-icarus # enter disqus shortname here
+    duoshuo: dragon-yuan
+    youyan: # enter youyan uid here
+    changyan: true
+        appid:cyt6NLeqm
+        conf:10b8a52f00eae978ff51aa4a2c393d1c
+
+# Share
+share: jiathis # options: jiathis, bdshare, addtoany, default
+
+# Plugins
+plugins:
+    lightgallery: true
+    justifiedgallery: true
+    google_analytics: UA-97008058-1
+    google_site_verification: # enter Google site verification code
+    baidu_analytics: d0cb966ae2e1a5c380fbb5b232f01178
+
+# Miscellaneous
+miscellaneous:
+    open_graph: # see http://ogp.me
+        fb_app_id:
+        fb_admins:
+        twitter_id:
+        google_plus:
+    links:
+        Hexo: 
