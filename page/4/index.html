@@ -115,7 +115,7 @@ var _hmt = _hmt || [];
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Cari" />
     </div>
 
                 </td>
@@ -135,12 +135,12 @@ var _hmt = _hmt || [];
             <h2 id="name">Dragon</h2>
             <h3 id="title">Java Web Developer</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Beijing (Harbin), China</span>
-            <a id="follow" target="_blank" href="https://github.com/dragon-yuan">FOLLOW</a>
+            <a id="follow" target="_blank" href="https://github.com/dragon-yuan">IKUTI</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                92
-                <span>posts</span>
+                94
+                <span>pos</span>
             </div>
             <div class="article-info-block">
                 0
@@ -186,6 +186,170 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-java-linux-properties" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/04/10/java-linux-properties/">通过JAVA环境监听Linux系统属性</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/04/10/java-linux-properties/">
+            <time datetime="2017-04-10T12:22:26.000Z" itemprop="datePublished">2017-04-10</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>获取当前系统内存和CPU使用状态<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.hyperic.sigar.Mem;</div><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"><span class="keyword">import</span> java.util.StringTokenizer;</div><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">LinuxSystemTool</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@return</span> int[] result</div><div class="line">     * result.length==4;int[0]=MemTotal;int[1]=MemFree;int[2]=SwapTotal;int[3]=SwapFree;</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] getMemInfo() <span class="keyword">throws</span> IOException, InterruptedException &#123;</div><div class="line">        File file = <span class="keyword">new</span> File(<span class="string">"/proc/meminfo"</span>);</div><div class="line">        BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(</div><div class="line">                <span class="keyword">new</span> FileInputStream(file)));</div><div class="line">        <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">4</span>];</div><div class="line">        String str = <span class="keyword">null</span>;</div><div class="line">        StringTokenizer token = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">while</span>((str = br.readLine()) != <span class="keyword">null</span>) &#123;</div><div class="line">            token = <span class="keyword">new</span> StringTokenizer(str);</div><div class="line">            <span class="keyword">if</span>(!token.hasMoreTokens())</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line"></div><div class="line">            str = token.nextToken();</div><div class="line">            <span class="keyword">if</span>(!token.hasMoreTokens())</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line"></div><div class="line">            <span class="keyword">if</span>(str.equalsIgnoreCase(<span class="string">"MemTotal:"</span>))</div><div class="line">                result[<span class="number">0</span>] = Integer.parseInt(token.nextToken());</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str.equalsIgnoreCase(<span class="string">"MemFree:"</span>))</div><div class="line">                result[<span class="number">1</span>] = Integer.parseInt(token.nextToken());</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str.equalsIgnoreCase(<span class="string">"SwapTotal:"</span>))</div><div class="line">                result[<span class="number">2</span>] = Integer.parseInt(token.nextToken());</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str.equalsIgnoreCase(<span class="string">"SwapFree:"</span>))</div><div class="line">                result[<span class="number">3</span>] = Integer.parseInt(token.nextToken());</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">float</span> <span class="title">getCpuInfo</span><span class="params">()</span> <span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</div><div class="line">        File file = <span class="keyword">new</span> File(<span class="string">"/proc/stat"</span>);</div><div class="line">        BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(</div><div class="line">                <span class="keyword">new</span> FileInputStream(file)));</div><div class="line">        StringTokenizer token = <span class="keyword">new</span> StringTokenizer(br.readLine());</div><div class="line">        token.nextToken();</div><div class="line">        <span class="keyword">int</span> user1 = Integer.parseInt(token.nextToken());</div><div class="line">        <span class="keyword">int</span> nice1 = Integer.parseInt(token.nextToken());</div><div class="line">        <span class="keyword">int</span> sys1 = Integer.parseInt(token.nextToken());</div><div class="line">        <span class="keyword">int</span> idle1 = Integer.parseInt(token.nextToken());</div><div class="line"></div><div class="line">        Thread.sleep(<span class="number">1000</span>);</div><div class="line"></div><div class="line">        br = <span class="keyword">new</span> BufferedReader(</div><div class="line">                <span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(file)));</div><div class="line">        token = <span class="keyword">new</span> StringTokenizer(br.readLine());</div><div class="line">        token.nextToken();</div><div class="line">        <span class="keyword">int</span> user2 = Integer.parseInt(token.nextToken());</div><div class="line">        <span class="keyword">int</span> nice2 = Integer.parseInt(token.nextToken());</div><div class="line">        <span class="keyword">int</span> sys2 = Integer.parseInt(token.nextToken());</div><div class="line">        <span class="keyword">int</span> idle2 = Integer.parseInt(token.nextToken());</div><div class="line"></div><div class="line">        <span class="keyword">return</span> (<span class="keyword">float</span>)((user2 + sys2 + nice2) -</div><div class="line">              (user1 + sys1 + nice1)) / (<span class="keyword">float</span>)((user2 + nice2 + sys2 + idle2) -</div><div class="line">              (user1 + nice1 + sys1 + idle1));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="https://dragon-yuan.github.io/2017/04/10/java-linux-properties/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/04/10/java-linux-properties/">Komentar</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-java-windows-properties" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/04/10/java-windows-properties/">通过JAVA环境使用sigar监听Windows系统属性</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/04/10/java-windows-properties/">
+            <time datetime="2017-04-10T12:12:26.000Z" itemprop="datePublished">2017-04-10</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>使用sigar开源组件，获取当前系统各项属性<br>1.下载sigar.jar<br>2.将sigar-amd64-winnt.dll，sigar-x86-winnt.dll，sigar-x86-winnt.lib<br>复制到JDK的bin目录下，使sigar拥有运行依赖。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.hyperic.sigar.*;</div><div class="line"><span class="keyword">import</span> java.net.InetAddress;</div><div class="line"><span class="keyword">import</span> java.net.UnknownHostException;</div><div class="line"><span class="keyword">import</span> java.util.Map;</div><div class="line"><span class="keyword">import</span> java.util.Properties;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WindowsSystemTool</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            property();</div><div class="line">            cpu();</div><div class="line">            memory();</div><div class="line">            os();</div><div class="line">            who();</div><div class="line">            file();</div><div class="line">            net();</div><div class="line">            ethernet();</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e1) &#123;</div><div class="line">            e1.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">property</span><span class="params">()</span> <span class="keyword">throws</span> UnknownHostException </span>&#123;</div><div class="line">        Runtime r = Runtime.getRuntime();</div><div class="line">        Properties props = System.getProperties();</div><div class="line">        InetAddress addr;</div><div class="line">        addr = InetAddress.getLocalHost();</div><div class="line">        String ip = addr.getHostAddress();</div><div class="line">        Map&lt;String, String&gt; map = System.getenv();</div><div class="line">        String userName = map.get(<span class="string">"USERNAME"</span>);</div><div class="line">        String computerName = map.get(<span class="string">"COMPUTERNAME"</span>);</div><div class="line">        String userDomain = map.get(<span class="string">"USERDOMAIN"</span>);</div><div class="line">        System.out.println(<span class="string">"用户名:"</span> + userName);</div><div class="line">        System.out.println(<span class="string">"计算机名:"</span> + computerName);</div><div class="line">        System.out.println(<span class="string">"计算机域名:"</span> + userDomain);</div><div class="line">        System.out.println(<span class="string">"本地ip地址:"</span> + ip);</div><div class="line">        System.out.println(<span class="string">"本地主机名:"</span> + addr.getHostName());</div><div class="line">        System.out.println(<span class="string">"JVM可以使用的总内存:"</span> + r.totalMemory());</div><div class="line">        System.out.println(<span class="string">"JVM可以使用的剩余内存:"</span> + r.freeMemory());</div><div class="line">        System.out.println(<span class="string">"JVM可以使用的处理器个数:"</span> + r.availableProcessors());</div><div class="line">        System.out.println(<span class="string">"Java的运行环境版本："</span> + props.getProperty(<span class="string">"java.version"</span>));</div><div class="line">        System.out.println(<span class="string">"Java的运行环境供应商："</span> + props.getProperty(<span class="string">"java.vendor"</span>));</div><div class="line">        System.out.println(<span class="string">"Java供应商的URL："</span> + props.getProperty(<span class="string">"java.vendor.url"</span>));</div><div class="line">        System.out.println(<span class="string">"Java的安装路径："</span> + props.getProperty(<span class="string">"java.home"</span>));</div><div class="line">        System.out.println(<span class="string">"Java的虚拟机规范版本："</span> + props.getProperty(<span class="string">"java.vm.specification.version"</span>));</div><div class="line">        System.out.println(<span class="string">"Java的虚拟机规范供应商：    "</span> + props.getProperty(<span class="string">"java.vm.specification.vendor"</span>));</div><div class="line">        System.out.println(<span class="string">"Java的虚拟机规范名称："</span> + props.getProperty(<span class="string">"java.vm.specification.name"</span>));</div><div class="line">        System.out.println(<span class="string">"Java的虚拟机实现版本："</span> + props.getProperty(<span class="string">"java.vm.version"</span>));</div><div class="line">        System.out.println(<span class="string">"Java的虚拟机实现供应商："</span> + props.getProperty(<span class="string">"java.vm.vendor"</span>));</div><div class="line">        System.out.println(<span class="string">"Java的虚拟机实现名称："</span> + props.getProperty(<span class="string">"java.vm.name"</span>));</div><div class="line">        System.out.println(<span class="string">"Java运行时环境规范版本："</span> + props.getProperty(<span class="string">"java.specification.version"</span>));</div><div class="line">        System.out.println(<span class="string">"Java运行时环境规范供应商："</span> + props.getProperty(<span class="string">"java.specification.vender"</span>));</div><div class="line">        System.out.println(<span class="string">"Java运行时环境规范名称："</span> + props.getProperty(<span class="string">"java.specification.name"</span>));</div><div class="line">        System.out.println(<span class="string">"Java的类格式版本号："</span> + props.getProperty(<span class="string">"java.class.version"</span>));</div><div class="line">        System.out.println(<span class="string">"Java的类路径："</span> + props.getProperty(<span class="string">"java.class.path"</span>));</div><div class="line">        System.out.println(<span class="string">"加载库时搜索的路径列表："</span> + props.getProperty(<span class="string">"java.library.path"</span>));</div><div class="line">        System.out.println(<span class="string">"默认的临时文件路径："</span> + props.getProperty(<span class="string">"java.io.tmpdir"</span>));</div><div class="line">        System.out.println(<span class="string">"一个或多个扩展目录的路径："</span> + props.getProperty(<span class="string">"java.ext.dirs"</span>));</div><div class="line">        System.out.println(<span class="string">"操作系统的名称："</span> + props.getProperty(<span class="string">"os.name"</span>));</div><div class="line">        System.out.println(<span class="string">"操作系统的构架："</span> + props.getProperty(<span class="string">"os.arch"</span>));</div><div class="line">        System.out.println(<span class="string">"操作系统的版本："</span> + props.getProperty(<span class="string">"os.version"</span>));</div><div class="line">        System.out.println(<span class="string">"文件分隔符："</span> + props.getProperty(<span class="string">"file.separator"</span>));</div><div class="line">        System.out.println(<span class="string">"路径分隔符："</span> + props.getProperty(<span class="string">"path.separator"</span>));</div><div class="line">        System.out.println(<span class="string">"行分隔符："</span> + props.getProperty(<span class="string">"line.separator"</span>));</div><div class="line">        System.out.println(<span class="string">"用户的账户名称："</span> + props.getProperty(<span class="string">"user.name"</span>));</div><div class="line">        System.out.println(<span class="string">"用户的主目录："</span> + props.getProperty(<span class="string">"user.home"</span>));</div><div class="line">        System.out.println(<span class="string">"用户的当前工作目录："</span> + props.getProperty(<span class="string">"user.dir"</span>));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">memory</span><span class="params">()</span> <span class="keyword">throws</span> SigarException </span>&#123;</div><div class="line">        Sigar sigar = <span class="keyword">new</span> Sigar();</div><div class="line">        Mem mem = sigar.getMem();</div><div class="line">        System.out.println(<span class="string">"内存总量:"</span> + mem.getTotal() / <span class="number">1024L</span> + <span class="string">"K av"</span>);</div><div class="line">        System.out.println(<span class="string">"当前内存使用量:"</span> + mem.getUsed() / <span class="number">1024L</span> + <span class="string">"K used"</span>);</div><div class="line">        System.out.println(<span class="string">"当前内存剩余量:"</span> + mem.getFree() / <span class="number">1024L</span> + <span class="string">"K free"</span>);</div><div class="line">        Swap swap = sigar.getSwap();</div><div class="line">        System.out.println(<span class="string">"交换区总量:"</span> + swap.getTotal() / <span class="number">1024L</span> + <span class="string">"K av"</span>);</div><div class="line">        System.out.println(<span class="string">"当前交换区使用量:"</span> + swap.getUsed() / <span class="number">1024L</span> + <span class="string">"K used"</span>);</div><div class="line">        System.out.println(<span class="string">"当前交换区剩余量:"</span> + swap.getFree() / <span class="number">1024L</span> + <span class="string">"K free"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">cpu</span><span class="params">()</span> <span class="keyword">throws</span> SigarException </span>&#123;</div><div class="line">        Sigar sigar = <span class="keyword">new</span> Sigar();</div><div class="line">        CpuInfo infos[] = sigar.getCpuInfoList();</div><div class="line">        CpuPerc cpuList[] = <span class="keyword">null</span>;</div><div class="line">        cpuList = sigar.getCpuPercList();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; infos.length; i++) &#123;</div><div class="line">            CpuInfo info = infos[i];</div><div class="line">            System.out.println(<span class="string">"第"</span> + (i + <span class="number">1</span>) + <span class="string">"块CPU信息"</span>);</div><div class="line">            System.out.println(<span class="string">"CPU的总量MHz:"</span> + info.getMhz());</div><div class="line">            System.out.println(<span class="string">"CPU生产商:"</span> + info.getVendor());</div><div class="line">            System.out.println(<span class="string">"CPU类别:"</span> + info.getModel());</div><div class="line">            System.out.println(<span class="string">"CPU缓存数量:"</span> + info.getCacheSize());</div><div class="line">            printCpuPerc(cpuList[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printCpuPerc</span><span class="params">(CpuPerc cpu)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"CPU用户使用率:"</span> + CpuPerc.format(cpu.getUser()));</div><div class="line">        System.out.println(<span class="string">"CPU系统使用率:"</span> + CpuPerc.format(cpu.getSys()));</div><div class="line">        System.out.println(<span class="string">"CPU当前等待率:"</span> + CpuPerc.format(cpu.getWait()));</div><div class="line">        System.out.println(<span class="string">"CPU当前错误率:"</span> + CpuPerc.format(cpu.getNice()));</div><div class="line">        System.out.println(<span class="string">"CPU当前空闲率:"</span> + CpuPerc.format(cpu.getIdle()));</div><div class="line">        System.out.println(<span class="string">"CPU总的使用率:"</span> + CpuPerc.format(cpu.getCombined()));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">os</span><span class="params">()</span> </span>&#123;</div><div class="line">        OperatingSystem OS = OperatingSystem.getInstance();</div><div class="line">        System.out.println(<span class="string">"操作系统:"</span> + OS.getArch());</div><div class="line">        System.out.println(<span class="string">"操作系统CpuEndian():"</span> + OS.getCpuEndian());<span class="comment">//</span></div><div class="line">        System.out.println(<span class="string">"操作系统DataModel():"</span> + OS.getDataModel());<span class="comment">//</span></div><div class="line">        System.out.println(<span class="string">"操作系统的描述:"</span> + OS.getDescription());</div><div class="line">        System.out.println(<span class="string">"操作系统名称:"</span> + OS.getVendorName());</div><div class="line">        System.out.println(<span class="string">"操作系统的版本号:"</span> + OS.getVersion());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">who</span><span class="params">()</span> <span class="keyword">throws</span> SigarException </span>&#123;</div><div class="line">        Sigar sigar = <span class="keyword">new</span> Sigar();</div><div class="line">        Who who[] = sigar.getWhoList();</div><div class="line">        <span class="keyword">if</span> (who != <span class="keyword">null</span> &amp;&amp; who.length &gt; <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; who.length; i++) &#123;</div><div class="line">                Who _who = who[i];</div><div class="line">                System.out.println(<span class="string">"用户控制台:"</span> + _who.getDevice());</div><div class="line">                System.out.println(<span class="string">"用户host:"</span> + _who.getHost());</div><div class="line">                System.out.println(<span class="string">"当前系统进程表中的用户名:"</span> + _who.getUser());</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">file</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        Sigar sigar = <span class="keyword">new</span> Sigar();</div><div class="line">        FileSystem fslist[] = sigar.getFileSystemList();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; fslist.length; i++) &#123;</div><div class="line">            System.out.println(<span class="string">"分区的盘符名称"</span> + i);</div><div class="line">            FileSystem fs = fslist[i];</div><div class="line">            System.out.println(<span class="string">"盘符名称:    "</span> + fs.getDevName());</div><div class="line">            System.out.println(<span class="string">"盘符路径:    "</span> + fs.getDirName());</div><div class="line">            System.out.println(<span class="string">"盘符标志:    "</span> + fs.getFlags());<span class="comment">//</span></div><div class="line">            System.out.println(<span class="string">"盘符类型:    "</span> + fs.getSysTypeName());</div><div class="line">            System.out.println(<span class="string">"盘符类型名:    "</span> + fs.getTypeName());</div><div class="line">            System.out.println(<span class="string">"盘符文件系统类型:    "</span> + fs.getType());</div><div class="line">            FileSystemUsage usage = <span class="keyword">null</span>;</div><div class="line">            usage = sigar.getFileSystemUsage(fs.getDirName());</div><div class="line">            <span class="keyword">switch</span> (fs.getType()) &#123;</div><div class="line">                <span class="keyword">case</span> <span class="number">0</span>:</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="number">2</span>: <span class="comment">// 本地硬盘</span></div><div class="line">                    System.out.println(fs.getDevName() + <span class="string">"总大小:"</span> + usage.getTotal() + <span class="string">"KB"</span>);</div><div class="line">                    System.out.println(fs.getDevName() + <span class="string">"剩余大小:"</span> + usage.getFree() + <span class="string">"KB"</span>);</div><div class="line">                    System.out.println(fs.getDevName() + <span class="string">"可用大小:"</span> + usage.getAvail() + <span class="string">"KB"</span>);</div><div class="line">                    System.out.println(fs.getDevName() + <span class="string">"已经使用量:"</span> + usage.getUsed() + <span class="string">"KB"</span>);</div><div class="line">                    <span class="keyword">double</span> usePercent = usage.getUsePercent() * <span class="number">100</span>D;</div><div class="line">                    System.out.println(fs.getDevName() + <span class="string">"资源的利用率:"</span> + usePercent + <span class="string">"%"</span>);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="number">3</span>:<span class="comment">// 网络</span></div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="number">4</span>:<span class="comment">// 闪存</span></div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="number">5</span>:<span class="comment">// 光驱</span></div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="number">6</span>:<span class="comment">// 页面交换</span></div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            System.out.println(fs.getDevName() + <span class="string">"读出："</span> + usage.getDiskReads());</div><div class="line">            System.out.println(fs.getDevName() + <span class="string">"写入："</span> + usage.getDiskWrites());</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">net</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        Sigar sigar = <span class="keyword">new</span> Sigar();</div><div class="line">        String ifNames[] = sigar.getNetInterfaceList();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ifNames.length; i++) &#123;</div><div class="line">            String name = ifNames[i];</div><div class="line">            NetInterfaceConfig ifconfig = sigar.getNetInterfaceConfig(name);</div><div class="line">            System.out.println(<span class="string">"网络设备名:"</span> + name);</div><div class="line">            System.out.println(<span class="string">"IP地址:"</span> + ifconfig.getAddress());</div><div class="line">            System.out.println(<span class="string">"子网掩码:"</span> + ifconfig.getNetmask());</div><div class="line">            <span class="keyword">if</span> ((ifconfig.getFlags() &amp; <span class="number">1L</span>) &lt;= <span class="number">0L</span>) &#123;</div><div class="line">                System.out.println(<span class="string">"!IFF_UP...skipping getNetInterfaceStat"</span>);</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            &#125;</div><div class="line">            NetInterfaceStat ifstat = sigar.getNetInterfaceStat(name);</div><div class="line">            System.out.println(name + <span class="string">"接收的总包裹数:"</span> + ifstat.getRxPackets());</div><div class="line">            System.out.println(name + <span class="string">"发送的总包裹数:"</span> + ifstat.getTxPackets());</div><div class="line">            System.out.println(name + <span class="string">"接收到的总字节数:"</span> + ifstat.getRxBytes());</div><div class="line">            System.out.println(name + <span class="string">"发送的总字节数:"</span> + ifstat.getTxBytes());</div><div class="line">            System.out.println(name + <span class="string">"接收到的错误包数:"</span> + ifstat.getRxErrors());</div><div class="line">            System.out.println(name + <span class="string">"发送数据包时的错误数:"</span> + ifstat.getTxErrors());</div><div class="line">            System.out.println(name + <span class="string">"接收时丢弃的包数:"</span> + ifstat.getRxDropped());</div><div class="line">            System.out.println(name + <span class="string">"发送时丢弃的包数:"</span> + ifstat.getTxDropped());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ethernet</span><span class="params">()</span> <span class="keyword">throws</span> SigarException </span>&#123;</div><div class="line">        Sigar sigar = <span class="keyword">null</span>;</div><div class="line">        sigar = <span class="keyword">new</span> Sigar();</div><div class="line">        String[] ifaces = sigar.getNetInterfaceList();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ifaces.length; i++) &#123;</div><div class="line">            NetInterfaceConfig cfg = sigar.getNetInterfaceConfig(ifaces[i]);</div><div class="line">            <span class="keyword">if</span> (NetFlags.LOOPBACK_ADDRESS.equals(cfg.getAddress()) || (cfg.getFlags() &amp; NetFlags.IFF_LOOPBACK) != <span class="number">0</span></div><div class="line">                    || NetFlags.NULL_HWADDR.equals(cfg.getHwaddr())) &#123;</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            &#125;</div><div class="line">            System.out.println(cfg.getName() + <span class="string">"IP地址:"</span> + cfg.getAddress());</div><div class="line">            System.out.println(cfg.getName() + <span class="string">"网关广播地址:"</span> + cfg.getBroadcast());</div><div class="line">            System.out.println(cfg.getName() + <span class="string">"网卡MAC地址:"</span> + cfg.getHwaddr());</div><div class="line">            System.out.println(cfg.getName() + <span class="string">"子网掩码:"</span> + cfg.getNetmask());</div><div class="line">            System.out.println(cfg.getName() + <span class="string">"网卡描述信息:"</span> + cfg.getDescription());</div><div class="line">            System.out.println(cfg.getName() + <span class="string">"网卡类型"</span> + cfg.getType());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="https://dragon-yuan.github.io/2017/04/10/java-windows-properties/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/04/10/java-windows-properties/">Komentar</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-gallery-gem" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -223,63 +387,63 @@ var _hmt = _hmt || [];
         
 <div class="article-gallery">
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/0.jpg" rel="gallery_cj5cll9d4001b8ouytnt4fi88">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/0.jpg" rel="gallery_cj5f8y33s001ajguyqrfidep4">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/0.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/1.jpg" rel="gallery_cj5cll9d4001b8ouytnt4fi88">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/1.jpg" rel="gallery_cj5f8y33s001ajguyqrfidep4">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/1.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/2.jpg" rel="gallery_cj5cll9d4001b8ouytnt4fi88">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/2.jpg" rel="gallery_cj5f8y33s001ajguyqrfidep4">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/2.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/3.jpg" rel="gallery_cj5cll9d4001b8ouytnt4fi88">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/3.jpg" rel="gallery_cj5f8y33s001ajguyqrfidep4">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/3.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/4.jpg" rel="gallery_cj5cll9d4001b8ouytnt4fi88">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/4.jpg" rel="gallery_cj5f8y33s001ajguyqrfidep4">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/4.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/5.jpg" rel="gallery_cj5cll9d4001b8ouytnt4fi88">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/5.jpg" rel="gallery_cj5f8y33s001ajguyqrfidep4">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/5.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/6.jpg" rel="gallery_cj5cll9d4001b8ouytnt4fi88">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/6.jpg" rel="gallery_cj5f8y33s001ajguyqrfidep4">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/6.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/7.jpg" rel="gallery_cj5cll9d4001b8ouytnt4fi88">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/7.jpg" rel="gallery_cj5f8y33s001ajguyqrfidep4">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/7.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/8.jpg" rel="gallery_cj5cll9d4001b8ouytnt4fi88">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/8.jpg" rel="gallery_cj5f8y33s001ajguyqrfidep4">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/8.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/9.jpg" rel="gallery_cj5cll9d4001b8ouytnt4fi88">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/9.jpg" rel="gallery_cj5f8y33s001ajguyqrfidep4">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/9.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/10.jpg" rel="gallery_cj5cll9d4001b8ouytnt4fi88">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/10.jpg" rel="gallery_cj5f8y33s001ajguyqrfidep4">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/10.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/11.jpg" rel="gallery_cj5cll9d4001b8ouytnt4fi88">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/11.jpg" rel="gallery_cj5f8y33s001ajguyqrfidep4">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/11.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/12.jpg" rel="gallery_cj5cll9d4001b8ouytnt4fi88">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/12.jpg" rel="gallery_cj5f8y33s001ajguyqrfidep4">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/12.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/13.jpg" rel="gallery_cj5cll9d4001b8ouytnt4fi88">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/13.jpg" rel="gallery_cj5f8y33s001ajguyqrfidep4">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/13.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/14.jpg" rel="gallery_cj5cll9d4001b8ouytnt4fi88">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/14.jpg" rel="gallery_cj5f8y33s001ajguyqrfidep4">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/14.jpg" itemprop="image" />
     </a>
     
@@ -321,7 +485,7 @@ var jiathis_config={
 
             
     
-        <a href="https://dragon-yuan.github.io/2017/04/10/gallery-gem/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/04/10/gallery-gem/">Comments</a>
+        <a href="https://dragon-yuan.github.io/2017/04/10/gallery-gem/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/04/10/gallery-gem/">Komentar</a>
     
 
         </footer>
@@ -368,319 +532,319 @@ var jiathis_config={
         
 <div class="article-gallery">
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/0.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/0.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/0.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/1.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/1.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/1.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/2.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/2.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/2.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/3.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/3.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/3.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/4.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/4.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/4.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/5.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/5.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/5.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/6.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/6.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/6.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/7.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/7.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/7.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/8.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/8.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/8.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/9.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/9.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/9.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/10.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/10.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/10.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/11.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/11.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/11.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/12.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/12.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/12.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/13.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/13.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/13.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/14.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/14.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/14.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/15.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/15.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/15.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/16.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/16.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/16.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/17.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/17.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/17.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/18.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/18.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/18.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/19.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/19.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/19.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/20.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/20.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/20.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/21.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/21.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/21.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/22.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/22.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/22.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/23.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/23.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/23.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/24.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/24.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/24.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/25.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/25.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/25.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/26.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/26.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/26.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/27.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/27.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/27.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/28.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/28.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/28.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/29.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/29.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/29.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/30.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/30.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/30.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/31.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/31.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/31.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/32.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/32.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/32.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/33.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/33.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/33.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/34.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/34.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/34.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/35.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/35.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/35.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/36.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/36.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/36.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/37.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/37.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/37.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/38.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/38.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/38.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/39.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/39.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/39.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/40.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/40.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/40.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/41.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/41.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/41.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/42.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/42.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/42.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/43.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/43.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/43.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/44.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/44.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/44.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/45.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/45.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/45.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/46.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/46.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/46.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/47.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/47.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/47.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/48.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/48.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/48.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/49.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/49.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/49.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/50.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/50.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/50.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/51.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/51.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/51.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/52.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/52.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/52.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/53.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/53.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/53.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/54.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/54.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/54.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/55.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/55.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/55.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/56.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/56.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/56.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/57.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/57.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/57.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/58.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/58.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/58.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/59.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/59.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/59.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/60.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/60.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/60.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/61.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/61.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/61.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/62.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/62.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/62.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/63.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/63.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/63.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/64.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/64.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/64.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/65.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/65.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/65.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/66.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/66.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/66.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/67.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/67.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/67.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/68.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/68.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/68.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/69.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/69.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/69.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/70.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/70.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/70.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/71.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/71.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/71.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/72.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/72.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/72.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/73.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/73.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/73.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/74.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/74.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/74.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/75.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/75.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/75.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/76.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/76.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/76.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/77.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/77.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/77.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/78.jpg" rel="gallery_cj5cll9d9001e8ouyqt7aue1l">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/78.jpg" rel="gallery_cj5f8y33v001cjguyhcnbdmky">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/78.jpg" itemprop="image" />
     </a>
     
@@ -722,7 +886,7 @@ var jiathis_config={
 
             
     
-        <a href="https://dragon-yuan.github.io/2017/04/10/gallery-mylife/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/04/10/gallery-mylife/">Comments</a>
+        <a href="https://dragon-yuan.github.io/2017/04/10/gallery-mylife/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/04/10/gallery-mylife/">Komentar</a>
     
 
         </footer>
@@ -769,83 +933,83 @@ var jiathis_config={
         
 <div class="article-gallery">
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/0.jpg" rel="gallery_cj5cll9dd001g8ouykjclndao">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/0.jpg" rel="gallery_cj5f8y34d001hjguyffaret72">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/0.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/1.jpg" rel="gallery_cj5cll9dd001g8ouykjclndao">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/1.jpg" rel="gallery_cj5f8y34d001hjguyffaret72">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/1.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/2.jpg" rel="gallery_cj5cll9dd001g8ouykjclndao">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/2.jpg" rel="gallery_cj5f8y34d001hjguyffaret72">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/2.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/3.jpg" rel="gallery_cj5cll9dd001g8ouykjclndao">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/3.jpg" rel="gallery_cj5f8y34d001hjguyffaret72">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/3.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/4.jpg" rel="gallery_cj5cll9dd001g8ouykjclndao">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/4.jpg" rel="gallery_cj5f8y34d001hjguyffaret72">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/4.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/5.jpg" rel="gallery_cj5cll9dd001g8ouykjclndao">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/5.jpg" rel="gallery_cj5f8y34d001hjguyffaret72">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/5.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/6.jpg" rel="gallery_cj5cll9dd001g8ouykjclndao">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/6.jpg" rel="gallery_cj5f8y34d001hjguyffaret72">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/6.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/7.jpg" rel="gallery_cj5cll9dd001g8ouykjclndao">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/7.jpg" rel="gallery_cj5f8y34d001hjguyffaret72">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/7.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/8.jpg" rel="gallery_cj5cll9dd001g8ouykjclndao">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/8.jpg" rel="gallery_cj5f8y34d001hjguyffaret72">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/8.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/9.jpg" rel="gallery_cj5cll9dd001g8ouykjclndao">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/9.jpg" rel="gallery_cj5f8y34d001hjguyffaret72">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/9.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/10.jpg" rel="gallery_cj5cll9dd001g8ouykjclndao">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/10.jpg" rel="gallery_cj5f8y34d001hjguyffaret72">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/10.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/11.jpg" rel="gallery_cj5cll9dd001g8ouykjclndao">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/11.jpg" rel="gallery_cj5f8y34d001hjguyffaret72">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/11.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/12.jpg" rel="gallery_cj5cll9dd001g8ouykjclndao">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/12.jpg" rel="gallery_cj5f8y34d001hjguyffaret72">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/12.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/13.jpg" rel="gallery_cj5cll9dd001g8ouykjclndao">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/13.jpg" rel="gallery_cj5f8y34d001hjguyffaret72">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/13.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/14.jpg" rel="gallery_cj5cll9dd001g8ouykjclndao">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/14.jpg" rel="gallery_cj5f8y34d001hjguyffaret72">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/14.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/15.jpg" rel="gallery_cj5cll9dd001g8ouykjclndao">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/15.jpg" rel="gallery_cj5f8y34d001hjguyffaret72">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/15.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/16.jpg" rel="gallery_cj5cll9dd001g8ouykjclndao">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/16.jpg" rel="gallery_cj5f8y34d001hjguyffaret72">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/16.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/17.jpg" rel="gallery_cj5cll9dd001g8ouykjclndao">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/17.jpg" rel="gallery_cj5f8y34d001hjguyffaret72">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/17.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/18.jpg" rel="gallery_cj5cll9dd001g8ouykjclndao">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/18.jpg" rel="gallery_cj5f8y34d001hjguyffaret72">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/18.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/19.jpg" rel="gallery_cj5cll9dd001g8ouykjclndao">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/19.jpg" rel="gallery_cj5f8y34d001hjguyffaret72">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/19.jpg" itemprop="image" />
     </a>
     
@@ -887,7 +1051,7 @@ var jiathis_config={
 
             
     
-        <a href="https://dragon-yuan.github.io/2017/04/10/gallery-runningman/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/04/10/gallery-runningman/">Comments</a>
+        <a href="https://dragon-yuan.github.io/2017/04/10/gallery-runningman/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/04/10/gallery-runningman/">Komentar</a>
     
 
         </footer>
@@ -934,43 +1098,43 @@ var jiathis_config={
         
 <div class="article-gallery">
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/0.jpg" rel="gallery_cj5cll9dh001j8ouyfmynrzvn">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/0.jpg" rel="gallery_cj5f8y34m001mjguy81n7gnln">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/0.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/1.jpg" rel="gallery_cj5cll9dh001j8ouyfmynrzvn">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/1.jpg" rel="gallery_cj5f8y34m001mjguy81n7gnln">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/1.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/2.jpg" rel="gallery_cj5cll9dh001j8ouyfmynrzvn">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/2.jpg" rel="gallery_cj5f8y34m001mjguy81n7gnln">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/2.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/3.jpg" rel="gallery_cj5cll9dh001j8ouyfmynrzvn">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/3.jpg" rel="gallery_cj5f8y34m001mjguy81n7gnln">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/3.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/4.jpg" rel="gallery_cj5cll9dh001j8ouyfmynrzvn">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/4.jpg" rel="gallery_cj5f8y34m001mjguy81n7gnln">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/4.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/5.jpg" rel="gallery_cj5cll9dh001j8ouyfmynrzvn">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/5.jpg" rel="gallery_cj5f8y34m001mjguy81n7gnln">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/5.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/6.jpg" rel="gallery_cj5cll9dh001j8ouyfmynrzvn">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/6.jpg" rel="gallery_cj5f8y34m001mjguy81n7gnln">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/6.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/7.jpg" rel="gallery_cj5cll9dh001j8ouyfmynrzvn">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/7.jpg" rel="gallery_cj5f8y34m001mjguy81n7gnln">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/7.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/8.jpg" rel="gallery_cj5cll9dh001j8ouyfmynrzvn">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/8.jpg" rel="gallery_cj5f8y34m001mjguy81n7gnln">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/8.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/9.jpg" rel="gallery_cj5cll9dh001j8ouyfmynrzvn">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/9.jpg" rel="gallery_cj5f8y34m001mjguy81n7gnln">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/wudalianchi/9.jpg" itemprop="image" />
     </a>
     
@@ -1012,7 +1176,7 @@ var jiathis_config={
 
             
     
-        <a href="https://dragon-yuan.github.io/2017/04/09/gallery-wudalianchi/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/04/09/gallery-wudalianchi/">Comments</a>
+        <a href="https://dragon-yuan.github.io/2017/04/09/gallery-wudalianchi/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/04/09/gallery-wudalianchi/">Komentar</a>
     
 
         </footer>
@@ -1097,7 +1261,7 @@ var jiathis_config={
 
             
     
-        <a href="https://dragon-yuan.github.io/2017/03/27/js-replace/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/03/27/js-replace/">Comments</a>
+        <a href="https://dragon-yuan.github.io/2017/03/27/js-replace/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/03/27/js-replace/">Komentar</a>
     
 
         </footer>
@@ -1183,7 +1347,7 @@ var jiathis_config={
 
             
     
-        <a href="https://dragon-yuan.github.io/2017/03/07/centos-utils/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/03/07/centos-utils/">Comments</a>
+        <a href="https://dragon-yuan.github.io/2017/03/07/centos-utils/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/03/07/centos-utils/">Komentar</a>
     
 
         </footer>
@@ -1268,7 +1432,7 @@ var jiathis_config={
 
             
     
-        <a href="https://dragon-yuan.github.io/2017/03/07/js-parsefloat/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/03/07/js-parsefloat/">Comments</a>
+        <a href="https://dragon-yuan.github.io/2017/03/07/js-parsefloat/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/03/07/js-parsefloat/">Komentar</a>
     
 
         </footer>
@@ -1420,216 +1584,7 @@ var jiathis_config={
 
             
     
-        <a href="https://dragon-yuan.github.io/2017/02/23/poi-write-word07/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/02/23/poi-write-word07/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-poi-write-excel" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/02/22/poi-write-excel/">APACHE POI写入Excel-07操作</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/02/22/poi-write-excel/">
-            <time datetime="2017-02-22T06:22:26.000Z" itemprop="datePublished">2017-02-22</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <pre>
-// 创建Excel工作簿
-XSSFWorkbook workBook = new XSSFWorkbook();
-// 创建一个工作薄对象
-XSSFSheet sheet = workBook.createSheet("sheet1");
-// 设置单元格宽度
-sheet.setDefaultColumnWidth(20);
-// 画表
-XSSFRow row_1 = sheet.createRow(0);
-XSSFCell cell_1_0 = row_1.createCell(0);
-XSSFCell cell_1_1 = row_1.createCell(1);
-cell_1_0.setCellValue("value");
-cell_1_1.setCellValue("value");
-// 写入文件
-File file = new File("");
-file.createNewFile();
-FileOutputStream os = FileUtils.openOutputStream(file);
-workBook.write(os);
-os.close();
-</pre>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="https://dragon-yuan.github.io/2017/02/22/poi-write-excel/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/02/22/poi-write-excel/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-poi-read-excel" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/02/22/poi-read-excel/">APACHE POI读取Excel-07操作</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/02/22/poi-read-excel/">
-            <time datetime="2017-02-22T06:14:26.000Z" itemprop="datePublished">2017-02-22</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <pre>
-// 得到Excel工作簿对象
-XSSFWorkbook workbook = new XSSFWorkbook(new FileInputStream(file));
-// 得到Excel工作表对象
-XSSFSheet sheet = workbook.getSheetAt(0);
-// 遍历工作表中行
-for (Row row : sheet) {
-    // 获取当行数
-    int rowNum = row.getRowNum();
-    // 跳过第一行，如导入Excel模版
-    if (rowNum != 0) {
-    // 获取此行上的单元格
-          Cell cell = row.getCell(0);
-      // 得到Excel工作表指定行的单元格，并设置读取编码方式
-            cell.setCellType(HSSFCell.CELL_TYPE_STRING);
-            row.getCell(1).setCellType(HSSFCell.CELL_TYPE_STRING);
-          row.getCell(2).setCellType(HSSFCell.CELL_TYPE_STRING);
-            row.getCell(3).setCellType(HSSFCell.CELL_TYPE_STRING);
-      // 获取内容
-      String str1 = cell.getStringCellValue();
-            String str2 = row.getCell(1).getStringCellValue();
-            String str3 = row.getCell(2).getStringCellValue();
-    }
-}
-
-此方法没有处理异常，请自行添加
-</pre>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="https://dragon-yuan.github.io/2017/02/22/poi-read-excel/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/02/22/poi-read-excel/">Comments</a>
+        <a href="https://dragon-yuan.github.io/2017/02/23/poi-write-word07/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/02/23/poi-write-word07/">Komentar</a>
     
 
         </footer>
@@ -1640,7 +1595,7 @@ var jiathis_config={
 
 
     <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/3/">&laquo; Sebelumnya</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/">Berikutnya &raquo;</a>
     </nav>
 </section>
             
