@@ -28,3 +28,6 @@ public方法将都具有该类型的事务属性，同时，也可以在方法�
 @Transactional 注解应该只被应用到public方法上，这是由Spring AOP的本质决定的。
 如果在protected、private或者默认可见性的方法上使用@Transactional注解，这将被忽略，
 也不会抛出任何异常。
+
+@EnableTransactionManagement
+开启注解事务管理，等同于xml配置文件中的 <tx:annotation-driven />
