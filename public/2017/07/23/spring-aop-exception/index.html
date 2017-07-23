@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8">
     
-    <title>ArrayList和LinkedList何时使用 | DragonBlog</title>
+    <title>Spring中AOP对异常的处理 | DragonBlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="1、如果你需要高效的查询，而不在乎插入和删除的效率，使用ArrayList(不同步JDK1.2)         Vector(同步 JDK1.0,过时不用)   2、如果你需要大量的插入和删除，而不关心查询，则应使用LinkedList ArrayList**：    对象数量变化少，简单对象，随机访问元素频繁    (查找)** LinkedList：对象数量变化大，对象复杂，插入和删除频">
+    <meta name="description" content="1234567891011121314151617181920212223242526272829303132import com.exception.BusinessException;import java.lang.reflect.Method;import org.slf4j.Logger;import org.slf4j.LoggerFactory;import org.springfr">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ArrayList和LinkedList何时使用">
-<meta property="og:url" content="https://dragon-yuan.github.io/2016/06/30/vector-list/index.html">
+<meta property="og:title" content="Spring中AOP对异常的处理">
+<meta property="og:url" content="https://dragon-yuan.github.io/2017/07/23/spring-aop-exception/index.html">
 <meta property="og:site_name" content="DragonBlog">
-<meta property="og:description" content="1、如果你需要高效的查询，而不在乎插入和删除的效率，使用ArrayList(不同步JDK1.2)         Vector(同步 JDK1.0,过时不用)   2、如果你需要大量的插入和删除，而不关心查询，则应使用LinkedList ArrayList**：    对象数量变化少，简单对象，随机访问元素频繁    (查找)** LinkedList：对象数量变化大，对象复杂，插入和删除频">
+<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132import com.exception.BusinessException;import java.lang.reflect.Method;import org.slf4j.Logger;import org.slf4j.LoggerFactory;import org.springfr">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2016-12-23T08:38:21.804Z">
+<meta property="og:updated_time" content="2017-07-23T07:09:02.970Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ArrayList和LinkedList何时使用">
-<meta name="twitter:description" content="1、如果你需要高效的查询，而不在乎插入和删除的效率，使用ArrayList(不同步JDK1.2)         Vector(同步 JDK1.0,过时不用)   2、如果你需要大量的插入和删除，而不关心查询，则应使用LinkedList ArrayList**：    对象数量变化少，简单对象，随机访问元素频繁    (查找)** LinkedList：对象数量变化大，对象复杂，插入和删除频">
+<meta name="twitter:title" content="Spring中AOP对异常的处理">
+<meta name="twitter:description" content="1234567891011121314151617181920212223242526272829303132import com.exception.BusinessException;import java.lang.reflect.Method;import org.slf4j.Logger;import org.slf4j.LoggerFactory;import org.springfr">
     
 
     
@@ -190,7 +190,7 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-vector-list" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-spring-aop-exception" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -198,7 +198,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            ArrayList和LinkedList何时使用
+            Spring中AOP对异常的处理
         </h1>
     
 
@@ -207,8 +207,8 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/06/30/vector-list/">
-            <time datetime="2016-06-29T22:05:11.000Z" itemprop="datePublished">2016-06-30</time>
+        <a href="/2017/07/23/spring-aop-exception/">
+            <time datetime="2017-07-23T07:08:01.000Z" itemprop="datePublished">2017-07-23</time>
         </a>
     </div>
 
@@ -228,10 +228,8 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>  1、如果你需要高效的<span style="font-size: 12.1599998474121px; line-height: 15.8079996109009px;">查询</span>，而不在乎插入和删除的效率，使用<strong>ArrayList(不同步JDK1.2)         Vector(同步 JDK1.0,过时不用)</strong></p>
-<p>  2、如果你需要大量的插入和删除，而不关心查询，则应使用<strong>LinkedList</strong></p>
-<p><strong>ArrayList**</strong>：    对象数量变化少，简单对象，随机访问元素频繁    (查找)**</p>
-<p><strong>LinkedList：对象数量变化大，对象复杂，插入和删除频繁      (插入，删除)</strong></p>
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> com.exception.BusinessException;</div><div class="line"><span class="keyword">import</span> java.lang.reflect.Method;</div><div class="line"><span class="keyword">import</span> org.slf4j.Logger;</div><div class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</div><div class="line"><span class="keyword">import</span> org.springframework.aop.ThrowsAdvice;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExceptionInterceptorLog</span> <span class="keyword">implements</span> <span class="title">ThrowsAdvice</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger logger = LoggerFactory.getLogger(ExceptionInterceptorLog.class);</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ExceptionInterceptorLog</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterThrowing</span><span class="params">(Method method, Object[] args, Object target, BusinessException ex)</span> </span>&#123;</div><div class="line">        logger.error(<span class="string">"==&gt;ExceptionInterceptorLog.BusinessException"</span>);</div><div class="line">        logger.error(<span class="string">"==&gt;errCode:"</span> + ex.getCode() + <span class="string">" errMsg:"</span> + ex.getMessage());</div><div class="line">        logger.error(<span class="string">"==&gt;"</span> + ex.fillInStackTrace());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterThrowing</span><span class="params">(Method method, Object[] args, Object target, Exception ex)</span> </span>&#123;</div><div class="line">        logger.error(<span class="string">"==&gt;ExceptionInterceptorLog.Exception"</span>);</div><div class="line">        logger.error(<span class="string">"==&gt;Error class: "</span> + target.getClass().getName());</div><div class="line">        logger.error(<span class="string">"==&gt;Error method: "</span> + method.getName());</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; args.length; ++i) &#123;</div><div class="line">            logger.error(<span class="string">"==&gt;args["</span> + i + <span class="string">"]: "</span> + args[i]);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        logger.error(<span class="string">"==&gt;Exception class: "</span> + ex.getClass().getName());</div><div class="line">        logger.error(<span class="string">"==&gt;"</span> + ex.fillInStackTrace());</div><div class="line">        logger.error(<span class="string">"==&gt; 堆栈信息&#123;&#125;"</span>, ex.toString(), ex);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在spring-config-aop.xml进行配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">       <span class="attr">xmlns:aop</span>=<span class="string">"http://www.springframework.org/schema/aop"</span></div><div class="line">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd</span></div><div class="line">      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd"&gt;</div><div class="line">    <span class="comment">&lt;!-- 异常信息 拦截 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"exceptionInterceptorLog"</span> <span class="attr">class</span>=<span class="string">"com.xescm.core.exception.ExceptionInterceptorLog"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">aop:config</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">id</span>=<span class="string">"exceptionTrade"</span> <span class="attr">expression</span>=<span class="string">"</span></span></div><div class="line">        execution(* com.controller.*.*(..))</div><div class="line">        or execution(* com.controller.*.*(..))</div><div class="line">        "/&gt;</div><div class="line">        <span class="tag">&lt;<span class="name">aop:advisor</span> <span class="attr">pointcut-ref</span>=<span class="string">"exceptionTrade"</span> <span class="attr">advice-ref</span>=<span class="string">"exceptionInterceptorLog"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure></p>
 
         
         </div>
@@ -265,7 +263,7 @@ var jiathis_config={
 
             
     
-        <a href="https://dragon-yuan.github.io/2016/06/30/vector-list/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2016/06/30/vector-list/">评论</a>
+        <a href="https://dragon-yuan.github.io/2017/07/23/spring-aop-exception/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/07/23/spring-aop-exception/">评论</a>
     
 
         </footer>
@@ -274,19 +272,10 @@ var jiathis_config={
         
 <nav id="article-nav">
     
-        <a href="/2016/07/03/2016-07-03-09-07-31/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    在Java中对多态的理解
-                
-            </div>
-        </a>
     
-    
-        <a href="/2016/06/27/java-static/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/07/22/vue-filters/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">在Java中对static的理解</div>
+            <div class="article-nav-title">VueJS中的filters使用</div>
         </a>
     
 </nav>
