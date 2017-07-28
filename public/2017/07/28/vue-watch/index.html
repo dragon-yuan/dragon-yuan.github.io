@@ -3,18 +3,19 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Archive: 2016/3 | DragonBlog</title>
+    <title>VueJS中watch的使用 | DragonBlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="dragon-yuan">
-<meta property="og:type" content="website">
-<meta property="og:title" content="DragonBlog">
-<meta property="og:url" content="https://dragon-yuan.github.io/archives/2016/03/index.html">
+    <meta name="description" content="Watch可谓是 Vue中比较重要的部分，检测数据变动后视图更新的重要环节。1234567891011// data中定义一个aShow = false 作为显示变量watch: &amp;#123;    &apos;aForm.obj&apos;: function (val, oldVal) &amp;#123;    	let _this = this;    	if (val !== &apos;&apos;) &amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VueJS中watch的使用">
+<meta property="og:url" content="https://dragon-yuan.github.io/2017/07/28/vue-watch/index.html">
 <meta property="og:site_name" content="DragonBlog">
-<meta property="og:description" content="dragon-yuan">
+<meta property="og:description" content="Watch可谓是 Vue中比较重要的部分，检测数据变动后视图更新的重要环节。1234567891011// data中定义一个aShow = false 作为显示变量watch: &amp;#123;    &apos;aForm.obj&apos;: function (val, oldVal) &amp;#123;    	let _this = this;    	if (val !== &apos;&apos;) &amp;#123;">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-07-28T14:48:36.528Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DragonBlog">
-<meta name="twitter:description" content="dragon-yuan">
+<meta name="twitter:title" content="VueJS中watch的使用">
+<meta name="twitter:description" content="Watch可谓是 Vue中比较重要的部分，检测数据变动后视图更新的重要环节。1234567891011// data中定义一个aShow = false 作为显示变量watch: &amp;#123;    &apos;aForm.obj&apos;: function (val, oldVal) &amp;#123;    	let _this = this;    	if (val !== &apos;&apos;) &amp;#123;">
     
 
     
@@ -189,138 +190,122 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2016</h1>
-            </div>
+            <section id="main"><article id="post-vue-watch" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/03/11/emmet-html-css/">Emmet:HTML/CSS</a>
+        <h1 class="article-title" itemprop="name">
+            VueJS中watch的使用
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/03/11/emmet-html-css/">
-            <time datetime="2016-03-11T03:07:38.000Z" itemprop="datePublished">2016-03-11</time>
+        <a href="/2017/07/28/vue-watch/">
+            <time datetime="2017-07-28T14:42:30.000Z" itemprop="datePublished">2017-07-28</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
+        <a class="article-category-link" href="/categories/web/">web</a>
     </div>
 
-                    
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                        
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/03/09/sublime-text-3-package-control/">Sublime Text 3 安装Package Control </a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>Watch可谓是 Vue中比较重要的部分，检测数据变动后视图更新的重要环节。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// data中定义一个aShow = false 作为显示变量</span></div><div class="line">watch: &#123;</div><div class="line">    <span class="string">'aForm.obj'</span>: <span class="function"><span class="keyword">function</span> (<span class="params">val, oldVal</span>) </span>&#123;</div><div class="line">    	<span class="keyword">let</span> _this = <span class="keyword">this</span>;</div><div class="line">    	<span class="keyword">if</span> (val !== <span class="string">''</span>) &#123;</div><div class="line">        	_this.aShow = <span class="literal">true</span>;</div><div class="line">    	&#125; <span class="keyword">else</span> &#123;</div><div class="line">        	_this.aShow = <span class="literal">false</span>;</div><div class="line">    	&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/03/09/sublime-text-3-package-control/">
-            <time datetime="2016-03-09T04:09:53.000Z" itemprop="datePublished">2016-03-09</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
-    </div>
-
-                    
-                </div>
-            </div>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/03/09/sublime-text-3-bulid-3090-key/">Sublime Text 3  Bulid 3090+ KEY</a>
-        </h1>
-    
+        <footer class="article-footer">
+            <div class="share-container">
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/03/09/sublime-text-3-bulid-3090-key/">
-            <time datetime="2016-03-09T03:46:30.000Z" itemprop="datePublished">2016-03-09</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Operations/">Operations</a>
-    </div>
-
-                    
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/03/02/css-input/">使用CSS让input标签去掉点击后出现的边框</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/03/02/css-input/">
-            <time datetime="2016-03-01T16:42:31.000Z" itemprop="datePublished">2016-03-02</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
-    </div>
-
-                    
-                </div>
-            </div>
-        </div>
-    
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
 </div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="https://dragon-yuan.github.io/2017/07/28/vue-watch/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/07/28/vue-watch/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2017/07/27/github-push/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">GitHub对push的提速</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        <!-- 代码1：放在页面需要展示的位置  -->
+<div id="cyReward" role="cylabs" data-use="reward"></div>
+<!-- 代码2：用来读取评论框配置，此代码需放置在代码1之后。 -->
+<!-- 如果当前页面有评论框，代码2请勿放置在评论框代码之前。 -->
+<!-- 如果页面同时使用多个实验室项目，以下代码只需要引入一次，只配置上面的div标签即可 -->
+<script type="text/javascript" charset="utf-8" src="https://changyan.itc.cn/js/lib/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://changyan.sohu.com/js/changyan.labs.https.js?appid=cyt6NLeqm"></script>
+<div id="SOHUCS" ></div>
+<script type="text/javascript"> 
+(function(){ 
+var appid = 'cyt6NLeqm'; 
+var conf = 'prod_ea00622159dfcb4d47e875bcf56d23d7'; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
