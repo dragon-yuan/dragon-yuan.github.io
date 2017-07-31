@@ -8,14 +8,13 @@ Watch可谓是 Vue中比较重要的部分，检测数据变动后视图更新�
 ```js
 // data中定义一个aShow = false 作为显示变量
 ```
-```js
+```html
 watch: {
     'aForm.obj': function (val, oldVal) {
-    		let _this = this;
     		if (val !== '') {
-        		_this.aShow = true;
+        		this.aShow = true;
     		} else {
-        		_this.aShow = false;
+        		this.aShow = false;
     		}
 		}
 }
