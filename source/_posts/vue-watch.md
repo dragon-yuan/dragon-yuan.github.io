@@ -11,10 +11,10 @@ Watch可谓是 Vue中比较重要的部分，检测数据变动后视图更新�
 watch: {
   'aForm.obj': function (val, oldVal) {
     	if (val !== '') {
-      	this.aShow = true;
+      		this.aShow = true;
     	} else {
-      	this.aShow = false;
+      		this.aShow = false;
     	}
-		}
+	}
 }
 ```
