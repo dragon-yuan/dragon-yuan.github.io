@@ -322,7 +322,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
             
                 <aside id="sidebar">
 	<div style="height:30px;widget:300px;"></div>
-	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=300 height=497 src="//music.163.com/outchain/player?type=0&id=696141306&auto=0&height=430"></iframe>
+	<iframe id="sidebariframe" frameborder="no" border="0" marginwidth="0" marginheight="0" width=300 height=497 src="//music.163.com/outchain/player?type=0&id=696141306&auto=0&height=430"></iframe>
 	<div style="margin-top:20px;">
         
 			
@@ -335,10 +335,10 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 <script>
 var userAgentInfo = navigator.userAgent;  
 var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");  
-var flag = true;  
+var flag = true;
 for (var v = 0; v < Agents.length; v++) {  
     if (userAgentInfo.indexOf(Agents[v]) > 0) {
-        document.getElementById("sidebar").style.display ="none";
+        document.getElementById("sidebariframe").style.display ="none";
     }
 }   
 </script>
