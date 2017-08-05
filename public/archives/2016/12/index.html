@@ -241,10 +241,17 @@ var _hmt = _hmt || [];
 		
     </div>
     <div id="toTop" class="fa fa-angle-up"></div>
-    <div id="main-nav-mobile" class="header-sub header-inner">
-
-    </div>
 </aside>
+<script>
+var userAgentInfo = navigator.userAgent;  
+var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");  
+var flag = true;  
+for (var v = 0; v < Agents.length; v++) {  
+    if (userAgentInfo.indexOf(Agents[v]) > 0) {
+        console.log('phone');
+    }
+}   
+</script>
             
         </div>
         <footer id="footer">
