@@ -358,7 +358,7 @@ var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad"
 var flag = true;  
 for (var v = 0; v < Agents.length; v++) {  
     if (userAgentInfo.indexOf(Agents[v]) > 0) {
-        console.log('phone');
+        document.getElementById("sidebar").style.display ="none";
     }
 }   
 </script>
