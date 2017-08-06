@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="DragonBlog">
 <meta property="og:description" content="完整的推流地址：形如：rtmp://video-center.alivecdn.com/{AppName}/{StreamName}?vhost={yourdomain}12345// 说明 video-center.alivecdn.com是直播中心服务器，允许自定义// 例如您的域名是your.example.com（注意：该域名不可以和你的直播加速域名相同）// 可以设置DNS，将您的 域名">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-08-05T03:57:57.737Z">
+<meta property="og:updated_time" content="2017-08-06T13:20:57.671Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阿里云直播配置与使用（初体验）">
 <meta name="twitter:description" content="完整的推流地址：形如：rtmp://video-center.alivecdn.com/{AppName}/{StreamName}?vhost={yourdomain}12345// 说明 video-center.alivecdn.com是直播中心服务器，允许自定义// 例如您的域名是your.example.com（注意：该域名不可以和你的直播加速域名相同）// 可以设置DNS，将您的 域名">
@@ -232,8 +232,8 @@ var _hmt = _hmt || [];
 <p>推流（OBS）：<br>例如：rtmp://video.dragon-yuan.me/live_dragon/dragon?vhost=live.dragon-yuan.me<br>推流则需要配置如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// FMS(URL) 为 rtmp://video.dragon-yuan.me/live_dragon/</span></div><div class="line"><span class="comment">// 串流码 为 dragon?vhost=live.dragon-yuan.me</span></div></pre></td></tr></table></figure></p>
 <p>鉴权计算：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rtmp:<span class="comment">//video-center.alivecdn.com/&#123;AppName&#125;/&#123;StreamName&#125;?</span></div><div class="line">vhost=&#123;yourdomain&#125;&amp;auth_key=&#123;timestamp&#125;-&#123;rand&#125;-&#123;uid&#125;-&#123;hashvalue&#125;</div></pre></td></tr></table></figure></p>
 <p>字段描述<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">timestamp：失效时间=时间戳+有效时间，CDN服务器拿到请求后，首先会判断请求中的失效时间是否小于当前时间，</div><div class="line">如果小于，则认为过期失效并返回HTTP 403错误。</div><div class="line"></div><div class="line">rand：随机数，一般设成0</div><div class="line"></div><div class="line">uid：暂未使用（设置成0)</div><div class="line"></div><div class="line">hashvalue：通过md5加密算法计算出的32位验证串</div></pre></td></tr></table></figure></p>
-<p>推流则需要配置如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// FMS(URL) 为 rtmp://video.dragon-yuan.me/live_dragon/</span></div><div class="line"><span class="comment">// 串流码 为 dragon?vhost=live.dragon-yuan.me&amp;auth_key=.................</span></div></pre></td></tr></table></figure></p>
-<p>收看地址为：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://live.dragon-yuan.me/live_dragon/dragon.flv?auth_key=.................</div></pre></td></tr></table></figure></p>
+<p>推流则需要配置如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// FMS(URL) 为 rtmp://video.dragon-yuan.me/live_dragon/</span></div><div class="line"><span class="comment">// 串流码 为 dragon?vhost=live.dragon-yuan.me&amp;auth_key=....</span></div></pre></td></tr></table></figure></p>
+<p>收看地址为：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://live.dragon-yuan.me/live_dragon/dragon.flv?auth_key=....</div></pre></td></tr></table></figure></p>
 
         
         </div>
