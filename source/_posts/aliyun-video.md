@@ -29,8 +29,8 @@ vhost={yourdomain}&auth_key={timestamp}-{rand}-{uid}-{hashvalue}
 ```
 字段描述
 ```html
-timestamp：失效时间=时间戳+有效时间，CDN服务器拿到请求后，首先会判断请求中的失效时间是否小于当前时间，
-如果小于，则认为过期失效并返回HTTP 403错误。
+timestamp：失效时间=时间戳+有效时间，CDN服务器拿到请求后，首先会判断请求中的
+失效时间是否小于当前时间，如果小于，则认为过期失效并返回HTTP 403错误。
 
 rand：随机数，一般设成0
 
