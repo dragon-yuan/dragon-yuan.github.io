@@ -83,4 +83,7 @@ photos:
   - https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/76.jpg
   - https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/77.jpg
   - https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/78.jpg
+  - https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/79.jpg
+  - https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/80.jpg
+  - https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/life/81.jpg
 ---
