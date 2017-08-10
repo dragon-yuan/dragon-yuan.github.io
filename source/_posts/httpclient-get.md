@@ -2,7 +2,7 @@
 title: HttpClient中GET请求
 categories:
   - Java
-date: 2017-08-09 21:11:21
+date: 2017-08-09 21:41:21
 ---
 推荐使用HttpClient版本4.5
 ```java
@@ -40,4 +40,9 @@ private String sendHttpGet(HttpGet httpGet) {
     }
     return responseContent;
 }
+```
+入口：
+```java
+HttpGet httpGet = new HttpGet(getUrl);
+String resultStr = sendHttpGet(httpGet)
 ```

@@ -1,7 +1,7 @@
 ---
 title: GitHub对push的提速
 categories:
-  - Operations
+  - Github
 date: 2017-07-27 23:01:26
 ---
 ```html
