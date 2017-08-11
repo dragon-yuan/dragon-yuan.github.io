@@ -143,7 +143,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                100
+                101
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -190,6 +190,89 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-sub-query-sql" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/07/16/sub-query-sql/">MySQL子查询</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/16/sub-query-sql/">
+            <time datetime="2017-07-16T05:50:22.000Z" itemprop="datePublished">2017-07-16</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/MySQL/">MySQL</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>子查询：<br>通常在一个SELECT、UPDATE或DELETE语句的WHERE子句中充当查询、修改或删除的条件。<br>例如：在子查询中使用ORDER BY 子句，将查询结果按照deptno列降序输出。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> empno, ename, sal, d.deptno <span class="keyword">FROM</span> scott.emp <span class="keyword">WHERE</span> deptno <span class="keyword">IN</span></div><div class="line">(</div><div class="line"><span class="keyword">SELECT</span> deptno <span class="keyword">FROM</span> scott.emp <span class="keyword">WHERE</span> empno&gt;<span class="number">7782</span></div><div class="line">)</div><div class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> empno <span class="keyword">DESC</span>;</div></pre></td></tr></table></figure></p>
+<p>例：<br>查询出每个部门的编号，名称，位置，部门人数，平均工资<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> d.deptno,d.dname,d.loc,</div><div class="line">  (<span class="keyword">SELECT</span>  <span class="keyword">COUNT</span>(empno) <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> emp.deptno=d.deptno <span class="keyword">GROUP</span> <span class="keyword">BY</span> deptno)</div><div class="line">  con,</div><div class="line">  (<span class="keyword">SELECT</span> <span class="keyword">AVG</span>(sal) <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> emp.deptno=d.deptno <span class="keyword">GROUP</span> <span class="keyword">BY</span> deptno)</div><div class="line">  avgsal</div><div class="line"><span class="keyword">FROM</span> dept d</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="https://dragon-yuan.github.io/2017/07/16/sub-query-sql/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/07/16/sub-query-sql/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-vue-bind" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -957,153 +1040,8 @@ var jiathis_config={
 
 
 
-    <article id="post-gallery-gem" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/04/10/gallery-gem/">Get EveryBody Moving</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/04/10/gallery-gem/">
-            <time datetime="2017-04-09T16:35:00.000Z" itemprop="datePublished">2017-04-10</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Gallery/">Gallery</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-<div class="article-gallery">
-    
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/0.jpg" rel="gallery_cj66ij3xh001d48uy9nx5lgr1">
-        <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/0.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/1.jpg" rel="gallery_cj66ij3xh001d48uy9nx5lgr1">
-        <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/1.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/2.jpg" rel="gallery_cj66ij3xh001d48uy9nx5lgr1">
-        <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/2.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/3.jpg" rel="gallery_cj66ij3xh001d48uy9nx5lgr1">
-        <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/3.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/4.jpg" rel="gallery_cj66ij3xh001d48uy9nx5lgr1">
-        <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/4.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/5.jpg" rel="gallery_cj66ij3xh001d48uy9nx5lgr1">
-        <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/5.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/6.jpg" rel="gallery_cj66ij3xh001d48uy9nx5lgr1">
-        <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/6.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/7.jpg" rel="gallery_cj66ij3xh001d48uy9nx5lgr1">
-        <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/7.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/8.jpg" rel="gallery_cj66ij3xh001d48uy9nx5lgr1">
-        <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/8.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/9.jpg" rel="gallery_cj66ij3xh001d48uy9nx5lgr1">
-        <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/9.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/10.jpg" rel="gallery_cj66ij3xh001d48uy9nx5lgr1">
-        <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/10.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/11.jpg" rel="gallery_cj66ij3xh001d48uy9nx5lgr1">
-        <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/11.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/12.jpg" rel="gallery_cj66ij3xh001d48uy9nx5lgr1">
-        <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/12.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/13.jpg" rel="gallery_cj66ij3xh001d48uy9nx5lgr1">
-        <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/13.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/14.jpg" rel="gallery_cj66ij3xh001d48uy9nx5lgr1">
-        <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/14.jpg" itemprop="image" />
-    </a>
-    
-</div>
-
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="https://dragon-yuan.github.io/2017/04/10/gallery-gem/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/04/10/gallery-gem/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
 </section>
             
