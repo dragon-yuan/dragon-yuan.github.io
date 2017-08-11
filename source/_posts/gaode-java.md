@@ -27,7 +27,7 @@ import java.io.IOException;
 public class GaodeMapGeographyUtil {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
-    private final String KEY = "3c831a5f6d3fbf3820e067f7f00fb242";
+    private final String KEY = "";
     private RequestConfig requestConfig = RequestConfig.custom()
             .setSocketTimeout(15000)
             .setConnectTimeout(15000)
