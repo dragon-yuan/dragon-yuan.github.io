@@ -4,7 +4,7 @@ categories:
   - Java
 date: 2017-08-09 21:41:21
 ---
-推荐使用HttpClient版本4.5
+HttpClient版本4.5.2
 ```java
 private RequestConfig requestConfig = RequestConfig.custom()  
         .setSocketTimeout(15000)  
