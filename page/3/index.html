@@ -143,7 +143,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                101
+                102
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -190,6 +190,117 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-java-md5" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/07/20/java-md5/">JAVA中明文转MD5</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/20/java-md5/">
+            <time datetime="2017-07-20T15:34:26.131Z" itemprop="datePublished">2017-07-20</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p></p><p style="color:#c6c6c6;"><br>/<em>*
+     </em></p>
+<pre><code>* @param plainText 明文
+* @return 32位密文
+*/
+</code></pre><p></p><p></p>
+<pre>
+public static String encryption(String plainText) {
+        String re_md5 = new String();
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(plainText.getBytes());
+            byte b[] = md.digest();
+            int i;
+            StringBuffer buf = new StringBuffer("");
+            for (int offset = 0; offset < b.length; offset++) {
+                i = b[offset];
+                if (i < 0)
+                    i += 256;
+                if (i < 16)
+                    buf.append("0");
+                buf.append(Integer.toHexString(i));
+            }
+            re_md5 = buf.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return re_md5;
+    }
+</pre>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="https://dragon-yuan.github.io/2017/07/20/java-md5/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/07/20/java-md5/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-java-list-remove" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -991,91 +1102,6 @@ var jiathis_config={
             
     
         <a href="https://dragon-yuan.github.io/2017/07/18/array-prototype-slice-call/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/07/18/array-prototype-slice-call/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-mybatis-mapper" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/16/mybatis-mapper/">Mybatis中Mapper.xml映射文件</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/07/16/mybatis-mapper/">
-            <time datetime="2017-07-16T07:32:21.000Z" itemprop="datePublished">2017-07-16</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>if : Mybatis核心 对sql语句进行灵活操作，通过表达式进行判断，对sql进行灵活拼接、组装。<br>对查询条件进行判断，如果输入参数不为空才进行查询条件拼接。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserList"</span>&gt;</span></div><div class="line">  select * from user</div><div class="line">  where 1=1</div><div class="line">  <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"id!=null and id!=''"</span>&gt;</span></div><div class="line">    and id=#&#123;id&#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">if</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"username!=null and username!=''"</span>&gt;</span></div><div class="line">    and username like '%$&#123;username&#125;%'</div><div class="line">  <span class="tag">&lt;/<span class="name">if</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>where : 也可以把where写成下面的形式 :<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserList"</span>&gt;</span></div><div class="line">  select * from user</div><div class="line">  <span class="tag">&lt;<span class="name">where</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"id!=null and id!=''"</span>&gt;</span></div><div class="line">  and id=#&#123;id&#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">if</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"username!=null and username!=''"</span>&gt;</span></div><div class="line">  and username like '%$&#123;username&#125;%'</div><div class="line">  <span class="tag">&lt;/<span class="name">if</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">where</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>foreach : 向sql传递数组或List，Mybatis使用foreach解析，如下：如果我们需要传入多个ID<br>来查询多个用户的信息，这也就可以使用foreach。我们先考虑下如果只写sql语句是如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectUserByList"</span> <span class="attr">parameterType</span>=<span class="string">"java.util.List"</span> <span class="attr">resultType</span>=<span class="string">"user"</span>&gt;</span></div><div class="line">  select * from user</div><div class="line">  <span class="tag">&lt;<span class="name">where</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"list!=null"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"list"</span> <span class="attr">item</span>=<span class="string">"item"</span> <span class="attr">open</span>=<span class="string">"and id in("</span><span class="attr">separator</span>=<span class="string">","</span><span class="attr">close</span>=<span class="string">")"</span>&gt;</span></div><div class="line">        #&#123;item.id&#125;</div><div class="line">      <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">if</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">where</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>choose : 标签是按顺序判断其内部when标签中的test条件出否成立，如果有一个成立，则choose<br>结束。当choose中所有when的条件都不满则时，则执行otherwise中的sql类似于Java的switch语句，<br>choose为switch，when为case，otherwise则为default。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"getUserList_choose"</span>&gt;</span>  </div><div class="line">    SELECT *  </div><div class="line">      FROM User u   </div><div class="line">    <span class="tag">&lt;<span class="name">where</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">choose</span>&gt;</span>  </div><div class="line">            <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">"username !=null "</span>&gt;</span>  </div><div class="line">                u.username LIKE CONCAT(CONCAT('%', #&#123;username, jdbcType=VARCHAR&#125;),'%')  </div><div class="line">            <span class="tag">&lt;/<span class="name">when</span> &gt;</span>  </div><div class="line">            <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">"sex != null and sex != '' "</span>&gt;</span>  </div><div class="line">                AND u.sex = #&#123;sex, jdbcType=INTEGER&#125;  </div><div class="line">            <span class="tag">&lt;/<span class="name">when</span> &gt;</span>  </div><div class="line">            <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">"birthday != null "</span>&gt;</span>  </div><div class="line">                AND u.birthday = #&#123;birthday, jdbcType=DATE&#125;  </div><div class="line">            <span class="tag">&lt;/<span class="name">when</span> &gt;</span>  </div><div class="line">            <span class="tag">&lt;<span class="name">otherwise</span>&gt;</span>  </div><div class="line">            <span class="tag">&lt;/<span class="name">otherwise</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;/<span class="name">choose</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;/<span class="name">where</span>&gt;</span>    </div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="https://dragon-yuan.github.io/2017/07/16/mybatis-mapper/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/07/16/mybatis-mapper/">Comments</a>
     
 
         </footer>
