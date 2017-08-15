@@ -4,7 +4,7 @@ categories:
   - Java
 date: 2017-08-14 21:44:24
 ---
-使用Jar包Ant版本1.6.5
+如下方法使用Ant版本1.6.5
 ```java
 import org.apache.tools.ant.Project;
 import org.apache.tools.ant.taskdefs.Zip;
