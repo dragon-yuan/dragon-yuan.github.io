@@ -49,6 +49,14 @@ foreach : 向sql传递数组或List，Mybatis使用foreach解析，如下：如�
 </select>
 ```
 
+如果需要使用到IN关键字，需要传入List并用foreach遍历放入IN中
+```java
+<foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+    #{item}
+</foreach>
+```
+
+
 choose : 标签是按顺序判断其内部when标签中的test条件出否成立，如果有一个成立，则choose
 结束。当choose中所有when的条件都不满则时，则执行otherwise中的sql类似于Java的switch语句，
 choose为switch，when为case，otherwise则为default。
