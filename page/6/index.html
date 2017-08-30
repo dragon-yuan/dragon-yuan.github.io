@@ -143,7 +143,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                103
+                104
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -190,6 +190,158 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-poi-write-word07" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/02/23/poi-write-word07/">APACHE POI写入Word-07操作</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/02/23/poi-write-word07/">
+            <time datetime="2017-02-23T07:22:26.000Z" itemprop="datePublished">2017-02-23</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <pre>
+// 使用POI读取模版
+MSWordTool changer = new MSWordTool();
+changer.setTemplate(templatePath);
+// 导入书签
+Map<string, string=""> wordContent = getContent();
+// 替换文件
+changer.replaceBookMark(wordContent);
+changer.saveAs("path");
+
+// 获取书签数据
+private Map<string, string=""> getContent(){
+    Map<string, string=""> content = new HashMap<string, string="">();
+      try {
+      content.put("A1", obj);
+    } catch (Exception ex) {
+      ex.printStackTrace();
+    }
+    return content;
+}
+
+/**
+     * 为文档设置模板
+     * @param templatePath  模板文件路径
+   */
+public void setTemplate(String templatePath) {
+        try {
+            this.document = new XWPFDocument(POIXMLDocument.openPackage(templatePath));
+            bookMarks = new BookMarks(document);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+}
+
+/**
+     * 进行标签替换的例子,传入的Map中，key表示标签名称，value是替换的信息
+     * @param indicator
+*/
+public void  replaceBookMark(Map<string,string> indicator) {
+        //循环进行替换
+        Iterator<string> bookMarkIter = bookMarks.getNameIterator();
+        while (bookMarkIter.hasNext()) {
+            String bookMarkName = bookMarkIter.next();
+
+            //得到标签名称
+            BookMark bookMark = bookMarks.getBookmark(bookMarkName);
+
+            //进行替换
+            if (indicator.get(bookMarkName)!=null) {
+                bookMark.insertTextAtBookMark(indicator.get(bookMarkName), BookMark.INSERT_BEFORE);
+            }
+      }
+}
+
+public void saveAs(String path) {
+      File newFile = new File(path);
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(newFile);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            this.document.write(fos);
+            fos.flush();
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+}
+</string></string,string></string,></string,></string,></string,></pre>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="https://dragon-yuan.github.io/2017/02/23/poi-write-word07/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/02/23/poi-write-word07/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-poi-write-excel" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1068,91 +1220,6 @@ var jiathis_config={
             
     
         <a href="https://dragon-yuan.github.io/2016/07/03/2016-07-03-09-07-31/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2016/07/03/2016-07-03-09-07-31/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-vector-list" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/06/30/vector-list/">ArrayList和LinkedList何时使用</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/06/30/vector-list/">
-            <time datetime="2016-06-29T22:05:11.000Z" itemprop="datePublished">2016-06-30</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>  1、如果你需要高效的<span style="font-size: 12.1599998474121px; line-height: 15.8079996109009px;">查询</span>，而不在乎插入和删除的效率，使用<strong>ArrayList(不同步JDK1.2)         Vector(同步 JDK1.0,过时不用)</strong></p>
-<p>  2、如果你需要大量的插入和删除，而不关心查询，则应使用<strong>LinkedList</strong></p>
-<p><strong>ArrayList**</strong>：    对象数量变化少，简单对象，随机访问元素频繁    (查找)**</p>
-<p><strong>LinkedList：对象数量变化大，对象复杂，插入和删除频繁      (插入，删除)</strong></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="https://dragon-yuan.github.io/2016/06/30/vector-list/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2016/06/30/vector-list/">Comments</a>
     
 
         </footer>
