@@ -143,7 +143,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                103
+                104
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -190,6 +190,91 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-mybatis-insert-id" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/07/18/mybatis-insert-id/">MyBatis在insert插入操作时返回主键ID（id为自增）</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/18/mybatis-insert-id/">
+            <time datetime="2017-07-18T14:52:26.000Z" itemprop="datePublished">2017-07-18</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>MySQL用法：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"insert"</span> <span class="attr">parameterType</span>=<span class="string">""</span> <span class="attr">keyProperty</span>=<span class="string">"userId"</span> <span class="attr">useGeneratedKeys</span>=<span class="string">"true"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>上面配置中，keyProperty表示返回的id要保存到对象的那个属性中useGeneratedKeys表示主键id为自增长模式</p>
+<p>Oracle用法：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"insert"</span> <span class="attr">parameterType</span>=<span class="string">""</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">selectKey</span> <span class="attr">resultType</span>=<span class="string">"INTEGER"</span> <span class="attr">order</span>=<span class="string">"BEFORE"</span> <span class="attr">keyProperty</span>=<span class="string">"userId"</span>&gt;</span>  </div><div class="line">       SELECT USER.NEXTVAL as USERID from USER</div><div class="line">   <span class="tag">&lt;/<span class="name">selectKey</span>&gt;</span></div><div class="line">    ...</div><div class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>上面配置中，由于Oracle没有自增长，只有序列这种模仿自增的形式，所以不能使用useGeneratedKeys属性</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="https://dragon-yuan.github.io/2017/07/18/mybatis-insert-id/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/07/18/mybatis-insert-id/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-array-prototype-slice-call" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -953,88 +1038,6 @@ var jiathis_config={
             
     
         <a href="https://dragon-yuan.github.io/2017/07/11/http-request-headers/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/07/11/http-request-headers/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-java-mysql-concat" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/10/java-mysql-concat/">MySQL中CONCAT值为空的问题解决办法</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/07/10/java-mysql-concat/">
-            <time datetime="2017-07-10T14:12:26.000Z" itemprop="datePublished">2017-07-10</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/MySQL/">MySQL</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">在MySQL中concat函数有一个特点就是有一个值为null那么不管第二个字符有多少内容都返回为空了，</div><div class="line">这个特性让我们在实例应用中可能觉得不方便，但实现就是这样我们需要使用其它办法来解决。</div><div class="line">返回结果为连接参数产生的字符串。如有任何一个参数为NULL，则返回值为NULL。</div><div class="line"></div><div class="line">使用个IFNULL可以判断一下字段是否为空：</div><div class="line">MySQL内置的IFNULL函数可以用在查询时候为NULL值字段给一个默认值：</div><div class="line"><span class="keyword">SELECT</span> <span class="keyword">CONCAT</span>(<span class="keyword">IFNULL</span>(code,<span class="string">''</span>),telephone) <span class="keyword">FROM</span> info</div></pre></td></tr></table></figure>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="https://dragon-yuan.github.io/2017/07/10/java-mysql-concat/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/07/10/java-mysql-concat/">Comments</a>
     
 
         </footer>
