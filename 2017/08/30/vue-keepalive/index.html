@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Tomcat针对读取文件问题 Not allowed to load local resource解决办法 | DragonBlog</title>
+    <title>Vue中Keep-Alive缓存的使用 | DragonBlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Servlet转发到JSP页面后&amp;lt;img style=&amp;quot;height:50px; width:50px&amp;quot; name=&amp;quot;student&amp;quot; src=&amp;quot;C:/jboss/welcome-content/students/&amp;apos;+ studentBasic.photo+ &amp;apos;&amp;quot; /&amp;gt;不允许用文件的绝对路径 而需要这样写s">
+    <meta name="description" content="Vue提供了一个keep-alive组件用来缓存组件。首先在vue的主页路由上添加keep-alive，并且判断是否在路由开启keepAlive1234&amp;lt;keep-alive&amp;gt;    &amp;lt;router-view v-if=&quot;$route.meta.keepAlive&quot;&amp;gt;&amp;lt;/router-view&amp;gt;&amp;lt;/keep-alive&amp;gt;&amp;lt;router-view">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tomcat针对读取文件问题 Not allowed to load local resource解决办法">
-<meta property="og:url" content="https://dragon-yuan.github.io/2016/01/06/tomcat-not-allowed-to-load-local-resource/index.html">
+<meta property="og:title" content="Vue中Keep-Alive缓存的使用">
+<meta property="og:url" content="https://dragon-yuan.github.io/2017/08/30/vue-keepalive/index.html">
 <meta property="og:site_name" content="DragonBlog">
-<meta property="og:description" content="Servlet转发到JSP页面后&amp;lt;img style=&amp;quot;height:50px; width:50px&amp;quot; name=&amp;quot;student&amp;quot; src=&amp;quot;C:/jboss/welcome-content/students/&amp;apos;+ studentBasic.photo+ &amp;apos;&amp;quot; /&amp;gt;不允许用文件的绝对路径 而需要这样写s">
+<meta property="og:description" content="Vue提供了一个keep-alive组件用来缓存组件。首先在vue的主页路由上添加keep-alive，并且判断是否在路由开启keepAlive1234&amp;lt;keep-alive&amp;gt;    &amp;lt;router-view v-if=&quot;$route.meta.keepAlive&quot;&amp;gt;&amp;lt;/router-view&amp;gt;&amp;lt;/keep-alive&amp;gt;&amp;lt;router-view">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2016-12-23T08:37:50.385Z">
+<meta property="og:updated_time" content="2017-08-30T14:59:01.651Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tomcat针对读取文件问题 Not allowed to load local resource解决办法">
-<meta name="twitter:description" content="Servlet转发到JSP页面后&amp;lt;img style=&amp;quot;height:50px; width:50px&amp;quot; name=&amp;quot;student&amp;quot; src=&amp;quot;C:/jboss/welcome-content/students/&amp;apos;+ studentBasic.photo+ &amp;apos;&amp;quot; /&amp;gt;不允许用文件的绝对路径 而需要这样写s">
+<meta name="twitter:title" content="Vue中Keep-Alive缓存的使用">
+<meta name="twitter:description" content="Vue提供了一个keep-alive组件用来缓存组件。首先在vue的主页路由上添加keep-alive，并且判断是否在路由开启keepAlive1234&amp;lt;keep-alive&amp;gt;    &amp;lt;router-view v-if=&quot;$route.meta.keepAlive&quot;&amp;gt;&amp;lt;/router-view&amp;gt;&amp;lt;/keep-alive&amp;gt;&amp;lt;router-view">
     
 
     
@@ -190,7 +190,7 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-tomcat-not-allowed-to-load-local-resource" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-vue-keepalive" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -198,7 +198,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            Tomcat针对读取文件问题 Not allowed to load local resource解决办法
+            Vue中Keep-Alive缓存的使用
         </h1>
     
 
@@ -207,8 +207,8 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/01/06/tomcat-not-allowed-to-load-local-resource/">
-            <time datetime="2016-01-06T01:54:21.000Z" itemprop="datePublished">2016-01-06</time>
+        <a href="/2017/08/30/vue-keepalive/">
+            <time datetime="2017-08-30T14:59:09.000Z" itemprop="datePublished">2017-08-30</time>
         </a>
     </div>
 
@@ -216,7 +216,7 @@ var _hmt = _hmt || [];
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
+        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
     </div>
 
                         
@@ -228,8 +228,10 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <pre><code>Servlet转发到JSP页面后&lt;img style=&quot;height:50px; width:50px&quot; name=&quot;student&quot; src=&quot;C:/jboss/welcome-content/students/&apos;+ studentBasic.photo+ &apos;&quot; /&gt;不允许用文件的绝对路径 而需要这样写src&lt;img style=&quot;height:50px; width:50px&quot; name=&quot;student&quot; src=&quot;/students/&quot;+studentBasic.photo+&quot;
-</code></pre>
+            <p>Vue提供了一个keep-alive组件用来缓存组件。<br>首先在vue的主页路由上添加keep-alive，并且判断是否在路由开启keepAlive<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;keep-alive&gt;</div><div class="line">    &lt;router-view v-if="$route.meta.keepAlive"&gt;&lt;/router-view&gt;</div><div class="line">&lt;/keep-alive&gt;</div><div class="line">&lt;router-view v-if="!$route.meta.keepAlive"&gt;&lt;/router-view&gt;</div></pre></td></tr></table></figure></p>
+<p>在需要缓存的页面路由上添加标志位<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">keepAlive: ture</div></pre></td></tr></table></figure></p>
+<p>vue中生命周期相关的有：created,mounted,updated,activited,destroyed。<br>在页面上可以添加activited钩子函数。<br>针对keep-alive标签，使用keep-alive在单页中前进后退只触发activited。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">created() &#123;</div><div class="line">	method_1();</div><div class="line">&#125;,</div><div class="line">activited() &#123;</div><div class="line">	method_2();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
         
         </div>
         <footer class="article-footer">
@@ -262,7 +264,7 @@ var jiathis_config={
 
             
     
-        <a href="https://dragon-yuan.github.io/2016/01/06/tomcat-not-allowed-to-load-local-resource/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2016/01/06/tomcat-not-allowed-to-load-local-resource/">Comments</a>
+        <a href="https://dragon-yuan.github.io/2017/08/30/vue-keepalive/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/08/30/vue-keepalive/">Comments</a>
     
 
         </footer>
@@ -271,19 +273,10 @@ var jiathis_config={
         
 <nav id="article-nav">
     
-        <a href="/2016/02/09/mysql-host-is-not-allowed-to-connect-to-this-mysql-server/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    Mysql远程连接 Host * is not allowed to connect to this MySQL server
-                
-            </div>
-        </a>
     
-    
-        <a href="/2015/12/27/mvc/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/08/16/idea-serialVersion/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">浅谈MVC思想</div>
+            <div class="article-nav-title">IDEA生成序列化ID</div>
         </a>
     
 </nav>

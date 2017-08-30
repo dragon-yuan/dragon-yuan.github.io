@@ -143,7 +143,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                103
+                104
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -190,6 +190,92 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-mysql2" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2015/12/22/mysql2/">MySQL基础语句</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2015/12/22/mysql2/">
+            <time datetime="2015-12-22T04:38:03.000Z" itemprop="datePublished">2015-12-22</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>1.show databases;</p>
+<p>2.use 数据库;</p>
+<p>3.show tables;</p>
+<p>4.desc 表;</p>
+<p>PRI主键 MUL外键</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="https://dragon-yuan.github.io/2015/12/22/mysql2/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2015/12/22/mysql2/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-mysql" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1223,98 +1309,6 @@ var jiathis_config={
             
     
         <a href="https://dragon-yuan.github.io/2015/09/23/mstsc/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2015/09/23/mstsc/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-net-use" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2015/09/22/net-use/">net use错误原因解决</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2015/09/22/net-use/">
-            <time datetime="2015-09-22T01:31:03.000Z" itemprop="datePublished">2015-09-22</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Operations/">Operations</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>(1)”发生系统错误 1326。 登录失败： 未知的用户名或错误密码。” </p>
-<p>在远程机的”控制面板-文件夹选项-查看-简单的文件共享”,去掉选取,然后再尝试连接。简单文件共享会把网络连接权限都归为 guest连接，是无法访问C$等管理共享的. </p>
-<p>(2)”发生系统错误 1327。 登陆失败：用户帐户限制。<br>可能的原因包括不允许空密码，登陆时间限制，或强制的策略限。”在远程机的”控制面板－管理工具－本地安全策略－安全选项－用户权限”指派里，禁用”空密码用户只能进行控制台登陆”. </p>
-<p>(3)”//IP/c$”时提示找不到网络途径。<br>在”网络和拨号连接”中”本地连接”中选取”Internet协议(TCP/IP)”属性，进入”高级TCP/IP设置”选”WINS设置”里面有一项”启用TCP/IP的NETBIOS</p>
-<p>/////////////////////////////////////////////////////////////////////////////</p>
-<p>问：net use 找不到网络路径 net use z:&gt;\192.168.0.2\C$ “18553262” /user:adminis</p>
-<p>Net use 会记录新的网络连接。</p>
-<p>1，只有nt/2000/xp及以上系统才可以建立ipc$。如果你用的是98/me是没有该功能的。 </p>
-<p>2，确认你的命令没有打错。正确的命令是： net use \目标IP\ipc$ “密码” /user:”用户名” </p>
-<p>注意别多了或少了空格。当用户名和密码中不包含空格时两边的双引号可以省略。空密码用””表示。 </p>
-<p>3，根据返回的错误号分析原因：<br>错误号5，拒绝访问 ： 很可能你使用的用户不是管理员权限的，先提升权限；<br>错误号51，Windows 无法找到网络路径 : 网络有问题；<br>错误号53，找不到网络路径 ： ip地址错误；目标未开机；目标lanmanserver服务未启动；目标有防火墙（端口过滤）；<br>错误号67，找不到网络名 ： 你的lanmanworkstation服务未启动；目标删除了ipc$；<br>错误号1219，提供的凭据与已存在的凭据集冲突 ： 你已经和对方建立了一个ipc$，请删除再连。<br>错误号1326，未知的用户名或错误密码 ： 原因很明显了；<br>错误号1792，试图登录，但是网络登录服务没有启动 ： 目标NetLogon服务未启动。（连接域控会出现此情况）<br>错误号2242，此用户的密码已经过期 ： 目标有帐号策略，强制定期要求更改密码。</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="https://dragon-yuan.github.io/2015/09/22/net-use/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2015/09/22/net-use/">Comments</a>
     
 
         </footer>
