@@ -1,7 +1,7 @@
 ---
 title: jQuery解析JSON
 categories:
-  - Java
+  - Web Design
 tags:
 ---
 <pre>
