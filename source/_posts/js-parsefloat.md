@@ -1,7 +1,7 @@
 ---
 title: 使用JS保留两位小数
 categories:
-  - Java
+  - Web Design
 date: 2017-03-07 17:22:26
 ---
 <pre>

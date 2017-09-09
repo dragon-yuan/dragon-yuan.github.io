@@ -1,7 +1,7 @@
 ---
 title: 使用JS转换文件路径
 categories:
-  - Java
+  - Web Design
 date: 2017-03-27 16:22:26
 ---
 <pre>

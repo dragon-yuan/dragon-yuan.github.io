@@ -1,7 +1,7 @@
 ---
 title: 网页信息抓取进阶 支持Js生成数据 Jsoup的不足之处
 categories:
-  - Java
+  - Web Design
 id: 178
 date: 2016-07-27 01:42:23
 tags:
