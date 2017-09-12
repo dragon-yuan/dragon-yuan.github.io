@@ -2,7 +2,7 @@
 title: 阿里云直播配置与使用（初体验）
 categories:
   - Operations
-date: 2017-08-03 23:09:27
+date: 2017-08-0=====9:27
 ---
 完整的推流地址：
 形如：rtmp://video-center.alivecdn.com/{AppName}/{StreamName}?vhost={yourdomain}
