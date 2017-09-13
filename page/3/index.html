@@ -143,7 +143,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                105
+                106
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -190,6 +190,99 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-jquery-json" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/07/20/jquery-json/">jQuery解析JSON</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/20/jquery-json/">
+            <time datetime="2017-07-20T15:34:26.161Z" itemprop="datePublished">2017-07-20</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <pre>
+使用全局的JSON对象
+function strToJson(str){
+    return JSON.parse(str);
+}
+
+eval方式解析
+function strToJson(str){
+     var json = eval('(' + str + ')');
+     return json;
+}
+</pre>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="https://dragon-yuan.github.io/2017/07/20/jquery-json/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/07/20/jquery-json/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-java-random4j" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1034,99 +1127,6 @@ var jiathis_config={
             
     
         <a href="https://dragon-yuan.github.io/2017/07/20/decorators/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/07/20/decorators/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-countdown" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/20/countdown/">初识JAVA倒计时</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/07/20/countdown/">
-            <time datetime="2017-07-20T15:34:26.072Z" itemprop="datePublished">2017-07-20</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p><1>.先获取到服务器的时间<br>var nowTdrCommon =&lt;%=System.currentTimeMillis()%&gt;; //服务器时间<br>var nowTdrCommon1 =&lt;%=System.currentTimeMillis()%&gt;; //服务器时间</1></p>
-<p><2>.获取到结束时间（结束时间为obj）<br>var EndDateTime_cd = obj;<br>var EndDateTime_s = EndDateTime_cd.replace(/-/g, “/“);<br>nowTdrCommon = nowTdrCommon + 1000;<br>var date1 = new Date(nowTdrCommon); //开始时间<br>var date2 = new Date(EndDateTime_s); //结束时间<br>var date3 = date2.getTime() - date1.getTime(); //时间差的毫秒数</2></p>
-<p>//计算出相差天数<br>var days = Math.floor(date3 / (24 <em> 3600 </em> 1000));</p>
-<p>//计算出小时数<br>var leave1 = date3 % (24 <em> 3600 </em> 1000); //计算天数后剩余的毫秒数<br>var hours = Math.floor(leave1 / (3600 * 1000));</p>
-<p>//计算相差分钟数<br>var leave2 = leave1 % (3600 <em> 1000); //计算小时数后剩余的毫秒数<br>var minutes = Math.floor(leave2 / (60 </em> 1000));</p>
-<p>//计算相差秒数<br>var leave3 = leave2 % (60 * 1000); //计算分钟数后剩余的毫秒数<br>var seconds = Math.round(leave3 / 1000);</p>
-<p><3>.比较时间，并输出显示剩余时间<br>if (date3 &lt; 0) {<br>        return “0”;<br>} else {<br>        return “<span><strong>“ + days + “天</strong></span><span><strong>“</strong></span></3></p>
-<ul>
-<li>hours + “时<span><strong>“ + minutes</strong></span></li>
-<li>“分<span><strong>“ + seconds</strong></span></li>
-<li>“秒“;<br>}</li>
-</ul>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="https://dragon-yuan.github.io/2017/07/20/countdown/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/07/20/countdown/">Comments</a>
     
 
         </footer>

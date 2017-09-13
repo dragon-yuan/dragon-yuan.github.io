@@ -143,7 +143,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                105
+                106
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -190,6 +190,90 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-linux-crontab" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/09/13/linux-crontab/">Linux中crontab定时任务</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/09/13/linux-crontab/">
+            <time datetime="2017-09-13T14:09:17.000Z" itemprop="datePublished">2017-09-13</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Operations/">Operations</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>crontab命令的功能是在一定的时间间隔调度一些命令的执行</p>
+<p>文件/etc/crontab中每行任务的描述格式如下:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">minute - 从0到59的整数 </div><div class="line">hour - 从0到23的整数 </div><div class="line">day - 从1到31的整数 (必须是指定月份的有效日期)</div><div class="line">month - 从1到12的整数 (或如Jan或Feb简写的月份)</div><div class="line">dayofweek - 从0到7的整数，0或7用来描述周日 (或用Sun或Mon简写来表示)</div><div class="line">command - 需要执行的命令(可用as ls /proc &gt;&gt; /tmp/proc或 执行自定义脚本的命令)</div><div class="line"></div><div class="line">root表示以root用户身份来运行</div><div class="line">run-parts表示后面跟着的是一个文件夹，要执行的是该文件夹下的所有脚本</div></pre></td></tr></table></figure></p>
+<p>crontab服务的启动关闭<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sbin/service crond start //启动服务</div><div class="line">/sbin/service crond stop //关闭服务</div><div class="line">/sbin/service crond restart //重启服务</div><div class="line">/sbin/service crond reload //重新载入配置</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="https://dragon-yuan.github.io/2017/09/13/linux-crontab/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/09/13/linux-crontab/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-java-native" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -873,7 +957,7 @@ var jiathis_config={
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/2017/08/02/aliyun-video/">
-            <time datetime="2017-08-02T14:59:54.278Z" itemprop="datePublished">2017-08-02</time>
+            <time datetime="2017-08-02T13:39:27.000Z" itemprop="datePublished">2017-08-02</time>
         </a>
     </div>
 
@@ -933,88 +1017,6 @@ var jiathis_config={
             
     
         <a href="https://dragon-yuan.github.io/2017/08/02/aliyun-video/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/08/02/aliyun-video/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-vue-watch" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/28/vue-watch/">VueJS中watch的使用</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/07/28/vue-watch/">
-            <time datetime="2017-07-28T14:42:30.000Z" itemprop="datePublished">2017-07-28</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/web/">web</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>Watch可谓是 Vue中比较重要的部分，检测数据变动后视图更新的重要环节。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// data中定义一个aShow = false 作为显示变量</span></div><div class="line"></div><div class="line">watch: &#123;</div><div class="line">  <span class="string">'aForm.obj'</span>: <span class="function"><span class="keyword">function</span> (<span class="params">val, oldVal</span>) </span>&#123;</div><div class="line">    	<span class="keyword">if</span> (val !== <span class="string">''</span>) &#123;</div><div class="line">      		<span class="keyword">this</span>.aShow = <span class="literal">true</span>;</div><div class="line">    	&#125; <span class="keyword">else</span> &#123;</div><div class="line">      		<span class="keyword">this</span>.aShow = <span class="literal">false</span>;</div><div class="line">    	&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="https://dragon-yuan.github.io/2017/07/28/vue-watch/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/07/28/vue-watch/">Comments</a>
     
 
         </footer>
