@@ -3,18 +3,19 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Archive: 2017/3 | DragonBlog</title>
+    <title>Java注释@interface的用法 | DragonBlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="dragon-yuan">
-<meta property="og:type" content="website">
-<meta property="og:title" content="DragonBlog">
-<meta property="og:url" content="https://dragon-yuan.github.io/archives/2017/03/index.html">
+    <meta name="description" content="注解大都用在开发框架中。Java用 @interface Annotation{} 定义一个注解 @Annotation，一个注解是一个类。用@Retention(RetentionPolicy.CLASS)修饰的注解，表示注解的信息被保留在class文件(字节码文件)中当程序编译时，但不会被虚拟机读取在运行的时候;用@Retention(RetentionPolicy.SOURCE )修饰的注解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java注释@interface的用法">
+<meta property="og:url" content="https://dragon-yuan.github.io/2017/07/18/java-at-interface/index.html">
 <meta property="og:site_name" content="DragonBlog">
-<meta property="og:description" content="dragon-yuan">
+<meta property="og:description" content="注解大都用在开发框架中。Java用 @interface Annotation{} 定义一个注解 @Annotation，一个注解是一个类。用@Retention(RetentionPolicy.CLASS)修饰的注解，表示注解的信息被保留在class文件(字节码文件)中当程序编译时，但不会被虚拟机读取在运行的时候;用@Retention(RetentionPolicy.SOURCE )修饰的注解">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-09-18T15:20:11.767Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DragonBlog">
-<meta name="twitter:description" content="dragon-yuan">
+<meta name="twitter:title" content="Java注释@interface的用法">
+<meta name="twitter:description" content="注解大都用在开发框架中。Java用 @interface Annotation{} 定义一个注解 @Annotation，一个注解是一个类。用@Retention(RetentionPolicy.CLASS)修饰的注解，表示注解的信息被保留在class文件(字节码文件)中当程序编译时，但不会被虚拟机读取在运行的时候;用@Retention(RetentionPolicy.SOURCE )修饰的注解">
     
 
     
@@ -189,107 +190,133 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2017</h1>
-            </div>
+            <section id="main"><article id="post-java-at-interface" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/03/27/js-replace/">使用JS转换文件路径</a>
+        <h1 class="article-title" itemprop="name">
+            Java注释@interface的用法
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/03/27/js-replace/">
-            <time datetime="2017-03-27T08:22:26.000Z" itemprop="datePublished">2017-03-27</time>
+        <a href="/2017/07/18/java-at-interface/">
+            <time datetime="2017-07-18T13:30:59.000Z" itemprop="datePublished">2017-07-18</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
     </div>
 
-                    
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                        
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/03/07/centos-utils/">lsof-top-free命令</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>注解大都用在开发框架中。<br>Java用 @interface Annotation{} 定义一个注解 @Annotation，一个注解是一个类。<br>用@Retention(RetentionPolicy.CLASS)修饰的注解，表示注解的信息被保留在class文件(字节码文件)中当程序编译时，<br>但不会被虚拟机读取在运行的时候;<br>用@Retention(RetentionPolicy.SOURCE )修饰的注解,表示注解的信息会被编译器抛弃，不会留在class文件中，注解的<br>信息只会留在源文件中;<br>用@Retention(RetentionPolicy.RUNTIME )修饰的注解，表示注解的信息被保留在class文件(字节码文件)中当程序编译<br>时，会被虚拟机保留在运行时，所以他们可以用反射的方式读取。</p>
+<p>定义个一注解@MyTarget，用RetentionPolicy.RUNTIME修饰;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)  </div><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyTarget&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>注解@Target也是用来修饰注解的元注解，它有一个属性ElementType也是枚举类型，<br>值为：ANNOTATION_TYPE,CONSTRUCTOR,FIELD,LOCAL_VARIABLE,METHOD,PACKAGE,PARAMETER,TYPE<br>如@Target(ElementType.METHOD) 修饰的注解表示该注解只能用来修饰在方法上。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Target</span>(ElementType.METHOD)  </div><div class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)  </div><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyTarget&#123;</div><div class="line">	<span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> "val"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/03/07/centos-utils/">
-            <time datetime="2017-03-07T09:44:49.000Z" itemprop="datePublished">2017-03-07</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Operations/">Operations</a>
-    </div>
-
-                    
-                </div>
-            </div>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/03/07/js-parsefloat/">使用JS保留两位小数</a>
-        </h1>
-    
+        <footer class="article-footer">
+            <div class="share-container">
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/03/07/js-parsefloat/">
-            <time datetime="2017-03-07T09:22:26.000Z" itemprop="datePublished">2017-03-07</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
-    </div>
-
-                    
-                </div>
-            </div>
-        </div>
-    
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
 </div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="https://dragon-yuan.github.io/2017/07/18/java-at-interface/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/07/18/java-at-interface/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/07/18/array-prototype-slice-call/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Array.prototype.slice.call(arguments)
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2017/07/16/mybatis-mapper/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Mybatis中Mapper.xml映射文件</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        <!-- 代码1：放在页面需要展示的位置  -->
+<div id="cyReward" role="cylabs" data-use="reward"></div>
+<!-- 代码2：用来读取评论框配置，此代码需放置在代码1之后。 -->
+<!-- 如果当前页面有评论框，代码2请勿放置在评论框代码之前。 -->
+<!-- 如果页面同时使用多个实验室项目，以下代码只需要引入一次，只配置上面的div标签即可 -->
+<script type="text/javascript" charset="utf-8" src="https://changyan.itc.cn/js/lib/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://changyan.sohu.com/js/changyan.labs.https.js?appid=cyt6NLeqm"></script>
+<div id="SOHUCS" ></div>
+<script type="text/javascript"> 
+(function(){ 
+var appid = 'cyt6NLeqm'; 
+var conf = 'prod_ea00622159dfcb4d47e875bcf56d23d7'; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
