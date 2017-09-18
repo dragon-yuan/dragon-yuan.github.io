@@ -143,7 +143,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                106
+                107
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -190,6 +190,88 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-shadowsocks" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2015/10/10/shadowsocks/">Shadowsocks</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2015/10/10/shadowsocks/">
+            <time datetime="2015-10-10T00:11:54.000Z" itemprop="datePublished">2015-10-10</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Operations/">Operations</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><a href="../software/Shadowsocks.exe">Shadowsocks</a> DOWNLOAD</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="https://dragon-yuan.github.io/2015/10/10/shadowsocks/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2015/10/10/shadowsocks/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-ubuntu-apache2-php5-mysql" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -998,208 +1080,6 @@ var jiathis_config={
             
     
         <a href="https://dragon-yuan.github.io/2015/07/14/sublime-text-3086-key/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2015/07/14/sublime-text-3086-key/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-token" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2015/04/22/token/">微信二次开发第一弹（开发者中心TOKEN配置与服务器连接）</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2015/04/22/token/">
-            <time datetime="2015-04-22T06:19:27.000Z" itemprop="datePublished">2015-04-22</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Operations/">Operations</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <pre style="margin: 0px; padding: 0px; color: #000000; font-family: Helvetica, Tahoma, Arial, sans-serif; font-size: 14px; line-height: 25.2000007629395px;">本文目标：学习一种比较安全的服务器间互相验证身份的方式。  
-  </pre>
-
-<pre style="margin: 0px; padding: 0px; color: #000000; font-family: Helvetica, Tahoma, Arial, sans-serif; font-size: 14px; line-height: 25.2000007629395px;">问题：开发微信公众平台接口，开发者的服务器为了确保请求是否来自微信服务器，应该如何去做？  
-
-</pre>
-
-<pre style="margin: 0px; padding: 0px; color: #000000; font-family: Helvetica, Tahoma, Arial, sans-serif; font-size: 14px; line-height: 25.2000007629395px;">1)  在微信管理页面上填写URL和TOKEN，开发者服务器上也记录同样的TOKEN。  
-
-</pre>
-
-<pre style="margin: 0px; padding: 0px; color: #000000; font-family: Helvetica, Tahoma, Arial, sans-serif; font-size: 14px; line-height: 25.2000007629395px;">2)  微信服务器发送HTTP请求，附带上参数(注意TOKEN是不会被传输的)  
-
-</pre>
-
-<pre><span style="color: #000000; font-family: Helvetica, Tahoma, Arial, sans-serif; font-size: 14px; line-height: 25.2000007629395px;">参数 描述  
-
-</span></pre>
-
-<table style="color: #000000; font-family: Helvetica, Tahoma, Arial, sans-serif; font-size: 14px; line-height: 25.2000007629395px;" border="1" cellspacing="0" cellpadding="4"><br><br><tbody><br><br><tr><br><br><td style="font-size: 1em;"><br><br><pre>signature</pre><br><br></td><br><br><td style="font-size: 1em;"><br><br><pre>微信加密签名</pre><br><br></td><br><br></tr><br><br><tr><br><br><td style="font-size: 1em;"><br><br><pre>timestamp</pre><br><br></td><br><br><td style="font-size: 1em;"><br><br><pre>时间戳</pre><br><br></td><br><br></tr><br><br><tr><br><br><td style="font-size: 1em;"><br><br><pre>nonce</pre><br><br></td><br><br><td style="font-size: 1em;"><br><br><pre>随机数</pre><br><br></td><br><br></tr><br><br><tr><br><br><td style="font-size: 1em;"><br><br><pre>echostr</pre><br><br></td><br><br><td style="font-size: 1em;"><br><br><pre>随机字符串</pre><br><br></td><br><br></tr><br><br></tbody><br><br></table>
-
-<pre style="margin: 0px; padding: 0px; color: #000000; font-family: Helvetica, Tahoma, Arial, sans-serif; font-size: 14px; line-height: 25.2000007629395px;">其中signature值通过如下摘要运算得出：</pre>
-
-<pre style="font-size: 14px; color: #000000; line-height: 25.2000007629395px;">1\. 将token、timestamp、nonce三个参数进行字典序排序  
-
-2\. 将三个参数字符串拼接成一个字符串进行sha1加密(这个加密是不可逆的)，并将结果的byte[]转换为16进制字符串  
-
-</pre>
-
-<pre style="margin: 0px; padding: 0px; color: #000000; font-family: Helvetica, Tahoma, Arial, sans-serif; font-size: 14px; line-height: 25.2000007629395px;">3)  开发者服务器接收到signature,timestamp,nonce,echostr参数，跟服务器做同样的摘要运算，得到预期的一个signatrue，然后对比微信服务器发送过来的signature参数，如果相同，证明双方的TOKEN是一致的，开发者服务器确实接收到了来自微信服务器的请求，开发者服务器最后返回echostr，以告诉微信服务器接入成功。具体的开发者服务器校验逻辑代码如下显示。  
-
-</pre>
-
-<hr>
-<pre style="margin: 0px; padding: 0px; color: #000000; font-family: Helvetica, Tahoma, Arial, sans-serif; font-size: 14px; line-height: 25.2000007629395px;"><span style="color: #000000; font-family: Helvetica, Tahoma, Arial, sans-serif;"><span style="font-size: 14px; line-height: 25.2000007629395px;">`<?php
-/**
-  * wechat php test
-  */
-
-//define your token
-define("TOKEN", "xxx");
-$wechatObj = new wechatCallbackapiTest();
-$wechatObj->valid();
-
-class wechatCallbackapiTest
-{
-    public function valid()
-    {
-        $echoStr = $_GET["echostr"];
-
-        //valid signature , option
-        if($this->checkSignature()){
-            echo $echoStr;
-            exit;
-        }
-    }
-
-    public function responseMsg()
-    {
-        //get post data, May be due to the different environments
-        $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
-
-          //extract post data
-        if (!empty($postStr)){
-
-                  $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
-                $fromUsername = $postObj->FromUserName;
-                $toUsername = $postObj->ToUserName;
-                $keyword = trim($postObj->Content);
-                $time = time();
-                $textTpl = "<xml>
-                            <tousername><!--[CDATA[%s]]--></tousername>
-                            <fromusername><!--[CDATA[%s]]--></fromusername>
-                            <createtime>%s</createtime>
-                            <msgtype><!--[CDATA[%s]]--></msgtype>
-                            <content><!--[CDATA[%s]]--></content>
-                            <funcflag>0</funcflag>
-                            </xml>";             
-                if(!empty( $keyword ))
-                {
-                      $msgType = "text";
-                    $contentStr = "Welcome to wechat world!";
-                    $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-                    echo $resultStr;
-                }else{
-                    echo "Input something...";
-                }
-
-        }else {
-            echo "";
-            exit;
-        }
-    }
-
-    private function checkSignature()
-    {
-        $signature = $_GET["signature"];
-        $timestamp = $_GET["timestamp"];
-        $nonce = $_GET["nonce"];
-
-        $token = TOKEN;
-        $tmpArr = array($token, $timestamp, $nonce);
-        sort($tmpArr);
-        $tmpStr = implode( $tmpArr );
-        $tmpStr = sha1( $tmpStr );
-
-        if( $tmpStr == $signature ){
-            return true;
-        }else{
-            return false;
-        }
-    }
-}
-
-?>  
-
-`</span></span></pre>
-
-<hr>
-<pre style="margin: 0px; padding: 0px; color: #000000; font-family: Helvetica, Tahoma, Arial, sans-serif; font-size: 14px; line-height: 25.2000007629395px;"><span style="color: #000000; font-family: Helvetica, Tahoma, Arial, sans-serif;"><span style="font-size: 14px; line-height: 25.2000007629395px;">`[公众平台开发接口介绍](http://mp.weixin.qq.com/wiki/home/index.html "公众平台开发接口介绍")`  
-</span></span></pre>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="https://dragon-yuan.github.io/2015/04/22/token/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2015/04/22/token/">Comments</a>
     
 
         </footer>
