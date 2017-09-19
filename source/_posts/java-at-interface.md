@@ -2,7 +2,7 @@
 title: Java注释@interface的用法
 categories:
   - Java
-date: 2017-07-18 21:30:59
+date: 2017-09-18 21:30:59
 ---
 注解大都用在开发框架中。
 Java用 @interface Annotation{} 定义一个注解 @Annotation，一个注解是一个类。
