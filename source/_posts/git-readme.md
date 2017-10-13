@@ -1,5 +1,5 @@
 ---
-title: GitHub上README总结
+title: GitHub上README总结（markdown）
 categories:
   - GitHub
 tags:
