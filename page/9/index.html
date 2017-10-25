@@ -143,7 +143,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                109
+                110
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -190,6 +190,96 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-mysql-host-is-not-allowed-to-connect-to-this-mysql-server" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/02/09/mysql-host-is-not-allowed-to-connect-to-this-mysql-server/">Mysql远程连接 Host * is not allowed to connect to this MySQL server</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/02/09/mysql-host-is-not-allowed-to-connect-to-this-mysql-server/">
+            <time datetime="2016-02-08T22:49:02.000Z" itemprop="datePublished">2016-02-09</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Operations/">Operations</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>mysql -u root -p</p>
+<p>mysql&gt;use mysql;</p>
+<p>mysql&gt;update user set host =’%’where user =’root’;</p>
+<p>mysql&gt;flush privileges;</p>
+<p><span style="color: #444444;">#修改host值（以通配符%的内容增加主机/IP地址，当然也可以直接增加某个特定IP地址</span></p>
+<p><span style="color: #444444;">如果执行update语句时出现</span><span style="color: #0000ff;">ERROR 1062 (23000): Duplicate entry ‘%-root’ for key ‘PRIMARY’</span><span style="color: #444444;"> 错误</span></p>
+<p><span style="color: #444444;">需要select host from user where user = ‘root’;</span></p>
+<p><span style="color: #444444;">查看一下host是否已经有了%这个值，如果有了直接执行下面的flush privileges;</span></p>
+<p><span style="color: #444444;">quit</span></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="https://dragon-yuan.github.io/2016/02/09/mysql-host-is-not-allowed-to-connect-to-this-mysql-server/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2016/02/09/mysql-host-is-not-allowed-to-connect-to-this-mysql-server/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-tomcat-not-allowed-to-load-local-resource" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1102,163 +1192,6 @@ var jiathis_config={
             
     
         <a href="https://dragon-yuan.github.io/2015/10/24/putty/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2015/10/24/putty/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-centos-7-64bit-apache-mysql-php" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2015/10/17/centos-7-64bit-apache-mysql-php/">CentOS-7-64bit 配置Apache + MySQL + PHP </a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2015/10/17/centos-7-64bit-apache-mysql-php/">
-            <time datetime="2015-10-17T00:40:51.000Z" itemprop="datePublished">2015-10-17</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Operations/">Operations</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p><span style="word-wrap: break-word; font-size: 16px; color: #000000;"><strong>一、配置防火墙，开启80端口、3306端口</strong></span></p>
-<p><span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>CentOS 7.0默认使用的是firewall作为防火墙，这里改为iptables防火墙。</strong></span></p>
-<p><span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>1、关闭firewall：</strong></span></p>
-<p><span style="word-wrap: break-word; color: #64451d;"><span style="word-wrap: break-word; font-size: 16px; color: #000000;"><strong>#停止firewall服务</strong></span><br></span></p>
-<div id="codeText" class="codeText" style="word-wrap: break-word; border: 1px solid #dddddd; width: 1041.453125px; overflow: auto; margin: 0px 0px 1.1em; padding: 0px; word-break: break-all; letter-spacing: 0.1px; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Consolas, monospace; background: #ffffff;"><br><br>1.  <span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>systemctl stop firewalld.service</strong></span><br><br></div>
-
-<p><span style="word-wrap: break-word; font-family: 宋体, Arial; line-height: 26px; font-size: 24px; color: #e53333;"><span style="word-wrap: break-word; font-size: 16px; color: #000000;"><span style="word-wrap: break-word;"><strong>#禁止firewall开机启动</strong></span></span></span></p>
-<div id="codeText" class="codeText" style="word-wrap: break-word; border: 1px solid #dddddd; width: 1041.453125px; overflow: auto; margin: 0px 0px 1.1em; padding: 0px; word-break: break-all; letter-spacing: 0.1px; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Consolas, monospace; color: #666666; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><br><br>1.  <span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>systemctl disable firewalld.service</strong></span><br><br></div>
-
-<p><span style="word-wrap: break-word; font-family: 宋体, Arial; font-size: 12px; line-height: 26px; color: #64451d;"> </span></p>
-<p><span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>2、安装iptables防火墙</strong></span></p>
-<p><span style="word-wrap: break-word; color: #64451d;"><span style="word-wrap: break-word; font-size: 16px; color: #000000;"><span style="word-wrap: break-word;"><strong>#安装</strong></span></span><br></span></p>
-<div id="codeText" class="codeText" style="word-wrap: break-word; border: 1px solid #dddddd; width: 1041.453125px; overflow: auto; margin: 0px 0px 1.1em; padding: 0px; word-break: break-all; letter-spacing: 0.1px; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Consolas, monospace; color: #666666; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><br><br>1.  <span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>yum install iptables-services</strong></span><br><br></div>
-
-<p><span style="word-wrap: break-word; font-family: 宋体, Arial; line-height: 26px; font-size: 16px; color: #000000;"><span style="word-wrap: break-word;"><strong>#编辑防火墙配置文件</strong></span></span><span style="color: #666666; font-family: 宋体, Arial; font-size: 12px; line-height: 26px;"> </span></p>
-<div id="codeText" class="codeText" style="word-wrap: break-word; border: 1px solid #dddddd; width: 1041.453125px; overflow: auto; margin: 0px 0px 1.1em; padding: 0px; word-break: break-all; letter-spacing: 0.1px; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Consolas, monospace; color: #666666; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><br><br>1.  <span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>vi /etc/sysconfig/iptables</strong></span><br><br></div>
-
-<p><span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong># Firewall configuration written by system-config-firewall</strong></span></p>
-<p><span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong># Manual customization of this file is not recommended.</strong></span></p>
-<p><span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>*filter</strong></span></p>
-<p><span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>:INPUT ACCEPT [0:0]</strong></span></p>
-<p><span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>:FORWARD ACCEPT [0:0]</strong></span></p>
-<p><span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>:OUTPUT ACCEPT [0:0]</strong></span></p>
-<p><span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>-A INPUT -m state –state ESTABLISHED,RELATED -j ACCEPT</strong></span></p>
-<p><span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>-A INPUT -p icmp -j ACCEPT</strong></span></p>
-<p><span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>-A INPUT -i lo -j ACCEPT</strong></span></p>
-<p><span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>-A INPUT -m state –state NEW -m tcp -p tcp –dport 22 -j ACCEPT</strong></span></p>
-<p><span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>-A INPUT -m state –state NEW -m tcp -p tcp –dport 80 -j ACCEPT</strong></span></p>
-<p><span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>-A INPUT -m state –state NEW -m tcp -p tcp –dport 3306 -j ACCEPT</strong></span></p>
-<p><span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>-A INPUT -j REJECT –reject-with icmp-host-prohibited</strong></span></p>
-<p><span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>-A FORWARD -j REJECT –reject-with icmp-host-prohibited</strong></span></p>
-<p><span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>COMMIT</strong></span></p>
-<p><span style="word-wrap: break-word; color: #64451d;"><span style="word-wrap: break-word; font-size: 16px; color: #000000;"><strong>:wq! #保存退出</strong></span>  </span></p>
-<p></p>
-<p><span style="word-wrap: break-word; color: #64451d;"><span style="word-wrap: break-word; font-size: 16px; color: #000000;"><strong> #最后重启防火墙使配置生效</strong></span><br></span></p>
-<div id="codeText" class="codeText" style="word-wrap: break-word; border: 1px solid #dddddd; width: 1041.453125px; overflow: auto; margin: 0px 0px 1.1em; padding: 0px; word-break: break-all; letter-spacing: 0.1px; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Consolas, monospace; color: #666666; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><br><br>1.  <span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>systemctl restart iptables.service</strong></span><br><br></div>
-
-<p><span style="word-wrap: break-word; font-family: 宋体, Arial; line-height: 26px; font-size: 16px; color: #000000;"><span style="word-wrap: break-word;"><strong>#设置防火墙开机启动</strong></span></span></p>
-<div id="codeText" class="codeText" style="word-wrap: break-word; border: 1px solid #dddddd; width: 1041.453125px; overflow: auto; margin: 0px 0px 1.1em; padding: 0px; word-break: break-all; letter-spacing: 0.1px; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Consolas, monospace; color: #666666; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><br><br>1.  <span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>systemctl enable iptables.service</strong></span><br><br></div>
-
-<p><span style="word-wrap: break-word; color: #64451d;"><span style="word-wrap: break-word; font-size: 16px; color: #000000;"><strong>二、关闭SELINUX</strong></span><br><span style="word-wrap: break-word; font-size: 16px; color: #000000;"><strong>#修改配置文件</strong></span><br></span></p>
-<div id="codeText" class="codeText" style="word-wrap: break-word; border: 1px solid #dddddd; width: 1041.453125px; overflow: auto; margin: 0px 0px 1.1em; padding: 0px; word-break: break-all; letter-spacing: 0.1px; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Consolas, monospace; color: #666666; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><br><br>1.  <span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>vi /etc/selinux/config</strong></span><br><br></div>
-
-<p><span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>#SELINUX=enforcing #注释掉</strong></span></p>
-<p><span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>#SELINUXTYPE=targeted #注释掉</strong></span></p>
-<p><span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>SELINUX=disabled #增加</strong></span></p>
-<p><span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>:wq! #保存退出</strong></span></p>
-<p><span style="word-wrap: break-word; color: #64451d;"><span style="word-wrap: break-word; font-size: 16px; color: #000000;"><strong>#使配置立即生效</strong></span><br></span></p>
-<div id="codeText" class="codeText" style="word-wrap: break-word; border: 1px solid #dddddd; width: 1041.453125px; overflow: auto; margin: 0px 0px 1.1em; padding: 0px; word-break: break-all; letter-spacing: 0.1px; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Consolas, monospace; color: #666666; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><br><br>1.  <span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>setenforce 0</strong></span><br><br></div>
-
-<p><span style="word-wrap: break-word; font-family: 宋体, Arial; line-height: 26px; font-size: 16px; color: #000000;"><strong>三.安装apache</strong></span>  </p>
-<div id="codeText" class="codeText" style="word-wrap: break-word; border: 1px solid #dddddd; width: 1041.453125px; overflow: auto; margin: 0px 0px 1.1em; padding: 0px; word-break: break-all; letter-spacing: 0.1px; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Consolas, monospace; color: #666666; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><br><br>1.  <span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>yum install httpd</strong></span><br><br></div>
-
-<p><span style="word-wrap: break-word; font-family: 宋体, Arial; line-height: 26px; font-size: 16px; color: #000000;"><strong>可能会用到的：</strong></span></p>
-<p><span style="word-wrap: break-word; font-size: 16px; color: #000000;"><strong>systemctl start httpd.service #启动apache</strong></span></p>
-<p><span style="word-wrap: break-word; font-size: 16px; color: #000000;"><strong>systemctl stop httpd.service #停止apache</strong></span></p>
-<p><span style="word-wrap: break-word; font-size: 16px; color: #000000;"><strong>systemctl restart httpd.service #重启apache</strong></span></p>
-<p><span style="word-wrap: break-word; font-size: 16px; color: #000000;"><strong>systemctl enable httpd.service #设置apache开机启动</strong></span></p>
-<p>CentOS 7的yum源中貌似没有正常安装mysql时的mysql-sever文件，需要去官网上下载</p>
-<table style="padding: 0px; margin: 0px; font-family: Verdana, Arial, Tahoma; font-size: 14px; line-height: 25px;" border="0" cellspacing="0" cellpadding="0"><br><br><tbody style="padding: 0px; margin: 0px;"><br><br><tr style="padding: 0px; margin: 0px;"><br><br><td style="padding: 0px; margin: 0px;"><br><br><div style="padding: 0px; margin: 0px;"><br><br><div style="padding: 0px; margin: 0px;"># wget <a href="http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm" target="_blank" rel="external">http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm</a></div><br><br><div style="padding: 0px; margin: 0px;"># rpm -ivh mysql-community-release-el7-5.noarch.rpm</div><br><br><div style="padding: 0px; margin: 0px;"># yum install mysql-community-server</div><br><br></div><br><br></td><br><br></tr><br><br></tbody><br><br></table>
-
-<p>成功安装之后重启mysql服务</p>
-<table style="padding: 0px; margin: 0px; font-family: Verdana, Arial, Tahoma; font-size: 14px; line-height: 25px;" border="0" cellspacing="0" cellpadding="0"><br><br><tbody style="padding: 0px; margin: 0px;"><br><br><tr style="padding: 0px; margin: 0px;"><br><br><td style="padding: 0px; margin: 0px;"><br><br><div style="padding: 0px; margin: 0px;"><br><br><div style="padding: 0px; margin: 0px;"># service mysqld restart</div><br><br></div><br><br></td><br><br></tr><br><br></tbody><br><br></table>
-
-<p>初次安装mysql是root账户是没有密码的</p>
-<p>设置密码的方法</p>
-<table style="padding: 0px; margin: 0px; font-family: Verdana, Arial, Tahoma; font-size: 14px; line-height: 25px;" border="0" cellspacing="0" cellpadding="0"><br><br><tbody style="padding: 0px; margin: 0px;"><br><br><tr style="padding: 0px; margin: 0px;"><br><br><td style="padding: 0px; margin: 0px;"><br><br><div style="padding: 0px; margin: 0px;"><br><br><div style="padding: 0px; margin: 0px;"># mysql -uroot</div><br><br><div style="padding: 0px; margin: 0px;">mysql&gt; set password for ‘root’@‘localhost’ = password(‘mypasswd’);</div><br><br><div style="padding: 0px; margin: 0px;">mysql&gt; exit</div><br><br></div><br><br></td><br><br></tr><br><br></tbody><br><br></table>
-
-<p><span style="word-wrap: break-word; font-family: 宋体, Arial; line-height: 26px; font-size: 16px; color: #000000;"><strong>五.安装php</strong></span>  </p>
-<div id="codeText" class="codeText" style="word-wrap: break-word; border: 1px solid #dddddd; width: 1041.453125px; overflow: auto; margin: 0px 0px 1.1em; padding: 0px; word-break: break-all; letter-spacing: 0.1px; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Consolas, monospace; color: #666666; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><br><br>1.  <span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>yum install php</strong></span><br><br></div>
-
-<p><span style="word-wrap: break-word; font-family: 宋体, Arial; line-height: 26px; font-size: 16px; color: #000000;"><strong>安装PHP组件，使PHP支持mysql</strong></span></p>
-<div id="codeText" class="codeText" style="word-wrap: break-word; border: 1px solid #dddddd; width: 1041.453125px; overflow: auto; margin: 0px 0px 1.1em; padding: 0px; word-break: break-all; letter-spacing: 0.1px; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Consolas, monospace; color: #666666; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><br><br>1.  <span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>yum install php-mysql php-gd libjpeg* php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-bcmath php-mhash</strong></span><br><br></div>
-
-<p><span style="word-wrap: break-word; font-family: 宋体, Arial; line-height: 26px; font-size: 16px; color: #000000;"><strong>重启对应服务</strong></span></p>
-<div id="codeText" class="codeText" style="word-wrap: break-word; border: 1px solid #dddddd; width: 1041.453125px; overflow: auto; margin: 0px 0px 1.1em; padding: 0px; word-break: break-all; letter-spacing: 0.1px; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Consolas, monospace; color: #666666; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><br><br>1.  <span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>systemctl restart mysqld.service</strong></span><br>2.  <span style="word-wrap: break-word; color: #000000; font-size: 16px;"><strong>systemctl restart httpd.service</strong></span><br><br></div>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="https://dragon-yuan.github.io/2015/10/17/centos-7-64bit-apache-mysql-php/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2015/10/17/centos-7-64bit-apache-mysql-php/">Comments</a>
     
 
         </footer>
