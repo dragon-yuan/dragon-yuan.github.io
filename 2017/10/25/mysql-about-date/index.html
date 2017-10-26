@@ -5,17 +5,17 @@
     
     <title>关于时间的处理，以及MyBatis中对时间的处理 | DragonBlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="java123// String -&amp;gt; DateSimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);Date date = sdf.parse(dateString); 12// Date -&amp;gt; StringString dateString = (new SimpleDateFormat(&quot;yyyy-MM-dd&quot;)).f">
+    <meta name="description" content="java123// String -&amp;gt; DateSimpleDateFormat sdf = new SimpleDateFormat(&quot;&quot;);Date date = sdf.parse(dateString); 123// Date -&amp;gt; StringDate date = new Date();String dateString = (new SimpleDateFormat(&quot;&quot;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于时间的处理，以及MyBatis中对时间的处理">
 <meta property="og:url" content="https://dragon-yuan.github.io/2017/10/25/mysql-about-date/index.html">
 <meta property="og:site_name" content="DragonBlog">
-<meta property="og:description" content="java123// String -&amp;gt; DateSimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);Date date = sdf.parse(dateString); 12// Date -&amp;gt; StringString dateString = (new SimpleDateFormat(&quot;yyyy-MM-dd&quot;)).f">
+<meta property="og:description" content="java123// String -&amp;gt; DateSimpleDateFormat sdf = new SimpleDateFormat(&quot;&quot;);Date date = sdf.parse(dateString); 123// Date -&amp;gt; StringDate date = new Date();String dateString = (new SimpleDateFormat(&quot;&quot;">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-10-25T14:41:35.189Z">
+<meta property="og:updated_time" content="2017-10-26T15:10:58.682Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于时间的处理，以及MyBatis中对时间的处理">
-<meta name="twitter:description" content="java123// String -&amp;gt; DateSimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);Date date = sdf.parse(dateString); 12// Date -&amp;gt; StringString dateString = (new SimpleDateFormat(&quot;yyyy-MM-dd&quot;)).f">
+<meta name="twitter:description" content="java123// String -&amp;gt; DateSimpleDateFormat sdf = new SimpleDateFormat(&quot;&quot;);Date date = sdf.parse(dateString); 123// Date -&amp;gt; StringDate date = new Date();String dateString = (new SimpleDateFormat(&quot;&quot;">
     
 
     
@@ -228,8 +228,8 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p><code>java</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// String -&gt; Date</span></div><div class="line">SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</div><div class="line">Date date = sdf.parse(dateString);</div></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Date -&gt; String</span></div><div class="line">String dateString = (<span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>)).format(<span class="keyword">new</span> Date());</div></pre></td></tr></table></figure>
+            <p><code>java</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// String -&gt; Date</span></div><div class="line">SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">""</span>);</div><div class="line">Date date = sdf.parse(dateString);</div></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Date -&gt; String</span></div><div class="line">Date date = <span class="keyword">new</span> Date();</div><div class="line">String dateString = (<span class="keyword">new</span> SimpleDateFormat(<span class="string">""</span>)).format(date);</div></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 在日期上增加数个整月</span></div><div class="line">Calendar cal = Calendar.getInstance();</div><div class="line">cal.setTime(<span class="keyword">new</span> Date());</div><div class="line">cal.add(Calendar.MONTH, <span class="number">1</span>);</div><div class="line">Date date = cal.getTime();</div></pre></td></tr></table></figure>
 <p><code>mysql</code><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 时间转换</div><div class="line">DATE_FORMAT(NOW(),'%b %d %Y %h:%i %p')  </div><div class="line">DATE_FORMAT(NOW(),'%m-%d-%Y')  </div><div class="line">DATE_FORMAT(NOW(),'%d %b %y')  </div><div class="line">DATE_FORMAT(NOW(),'%d %b %Y %T:%f')</div></pre></td></tr></table></figure></p>
 <p><code>mybatis</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;![CDATA[&gt;]]&gt;</div><div class="line">&lt;![CDATA[&gt;=]]&gt;</div><div class="line">&lt;![CDATA[&lt;]]&gt;</div><div class="line">&lt;![CDATA[&lt;=]]&gt;</div></pre></td></tr></table></figure></p>
