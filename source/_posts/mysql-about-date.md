@@ -7,12 +7,13 @@ date: 2017-10-25 22:04:19
 `java`
 ```java
 // String -> Date
-SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+SimpleDateFormat sdf = new SimpleDateFormat("");
 Date date = sdf.parse(dateString);
 ```
 ```java
 // Date -> String
-String dateString = (new SimpleDateFormat("yyyy-MM-dd")).format(new Date());
+Date date = new Date();
+String dateString = (new SimpleDateFormat("")).format(date);
 ```
 ```java
 // 在日期上增加数个整月
