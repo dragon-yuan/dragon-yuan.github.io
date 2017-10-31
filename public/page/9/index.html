@@ -143,7 +143,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                110
+                111
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -190,6 +190,99 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-mysql-5-5-5-6-utf-8" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/02/10/mysql-5-5-5-6-utf-8/">MySQL 5.5/5.6的修改字符集编码为UTF-8</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/02/10/mysql-5-5-5-6-utf-8/">
+            <time datetime="2016-02-09T19:15:48.000Z" itemprop="datePublished">2016-02-10</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Operations/">Operations</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>登录MySQL查看用SHOW VARIABLES LIKE ‘character%’;下字符集</p>
+<p><span style="color: rgb(0, 34, 0); font-family: georgia; font-size: 15px; line-height: 22.5px;">1、在[client]字段里加入default-character-set=utf8，如下：</span><br><code>[client]  
+port = 3306  
+socket = /var/lib/mysql/mysql.sock  
+default-character-set=utf8</code><br><span style="color: rgb(0, 34, 0); font-family: georgia; font-size: 15px; line-height: 22.5px;">2、在[mysqld]字段里加入character-set-</span><a href="http://www.ha97.com/tag/server" target="_blank" rel="external">server</a><span style="color: rgb(0, 34, 0); font-family: georgia; font-size: 15px; line-height: 22.5px;">=utf8，如下：</span><br><code>[mysqld]  
+port = 3306  
+socket = /var/lib/mysql/mysql.sock  
+character-set-server=utf8</code><br><span style="color: rgb(0, 34, 0); font-family: georgia; font-size: 15px; line-height: 22.5px;">3、在[mysql]字段里加入default-character-set=utf8，如下：</span><br><code>[mysql]  
+no-auto-rehash  
+default-character-set=utf8</code></p>
+<p><code>&lt;span style=&quot;color: #002200;&quot;&gt;&lt;span style=&quot;line-height: 22.5px;&quot;&gt;修改完成后，service mysql restart重启mysql服务就生效&lt;/span&gt;&lt;/span&gt;</code></p>
+<p><code>&lt;span&gt;&lt;span style=&quot;color: #002200;&quot;&gt;&lt;span style=&quot;line-height: 22.5px;&quot;&gt;使用SHOW VARIABLES LIKE ‘character%’;查看，发现数据库编码全已改成utf8。&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;</code></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="https://dragon-yuan.github.io/2016/02/10/mysql-5-5-5-6-utf-8/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2016/02/10/mysql-5-5-5-6-utf-8/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-mysql-host-is-not-allowed-to-connect-to-this-mysql-server" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1119,90 +1212,8 @@ var jiathis_config={
 
 
 
-    <article id="post-putty" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2015/10/24/putty/">Putty</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2015/10/24/putty/">
-            <time datetime="2015-10-23T16:10:57.000Z" itemprop="datePublished">2015-10-24</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Operations/">Operations</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p><a href="https://www.baidu.com/link?url=1_2QzbVckiyvVRr0oT1xUm2UtixY6MZbH0KdrWF3Sfr0hN35MUEjVARPO2JysZjDjh6Z0e-hrl1-Y4Y47kYSPRPWctCFLqvpfAcR70KZs7u&amp;wd=&amp;eqid=ec1ccc7700012fae00000002585ce1d9" target="_blank" rel="external">Putty</a> DOWNLOAD</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="https://dragon-yuan.github.io/2015/10/24/putty/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2015/10/24/putty/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
     </nav>
 </section>
             
