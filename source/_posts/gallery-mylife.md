@@ -105,4 +105,8 @@ photos:
   - http://img-blog.dragon-yuan.me/2017-LIFE/98.jpg
   - http://img-blog.dragon-yuan.me/2017-LIFE/99.jpg
   - http://img-blog.dragon-yuan.me/2017-LIFE/100.jpg
+  - http://img-blog.dragon-yuan.me/2017-LIFE/101.jpg
+  - http://img-blog.dragon-yuan.me/2017-LIFE/102.jpg
+  - http://img-blog.dragon-yuan.me/2017-LIFE/103.jpg
+  - http://img-blog.dragon-yuan.me/2017-LIFE/104.jpg
 ---
