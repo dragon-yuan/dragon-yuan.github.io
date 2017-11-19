@@ -143,7 +143,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                111
+                112
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -190,6 +190,88 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-java-zip" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/08/14/java-zip/">使用JAVA压缩文件</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/08/14/java-zip/">
+            <time datetime="2017-08-14T13:44:24.000Z" itemprop="datePublished">2017-08-14</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>如下方法使用Ant版本1.6.5<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.apache.tools.ant.Project;</div><div class="line"><span class="keyword">import</span> org.apache.tools.ant.taskdefs.Zip;</div><div class="line"><span class="keyword">import</span> org.apache.tools.ant.types.FileSet;</div><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CompressionUtil</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">compress</span><span class="params">(String desPath, String srcPath)</span></span>&#123;</div><div class="line">        File desFile = <span class="keyword">new</span> File(desPath);<span class="comment">// 目标文件</span></div><div class="line">        File srcFile = <span class="keyword">new</span> File(srcPath);<span class="comment">// 源文件</span></div><div class="line">        <span class="keyword">if</span> (!srcFile.exists())</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"需要压缩的文件不存在"</span>);</div><div class="line">        Project project = <span class="keyword">new</span> Project();</div><div class="line">        Zip zip = <span class="keyword">new</span> Zip();</div><div class="line">        zip.setProject(project);</div><div class="line">        zip.setDestFile(desFile);</div><div class="line">        FileSet fileSet = <span class="keyword">new</span> FileSet();</div><div class="line">        fileSet.setProject(project);</div><div class="line">        fileSet.setDir(srcFile);</div><div class="line">        zip.addFileset(fileSet);</div><div class="line">        zip.execute();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="https://dragon-yuan.github.io/2017/08/14/java-zip/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/08/14/java-zip/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-gaode-java" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -928,88 +1010,6 @@ var jiathis_config={
             
     
         <a href="https://dragon-yuan.github.io/2017/07/22/vue-filters/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/07/22/vue-filters/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-yuanzixing" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/22/yuanzixing/">什么是原子性</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/07/22/yuanzixing/">
-            <time datetime="2017-07-22T11:14:26.000Z" itemprop="datePublished">2017-07-22</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>如果把一个事务可看作是一个程序,它要么完整的被执行,要么完全不执行。这种特性就叫原子性。</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="https://dragon-yuan.github.io/2017/07/22/yuanzixing/#comments" class="article-comment-link ds-thread-count" data-thread-key="https://dragon-yuan.github.io/2017/07/22/yuanzixing/">Comments</a>
     
 
         </footer>
