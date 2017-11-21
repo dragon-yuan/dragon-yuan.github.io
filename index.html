@@ -228,7 +228,7 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>Class类是整个Java反射机制的源头，Class类本身表示Java对象的类型，可通过一个Object对象的getClass()方法取得一个对象的类型，<br>此函数返回的就是一个Class类。</p>
+            <p>Class类是整个Java反射机制的源头，Class类本身表示Java对象的类型，可通过一个Object对象的getClass()方法取得一个对象的类型，此函数返回的就是一个Class类。</p>
 <p>Field提供有关类或接口的属性的信息，以及对他的动态访问权限。<br>Method提供关于类或接口上的方法的信息。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Ojbect obj = <span class="keyword">new</span> Object();</div><div class="line">Class&lt;? extends Object&gt; objClass = obj.getClass();</div><div class="line">Field[] fields = objClass.getDeclaredFields();</div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; fields.length; k++) &#123;</div><div class="line">	String fieldName = fields[k].getName();</div><div class="line">	Method m = obj.getClass().getMethod(<span class="string">"get"</span> + fieldName.substring(<span class="number">0</span>, <span class="number">1</span>).toUpperCase() + fieldName.substring(<span class="number">1</span>));</div><div class="line">	Object value = m.invoke(obj);</div><div class="line">	System.out.println(fieldName + <span class="string">" : "</span> + value);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
         
