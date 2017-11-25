@@ -70,9 +70,11 @@ theme: hexo-theme-icarus
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy: 
-  type: git 
+- type: git 
   repo: git@github.com:dragon-yuan/dragon-yuan.github.io.git 
   branch: master 
+  bucket: blog.dragon-yuan.me
+- type: baidu_url_submitter
   
 # baidu_url_submit
 baidu_url_submit:
