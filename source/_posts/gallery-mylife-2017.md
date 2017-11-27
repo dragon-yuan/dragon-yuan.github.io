@@ -142,4 +142,12 @@ photos:
   - http://img-blog.dragon-yuan.me/2017-LIFE/135.jpg
   - http://img-blog.dragon-yuan.me/2017-LIFE/136.jpg
   - http://img-blog.dragon-yuan.me/2017-LIFE/137.jpg
+  - http://img-blog.dragon-yuan.me/2017-LIFE/138.jpg
+  - http://img-blog.dragon-yuan.me/2017-LIFE/139.jpg
+  - http://img-blog.dragon-yuan.me/2017-LIFE/140.jpg
+  - http://img-blog.dragon-yuan.me/2017-LIFE/141.jpg
+  - http://img-blog.dragon-yuan.me/2017-LIFE/142.jpg
+  - http://img-blog.dragon-yuan.me/2017-LIFE/143.jpg
+  - http://img-blog.dragon-yuan.me/2017-LIFE/144.jpg
+  - http://img-blog.dragon-yuan.me/2017-LIFE/145.jpg
 ---
