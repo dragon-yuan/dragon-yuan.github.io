@@ -166,7 +166,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                112
+                113
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -213,6 +213,88 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-java-linux-properties" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/04/10/java-linux-properties/">通过JAVA环境监听Linux系统属性</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/04/10/java-linux-properties/">
+            <time datetime="2017-04-10T12:22:26.000Z" itemprop="datePublished">2017-04-10</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>获取当前系统内存和CPU使用状态<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.hyperic.sigar.Mem;</div><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"><span class="keyword">import</span> java.util.StringTokenizer;</div><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">LinuxSystemTool</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@return</span> int[] result</div><div class="line">     * result.length==4;int[0]=MemTotal;int[1]=MemFree;int[2]=SwapTotal;int[3]=SwapFree;</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] getMemInfo() <span class="keyword">throws</span> IOException, InterruptedException &#123;</div><div class="line">        File file = <span class="keyword">new</span> File(<span class="string">"/proc/meminfo"</span>);</div><div class="line">        BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(</div><div class="line">                <span class="keyword">new</span> FileInputStream(file)));</div><div class="line">        <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">4</span>];</div><div class="line">        String str = <span class="keyword">null</span>;</div><div class="line">        StringTokenizer token = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">while</span>((str = br.readLine()) != <span class="keyword">null</span>) &#123;</div><div class="line">            token = <span class="keyword">new</span> StringTokenizer(str);</div><div class="line">            <span class="keyword">if</span>(!token.hasMoreTokens())</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line"></div><div class="line">            str = token.nextToken();</div><div class="line">            <span class="keyword">if</span>(!token.hasMoreTokens())</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line"></div><div class="line">            <span class="keyword">if</span>(str.equalsIgnoreCase(<span class="string">"MemTotal:"</span>))</div><div class="line">                result[<span class="number">0</span>] = Integer.parseInt(token.nextToken());</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str.equalsIgnoreCase(<span class="string">"MemFree:"</span>))</div><div class="line">                result[<span class="number">1</span>] = Integer.parseInt(token.nextToken());</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str.equalsIgnoreCase(<span class="string">"SwapTotal:"</span>))</div><div class="line">                result[<span class="number">2</span>] = Integer.parseInt(token.nextToken());</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str.equalsIgnoreCase(<span class="string">"SwapFree:"</span>))</div><div class="line">                result[<span class="number">3</span>] = Integer.parseInt(token.nextToken());</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">float</span> <span class="title">getCpuInfo</span><span class="params">()</span> <span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</div><div class="line">        File file = <span class="keyword">new</span> File(<span class="string">"/proc/stat"</span>);</div><div class="line">        BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(</div><div class="line">                <span class="keyword">new</span> FileInputStream(file)));</div><div class="line">        StringTokenizer token = <span class="keyword">new</span> StringTokenizer(br.readLine());</div><div class="line">        token.nextToken();</div><div class="line">        <span class="keyword">int</span> user1 = Integer.parseInt(token.nextToken());</div><div class="line">        <span class="keyword">int</span> nice1 = Integer.parseInt(token.nextToken());</div><div class="line">        <span class="keyword">int</span> sys1 = Integer.parseInt(token.nextToken());</div><div class="line">        <span class="keyword">int</span> idle1 = Integer.parseInt(token.nextToken());</div><div class="line"></div><div class="line">        Thread.sleep(<span class="number">1000</span>);</div><div class="line"></div><div class="line">        br = <span class="keyword">new</span> BufferedReader(</div><div class="line">                <span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(file)));</div><div class="line">        token = <span class="keyword">new</span> StringTokenizer(br.readLine());</div><div class="line">        token.nextToken();</div><div class="line">        <span class="keyword">int</span> user2 = Integer.parseInt(token.nextToken());</div><div class="line">        <span class="keyword">int</span> nice2 = Integer.parseInt(token.nextToken());</div><div class="line">        <span class="keyword">int</span> sys2 = Integer.parseInt(token.nextToken());</div><div class="line">        <span class="keyword">int</span> idle2 = Integer.parseInt(token.nextToken());</div><div class="line"></div><div class="line">        <span class="keyword">return</span> (<span class="keyword">float</span>)((user2 + sys2 + nice2) -</div><div class="line">              (user1 + sys1 + nice1)) / (<span class="keyword">float</span>)((user2 + nice2 + sys2 + idle2) -</div><div class="line">              (user1 + nice1 + sys1 + idle1));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/04/10/java-linux-properties/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/04/10/java-linux-properties/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-java-windows-properties" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -332,63 +414,63 @@ var jiathis_config={
         
 <div class="article-gallery">
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/0.jpg" rel="gallery_cjai91efs001hw8uyxz26v33o">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/0.jpg" rel="gallery_cjal3f11n001ft4uyw0ynnqvj">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/0.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/1.jpg" rel="gallery_cjai91efs001hw8uyxz26v33o">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/1.jpg" rel="gallery_cjal3f11n001ft4uyw0ynnqvj">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/1.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/2.jpg" rel="gallery_cjai91efs001hw8uyxz26v33o">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/2.jpg" rel="gallery_cjal3f11n001ft4uyw0ynnqvj">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/2.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/3.jpg" rel="gallery_cjai91efs001hw8uyxz26v33o">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/3.jpg" rel="gallery_cjal3f11n001ft4uyw0ynnqvj">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/3.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/4.jpg" rel="gallery_cjai91efs001hw8uyxz26v33o">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/4.jpg" rel="gallery_cjal3f11n001ft4uyw0ynnqvj">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/4.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/5.jpg" rel="gallery_cjai91efs001hw8uyxz26v33o">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/5.jpg" rel="gallery_cjal3f11n001ft4uyw0ynnqvj">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/5.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/6.jpg" rel="gallery_cjai91efs001hw8uyxz26v33o">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/6.jpg" rel="gallery_cjal3f11n001ft4uyw0ynnqvj">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/6.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/7.jpg" rel="gallery_cjai91efs001hw8uyxz26v33o">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/7.jpg" rel="gallery_cjal3f11n001ft4uyw0ynnqvj">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/7.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/8.jpg" rel="gallery_cjai91efs001hw8uyxz26v33o">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/8.jpg" rel="gallery_cjal3f11n001ft4uyw0ynnqvj">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/8.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/9.jpg" rel="gallery_cjai91efs001hw8uyxz26v33o">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/9.jpg" rel="gallery_cjal3f11n001ft4uyw0ynnqvj">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/9.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/10.jpg" rel="gallery_cjai91efs001hw8uyxz26v33o">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/10.jpg" rel="gallery_cjal3f11n001ft4uyw0ynnqvj">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/10.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/11.jpg" rel="gallery_cjai91efs001hw8uyxz26v33o">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/11.jpg" rel="gallery_cjal3f11n001ft4uyw0ynnqvj">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/11.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/12.jpg" rel="gallery_cjai91efs001hw8uyxz26v33o">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/12.jpg" rel="gallery_cjal3f11n001ft4uyw0ynnqvj">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/12.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/13.jpg" rel="gallery_cjai91efs001hw8uyxz26v33o">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/13.jpg" rel="gallery_cjal3f11n001ft4uyw0ynnqvj">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/13.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/14.jpg" rel="gallery_cjai91efs001hw8uyxz26v33o">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/14.jpg" rel="gallery_cjal3f11n001ft4uyw0ynnqvj">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/gem/14.jpg" itemprop="image" />
     </a>
     
@@ -477,83 +559,83 @@ var jiathis_config={
         
 <div class="article-gallery">
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/0.jpg" rel="gallery_cjai91ei6002cw8uytzlri47k">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/0.jpg" rel="gallery_cjal3f120001kt4uysn8nllof">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/0.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/1.jpg" rel="gallery_cjai91ei6002cw8uytzlri47k">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/1.jpg" rel="gallery_cjal3f120001kt4uysn8nllof">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/1.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/2.jpg" rel="gallery_cjai91ei6002cw8uytzlri47k">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/2.jpg" rel="gallery_cjal3f120001kt4uysn8nllof">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/2.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/3.jpg" rel="gallery_cjai91ei6002cw8uytzlri47k">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/3.jpg" rel="gallery_cjal3f120001kt4uysn8nllof">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/3.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/4.jpg" rel="gallery_cjai91ei6002cw8uytzlri47k">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/4.jpg" rel="gallery_cjal3f120001kt4uysn8nllof">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/4.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/5.jpg" rel="gallery_cjai91ei6002cw8uytzlri47k">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/5.jpg" rel="gallery_cjal3f120001kt4uysn8nllof">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/5.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/6.jpg" rel="gallery_cjai91ei6002cw8uytzlri47k">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/6.jpg" rel="gallery_cjal3f120001kt4uysn8nllof">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/6.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/7.jpg" rel="gallery_cjai91ei6002cw8uytzlri47k">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/7.jpg" rel="gallery_cjal3f120001kt4uysn8nllof">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/7.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/8.jpg" rel="gallery_cjai91ei6002cw8uytzlri47k">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/8.jpg" rel="gallery_cjal3f120001kt4uysn8nllof">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/8.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/9.jpg" rel="gallery_cjai91ei6002cw8uytzlri47k">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/9.jpg" rel="gallery_cjal3f120001kt4uysn8nllof">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/9.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/10.jpg" rel="gallery_cjai91ei6002cw8uytzlri47k">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/10.jpg" rel="gallery_cjal3f120001kt4uysn8nllof">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/10.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/11.jpg" rel="gallery_cjai91ei6002cw8uytzlri47k">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/11.jpg" rel="gallery_cjal3f120001kt4uysn8nllof">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/11.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/12.jpg" rel="gallery_cjai91ei6002cw8uytzlri47k">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/12.jpg" rel="gallery_cjal3f120001kt4uysn8nllof">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/12.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/13.jpg" rel="gallery_cjai91ei6002cw8uytzlri47k">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/13.jpg" rel="gallery_cjal3f120001kt4uysn8nllof">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/13.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/14.jpg" rel="gallery_cjai91ei6002cw8uytzlri47k">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/14.jpg" rel="gallery_cjal3f120001kt4uysn8nllof">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/14.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/15.jpg" rel="gallery_cjai91ei6002cw8uytzlri47k">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/15.jpg" rel="gallery_cjal3f120001kt4uysn8nllof">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/15.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/16.jpg" rel="gallery_cjai91ei6002cw8uytzlri47k">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/16.jpg" rel="gallery_cjal3f120001kt4uysn8nllof">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/16.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/17.jpg" rel="gallery_cjai91ei6002cw8uytzlri47k">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/17.jpg" rel="gallery_cjal3f120001kt4uysn8nllof">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/17.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/18.jpg" rel="gallery_cjai91ei6002cw8uytzlri47k">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/18.jpg" rel="gallery_cjal3f120001kt4uysn8nllof">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/18.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/19.jpg" rel="gallery_cjai91ei6002cw8uytzlri47k">
+    <a class="gallery-item" href="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/19.jpg" rel="gallery_cjal3f120001kt4uysn8nllof">
         <img src="https://github.com/dragon-yuan/dragon-yuan.github.io/raw/master/gallery/runningman/19.jpg" itemprop="image" />
     </a>
     
@@ -1213,675 +1295,6 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2017/02/22/poi-read-excel/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/02/22/poi-read-excel/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-gallery-mylife-2017" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/01/gallery-mylife-2017/">2017 - Dragon&#39;s Life</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/01/01/gallery-mylife-2017/">
-            <time datetime="2016-12-31T16:00:00.000Z" itemprop="datePublished">2017-01-01</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Gallery/">Gallery</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-<div class="article-gallery">
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/0.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/0.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/1.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/1.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/2.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/2.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/3.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/3.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/4.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/4.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/5.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/5.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/6.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/6.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/7.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/7.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/8.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/8.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/9.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/9.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/10.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/10.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/11.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/11.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/12.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/12.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/13.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/13.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/14.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/14.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/15.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/15.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/16.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/16.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/17.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/17.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/18.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/18.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/19.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/19.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/20.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/20.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/21.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/21.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/22.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/22.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/23.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/23.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/24.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/24.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/25.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/25.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/26.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/26.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/27.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/27.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/28.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/28.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/29.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/29.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/30.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/30.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/31.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/31.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/32.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/32.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/33.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/33.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/34.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/34.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/35.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/35.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/36.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/36.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/37.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/37.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/38.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/38.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/39.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/39.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/40.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/40.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/41.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/41.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/42.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/42.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/43.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/43.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/44.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/44.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/45.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/45.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/46.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/46.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/47.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/47.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/48.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/48.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/49.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/49.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/50.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/50.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/51.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/51.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/52.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/52.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/53.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/53.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/54.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/54.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/55.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/55.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/56.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/56.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/57.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/57.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/58.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/58.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/59.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/59.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/60.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/60.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/61.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/61.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/62.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/62.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/63.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/63.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/64.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/64.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/65.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/65.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/66.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/66.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/67.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/67.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/68.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/68.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/69.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/69.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/70.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/70.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/71.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/71.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/72.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/72.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/73.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/73.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/74.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/74.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/75.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/75.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/76.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/76.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/77.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/77.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/78.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/78.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/79.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/79.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/80.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/80.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/81.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/81.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/82.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/82.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/83.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/83.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/84.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/84.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/85.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/85.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/86.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/86.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/87.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/87.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/88.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/88.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/89.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/89.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/90.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/90.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/91.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/91.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/92.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/92.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/93.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/93.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/94.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/94.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/95.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/95.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/96.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/96.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/97.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/97.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/98.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/98.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/99.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/99.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/100.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/100.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/101.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/101.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/102.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/102.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/103.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/103.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/104.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/104.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/105.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/105.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/106.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/106.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/107.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/107.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/108.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/108.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/109.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/109.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/110.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/110.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/111.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/111.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/112.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/112.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/113.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/113.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/114.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/114.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/115.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/115.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/116.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/116.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/117.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/117.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/118.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/118.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/119.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/119.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/120.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/120.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/121.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/121.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/122.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/122.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/123.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/123.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/124.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/124.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/125.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/125.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/126.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/126.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/127.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/127.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/128.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/128.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/129.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/129.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/130.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/130.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/131.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/131.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/132.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/132.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/133.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/133.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/134.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/134.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/135.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/135.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/136.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/136.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/137.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/137.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/138.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/138.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/139.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/139.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/140.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/140.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/141.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/141.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/142.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/142.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/143.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/143.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/144.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/144.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/145.jpg" rel="gallery_cjai91eg7001ow8uy8p4nn9fj">
-        <img src="http://img-blog.dragon-yuan.me/2017-LIFE/145.jpg" itemprop="image" />
-    </a>
-    
-</div>
-
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/01/01/gallery-mylife-2017/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/01/01/gallery-mylife-2017/">Comments</a>
     
 
         </footer>
