@@ -26,19 +26,19 @@
 	})();
 	</script>
     
-    <title>Array.prototype.slice.call(arguments) | DragonBlog</title>
+    <title>HttpSessionListener与WebListener注解的应用 | DragonBlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="首先，slice有两个用法，一个是String.slice,一个是Array.slice，第一个返回的是字符串，第二个返回的是数组。Array.prototype.slice.call(arguments)能够将arguments转成数组。123456// length:2var a = &amp;#123;&apos;first&apos;,&apos;second&apos;&amp;#125;;Array.prototype.slice.call">
+    <meta name="description" content="对于Session来说主要就是它的创建和销毁。对于HttpSessionListener这个接口，有两个方法：12345678910@Overridepublic void sessionCreated(HttpSessionEvent httpSessionEvent) &amp;#123;	logger.info(&quot;Session创建...&quot;);	HttpSession session = httpS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Array.prototype.slice.call(arguments)">
-<meta property="og:url" content="http://blog.dragon-yuan.me/2017/07/18/array-prototype-slice-call/index.html">
+<meta property="og:title" content="HttpSessionListener与WebListener注解的应用">
+<meta property="og:url" content="http://blog.dragon-yuan.me/2017/11/29/HttpSessionListener/index.html">
 <meta property="og:site_name" content="DragonBlog">
-<meta property="og:description" content="首先，slice有两个用法，一个是String.slice,一个是Array.slice，第一个返回的是字符串，第二个返回的是数组。Array.prototype.slice.call(arguments)能够将arguments转成数组。123456// length:2var a = &amp;#123;&apos;first&apos;,&apos;second&apos;&amp;#125;;Array.prototype.slice.call">
+<meta property="og:description" content="对于Session来说主要就是它的创建和销毁。对于HttpSessionListener这个接口，有两个方法：12345678910@Overridepublic void sessionCreated(HttpSessionEvent httpSessionEvent) &amp;#123;	logger.info(&quot;Session创建...&quot;);	HttpSession session = httpS">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-07-18T14:44:36.009Z">
+<meta property="og:updated_time" content="2017-11-29T13:29:52.011Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Array.prototype.slice.call(arguments)">
-<meta name="twitter:description" content="首先，slice有两个用法，一个是String.slice,一个是Array.slice，第一个返回的是字符串，第二个返回的是数组。Array.prototype.slice.call(arguments)能够将arguments转成数组。123456// length:2var a = &amp;#123;&apos;first&apos;,&apos;second&apos;&amp;#125;;Array.prototype.slice.call">
+<meta name="twitter:title" content="HttpSessionListener与WebListener注解的应用">
+<meta name="twitter:description" content="对于Session来说主要就是它的创建和销毁。对于HttpSessionListener这个接口，有两个方法：12345678910@Overridepublic void sessionCreated(HttpSessionEvent httpSessionEvent) &amp;#123;	logger.info(&quot;Session创建...&quot;);	HttpSession session = httpS">
     
 
     
@@ -213,7 +213,7 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-array-prototype-slice-call" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-HttpSessionListener" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -221,7 +221,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            Array.prototype.slice.call(arguments)
+            HttpSessionListener与WebListener注解的应用
         </h1>
     
 
@@ -230,8 +230,8 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/07/18/array-prototype-slice-call/">
-            <time datetime="2017-07-18T14:20:22.000Z" itemprop="datePublished">2017-07-18</time>
+        <a href="/2017/11/29/HttpSessionListener/">
+            <time datetime="2017-11-29T13:19:26.000Z" itemprop="datePublished">2017-11-29</time>
         </a>
     </div>
 
@@ -239,7 +239,7 @@ var _hmt = _hmt || [];
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/web/">web</a>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
     </div>
 
                         
@@ -251,7 +251,9 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>首先，slice有两个用法，一个是String.slice,一个是Array.slice，第一个返回的是字符串，<br>第二个返回的是数组。<br>Array.prototype.slice.call(arguments)能够将arguments转成数组。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// length:2</span></div><div class="line"><span class="keyword">var</span> a = &#123;<span class="string">'first'</span>,<span class="string">'second'</span>&#125;;</div><div class="line"><span class="built_in">Array</span>.prototype.slice.call(a); <span class="comment">//  ["first", "second"]</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> a = &#123;&#125;;</div><div class="line"><span class="built_in">Array</span>.prototype.slice.call(a); <span class="comment">//  [undefined, undefined]</span></div></pre></td></tr></table></figure></p>
+            <p>对于Session来说主要就是它的创建和销毁。<br>对于<code>HttpSessionListener</code>这个接口，有两个方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sessionCreated</span><span class="params">(HttpSessionEvent httpSessionEvent)</span> </span>&#123;</div><div class="line">	logger.info(<span class="string">"Session创建..."</span>);</div><div class="line">	HttpSession session = httpSessionEvent.getSession();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sessionDestroyed</span><span class="params">(HttpSessionEvent httpSessionEvent)</span> </span>&#123;</div><div class="line">    logger.info(<span class="string">"Session销毁..."</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>当浏览器第一次访问网站的时候，WEB服务器会新建一个HttpSession对象 ，并触发 HttpSession创建事件 ，如果注册了HttpSessionListener事件监听器，则会调用HttpSessionListener事件监听器的sessionCreated方法。<br>相反，当访问结束超时的时候，WEB服务器会销毁相应的HttpSession对象，并触发 HttpSession销毁事件，同时调用所注册HttpSessionListener事件监听器的sessionDestroyed方法。<br>通过httpSessionEvent.getSession()可以获取到新增session的id。通过这个方式，也可以记录当前在线人数。</p>
+<p>@WebListener注解<br>此注解来自servlet-api(javax.servlet.annotation.WebListener)<br>WebListener注解将一个实现了特定监听器接口的类定义为监听器，这样就不需要在配置文件中配置监听器的相关描述信息<br>简化了之前WEB.XML中的配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">listener</span>&gt;</span>  </div><div class="line">   <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>MySessionListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">listener</span>&gt;</span></div></pre></td></tr></table></figure></p>
 
         
         </div>
@@ -285,7 +287,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/07/18/array-prototype-slice-call/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/18/array-prototype-slice-call/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/11/29/HttpSessionListener/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/11/29/HttpSessionListener/">Comments</a>
     
 
         </footer>
@@ -294,19 +296,10 @@ var jiathis_config={
         
 <nav id="article-nav">
     
-        <a href="/2017/07/18/mybatis-insert-id/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    MyBatis在insert插入操作时返回主键ID（id为自增）
-                
-            </div>
-        </a>
     
-    
-        <a href="/2017/07/16/mybatis-mapper/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/11/19/java-class-getclass/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Mybatis中Mapper.xml映射文件</div>
+            <div class="article-nav-title">Java关于对象的遍历，类的反射</div>
         </a>
     
 </nav>
