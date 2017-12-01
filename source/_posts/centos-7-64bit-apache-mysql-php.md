@@ -85,6 +85,32 @@ tags:
 
 </span>
 
+```shell
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+:RH-Firewall-1-INPUT - [0:0]
+-A INPUT -j RH-Firewall-1-INPUT
+-A FORWARD -j RH-Firewall-1-INPUT
+-A RH-Firewall-1-INPUT -i lo -j ACCEPT
+-A RH-Firewall-1-INPUT -p icmp --icmp-type any -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -p tcp --dport 21 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 4433 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 5293 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 7777 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 8666 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 9000 -j ACCEPT
+-A RH-Firewall-1-INPUT -j REJECT --reject-with icmp-host-prohibited
+-A FORWARD -j REJECT --reject-with icmp-host-prohibited
+COMMIT
+```
+
 <span style="word-wrap: break-word; color: #64451d;"><span style="word-wrap: break-word; font-size: 16px; color: #000000;">** #最后重启防火墙使配置生效**</span>  
 </span>
 
@@ -99,6 +125,7 @@ tags:
 <div id="codeText" class="codeText" style="word-wrap: break-word; border: 1px solid #dddddd; width: 1041.453125px; overflow: auto; margin: 0px 0px 1.1em; padding: 0px; word-break: break-all; letter-spacing: 0.1px; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Consolas, monospace; color: #666666; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">
 
 1.  <span style="word-wrap: break-word; color: #000000; font-size: 16px;">**systemctl enable iptables.service**</span>
+1.  <span style="word-wrap: break-word; color: #000000; font-size: 16px;">**systemctl disable iptables.service**</span>
 
 </div>
 
