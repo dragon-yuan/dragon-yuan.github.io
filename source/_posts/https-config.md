@@ -43,3 +43,17 @@ srevice iptables restart
 service httpd restart
 service httpd status
 ```
+
+开启301；HTTP重定向到HTTPS
+```sheel
+#在所需的Directory中，修改AllowOverride为All
+<Directory "/var/www/html">
+AllowOverride All
+</Directory>
+
+#在网站跟路径增加.htaccess，并写入下面脚本
+RewriteEngine On
+RewriteBase /
+RewriteCond %{SERVER_PORT} !^443$
+RewriteRule ^(.*)$ https://domain/$1 [R=301,L]
+```
