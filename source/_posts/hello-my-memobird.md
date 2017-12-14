@@ -12,3 +12,7 @@ Hello my memobird.
 因为咕咕有自己的开放平台，准备搞一搞有趣的东西开发一下，顺便也学习学习新的语言喽。
 ![memobird](http://img-blog.dragon-yuan.me/2017-LIFE/150.jpg)
 还有啦，希望在2018年，能找到我咕咕机的另一个伴侣~
+更新下，2017.12.14日部分咕咕~
+![memobird](http://img-blog.dragon-yuan.me/2017-LIFE/151.jpg)
+![memobird](http://img-blog.dragon-yuan.me/2017-LIFE/152.jpg)
+![memobird](http://img-blog.dragon-yuan.me/2017-LIFE/153.jpg)
