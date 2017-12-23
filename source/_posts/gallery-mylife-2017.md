@@ -166,4 +166,11 @@ photos:
   - http://img-blog.dragon-yuan.me/2017-LIFE/159.jpg
   - http://img-blog.dragon-yuan.me/2017-LIFE/160.jpg
   - http://img-blog.dragon-yuan.me/2017-LIFE/161.jpg
+  - http://img-blog.dragon-yuan.me/2017-LIFE/162.jpg
+  - http://img-blog.dragon-yuan.me/2017-LIFE/163.jpg
+  - http://img-blog.dragon-yuan.me/2017-LIFE/164.jpg
+  - http://img-blog.dragon-yuan.me/2017-LIFE/165.jpg
+  - http://img-blog.dragon-yuan.me/2017-LIFE/166.jpg
+  - http://img-blog.dragon-yuan.me/2017-LIFE/167.jpg
+  - http://img-blog.dragon-yuan.me/2017-LIFE/168.jpg
 ---
