@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                114
+                115
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,6 +248,94 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-java-static" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/06/27/java-static/">在Java中对static的理解</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/06/27/java-static/">
+            <time datetime="2016-06-26T19:46:53.000Z" itemprop="datePublished">2016-06-27</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><span style="color: rgb(255, 0, 0);">static是不允许用来修饰局部变量</span>。不要问为什么，这是Java语法的规定。</p>
+<p>在《Java编程思想》P86页有这样一段话：</p>
+<p><span style="color: rgb(0, 0, 255);">“static方法就是没有this的方法。在static方法内部不能调用非静态方法，反过来是可以的。而且可以在没有创建任何对象的前提下，仅仅通过类本身来调用static方法。这实际上正是static方法的主要用途。”</span></p>
+<p><span style="color: rgb(0, 0, 255);"><span style="color: rgb(0, 0, 0);">简而言之，一句话来描述就是：</span></span>方便在没有创建对象的情况下来进行调用（方法/变量）。</p>
+<p><span style="color: rgb(0, 0, 255);"><span style="color: rgb(0, 0, 0);"><span style="color: rgb(255, 0, 0);"><span style="color: rgb(0, 0, 0);">很显然，被static关键字修饰的方法或者变量不需要依赖于对象来进行访问，只要类被加载了，就可以通过类名去进行访问。</span></span></span></span></p>
+<p><span style="color: rgb(0, 0, 255);"><span style="color: rgb(0, 0, 0);">static可以用来修饰类的成员方法、类的成员变量，另外可以编写static代码块来优化程序性能。</span></span></p>
+<p><span style="color: #000000;">感谢</span><span style="font-size: 12.1599998474121px; line-height: 1.3em;">尊重作者劳动成果，原文链接：</span><a href="http://www.cnblogs.com/dolphin0520/p/3799052.html" target="_blank" rel="external">http://www.cnblogs.com/dolphin0520/p/3799052.html</a></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2016/06/27/java-static/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2016/06/27/java-static/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-2016-06-23-05-58-25" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1123,89 +1211,6 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2016/03/09/sublime-text-3-bulid-3090-key/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2016/03/09/sublime-text-3-bulid-3090-key/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-css-input" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/03/02/css-input/">使用CSS让input标签去掉点击后出现的边框</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/03/02/css-input/">
-            <time datetime="2016-03-01T16:42:31.000Z" itemprop="datePublished">2016-03-02</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>CSS：</p>
-<pre style="white-space: pre-wrap; font-size: 14px; margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; word-wrap: break-word; line-height: 24px;"><span style="word-wrap: normal; word-break: normal; white-space: normal;">outline:none;</span></pre>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2016/03/02/css-input/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2016/03/02/css-input/">Comments</a>
     
 
         </footer>
