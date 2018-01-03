@@ -1,1 +1,1 @@
-http://blog.dragon-yuan.me/2018/01/01/gallery-mylife-2018/
+http://blog.dragon-yuan.me/2018/01/03/mybatis-batch-insert/
