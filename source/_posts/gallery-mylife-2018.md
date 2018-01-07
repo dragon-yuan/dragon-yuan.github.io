@@ -9,5 +9,5 @@ photos:
   - http://img-blog.dragon-yuan.me/2018-LIFE/2.jpg
   - http://img-blog.dragon-yuan.me/2018-LIFE/3.jpg
   - http://img-blog.dragon-yuan.me/2018-LIFE/4.jpg
-  - http://img-blog.dragon-yuan.me/2018-LIFE/5.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/5.png
 ---
