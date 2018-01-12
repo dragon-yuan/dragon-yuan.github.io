@@ -10,4 +10,11 @@ photos:
   - http://img-blog.dragon-yuan.me/2018-LIFE/3.jpg
   - http://img-blog.dragon-yuan.me/2018-LIFE/4.jpg
   - http://img-blog.dragon-yuan.me/2018-LIFE/5.png
+  - http://img-blog.dragon-yuan.me/2018-LIFE/4.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/6.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/7.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/8.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/9.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/10.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/11.jpg
 ---
