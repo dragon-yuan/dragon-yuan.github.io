@@ -17,4 +17,7 @@ photos:
   - http://img-blog.dragon-yuan.me/2018-LIFE/9.jpg
   - http://img-blog.dragon-yuan.me/2018-LIFE/10.jpg
   - http://img-blog.dragon-yuan.me/2018-LIFE/11.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/12.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/13.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/14.jpg
 ---
