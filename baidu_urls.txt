@@ -1,1 +1,1 @@
-http://blog.dragon-yuan.me/2018/01/03/mybatis-batch-insert/
+http://blog.dragon-yuan.me/2018/01/16/transactional-one/
