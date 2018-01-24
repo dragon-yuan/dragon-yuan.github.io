@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                119
+                120
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,6 +248,147 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-centos-7-shadowsocks" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2015/10/17/centos-7-shadowsocks/">Centos 7安装配置Shadowsocks</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2015/10/17/centos-7-shadowsocks/">
+            <time datetime="2015-10-16T23:52:38.000Z" itemprop="datePublished">2015-10-17</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Operations/">Operations</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="源网页"><a href="#源网页" class="headerlink" title="源网页"></a><a href="源网页https:/www.ifshow.com/centos-7-installation-and-configuration-shadowsocks/">源网页</a></h2><h2 id="1-安装shadowsocks"><a href="#1-安装shadowsocks" class="headerlink" title="1. 安装shadowsocks"></a>1. 安装shadowsocks</h2><pre style="border: 1px solid #7fb5ff; font-family: 'Courier 10 Pitch', Courier, monospace; font-size: 13px; margin-top: 0px; margin-bottom: 1.625em; outline: 0px; padding: 0.75em 1.625em; vertical-align: baseline; font-stretch: normal; line-height: 1.5; overflow: auto; color: #373737; background: #d9e9ff;">yum install python-setuptools && easy_install pip
+pip install shadowsocks</pre>
+
+<h2 id="2-新建shadowsocks的配置文件"><a href="#2-新建shadowsocks的配置文件" class="headerlink" title="2. 新建shadowsocks的配置文件"></a>2. 新建shadowsocks的配置文件</h2><pre style="border: 1px solid #7fb5ff; font-family: 'Courier 10 Pitch', Courier, monospace; font-size: 13px; margin-top: 0px; margin-bottom: 1.625em; outline: 0px; padding: 0.75em 1.625em; vertical-align: baseline; font-stretch: normal; line-height: 1.5; overflow: auto; color: #373737; background: #d9e9ff;">mkdir -p /etc/shadowsocks
+vi /etc/shadowsocks/config.json</pre>
+
+<p>输入以下内容：</p>
+<pre style="border: 1px solid #7fb5ff; font-family: 'Courier 10 Pitch', Courier, monospace; font-size: 13px; margin-top: 0px; margin-bottom: 1.625em; outline: 0px; padding: 0.75em 1.625em; vertical-align: baseline; font-stretch: normal; line-height: 1.5; overflow: auto; color: #373737; background: #d9e9ff;">{
+ "server":"0.0.0.0",
+ "server_port":8888,
+ "local_address": "127.0.0.1",
+ "local_port":1080,
+ "password":"mypassword",
+ "timeout":300,
+ "method":"aes-256-cfb",
+ "fast_open": false,
+ "workers": 1
+}</pre>
+
+<p>说明：服务器IP，服务端口（建议自定义），本地监听IP，本地监听端口，密码（建议自定义），超时时间，加密算法，关闭fast-open，工作进程数量为1。</p>
+<h2 id="3-新建shadowsocks的-service文件"><a href="#3-新建shadowsocks的-service文件" class="headerlink" title="3. 新建shadowsocks的.service文件"></a>3. 新建shadowsocks的.service文件</h2><pre style="border: 1px solid #7fb5ff; font-family: 'Courier 10 Pitch', Courier, monospace; font-size: 13px; margin-top: 0px; margin-bottom: 1.625em; outline: 0px; padding: 0.75em 1.625em; vertical-align: baseline; font-stretch: normal; line-height: 1.5; overflow: auto; color: #373737; background: #d9e9ff;">vi /etc/systemd/system/shadowsocks-server.service</pre>
+
+<p>输入以下内容：</p>
+<pre style="border: 1px solid #7fb5ff; font-family: 'Courier 10 Pitch', Courier, monospace; font-size: 13px; margin-top: 0px; margin-bottom: 1.625em; outline: 0px; padding: 0.75em 1.625em; vertical-align: baseline; font-stretch: normal; line-height: 1.5; overflow: auto; color: #373737; background: #d9e9ff;">[Unit]
+Description=Shadowsocks Server
+After=network.target
+
+[Service]
+Type=forking
+PIDFile=/run/shadowsocks/server.pid
+PermissionsStartOnly=true
+ExecStartPre=/bin/mkdir -p /run/shadowsocks
+ExecStartPre=/bin/chown root:root /run/shadowsocks
+ExecStart=/usr/bin/ssserver --pid-file /var/run/shadowsocks/server.pid -c /etc/shadowsocks/config.json -d start
+Restart=on-abort
+User=root
+Group=root
+UMask=0027
+
+[Install]
+WantedBy=multi-user.target</pre>
+
+<h2 id="4-运行shadowsocks服务并设置为开机自启："><a href="#4-运行shadowsocks服务并设置为开机自启：" class="headerlink" title="4. 运行shadowsocks服务并设置为开机自启："></a>4. 运行shadowsocks服务并设置为开机自启：</h2><pre style="border: 1px solid #7fb5ff; font-family: 'Courier 10 Pitch', Courier, monospace; font-size: 13px; margin-top: 0px; margin-bottom: 1.625em; outline: 0px; padding: 0.75em 1.625em; vertical-align: baseline; font-stretch: normal; line-height: 1.5; overflow: auto; color: #373737; background: #d9e9ff;">systemctl start shadowsocks-server.service
+systemctl enable shadowsocks-server.service</pre>
+
+<h2 id="5-防火墙开放shadowsocks服务端口："><a href="#5-防火墙开放shadowsocks服务端口：" class="headerlink" title="5. 防火墙开放shadowsocks服务端口："></a>5. 防火墙开放shadowsocks服务端口：</h2><pre style="border: 1px solid #7fb5ff; font-family: 'Courier 10 Pitch', Courier, monospace; font-size: 13px; margin-top: 0px; margin-bottom: 1.625em; outline: 0px; padding: 0.75em 1.625em; vertical-align: baseline; font-stretch: normal; line-height: 1.5; overflow: auto; color: #373737; background: #d9e9ff;">firewall-cmd --permanent --add-port=8888/tcp
+firewall-cmd --reload</pre>
+
+<h2 id="6-常用操作"><a href="#6-常用操作" class="headerlink" title="6. 常用操作"></a>6. 常用操作</h2><p>升级shadowsocks</p>
+<pre style="border: 1px solid #7fb5ff; font-family: 'Courier 10 Pitch', Courier, monospace; font-size: 13px; margin-top: 0px; margin-bottom: 1.625em; outline: 0px; padding: 0.75em 1.625em; vertical-align: baseline; font-stretch: normal; line-height: 1.5; overflow: auto; color: #373737; background: #d9e9ff;">pip install -U shadowsocks</pre>
+
+<p>卸载shadowsocks</p>
+<pre style="border: 1px solid #7fb5ff; font-family: 'Courier 10 Pitch', Courier, monospace; font-size: 13px; margin-top: 0px; margin-bottom: 1.625em; outline: 0px; padding: 0.75em 1.625em; vertical-align: baseline; font-stretch: normal; line-height: 1.5; overflow: auto; color: #373737; background: #d9e9ff;">pip uninstall shadowsocks
+</pre>
+
+<p>查询已安装的shadowsocks</p>
+<pre style="border: 1px solid #7fb5ff; font-family: 'Courier 10 Pitch', Courier, monospace; font-size: 13px; margin-top: 0px; margin-bottom: 1.625em; outline: 0px; padding: 0.75em 1.625em; vertical-align: baseline; font-stretch: normal; line-height: 1.5; overflow: auto; color: #373737; background: #d9e9ff;">pip search "shadowsocks"</pre>
+
+<p>停止shadowsocks服务</p>
+<pre style="border: 1px solid #7fb5ff; font-family: 'Courier 10 Pitch', Courier, monospace; font-size: 13px; margin-top: 0px; margin-bottom: 1.625em; outline: 0px; padding: 0.75em 1.625em; vertical-align: baseline; font-stretch: normal; line-height: 1.5; overflow: auto; color: #373737; background: #d9e9ff;">systemctl stop shadowsocks-server.service</pre>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2015/10/17/centos-7-shadowsocks/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2015/10/17/centos-7-shadowsocks/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-myeclipse10-0-key" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1017,91 +1158,6 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2015/07/24/xml-html/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2015/07/24/xml-html/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-sublime-text" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2015/07/15/sublime-text/">sublime Text 自动排列代码设置</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2015/07/15/sublime-text/">
-            <time datetime="2015-07-14T16:26:09.000Z" itemprop="datePublished">2015-07-15</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>1、打开Sublime</p>
-<p>2、Ctrl + Shift + p</p>
-<p>3、输入key选中User后在内容中加入下面代码</p>
-<p>[ {“keys”:[“shift+ctrl+f”],”command”:”reindent”,”args”:{“single_line”:false}}, ]</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2015/07/15/sublime-text/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2015/07/15/sublime-text/">Comments</a>
     
 
         </footer>
