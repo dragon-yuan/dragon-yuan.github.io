@@ -26,19 +26,19 @@
 	})();
 	</script>
     
-    <title>MediaDrop代码 | DragonBlog</title>
+    <title>浅析Java关键字 transient | DragonBlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="source venv/bin/activate  setsid paster serve --reload deployment.ini">
+    <meta name="description" content="123transient官方解释：Variables may be marked transient to indicate that they are not part of the persistent state of an object.变量可以被标记为瞬态，表示它们不是对象的持久状态的一部分。 Java中transient关键字可以让被修饰的变量不被序列化，只需要实现Serilizabl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MediaDrop代码">
-<meta property="og:url" content="http://blog.dragon-yuan.me/2016/04/28/mediadrop/index.html">
+<meta property="og:title" content="浅析Java关键字 transient">
+<meta property="og:url" content="http://blog.dragon-yuan.me/2018/01/20/java-transient/index.html">
 <meta property="og:site_name" content="DragonBlog">
-<meta property="og:description" content="source venv/bin/activate  setsid paster serve --reload deployment.ini">
+<meta property="og:description" content="123transient官方解释：Variables may be marked transient to indicate that they are not part of the persistent state of an object.变量可以被标记为瞬态，表示它们不是对象的持久状态的一部分。 Java中transient关键字可以让被修饰的变量不被序列化，只需要实现Serilizabl">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2016-12-23T08:34:09.336Z">
+<meta property="og:updated_time" content="2018-01-23T15:57:11.656Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MediaDrop代码">
-<meta name="twitter:description" content="source venv/bin/activate  setsid paster serve --reload deployment.ini">
+<meta name="twitter:title" content="浅析Java关键字 transient">
+<meta name="twitter:description" content="123transient官方解释：Variables may be marked transient to indicate that they are not part of the persistent state of an object.变量可以被标记为瞬态，表示它们不是对象的持久状态的一部分。 Java中transient关键字可以让被修饰的变量不被序列化，只需要实现Serilizabl">
     
 
     
@@ -248,7 +248,7 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-mediadrop" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-java-transient" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -256,7 +256,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            MediaDrop代码
+            浅析Java关键字 transient
         </h1>
     
 
@@ -265,8 +265,8 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/04/28/mediadrop/">
-            <time datetime="2016-04-28T03:36:22.000Z" itemprop="datePublished">2016-04-28</time>
+        <a href="/2018/01/20/java-transient/">
+            <time datetime="2018-01-20T03:11:33.000Z" itemprop="datePublished">2018-01-20</time>
         </a>
     </div>
 
@@ -274,7 +274,7 @@ var _hmt = _hmt || [];
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Operations/">Operations</a>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
     </div>
 
                         
@@ -286,8 +286,8 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <pre>source venv/bin/activate </pre>
-<pre>setsid paster serve --reload deployment.ini </pre>
+            <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">transient官方解释：</div><div class="line">Variables may be marked transient to indicate that they are not part of the persistent state of an object.</div><div class="line">变量可以被标记为瞬态，表示它们不是对象的持久状态的一部分。</div></pre></td></tr></table></figure>
+<p>Java中transient关键字可以让被修饰的变量不被序列化，只需要实现Serilizable接口，将不需要<br>序列化的属添加transient，在序列化对象时此属性就不会被序列化到指定的目的地中。</p>
 
         
         </div>
@@ -321,7 +321,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2016/04/28/mediadrop/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2016/04/28/mediadrop/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2018/01/20/java-transient/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/01/20/java-transient/">Comments</a>
     
 
         </footer>
@@ -330,19 +330,19 @@ var jiathis_config={
         
 <nav id="article-nav">
     
-        <a href="/2016/05/05/centos/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2018/01/20/maven-dependencymanagement/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    Centos中二级域名绑定二级目录的方法
+                    Maven中的dependencyManagement
                 
             </div>
         </a>
     
     
-        <a href="/2016/04/24/windows-mysql/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/01/16/transactional-one/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Windows - MySQL设置编码</div>
+            <div class="article-nav-title">事物传播行为</div>
         </a>
     
 </nav>
