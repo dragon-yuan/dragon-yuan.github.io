@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                120
+                121
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,6 +248,105 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-java-serialversionuid" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/08/10/java-serialversionuid/">关于Java的序列化和serialVersionUID作用</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/08/10/java-serialversionuid/">
+            <time datetime="2016-08-09T19:34:42.000Z" itemprop="datePublished">2016-08-10</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><strong>Java的序列化</strong></p>
+<p>当两个进程在进行远程通信时，彼此可以发送各种类型的数据。无论是何种类型的数据，都会以二进制序列的形式在网络上传送。</p>
+<p>发送方需要把这个Java对象转换为字节序列，才能在网络上传送；接收方则需要把字节序列再恢复为Java对象。 </p>
+<p>1.把Java对象转换为字节序列的过程称为对象的序列化。 </p>
+<p>2.把字节序列恢复为Java对象的过程称为对象的反序列化。 </p>
+<hr>
+<p>对象的序列化主要有两种用途： </p>
+<p>1.把对象的字节序列永久地保存到硬盘上，通常存放在一个文件中 </p>
+<p>2.在网络上传送对象的字节序列</p>
+<hr>
+<hr>
+<p><strong>serialVersionUID</strong></p>
+<p>简单来说，Java的序列化机制是通过判断类的serialVersionUID来验证版本一致性的。</p>
+<p>在进行反序列化时，JVM会把传来的字节流中的serialVersionUID与本地相应实体类的serialVersionUID进行比较，如果相同就认为是一致的，可以进行反序列化，否则就会出现序列化版本不一致的异常（nvalidCastException）</p>
+<p>serialVersionUID有两种显示的生成方式：    </p>
+<p>一是默认的1L，比如：private static final long serialVersionUID = 1L;        </p>
+<p>二是根据类名、接口名、成员方法及属性等来生成一个64位的哈希字段，比如 ：private static final  long  serialVersionUID = xxxxL;</p>
+<p>本文来源于网络总结</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2016/08/10/java-serialversionuid/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2016/08/10/java-serialversionuid/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-request-getrequestdispatcher-response-sendredirect" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1134,106 +1233,8 @@ var jiathis_config={
 
 
 
-    <article id="post-centos" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/05/05/centos/">Centos中二级域名绑定二级目录的方法</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/05/05/centos/">
-            <time datetime="2016-05-04T21:25:26.000Z" itemprop="datePublished">2016-05-05</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Operations/">Operations</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>用文本编辑器打开Apache安装目录/etc/httpd/conf\httpd.conf，找到“#Load<a href="http://www.aliyun.com/zixun/aggregation/72666.html" target="_blank" rel="external">Module</a> rewrite_module modules/mod_rewrite.so”这行，去掉<a href="http://www.aliyun.com/zixun/aggregation/54488.html" target="_blank" rel="external">前面</a>的“#”;继续<a href="http://www.aliyun.com/zixun/aggregation/20541.html" target="_blank" rel="external">查找</a>“AllowOverride None”，修改为“AllowOverride All”，然后，重启Apache即可。</p>
-<p>如此，就打开了mod_rewrite模块，其功能非常的强大，这里我只讲如何绑定二级域名。</p>
-<p><a href="http://www.aliyun.com/zixun/aggregation/53635.html" target="_blank" rel="external">同样</a>，我们在httpd.conf文件最后输入以下语句：</p>
-<p>RewriteEngine on</p>
-<p>RewriteMap lowercase int:tolower</p>
-<p>RewriteMap vhost txt:/etc/httpd/vhost.map</p>
-<p>RewriteCond ${lowercase:%{SERVER_NAME}} ^(.+)$</p>
-<p>RewriteCond ${vhost:%1} ^(/.*)$</p>
-<p>RewriteRule ^/(.*)$ %1/$1</p>
-<p>然后重启Apache</p>
-<p>这样，我们就能够自由设置绑定二级域名了。</p>
-<p>温馨提示：这个httpd.conf大家注意备份，我就曾经不小心误删，弄的极其的凄惨呀!!</p>
-<p>之后在/etc/httpd(即Apache安装目录)下新建一个vhost.map，用文本编辑器来绑定，极其简单，我的是这样写的：</p>
-<p>bbs.xxx.com /var/www/html/bbs</p>
-<p>home.xxx.com /var/www/html/home</p>
-<p>potplayer.xxx.com /var/www/html/potplayer</p>
-<p>我们可以随意把二级域名与目录绑定，保存就行，并且<a href="http://www.aliyun.com/zixun/aggregation/20432.html" target="_blank" rel="external">不用</a>重启Apache，非常方便。</p>
-<h4 id="本文章全部来源于互联网，版权归属于原作者。本站所有转载文章言论不代表本站观点，如是侵犯了原作者的权利请发邮件联系站长（plu-huajuan-163-com），收到后立即删除。"><a href="#本文章全部来源于互联网，版权归属于原作者。本站所有转载文章言论不代表本站观点，如是侵犯了原作者的权利请发邮件联系站长（plu-huajuan-163-com），收到后立即删除。" class="headerlink" title="本文章全部来源于互联网，版权归属于原作者。本站所有转载文章言论不代表本站观点，如是侵犯了原作者的权利请发邮件联系站长（plu_huajuan@163.com），收到后立即删除。"></a>本文章全部来源于互联网，版权归属于原作者。本站所有转载文章言论不代表本站观点，如是侵犯了原作者的权利请发邮件联系站长（plu_huajuan@163.com），收到后立即删除。</h4>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2016/05/05/centos/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2016/05/05/centos/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
     </nav>
 </section>
             
