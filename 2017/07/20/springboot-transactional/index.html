@@ -35,7 +35,7 @@
 <meta property="og:site_name" content="DragonBlog">
 <meta property="og:description" content="#前言在开发时，由于数操作在顺序执行的过程中，任何一步操作都有可能发生异常，异常会导致后续操作无法完成，此时由于业务逻辑并未正确的完成，之前成功操作数据的并不可靠，需要在这种情况下进行回退。事务的作用就是为了保证用户的每一个操作都是可靠的，事务中的每一步操作都必须成功执行，只要有发生异常就回退到事务开始未进行操作的状态。事务管理是Spring框架中最为常用的功能之一，在开发应用时，大部分情况下也都">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-07-22T12:02:06.735Z">
+<meta property="og:updated_time" content="2018-01-29T14:16:07.103Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Boot事务管理">
 <meta name="twitter:description" content="#前言在开发时，由于数操作在顺序执行的过程中，任何一步操作都有可能发生异常，异常会导致后续操作无法完成，此时由于业务逻辑并未正确的完成，之前成功操作数据的并不可靠，需要在这种情况下进行回退。事务的作用就是为了保证用户的每一个操作都是可靠的，事务中的每一步操作都必须成功执行，只要有发生异常就回退到事务开始未进行操作的状态。事务管理是Spring框架中最为常用的功能之一，在开发应用时，大部分情况下也都">
@@ -293,6 +293,7 @@ var _hmt = _hmt || [];
 <p>虽然@Transactional 注解可以作用于接口、接口方法、类以及类方法上，但是 Spring建议不<br>要在接口或者接口方法上使用该注解，因为这只有在使用基于接口的代理时它才会生效。</p>
 <p>@Transactional 注解应该只被应用到public方法上，这是由Spring AOP的本质决定的。<br>如果在protected、private或者默认可见性的方法上使用@Transactional注解，这将被忽略，<br>也不会抛出任何异常。</p>
 <p>@EnableTransactionManagement<br>开启注解事务管理，等同于xml配置文件中的 <tx:annotation-driven></tx:annotation-driven></p>
+<p>#对于查询的注解处理<br>不需要事务管理的(只查询的)方法<br>@Transactional(propagation=Propagation.NOT_SUPPORTED)<br>在整个方法运行前就不会开启事务<br>@Transactional(propagation=Propagation.NOT_SUPPORTED,readOnly=true)<br>这样就做成一个只读事务，可以提高效率</p>
 
         
         </div>
