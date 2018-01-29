@@ -31,3 +31,11 @@ public方法将都具有该类型的事务属性，同时，也可以在方法�
 
 @EnableTransactionManagement
 开启注解事务管理，等同于xml配置文件中的 <tx:annotation-driven />
+
+#对于查询的注解处理
+不需要事务管理的(只查询的)方法
+@Transactional(propagation=Propagation.NOT_SUPPORTED) 
+在整个方法运行前就不会开启事务
+@Transactional(propagation=Propagation.NOT_SUPPORTED,readOnly=true)
+这样就做成一个只读事务，可以提高效率
+
