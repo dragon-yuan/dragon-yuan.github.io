@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                122
+                123
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,6 +248,88 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-maven-jar-annotation" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/02/05/maven-jar-annotation/">Maven打包添加源代码</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/02/05/maven-jar-annotation/">
+            <time datetime="2018-02-05T13:49:03.000Z" itemprop="datePublished">2018-02-05</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>在Maven pom.xml添加插件，打包jar文件时会自动引入注释：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></div><div class="line">      	<span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">	        <span class="comment">&lt;!--引入source插件 --&gt;</span></div><div class="line">	        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">	        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-source-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	        <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">	        <span class="comment">&lt;!-- 绑定source插件到Maven的生命周期,并在生命周期后执行绑定的source的goal --&gt;</span></div><div class="line">	        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></div><div class="line">	          <span class="tag">&lt;<span class="name">execution</span>&gt;</span></div><div class="line">	            <span class="comment">&lt;!-- 绑定source插件到Maven的生命周期 --&gt;</span></div><div class="line">	            <span class="tag">&lt;<span class="name">phase</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></div><div class="line">	            <span class="comment">&lt;!--在生命周期后执行绑定的source插件的goals --&gt;</span></div><div class="line">	            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></div><div class="line">	              <span class="tag">&lt;<span class="name">goal</span>&gt;</span>jar-no-fork<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></div><div class="line">	              <span class="tag">&lt;<span class="name">goal</span>&gt;</span>test-jar<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></div><div class="line">	            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></div><div class="line">	          <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></div><div class="line">	        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></div><div class="line">      	<span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2018/02/05/maven-jar-annotation/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/02/05/maven-jar-annotation/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-swagger" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -859,67 +941,67 @@ var jiathis_config={
         
 <div class="article-gallery">
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/0.jpg" rel="gallery_cjd645q39001l3ouyxlx61kps">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/0.jpg" rel="gallery_cjda9y7mf001q18uyz9xqz2nd">
         <img src="http://img-blog.dragon-yuan.me/2018-LIFE/0.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/1.jpg" rel="gallery_cjd645q39001l3ouyxlx61kps">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/1.jpg" rel="gallery_cjda9y7mf001q18uyz9xqz2nd">
         <img src="http://img-blog.dragon-yuan.me/2018-LIFE/1.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/2.jpg" rel="gallery_cjd645q39001l3ouyxlx61kps">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/2.jpg" rel="gallery_cjda9y7mf001q18uyz9xqz2nd">
         <img src="http://img-blog.dragon-yuan.me/2018-LIFE/2.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/3.jpg" rel="gallery_cjd645q39001l3ouyxlx61kps">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/3.jpg" rel="gallery_cjda9y7mf001q18uyz9xqz2nd">
         <img src="http://img-blog.dragon-yuan.me/2018-LIFE/3.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/4.jpg" rel="gallery_cjd645q39001l3ouyxlx61kps">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/4.jpg" rel="gallery_cjda9y7mf001q18uyz9xqz2nd">
         <img src="http://img-blog.dragon-yuan.me/2018-LIFE/4.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/5.png" rel="gallery_cjd645q39001l3ouyxlx61kps">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/5.png" rel="gallery_cjda9y7mf001q18uyz9xqz2nd">
         <img src="http://img-blog.dragon-yuan.me/2018-LIFE/5.png" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/4.jpg" rel="gallery_cjd645q39001l3ouyxlx61kps">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/4.jpg" rel="gallery_cjda9y7mf001q18uyz9xqz2nd">
         <img src="http://img-blog.dragon-yuan.me/2018-LIFE/4.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/6.jpg" rel="gallery_cjd645q39001l3ouyxlx61kps">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/6.jpg" rel="gallery_cjda9y7mf001q18uyz9xqz2nd">
         <img src="http://img-blog.dragon-yuan.me/2018-LIFE/6.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/7.jpg" rel="gallery_cjd645q39001l3ouyxlx61kps">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/7.jpg" rel="gallery_cjda9y7mf001q18uyz9xqz2nd">
         <img src="http://img-blog.dragon-yuan.me/2018-LIFE/7.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/8.jpg" rel="gallery_cjd645q39001l3ouyxlx61kps">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/8.jpg" rel="gallery_cjda9y7mf001q18uyz9xqz2nd">
         <img src="http://img-blog.dragon-yuan.me/2018-LIFE/8.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/9.jpg" rel="gallery_cjd645q39001l3ouyxlx61kps">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/9.jpg" rel="gallery_cjda9y7mf001q18uyz9xqz2nd">
         <img src="http://img-blog.dragon-yuan.me/2018-LIFE/9.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/10.jpg" rel="gallery_cjd645q39001l3ouyxlx61kps">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/10.jpg" rel="gallery_cjda9y7mf001q18uyz9xqz2nd">
         <img src="http://img-blog.dragon-yuan.me/2018-LIFE/10.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/11.jpg" rel="gallery_cjd645q39001l3ouyxlx61kps">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/11.jpg" rel="gallery_cjda9y7mf001q18uyz9xqz2nd">
         <img src="http://img-blog.dragon-yuan.me/2018-LIFE/11.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/12.jpg" rel="gallery_cjd645q39001l3ouyxlx61kps">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/12.jpg" rel="gallery_cjda9y7mf001q18uyz9xqz2nd">
         <img src="http://img-blog.dragon-yuan.me/2018-LIFE/12.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/13.jpg" rel="gallery_cjd645q39001l3ouyxlx61kps">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/13.jpg" rel="gallery_cjda9y7mf001q18uyz9xqz2nd">
         <img src="http://img-blog.dragon-yuan.me/2018-LIFE/13.jpg" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/14.jpg" rel="gallery_cjd645q39001l3ouyxlx61kps">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/14.jpg" rel="gallery_cjda9y7mf001q18uyz9xqz2nd">
         <img src="http://img-blog.dragon-yuan.me/2018-LIFE/14.jpg" itemprop="image" />
     </a>
     
@@ -1044,92 +1126,6 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2017/12/13/hello-my-memobird/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/12/13/hello-my-memobird/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-https-config" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/12/03/https-config/">记录APACHE-HTTPS的配置以及遇到的一些陷阱</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/12/03/https-config/">
-            <time datetime="2017-12-02T17:39:27.000Z" itemprop="datePublished">2017-12-03</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Operations/">Operations</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>在开启HTTPS之前，需要服务器防火墙（如果有使用iptables或firewall）</p>
-<p><1>httpd.conf<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#监听80和443端口</div><div class="line">Listen 80</div><div class="line">Listen 443</div><div class="line"></div><div class="line">#加载mod_ssl模块</div><div class="line">EnableSendfile on</div><div class="line">IncludeOptional conf.d/*.conf</div><div class="line">LoadModule ssl_module modules/mod_ssl.so</div><div class="line">Include conf.d/ssl.conf</div></pre></td></tr></table></figure></1></p>
-<p><2>ssl.conf<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#注意，在此配置文件中不需要监听443，防止重复监听</div><div class="line">#在对443虚拟路径映射的时候，需要填写固定IP，不要使用*代替</div><div class="line"><span class="tag">&lt;<span class="name">VirtualHost</span> <span class="attr">ip:443</span>&gt;</span></div><div class="line">#此处填写域名名称</div><div class="line">ServerName domain</div><div class="line"></div><div class="line">SSLEngine on</div><div class="line">SSLProtocol all -SSLv2 -SSLv3</div><div class="line">SSLCipherSuite HIGH:!RC4:!MD5:!aNULL:!eNULL:!NULL:!DH:!EDH:!EXP:+MEDIUM</div><div class="line">SSLHonorCipherOrder on</div><div class="line"></div><div class="line">#SSL加密密钥，可以在APACHE根路径下新建cert并存放密钥文件</div><div class="line">SSLCertificateFile /etc/httpd/cert/public.pem</div><div class="line">SSLCertificateKeyFile /etc/httpd/cert/214047770560394.key</div><div class="line">SSLCertificateChainFile /etc/httpd/cert/chain.pem</div></pre></td></tr></table></figure></2></p>
-<p>在配置好文件后，需要重新启动APACHE服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">srevice iptables restart</div><div class="line">service httpd restart</div><div class="line">service httpd status</div></pre></td></tr></table></figure></p>
-<p>开启301；HTTP重定向到HTTPS<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#在所需的Directory中，修改AllowOverride为All</div><div class="line">&lt;Directory &quot;/var/www/html&quot;&gt;</div><div class="line">AllowOverride All</div><div class="line">&lt;/Directory&gt;</div><div class="line"></div><div class="line">#在网站跟路径增加.htaccess，并写入下面脚本</div><div class="line">RewriteEngine On</div><div class="line">RewriteBase /</div><div class="line">RewriteCond %&#123;SERVER_PORT&#125; !^443$</div><div class="line">RewriteRule ^(.*)$ https://domain/$1 [R=301,L]</div></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/12/03/https-config/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/12/03/https-config/">Comments</a>
     
 
         </footer>
