@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                122
+                123
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,6 +248,92 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-https-config" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/12/03/https-config/">记录APACHE-HTTPS的配置以及遇到的一些陷阱</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/12/03/https-config/">
+            <time datetime="2017-12-02T17:39:27.000Z" itemprop="datePublished">2017-12-03</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Operations/">Operations</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>在开启HTTPS之前，需要服务器防火墙（如果有使用iptables或firewall）</p>
+<p><1>httpd.conf<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#监听80和443端口</div><div class="line">Listen 80</div><div class="line">Listen 443</div><div class="line"></div><div class="line">#加载mod_ssl模块</div><div class="line">EnableSendfile on</div><div class="line">IncludeOptional conf.d/*.conf</div><div class="line">LoadModule ssl_module modules/mod_ssl.so</div><div class="line">Include conf.d/ssl.conf</div></pre></td></tr></table></figure></1></p>
+<p><2>ssl.conf<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#注意，在此配置文件中不需要监听443，防止重复监听</div><div class="line">#在对443虚拟路径映射的时候，需要填写固定IP，不要使用*代替</div><div class="line"><span class="tag">&lt;<span class="name">VirtualHost</span> <span class="attr">ip:443</span>&gt;</span></div><div class="line">#此处填写域名名称</div><div class="line">ServerName domain</div><div class="line"></div><div class="line">SSLEngine on</div><div class="line">SSLProtocol all -SSLv2 -SSLv3</div><div class="line">SSLCipherSuite HIGH:!RC4:!MD5:!aNULL:!eNULL:!NULL:!DH:!EDH:!EXP:+MEDIUM</div><div class="line">SSLHonorCipherOrder on</div><div class="line"></div><div class="line">#SSL加密密钥，可以在APACHE根路径下新建cert并存放密钥文件</div><div class="line">SSLCertificateFile /etc/httpd/cert/public.pem</div><div class="line">SSLCertificateKeyFile /etc/httpd/cert/214047770560394.key</div><div class="line">SSLCertificateChainFile /etc/httpd/cert/chain.pem</div></pre></td></tr></table></figure></2></p>
+<p>在配置好文件后，需要重新启动APACHE服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">srevice iptables restart</div><div class="line">service httpd restart</div><div class="line">service httpd status</div></pre></td></tr></table></figure></p>
+<p>开启301；HTTP重定向到HTTPS<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#在所需的Directory中，修改AllowOverride为All</div><div class="line">&lt;Directory &quot;/var/www/html&quot;&gt;</div><div class="line">AllowOverride All</div><div class="line">&lt;/Directory&gt;</div><div class="line"></div><div class="line">#在网站跟路径增加.htaccess，并写入下面脚本</div><div class="line">RewriteEngine On</div><div class="line">RewriteBase /</div><div class="line">RewriteCond %&#123;SERVER_PORT&#125; !^443$</div><div class="line">RewriteRule ^(.*)$ https://domain/$1 [R=301,L]</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/12/03/https-config/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/12/03/https-config/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-HttpSessionListener" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -997,90 +1083,6 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2017/09/12/java-native/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/09/12/java-native/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-vue-keepalive" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/08/30/vue-keepalive/">Vue中Keep-Alive缓存的使用</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/08/30/vue-keepalive/">
-            <time datetime="2017-08-30T14:59:09.000Z" itemprop="datePublished">2017-08-30</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>Vue提供了一个keep-alive组件用来缓存组件。<br>首先在vue的主页路由上添加keep-alive，并且判断是否在路由开启keepAlive<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;keep-alive&gt;</div><div class="line">    &lt;router-view v-if="$route.meta.keepAlive"&gt;&lt;/router-view&gt;</div><div class="line">&lt;/keep-alive&gt;</div><div class="line">&lt;router-view v-if="!$route.meta.keepAlive"&gt;&lt;/router-view&gt;</div></pre></td></tr></table></figure></p>
-<p>在需要缓存的页面路由上添加标志位<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">keepAlive: ture</div></pre></td></tr></table></figure></p>
-<p>vue中生命周期相关的有：created,mounted,updated,activited,destroyed。<br>在页面上可以添加activited钩子函数。<br>针对keep-alive标签，使用keep-alive在单页中前进后退只触发activited。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">created() &#123;</div><div class="line">	method_1();</div><div class="line">&#125;,</div><div class="line">activited() &#123;</div><div class="line">	method_2();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/08/30/vue-keepalive/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/30/vue-keepalive/">Comments</a>
     
 
         </footer>

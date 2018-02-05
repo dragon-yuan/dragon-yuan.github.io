@@ -26,18 +26,19 @@
 	})();
 	</script>
     
-    <title>Archive: 2017/12 | DragonBlog</title>
+    <title>Maven打包添加源代码 | DragonBlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="dragon-yuan">
-<meta property="og:type" content="website">
-<meta property="og:title" content="DragonBlog">
-<meta property="og:url" content="http://blog.dragon-yuan.me/archives/2017/12/index.html">
+    <meta name="description" content="在Maven pom.xml添加插件，打包jar文件时会自动引入注释：12345678910111213141516171819202122&amp;lt;build&amp;gt;    &amp;lt;plugins&amp;gt;      	&amp;lt;plugin&amp;gt;	        &amp;lt;!--引入source插件 --&amp;gt;	        &amp;lt;groupId&amp;gt;org.apache.maven.plu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maven打包添加源代码">
+<meta property="og:url" content="http://blog.dragon-yuan.me/2018/02/05/maven-jar-annotation/index.html">
 <meta property="og:site_name" content="DragonBlog">
-<meta property="og:description" content="dragon-yuan">
+<meta property="og:description" content="在Maven pom.xml添加插件，打包jar文件时会自动引入注释：12345678910111213141516171819202122&amp;lt;build&amp;gt;    &amp;lt;plugins&amp;gt;      	&amp;lt;plugin&amp;gt;	        &amp;lt;!--引入source插件 --&amp;gt;	        &amp;lt;groupId&amp;gt;org.apache.maven.plu">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-02-05T13:50:53.177Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DragonBlog">
-<meta name="twitter:description" content="dragon-yuan">
+<meta name="twitter:title" content="Maven打包添加源代码">
+<meta name="twitter:description" content="在Maven pom.xml添加插件，打包jar文件时会自动引入注释：12345678910111213141516171819202122&amp;lt;build&amp;gt;    &amp;lt;plugins&amp;gt;      	&amp;lt;plugin&amp;gt;	        &amp;lt;!--引入source插件 --&amp;gt;	        &amp;lt;groupId&amp;gt;org.apache.maven.plu">
     
 
     
@@ -247,76 +248,122 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2017</h1>
-            </div>
+            <section id="main"><article id="post-maven-jar-annotation" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/12/13/hello-my-memobird/">为我的新朋友“咕咕”安个家</a>
+        <h1 class="article-title" itemprop="name">
+            Maven打包添加源代码
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/12/13/hello-my-memobird/">
-            <time datetime="2017-12-13T15:17:22.000Z" itemprop="datePublished">2017-12-13</time>
+        <a href="/2018/02/05/maven-jar-annotation/">
+            <time datetime="2018-02-05T13:49:03.000Z" itemprop="datePublished">2018-02-05</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/notes/">notes</a>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
     </div>
 
-                    
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                        
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/12/03/https-config/">记录APACHE-HTTPS的配置以及遇到的一些陷阱</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>在Maven pom.xml添加插件，打包jar文件时会自动引入注释：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></div><div class="line">      	<span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">	        <span class="comment">&lt;!--引入source插件 --&gt;</span></div><div class="line">	        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">	        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-source-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	        <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">	        <span class="comment">&lt;!-- 绑定source插件到Maven的生命周期,并在生命周期后执行绑定的source的goal --&gt;</span></div><div class="line">	        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></div><div class="line">	          <span class="tag">&lt;<span class="name">execution</span>&gt;</span></div><div class="line">	            <span class="comment">&lt;!-- 绑定source插件到Maven的生命周期 --&gt;</span></div><div class="line">	            <span class="tag">&lt;<span class="name">phase</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></div><div class="line">	            <span class="comment">&lt;!--在生命周期后执行绑定的source插件的goals --&gt;</span></div><div class="line">	            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></div><div class="line">	              <span class="tag">&lt;<span class="name">goal</span>&gt;</span>jar-no-fork<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></div><div class="line">	              <span class="tag">&lt;<span class="name">goal</span>&gt;</span>test-jar<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></div><div class="line">	            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></div><div class="line">	          <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></div><div class="line">	        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></div><div class="line">      	<span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></div></pre></td></tr></table></figure></p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/12/03/https-config/">
-            <time datetime="2017-12-02T17:39:27.000Z" itemprop="datePublished">2017-12-03</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Operations/">Operations</a>
-    </div>
-
-                    
-                </div>
-            </div>
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
 </div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2018/02/05/maven-jar-annotation/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/02/05/maven-jar-annotation/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2018/02/02/swagger/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Swagger配置</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        <!-- 代码1：放在页面需要展示的位置  -->
+<div id="cyReward" role="cylabs" data-use="reward"></div>
+<!-- 代码2：用来读取评论框配置，此代码需放置在代码1之后。 -->
+<!-- 如果当前页面有评论框，代码2请勿放置在评论框代码之前。 -->
+<!-- 如果页面同时使用多个实验室项目，以下代码只需要引入一次，只配置上面的div标签即可 -->
+<script type="text/javascript" charset="utf-8" src="https://changyan.itc.cn/js/lib/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://changyan.sohu.com/js/changyan.labs.https.js?appid=cyt6NLeqm"></script>
+<div id="SOHUCS" ></div>
+<script type="text/javascript"> 
+(function(){ 
+var appid = 'cyt6NLeqm'; 
+var conf = 'prod_ea00622159dfcb4d47e875bcf56d23d7'; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">

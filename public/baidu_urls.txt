@@ -1,1 +1,1 @@
-http://blog.dragon-yuan.me/2018/02/02/swagger/
+http://blog.dragon-yuan.me/2018/02/05/maven-jar-annotation/
