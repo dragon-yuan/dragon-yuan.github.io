@@ -54,3 +54,16 @@ public class SwaggerConfig {
 
 }
 ```
+在类前添加：
+```java
+@Api(value = "Controller", tags = "XX相关接口", description = "XX描述", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+```
+在方法前添加：
+```java
+@ApiOperation(notes = "返回类型", httpMethod = "POST", value = "XX接口")
+```
+在传参前添加：
+注解ModelAttribute可带出DTO中Swagger API注释
+```java
+@ApiParam(name = "xxDTO",value = "XX请求参数") @ModelAttribute xxDTO
+```
