@@ -1,1 +1,1 @@
-http://blog.dragon-yuan.me/2018/02/05/maven-jar-annotation/
+http://blog.dragon-yuan.me/2018/02/09/spring-boot-mybatis-mapper-druid/
