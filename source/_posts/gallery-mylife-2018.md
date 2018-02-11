@@ -20,4 +20,6 @@ photos:
   - http://img-blog.dragon-yuan.me/2018-LIFE/12.jpg
   - http://img-blog.dragon-yuan.me/2018-LIFE/13.jpg
   - http://img-blog.dragon-yuan.me/2018-LIFE/14.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/15.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/16.jpg
 ---
