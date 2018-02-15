@@ -35,7 +35,7 @@
 <meta property="og:site_name" content="DragonBlog">
 <meta property="og:description" content="Request Headers：Accept作用：浏览器端可以接受的媒体类型,例如：Accept: text/html 代表浏览器可以接受服务器回发的类型为 text/html也就是我们常说的html文档,如果服务器无法返回text/html类型的数据,服务器应该返回一个406错误(non acceptable)通配符  代表任意类型例如 Accept: /*  代表浏览器可以处理所有类型,(一般">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-07-11T13:31:53.623Z">
+<meta property="og:updated_time" content="2017-07-11T13:31:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP中Request-Headers详解">
 <meta name="twitter:description" content="Request Headers：Accept作用：浏览器端可以接受的媒体类型,例如：Accept: text/html 代表浏览器可以接受服务器回发的类型为 text/html也就是我们常说的html文档,如果服务器无法返回text/html类型的数据,服务器应该返回一个406错误(non acceptable)通配符  代表任意类型例如 Accept: /*  代表浏览器可以处理所有类型,(一般">
@@ -293,7 +293,7 @@ var _hmt = _hmt || [];
 <p>Referer：<br>作用：提供了Request的上下文信息的服务器，告诉服务器是从哪个链接过来的</p>
 <p>Origin：<br>作用：告诉Request服务是从何处过来的</p>
 <p>Host：<br>作用：请求报头域主要用于指定被请求资源的Internet主机和端口号它通常从URL中提取出来的</p>
-<p>Cookie：<br>作用：最重要的header, 将cookie的值发送给HTTP服务器<br>Cookie通过URL编码形式发送，转码网站：<a href="http://tool.chinaz.com/tools/urlencode.aspx" target="_blank" rel="external">http://tool.chinaz.com/tools/urlencode.aspx</a></p>
+<p>Cookie：<br>作用：最重要的header, 将cookie的值发送给HTTP服务器<br>Cookie通过URL编码形式发送，转码网站：<a href="http://tool.chinaz.com/tools/urlencode.aspx" target="_blank" rel="noopener">http://tool.chinaz.com/tools/urlencode.aspx</a></p>
 <p>Content-Length：<br>作用：发送给HTTP服务器数据的长度<br>例如：Content-Length: 38</p>
 <p>Content-Type：<br>作用：发送给HTTP服务器数据的类型<br>例如：Content-Type: application/json;charset=UTF-8</p>
 <p>Connection：<br>例如：Connection: keep-alive<br>当一个网页打开完成后，客户端和服务器之间用于传输HTTP数据的TCP连接不会关闭，<br>如果客户端再次访问这个服务器上的网页，会继续使用这一条已经建立的连接<br>例如：Connection: close<br>代表一个Request完成后，客户端和服务器之间用于传输HTTP数据的TCP连接会关闭，<br>当客户端再次发送Request，需要重新建立TCP连接。</p>

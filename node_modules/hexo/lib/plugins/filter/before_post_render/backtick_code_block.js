@@ -11,18 +11,31 @@ var rLangCaption = /([^\s]+)\s*(.+)?/;
 function backtickCodeBlock(data) {
   var config = this.config.highlight || {};
   if (!config.enable) return;
-
   data.content = data.content.replace(rBacktick, function() {
     var start = arguments[1];
     var end = arguments[5];
-    var args = arguments[3];
+    var args = arguments[3].split('=').shift();
     var content = arguments[4];
 
     var options = {
+      hljs: config.hljs,
       autoDetect: config.auto_detect,
       gutter: config.line_number,
       tab: config.tab_replace
     };
+
+    if (options.gutter) {
+      config.first_line_number = config.first_line_number || 'always1';
+      if (config.first_line_number === 'inline') {
+
+        // setup line number by inline
+        arguments[3] = arguments[3].replace('=+', '=');
+        options.gutter = arguments[3].includes('=');
+
+        // setup fiestLineNumber;
+        options.firstLine = options.gutter ? arguments[3].split('=')[1] || 1 : 0;
+      }
+    }
 
     if (args) {
       var match;

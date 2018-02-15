@@ -8,10 +8,9 @@ var chalk = require('chalk');
 module.exports = function(ctx) {
   if (!ctx.env.init || ctx.env.safe) return;
 
-  return Promise.all([
-    loadModules(ctx),
-    loadScripts(ctx)
-  ]);
+  return loadModules(ctx).then(function() {
+    return loadScripts(ctx);
+  });
 };
 
 function loadModuleList(ctx) {
@@ -31,9 +30,10 @@ function loadModuleList(ctx) {
     // Read package.json and find dependencies
     return fs.readFile(packagePath).then(function(content) {
       var json = JSON.parse(content);
-      var deps = json.dependencies || json.devDependencies || {};
+      var deps = Object.keys(json.dependencies || {});
+      var devDeps = Object.keys(json.devDependencies || {});
 
-      return Object.keys(deps);
+      return deps.concat(devDeps);
     });
   }).filter(function(name) {
     // Ignore plugins whose name is not started with "hexo-"
@@ -68,8 +68,8 @@ function loadScripts(ctx) {
   }
 
   return Promise.filter([
-    ctx.script_dir,
-    ctx.theme_script_dir
+    ctx.theme_script_dir,
+    ctx.script_dir
   ], function(scriptDir) {
     // Ignore the directory if it does not exist
     return scriptDir ? fs.exists(scriptDir) : false;

@@ -248,6 +248,340 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-httpclient-get" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/08/09/httpclient-get/">HttpClient中GET请求</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/08/09/httpclient-get/">
+            <time datetime="2017-08-09T13:41:21.000Z" itemprop="datePublished">2017-08-09</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>HttpClient版本4.5.2<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> RequestConfig requestConfig = RequestConfig.custom()  </div><div class="line">        .setSocketTimeout(<span class="number">15000</span>)  </div><div class="line">        .setConnectTimeout(<span class="number">15000</span>)  </div><div class="line">        .setConnectionRequestTimeout(<span class="number">15000</span>)  </div><div class="line">        .build();</div></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> String <span class="title">sendHttpGet</span><span class="params">(HttpGet httpGet)</span> </span>&#123;</div><div class="line">    CloseableHttpClient httpClient = <span class="keyword">null</span>;</div><div class="line">    CloseableHttpResponse response = <span class="keyword">null</span>;</div><div class="line">    HttpEntity entity = <span class="keyword">null</span>;</div><div class="line">    String responseContent = <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        httpClient = HttpClients.createDefault();</div><div class="line">        httpGet.setConfig(requestConfig);</div><div class="line">        response = httpClient.execute(httpGet);</div><div class="line">        entity = response.getEntity();</div><div class="line">        responseContent = EntityUtils.toString(entity, <span class="string">"UTF-8"</span>);</div><div class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125; <span class="keyword">finally</span> &#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="keyword">if</span> (response != <span class="keyword">null</span>) &#123;</div><div class="line">                response.close();    </div><div class="line">            &#125;    </div><div class="line">            <span class="keyword">if</span> (httpClient != <span class="keyword">null</span>) &#123;</div><div class="line">                httpClient.close();</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> responseContent;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>入口：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">HttpGet httpGet = <span class="keyword">new</span> HttpGet(getUrl);</div><div class="line">String resultStr = sendHttpGet(httpGet)</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/08/09/httpclient-get/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/09/httpclient-get/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-http-url-connection" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/08/09/http-url-connection/">HttpURLConnection中GET请求</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/08/09/http-url-connection/">
+            <time datetime="2017-08-09T13:11:21.000Z" itemprop="datePublished">2017-08-09</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">httpURLConectionGET</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        URL url = <span class="keyword">new</span> URL(<span class="string">""</span>);</div><div class="line">        HttpURLConnection connection = (HttpURLConnection) url.openConnection();</div><div class="line">        connection.connect();</div><div class="line">        BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(connection.getInputStream(), <span class="string">"UTF-8"</span>));</div><div class="line">        String line;</div><div class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</div><div class="line">        <span class="keyword">while</span> ((line = br.readLine()) != <span class="keyword">null</span>) &#123;</div><div class="line">            sb.append(line);</div><div class="line">        &#125;</div><div class="line">        br.close();</div><div class="line">        connection.disconnect();</div><div class="line">        System.out.println(sb.toString());</div><div class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/08/09/http-url-connection/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/09/http-url-connection/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-aliyun-video" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/08/02/aliyun-video/">阿里云直播配置与使用（初体验）</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/08/02/aliyun-video/">
+            <time datetime="2017-08-02T13:39:27.000Z" itemprop="datePublished">2017-08-02</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Operations/">Operations</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>完整的推流地址：<br>形如：rtmp://video-center.alivecdn.com/{AppName}/{StreamName}?vhost={yourdomain}<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 说明 video-center.alivecdn.com是直播中心服务器，允许自定义</span></div><div class="line"><span class="comment">// 例如您的域名是your.example.com（注意：该域名不可以和你的直播加速域名相同）</span></div><div class="line"><span class="comment">// 可以设置DNS，将您的 域名CNAME指向video-center.alivecdn.com即可 </span></div><div class="line"><span class="comment">// app-name是应用名称，支持自定义，可以更改video-name是流名称，支持自定义</span></div><div class="line"><span class="comment">// 可以更改 vhost参数是最终在边缘节点播放的域名，即你的直播加速域名。</span></div></pre></td></tr></table></figure></p>
+<p>推流（OBS）：<br>例如：rtmp://video.dragon-yuan.me/live_dragon/dragon?vhost=live.dragon-yuan.me<br>推流则需要配置如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// FMS(URL) 为 rtmp://video.dragon-yuan.me/live_dragon/</span></div><div class="line"><span class="comment">// 串流码 为 dragon?vhost=live.dragon-yuan.me</span></div></pre></td></tr></table></figure></p>
+<p>鉴权计算：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rtmp:<span class="comment">//video-center.alivecdn.com/&#123;AppName&#125;/&#123;StreamName&#125;?</span></div><div class="line">vhost=&#123;yourdomain&#125;&amp;auth_key=&#123;timestamp&#125;-&#123;rand&#125;-&#123;uid&#125;-&#123;hashvalue&#125;</div></pre></td></tr></table></figure></p>
+<p>字段描述<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">timestamp：失效时间=时间戳+有效时间，CDN服务器拿到请求后，首先会判断请求中的</div><div class="line">失效时间是否小于当前时间，如果小于，则认为过期失效并返回HTTP 403错误。</div><div class="line"></div><div class="line">rand：随机数，一般设成0</div><div class="line"></div><div class="line">uid：暂未使用（设置成0)</div><div class="line"></div><div class="line">hashvalue：通过md5加密算法计算出的32位验证串</div></pre></td></tr></table></figure></p>
+<p>推流则需要配置如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// FMS(URL) 为 rtmp://video.dragon-yuan.me/live_dragon/</span></div><div class="line"><span class="comment">// 串流码 为 dragon?vhost=live.dragon-yuan.me&amp;auth_key=....</span></div></pre></td></tr></table></figure></p>
+<p>收看地址为：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://live.dragon-yuan.me/live_dragon/dragon.flv?auth_key=....</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/08/02/aliyun-video/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/02/aliyun-video/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-vue-watch" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/07/28/vue-watch/">VueJS中watch的使用</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/28/vue-watch/">
+            <time datetime="2017-07-28T14:42:30.000Z" itemprop="datePublished">2017-07-28</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/web/">web</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>Watch可谓是 Vue中比较重要的部分，检测数据变动后视图更新的重要环节。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// data中定义一个aShow = false 作为显示变量</span></div><div class="line"></div><div class="line">watch: &#123;</div><div class="line">  <span class="string">'aForm.obj'</span>: <span class="function"><span class="keyword">function</span> (<span class="params">val, oldVal</span>) </span>&#123;</div><div class="line">    	<span class="keyword">if</span> (val !== <span class="string">''</span>) &#123;</div><div class="line">      		<span class="keyword">this</span>.aShow = <span class="literal">true</span>;</div><div class="line">    	&#125; <span class="keyword">else</span> &#123;</div><div class="line">      		<span class="keyword">this</span>.aShow = <span class="literal">false</span>;</div><div class="line">    	&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/07/28/vue-watch/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/28/vue-watch/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-github-push" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -577,7 +911,7 @@ var jiathis_config={
 
 
 
-    <article id="post-SQL-RAND()" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-vue-rules" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -585,7 +919,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/20/SQL-RAND()/">通过SQL语句实现关于随机选择等功能</a>
+            <a class="article-title" href="/2017/07/19/vue-rules/">VueJS中的rules校验</a>
         </h1>
     
 
@@ -594,8 +928,91 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/07/20/SQL-RAND()/">
-            <time datetime="2017-07-20T15:34:26.234Z" itemprop="datePublished">2017-07-20</time>
+        <a href="/2017/07/19/vue-rules/">
+            <time datetime="2017-07-19T15:00:25.000Z" itemprop="datePublished">2017-07-19</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/web/">web</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">rules: &#123;</div><div class="line">    <span class="attr">rulesOne</span>: [</div><div class="line">        &#123; <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">'请输入'</span>, <span class="attr">trigger</span>: <span class="string">'blur'</span> &#125;</div><div class="line">    ],</div><div class="line">    <span class="attr">rulesTwo</span>: [</div><div class="line">        &#123; <span class="attr">max</span>: <span class="number">100</span>, <span class="attr">message</span>: <span class="string">'长度在 100个字符以内'</span>, <span class="attr">trigger</span>: <span class="string">'blur'</span> &#125;</div><div class="line">    ],</div><div class="line">    <span class="attr">rulesThree</span>: [</div><div class="line">        &#123; <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">'请选择'</span>, <span class="attr">trigger</span>: <span class="string">'change'</span> &#125;</div><div class="line">    ],</div><div class="line">    <span class="attr">rulesFour</span>: [</div><div class="line">        &#123; <span class="attr">type</span>: <span class="string">'array'</span>, <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">'请至少选择一个'</span>, <span class="attr">trigger</span>: <span class="string">'change'</span> &#125;</div><div class="line">    ],</div><div class="line">    <span class="attr">rulesFive</span>: [</div><div class="line">        &#123; <span class="attr">validator</span>: checkSomething, <span class="attr">trigger</span>: <span class="string">'blur'</span> &#125;</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>trigger: ‘blur’为离开输入框<br>trigger: ‘change’为更换下拉框或多选框<br>validator为自定义规则方法名</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/07/19/vue-rules/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/19/vue-rules/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-mybatis-insert-id" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/07/18/mybatis-insert-id/">MyBatis在insert插入操作时返回主键ID（id为自增）</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/18/mybatis-insert-id/">
+            <time datetime="2017-07-18T14:52:26.000Z" itemprop="datePublished">2017-07-18</time>
         </a>
     </div>
 
@@ -615,11 +1032,10 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>SQL：SELECT * FROM TABLENAME WHERE ??? ORDER BY rand() LIMIT (TIMES);</p>
-<p><span style="color:#857F6B;font-style:italic;"><br>/**</span></p>
-<ul>
-<li>TIMES : 从多少条数据中随机查询<br>*/<br></li>
-</ul>
+            <p>MySQL用法：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"insert"</span> <span class="attr">parameterType</span>=<span class="string">""</span> <span class="attr">keyProperty</span>=<span class="string">"userId"</span> <span class="attr">useGeneratedKeys</span>=<span class="string">"true"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>上面配置中，keyProperty表示返回的id要保存到对象的那个属性中useGeneratedKeys表示主键id为自增长模式</p>
+<p>Oracle用法：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"insert"</span> <span class="attr">parameterType</span>=<span class="string">""</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">selectKey</span> <span class="attr">resultType</span>=<span class="string">"INTEGER"</span> <span class="attr">order</span>=<span class="string">"BEFORE"</span> <span class="attr">keyProperty</span>=<span class="string">"userId"</span>&gt;</span>  </div><div class="line">       SELECT USER.NEXTVAL as USERID from USER</div><div class="line">   <span class="tag">&lt;/<span class="name">selectKey</span>&gt;</span></div><div class="line">    ...</div><div class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>上面配置中，由于Oracle没有自增长，只有序列这种模仿自增的形式，所以不能使用useGeneratedKeys属性</p>
 
         
         </div>
@@ -653,490 +1069,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/07/20/SQL-RAND()/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/20/SQL-RAND()/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-springboot-transactional" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/20/springboot-transactional/">Spring Boot事务管理</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/07/20/springboot-transactional/">
-            <time datetime="2017-07-20T15:34:26.231Z" itemprop="datePublished">2017-07-20</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>#前言<br>在开发时，由于数操作在顺序执行的过程中，任何一步操作都有可能发生异常，异常会导致后续操<br>作无法完成，此时由于业务逻辑并未正确的完成，之前成功操作数据的并不可靠，需要在这种情况<br>下进行回退。事务的作用就是为了保证用户的每一个操作都是可靠的，事务中的每一步操作都必须<br>成功执行，只要有发生异常就回退到事务开始未进行操作的状态。事务管理是Spring框架中最为常<br>用的功能之一，在开发应用时，大部分情况下也都需要使用事务。</p>
-<p>#事务回滚规则<br>事务管理器回滚一个事务的推荐方法是在当前事务的上下文内抛出异常。事务管理器会捕捉任何未<br>处理的异常，然后依据规则决定是否回滚抛出异常的事务。</p>
-<p>#操作<br>用@Transactional注解来声明一个函数需要被事务管理，一般在service层使用@Transactional<br>来对各个业务逻辑进行事务管理的配置。</p>
-<p>@Transactional 可以作用于接口、接口方法、类以及类方法上。当作用于类上时，该类的所有<br>public方法将都具有该类型的事务属性，同时，也可以在方法级别使用该标注来覆盖类级别的定义。</p>
-<p>虽然@Transactional 注解可以作用于接口、接口方法、类以及类方法上，但是 Spring建议不<br>要在接口或者接口方法上使用该注解，因为这只有在使用基于接口的代理时它才会生效。</p>
-<p>@Transactional 注解应该只被应用到public方法上，这是由Spring AOP的本质决定的。<br>如果在protected、private或者默认可见性的方法上使用@Transactional注解，这将被忽略，<br>也不会抛出任何异常。</p>
-<p>@EnableTransactionManagement<br>开启注解事务管理，等同于xml配置文件中的 <tx:annotation-driven></tx:annotation-driven></p>
-<p>#对于查询的注解处理<br>不需要事务管理的(只查询的)方法<br>@Transactional(propagation=Propagation.NOT_SUPPORTED)<br>在整个方法运行前就不会开启事务<br>@Transactional(propagation=Propagation.NOT_SUPPORTED,readOnly=true)<br>这样就做成一个只读事务，可以提高效率</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/07/20/springboot-transactional/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/20/springboot-transactional/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-springboot-1" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/20/springboot-1/">Spring Boot 优雅的入门篇</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/07/20/springboot-1/">
-            <time datetime="2017-07-20T15:34:26.229Z" itemprop="datePublished">2017-07-20</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>#前言</p>
-<pre>
-Spring一直是很火的一个开源框架，之前使用Struts2+Spring框架居多，Spring Boot在社区中
-热度一直很高，所以决定花时间来了解和学习，为自己做技术储备。
-</pre>
-
-<p>#正文</p>
-<pre>
-Spring Boot其实就是Spring,它做了那些没有它你也会去做的Spring Bean配置。它使用“习惯优
-于配置”（项目中存在大量的配置，此外还内置了一个习惯性的配置，让你无需手动进行配置）的理
-念让你的项目快速运行起来。使用Spring Boot很容易创建一个独立运行（运行jar,内嵌Servlet
-容器）、准生产级别的基于Spring框架的项目，使用Spring Boot你可以不用或者只需要很少的
-Spring配置。
-</pre>
-
-<p>#Maven构建项目<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- SpringBoot --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-autoconfigure<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 添加对jsp视图解析的支持 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-tomcat<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.tomcat.embed<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>tomcat-embed-jasper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javax.servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jstl<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- Druid --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>druid<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.29<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 下面两个引入为了操作数据库 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-jpa<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 只需引入spring-boot-devtools 即可实现热部署 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- Log4j --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.17<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>#应用注解类</p>
-<pre>
-@SpringBootApplication是Sprnig Boot项目的核心注解，主要目的是开启自动配置。
-@RestController 一般用作与接口方式的Controller，返回值为JSON，等价于@Controller+@ResponseBody的结合
-@Controller 一般用作页面模式的Controller，返回值可为ModelAndView
-@EnableAutoConfiguration 允许自动加载配置
-@EnableScheduling Spring计划任务
-@Autowired 自动注入
-@RequestMapping("/view.do") 请求入口
-@ResponseBody和@RequestParam同时使用，表示接受前端请求值，并响应返回值
-@Repository Dao层注解，用于标注数据访问组件
-@Transactional 事务
-@Service Service层注解，用于标注业务层组件
-</pre>
-
-<p>#写在最后</p>
-<pre>
-Hello World : 初始化一个Spring Boot，添加一个控制类，启动即可。
-</pre>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/07/20/springboot-1/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/20/springboot-1/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-span-name-attr" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/20/span-name-attr/">jQuery通过内容获取span属性</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/07/20/span-name-attr/">
-            <time datetime="2017-07-20T15:34:26.227Z" itemprop="datePublished">2017-07-20</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <pre>
-$("span:contains('......')").attr("class");
-</pre>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/07/20/span-name-attr/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/20/span-name-attr/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-regular-expressions" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/20/regular-expressions/">正则表达式 总结</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/07/20/regular-expressions/">
-            <time datetime="2017-07-20T15:34:26.217Z" itemprop="datePublished">2017-07-20</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>网络总结-全部可用</p>
-
-<p>匹配中文：<br>[\u4e00-\u9fa5]</p>
-<p>匹配双字节字符(包括汉字在内)：<br>[^\x00-\xff]</p>
-<p>匹配空白行：<br>\n\s*\r</p>
-<p>匹配Email地址：<br>/^[^.@]+@[^.@]+.[a-z]+$/</p>
-<p>匹配手机号：<br>/^1(3|4|5|7|8)\d{9}$/</p>
-<p>匹配网址URL：<br>[a-zA-z]+://[^\s]*</p>
-<p>匹配国内电话号码：<br>\d{3}-\d{8}|\d{4}-{7,8}</p>
-<p>匹配腾讯QQ号：<br>[1-9][0-9]{4,}</p>
-<p>匹配中国邮政编码：<br>[1-9]\d{5}(?!\d)</p>
-<p>匹配18位身份证号：<br>^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]|X)$</p>
-<p>匹配(年-月-日)格式日期：<br>([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3})-(((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01]))|((0[469]|11)-(0[1-9]|[12][0-9]|30))|(02-(0[1-9]|[1][0-9]|2[0-8])))</p>
-<p>匹配正整数：<br>^[1-9]\d*$</p>
-<p>匹配负整数：<br>^-[1-9]\d*$</p>
-<p>匹配整数：<br>^-?[1-9]\d*$</p>
-<p>匹配非负整数（正整数 + 0）：<br>^[1-9]\d*|0$</p>
-<p>匹配非正整数（负整数 + 0）：<br>^-[1-9]\d*|0$</p>
-<p>匹配正浮点数：<br>^[1-9]\d<em>.\d</em>|0.\d<em>[1-9]\d</em>$</p>
-<p>匹配负浮点数：<br>^-[1-9]\d<em>.\d</em>|-0.\d<em>[1-9]\d</em>$</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/07/20/regular-expressions/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/20/regular-expressions/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-jquery-json" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/20/jquery-json/">jQuery解析JSON</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/07/20/jquery-json/">
-            <time datetime="2017-07-20T15:34:26.161Z" itemprop="datePublished">2017-07-20</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <pre>
-使用全局的JSON对象
-function strToJson(str){
-    return JSON.parse(str);
-}
-
-eval方式解析
-function strToJson(str){
-     var json = eval('(' + str + ')');
-     return json;
-}
-</pre>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/07/20/jquery-json/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/20/jquery-json/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/07/18/mybatis-insert-id/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/18/mybatis-insert-id/">Comments</a>
     
 
         </footer>

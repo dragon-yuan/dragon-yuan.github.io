@@ -35,7 +35,7 @@
 <meta property="og:site_name" content="DragonBlog">
 <meta property="og:description" content="用文本编辑器打开Apache安装目录/etc/httpd/conf\httpd.conf，找到“#LoadModule rewrite_module modules/mod_rewrite.so”这行，去掉前面的“#”;继续查找“AllowOverride None”，修改为“AllowOverride All”，然后，重启Apache即可。 如此，就打开了mod_rewrite模块，其功能非常的">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2016-12-23T08:30:39.476Z">
+<meta property="og:updated_time" content="2016-12-23T08:30:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos中二级域名绑定二级目录的方法">
 <meta name="twitter:description" content="用文本编辑器打开Apache安装目录/etc/httpd/conf\httpd.conf，找到“#LoadModule rewrite_module modules/mod_rewrite.so”这行，去掉前面的“#”;继续查找“AllowOverride None”，修改为“AllowOverride All”，然后，重启Apache即可。 如此，就打开了mod_rewrite模块，其功能非常的">
@@ -286,9 +286,9 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>用文本编辑器打开Apache安装目录/etc/httpd/conf\httpd.conf，找到“#Load<a href="http://www.aliyun.com/zixun/aggregation/72666.html" target="_blank" rel="external">Module</a> rewrite_module modules/mod_rewrite.so”这行，去掉<a href="http://www.aliyun.com/zixun/aggregation/54488.html" target="_blank" rel="external">前面</a>的“#”;继续<a href="http://www.aliyun.com/zixun/aggregation/20541.html" target="_blank" rel="external">查找</a>“AllowOverride None”，修改为“AllowOverride All”，然后，重启Apache即可。</p>
+            <p>用文本编辑器打开Apache安装目录/etc/httpd/conf\httpd.conf，找到“#Load<a href="http://www.aliyun.com/zixun/aggregation/72666.html" target="_blank" rel="noopener">Module</a> rewrite_module modules/mod_rewrite.so”这行，去掉<a href="http://www.aliyun.com/zixun/aggregation/54488.html" target="_blank" rel="noopener">前面</a>的“#”;继续<a href="http://www.aliyun.com/zixun/aggregation/20541.html" target="_blank" rel="noopener">查找</a>“AllowOverride None”，修改为“AllowOverride All”，然后，重启Apache即可。</p>
 <p>如此，就打开了mod_rewrite模块，其功能非常的强大，这里我只讲如何绑定二级域名。</p>
-<p><a href="http://www.aliyun.com/zixun/aggregation/53635.html" target="_blank" rel="external">同样</a>，我们在httpd.conf文件最后输入以下语句：</p>
+<p><a href="http://www.aliyun.com/zixun/aggregation/53635.html" target="_blank" rel="noopener">同样</a>，我们在httpd.conf文件最后输入以下语句：</p>
 <p>RewriteEngine on</p>
 <p>RewriteMap lowercase int:tolower</p>
 <p>RewriteMap vhost txt:/etc/httpd/vhost.map</p>
@@ -302,7 +302,7 @@ var _hmt = _hmt || [];
 <p>bbs.xxx.com /var/www/html/bbs</p>
 <p>home.xxx.com /var/www/html/home</p>
 <p>potplayer.xxx.com /var/www/html/potplayer</p>
-<p>我们可以随意把二级域名与目录绑定，保存就行，并且<a href="http://www.aliyun.com/zixun/aggregation/20432.html" target="_blank" rel="external">不用</a>重启Apache，非常方便。</p>
+<p>我们可以随意把二级域名与目录绑定，保存就行，并且<a href="http://www.aliyun.com/zixun/aggregation/20432.html" target="_blank" rel="noopener">不用</a>重启Apache，非常方便。</p>
 <h4 id="本文章全部来源于互联网，版权归属于原作者。本站所有转载文章言论不代表本站观点，如是侵犯了原作者的权利请发邮件联系站长（plu-huajuan-163-com），收到后立即删除。"><a href="#本文章全部来源于互联网，版权归属于原作者。本站所有转载文章言论不代表本站观点，如是侵犯了原作者的权利请发邮件联系站长（plu-huajuan-163-com），收到后立即删除。" class="headerlink" title="本文章全部来源于互联网，版权归属于原作者。本站所有转载文章言论不代表本站观点，如是侵犯了原作者的权利请发邮件联系站长（plu_huajuan@163.com），收到后立即删除。"></a>本文章全部来源于互联网，版权归属于原作者。本站所有转载文章言论不代表本站观点，如是侵犯了原作者的权利请发邮件联系站长（plu_huajuan@163.com），收到后立即删除。</h4>
         
         </div>

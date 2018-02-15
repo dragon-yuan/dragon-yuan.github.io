@@ -4,7 +4,7 @@
 var rHex3 = /^#([0-9a-f]{3})$/;
 var rHex6 = /^#([0-9a-f]{6})$/;
 var rRGB = /^rgba?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,?\s*(0?\.?\d+)?\s*\)$/;
-var rHSL = /^hsla?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\%\s*,\s*(\d{1,3})\%\s*,?\s*(0?\.?\d+)?\s*\)$/;
+var rHSL = /^hsla?\(\s*(\d{1,3})\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*,?\s*(0?\.?\d+)?\s*\)$/;
 
 // http://www.w3.org/TR/css3-color/#svg-color
 var colorNames = {
@@ -214,8 +214,8 @@ function tagcloudHelper(tags, options) {
   var length = sizes.length - 1;
 
   tags.forEach(function(tag) {
-    var ratio = length ? (sizes.indexOf(tag.length) / length) : 0;
-    var size = min + (max - min) * ratio;
+    var ratio = length ? sizes.indexOf(tag.length) / length : 0;
+    var size = min + ((max - min) * ratio);
     var style = 'font-size: ' + parseFloat(size.toFixed(2)) + unit + ';';
 
     if (color) {
@@ -306,11 +306,11 @@ Color.prototype.parse = function(color) {
     }
 
     var q = l < 0.5 ? l * (1 + s) : l + s - (l * s);
-    var p = 2 * l - q;
+    var p = (2 * l) - q;
 
-    var rt = h + 1 / 3;
+    var rt = h + (1 / 3);
     var gt = h;
-    var bt = h - 1 / 3;
+    var bt = h - (1 / 3);
 
     this.r = convertHue(p, q, rt);
     this.g = convertHue(p, q, gt);
@@ -337,7 +337,7 @@ Color.prototype.toString = function() {
 };
 
 Color.prototype.mix = function(color, ratio) {
-  switch (ratio){
+  switch (ratio) {
     case 0:
       return new Color(this);
 
@@ -360,11 +360,11 @@ function convertHue(p, q, h) {
   var color;
 
   if (h * 6 < 1) {
-    color = p + (q - p) * h * 6;
+    color = p + ((q - p) * h * 6);
   } else if (h * 2 < 1) {
     color = q;
   } else if (h * 3 < 2) {
-    color = p + (q - p) * ((2 / 3) - h) * 6;
+    color = p + ((q - p) * ((2 / 3) - h) * 6);
   } else {
     color = p;
   }
@@ -380,7 +380,7 @@ function convertRGB(value) {
 }
 
 function mixValue(a, b, ratio) {
-  return a + (b - a) * ratio;
+  return a + ((b - a) * ratio);
 }
 
 module.exports = tagcloudHelper;

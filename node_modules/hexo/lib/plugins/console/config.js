@@ -37,7 +37,7 @@ function configConsole(args) {
     if (extname === '.json') {
       result = JSON.stringify(config);
     } else {
-      result = yaml.safeDump(config);
+      result = yaml.dump(config);
     }
 
     return fs.writeFile(configPath, result);
@@ -70,7 +70,7 @@ function setProperty(obj, key, value) {
 }
 
 function castValue(value) {
-  switch (value){
+  switch (value) {
     case 'true':
       return true;
 

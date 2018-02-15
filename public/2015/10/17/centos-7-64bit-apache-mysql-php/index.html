@@ -35,7 +35,7 @@
 <meta property="og:site_name" content="DragonBlog">
 <meta property="og:description" content="一、配置防火墙，开启80端口、3306端口 CentOS 7.0默认使用的是firewall作为防火墙，这里改为iptables防火墙。 1、关闭firewall： #停止firewall服务 1.  systemctl stop firewalld.service  #禁止firewall开机启动 1.  systemctl disable firewalld.service    2、安装ip">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-12-01T14:20:19.430Z">
+<meta property="og:updated_time" content="2017-12-01T14:20:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS-7-64bit 配置Apache + MySQL + PHP ">
 <meta name="twitter:description" content="一、配置防火墙，开启80端口、3306端口 CentOS 7.0默认使用的是firewall作为防火墙，这里改为iptables防火墙。 1、关闭firewall： #停止firewall服务 1.  systemctl stop firewalld.service  #禁止firewall开机启动 1.  systemctl disable firewalld.service    2、安装ip">
@@ -346,7 +346,7 @@ var _hmt = _hmt || [];
 <p><span style="word-wrap: break-word; font-size: 16px; color: #000000;"><strong>systemctl restart httpd.service #重启apache</strong></span></p>
 <p><span style="word-wrap: break-word; font-size: 16px; color: #000000;"><strong>systemctl enable httpd.service #设置apache开机启动</strong></span></p>
 <p>CentOS 7的yum源中貌似没有正常安装mysql时的mysql-sever文件，需要去官网上下载</p>
-<table style="padding: 0px; margin: 0px; font-family: Verdana, Arial, Tahoma; font-size: 14px; line-height: 25px;" border="0" cellspacing="0" cellpadding="0"><br><br><tbody style="padding: 0px; margin: 0px;"><br><br><tr style="padding: 0px; margin: 0px;"><br><br><td style="padding: 0px; margin: 0px;"><br><br><div style="padding: 0px; margin: 0px;"><br><br><div style="padding: 0px; margin: 0px;"># wget <a href="http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm" target="_blank" rel="external">http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm</a></div><br><br><div style="padding: 0px; margin: 0px;"># rpm -ivh mysql-community-release-el7-5.noarch.rpm</div><br><br><div style="padding: 0px; margin: 0px;"># yum install mysql-community-server</div><br><br></div><br><br></td><br><br></tr><br><br></tbody><br><br></table>
+<table style="padding: 0px; margin: 0px; font-family: Verdana, Arial, Tahoma; font-size: 14px; line-height: 25px;" border="0" cellspacing="0" cellpadding="0"><br><br><tbody style="padding: 0px; margin: 0px;"><br><br><tr style="padding: 0px; margin: 0px;"><br><br><td style="padding: 0px; margin: 0px;"><br><br><div style="padding: 0px; margin: 0px;"><br><br><div style="padding: 0px; margin: 0px;"># wget <a href="http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm" target="_blank" rel="noopener">http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm</a></div><br><br><div style="padding: 0px; margin: 0px;"># rpm -ivh mysql-community-release-el7-5.noarch.rpm</div><br><br><div style="padding: 0px; margin: 0px;"># yum install mysql-community-server</div><br><br></div><br><br></td><br><br></tr><br><br></tbody><br><br></table>
 
 <p>成功安装之后重启mysql服务</p>
 <table style="padding: 0px; margin: 0px; font-family: Verdana, Arial, Tahoma; font-size: 14px; line-height: 25px;" border="0" cellspacing="0" cellpadding="0"><br><br><tbody style="padding: 0px; margin: 0px;"><br><br><tr style="padding: 0px; margin: 0px;"><br><br><td style="padding: 0px; margin: 0px;"><br><br><div style="padding: 0px; margin: 0px;"><br><br><div style="padding: 0px; margin: 0px;"># service mysqld restart</div><br><br></div><br><br></td><br><br></tr><br><br></tbody><br><br></table>

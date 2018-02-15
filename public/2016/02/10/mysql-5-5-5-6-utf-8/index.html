@@ -35,7 +35,7 @@
 <meta property="og:site_name" content="DragonBlog">
 <meta property="og:description" content="登录MySQL查看用SHOW VARIABLES LIKE ‘character%’;下字符集 1、在[client]字段里加入default-character-set=utf8，如下：[client]   port = 3306   socket = /var/lib/mysql/mysql.sock   default-character-set=utf82、在[mysqld]字段里加入ch">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2016-12-23T08:34:48.562Z">
+<meta property="og:updated_time" content="2016-12-23T08:34:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL 5.5&#x2F;5.6的修改字符集编码为UTF-8">
 <meta name="twitter:description" content="登录MySQL查看用SHOW VARIABLES LIKE ‘character%’;下字符集 1、在[client]字段里加入default-character-set=utf8，如下：[client]   port = 3306   socket = /var/lib/mysql/mysql.sock   default-character-set=utf82、在[mysqld]字段里加入ch">
@@ -290,7 +290,7 @@ var _hmt = _hmt || [];
 <p><span style="color: rgb(0, 34, 0); font-family: georgia; font-size: 15px; line-height: 22.5px;">1、在[client]字段里加入default-character-set=utf8，如下：</span><br><code>[client]  
 port = 3306  
 socket = /var/lib/mysql/mysql.sock  
-default-character-set=utf8</code><br><span style="color: rgb(0, 34, 0); font-family: georgia; font-size: 15px; line-height: 22.5px;">2、在[mysqld]字段里加入character-set-</span><a href="http://www.ha97.com/tag/server" target="_blank" rel="external">server</a><span style="color: rgb(0, 34, 0); font-family: georgia; font-size: 15px; line-height: 22.5px;">=utf8，如下：</span><br><code>[mysqld]  
+default-character-set=utf8</code><br><span style="color: rgb(0, 34, 0); font-family: georgia; font-size: 15px; line-height: 22.5px;">2、在[mysqld]字段里加入character-set-</span><a href="http://www.ha97.com/tag/server" target="_blank" rel="noopener">server</a><span style="color: rgb(0, 34, 0); font-family: georgia; font-size: 15px; line-height: 22.5px;">=utf8，如下：</span><br><code>[mysqld]  
 port = 3306  
 socket = /var/lib/mysql/mysql.sock  
 character-set-server=utf8</code><br><span style="color: rgb(0, 34, 0); font-family: georgia; font-size: 15px; line-height: 22.5px;">3、在[mysql]字段里加入default-character-set=utf8，如下：</span><br><code>[mysql]  
