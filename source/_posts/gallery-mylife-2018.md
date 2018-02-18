@@ -32,4 +32,8 @@ photos:
   - http://img-blog.dragon-yuan.me/2018-LIFE/24.jpeg
   - http://img-blog.dragon-yuan.me/2018-LIFE/25.jpeg
   - http://img-blog.dragon-yuan.me/2018-LIFE/26.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/27.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/28.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/29.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/30.jpeg
 ---
