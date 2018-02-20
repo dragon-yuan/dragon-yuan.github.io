@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 (function($){
     var toTop = ($('#sidebar').height() - $(window).height()) + 60;
     // Caption
@@ -63,6 +64,8 @@
 
 })(jQuery);
 =======
+=======
+>>>>>>> 126698ae89596551cc9088f379e4b319ed5ddb00
 (function($){
     var toTop = ($('#sidebar').height() - $(window).height()) + 60;
     // Caption
@@ -126,4 +129,7 @@
     }
 
 })(jQuery);
+<<<<<<< HEAD
 >>>>>>> df4dc393a1263020e027648ea5125107f758eda3
+=======
+>>>>>>> 126698ae89596551cc9088f379e4b319ed5ddb00

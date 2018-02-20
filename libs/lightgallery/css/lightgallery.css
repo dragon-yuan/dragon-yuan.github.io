@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 @font-face {
   font-family: 'lg';
   src: url("../fonts/lg.eot?n1z373");
@@ -970,6 +971,8 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   transition: left 1s cubic-bezier(0, 0, 0.25, 1) 0s, opacity 0.1s ease 0s;
 }
 =======
+=======
+>>>>>>> 126698ae89596551cc9088f379e4b319ed5ddb00
 @font-face {
   font-family: 'lg';
   src: url("../fonts/lg.eot?n1z373");
@@ -1940,4 +1943,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   -o-transition: left 1s cubic-bezier(0, 0, 0.25, 1) 0s, opacity 0.1s ease 0s;
   transition: left 1s cubic-bezier(0, 0, 0.25, 1) 0s, opacity 0.1s ease 0s;
 }
+<<<<<<< HEAD
 >>>>>>> df4dc393a1263020e027648ea5125107f758eda3
+=======
+>>>>>>> 126698ae89596551cc9088f379e4b319ed5ddb00

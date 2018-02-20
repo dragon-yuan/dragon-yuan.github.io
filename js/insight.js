@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * Insight search plugin
  * @author PPOffice { @link https://github.com/ppoffice }
@@ -239,6 +240,8 @@
         }
     });
 =======
+=======
+>>>>>>> 126698ae89596551cc9088f379e4b319ed5ddb00
 /**
  * Insight search plugin
  * @author PPOffice { @link https://github.com/ppoffice }
@@ -478,5 +481,8 @@
                 gotoLink($container.find('.ins-selectable.active').eq(0)); break;
         }
     });
+<<<<<<< HEAD
 >>>>>>> df4dc393a1263020e027648ea5125107f758eda3
+=======
+>>>>>>> 126698ae89596551cc9088f379e4b319ed5ddb00
 })(jQuery, window.INSIGHT_CONFIG);

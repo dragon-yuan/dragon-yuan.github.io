@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**!
  * lg-fullscreen.js | 0.0.1 | August 1st 2016
  * http://sachinchoolur.github.io/lg-fullscreen.js
@@ -124,6 +125,8 @@
 
 },{}]},{},[1])(1)
 =======
+=======
+>>>>>>> 126698ae89596551cc9088f379e4b319ed5ddb00
 /**!
  * lg-fullscreen.js | 0.0.1 | August 1st 2016
  * http://sachinchoolur.github.io/lg-fullscreen.js
@@ -248,5 +251,8 @@
 });
 
 },{}]},{},[1])(1)
+<<<<<<< HEAD
 >>>>>>> df4dc393a1263020e027648ea5125107f758eda3
+=======
+>>>>>>> 126698ae89596551cc9088f379e4b319ed5ddb00
 });
