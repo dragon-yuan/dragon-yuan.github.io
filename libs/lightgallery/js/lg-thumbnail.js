@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**!
  * lg-thumbnail.js | 0.0.4 | August 9th 2016
  * http://sachinchoolur.github.io/lg-thumbnail.js
@@ -493,6 +494,8 @@
 =======
 =======
 >>>>>>> 126698ae89596551cc9088f379e4b319ed5ddb00
+=======
+>>>>>>> c8ed0b8692a6e6bfcd6bb3ff3a800ca51197c7bd
 /**!
  * lg-thumbnail.js | 0.0.4 | August 9th 2016
  * http://sachinchoolur.github.io/lg-thumbnail.js
@@ -984,7 +987,10 @@
 
 },{}]},{},[1])(1)
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> df4dc393a1263020e027648ea5125107f758eda3
 =======
 >>>>>>> 126698ae89596551cc9088f379e4b319ed5ddb00
+=======
+>>>>>>> c8ed0b8692a6e6bfcd6bb3ff3a800ca51197c7bd
 });

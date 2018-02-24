@@ -236,4 +236,9 @@
             case 13: //ENTER
                 gotoLink($container.find('.ins-selectable.active').eq(0)); break;
         }
+<<<<<<< HEAD
     });
+=======
+    });
+})(jQuery, window.INSIGHT_CONFIG);
+>>>>>>> c8ed0b8692a6e6bfcd6bb3ff3a800ca51197c7bd
