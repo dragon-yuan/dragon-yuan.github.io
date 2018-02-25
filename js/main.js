@@ -60,8 +60,4 @@
         });
     }
 
-<<<<<<< HEAD
 })(jQuery);
-=======
-})(jQuery);
->>>>>>> c8ed0b8692a6e6bfcd6bb3ff3a800ca51197c7bd
