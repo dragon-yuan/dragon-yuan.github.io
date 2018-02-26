@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**!
  * lg-autoplay.js | 0.0.1 | August 1st 2016
  * http://sachinchoolur.github.io/lg-autoplay.js
@@ -221,6 +222,8 @@
 >>>>>>> 126698ae89596551cc9088f379e4b319ed5ddb00
 =======
 >>>>>>> c8ed0b8692a6e6bfcd6bb3ff3a800ca51197c7bd
+=======
+>>>>>>> ff5b403c56cb12b4f03e8e255a14ea3628b5ce62
 /**!
  * lg-autoplay.js | 0.0.1 | August 1st 2016
  * http://sachinchoolur.github.io/lg-autoplay.js
@@ -436,6 +439,7 @@
 });
 
 },{}]},{},[1])(1)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> df4dc393a1263020e027648ea5125107f758eda3
@@ -443,4 +447,6 @@
 >>>>>>> 126698ae89596551cc9088f379e4b319ed5ddb00
 =======
 >>>>>>> c8ed0b8692a6e6bfcd6bb3ff3a800ca51197c7bd
+=======
+>>>>>>> ff5b403c56cb12b4f03e8e255a14ea3628b5ce62
 });
