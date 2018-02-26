@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?c65037b3d2c6eca9155d28724b4d7827";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+	<script>
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+	</script>
+    
+    <title>高德地图工具类（原创） | DragonBlog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高德地图工具类（原创）">
+<meta property="og:url" content="http://blog.dragon-yuan.me/2017/08/11/gaode-java/index.html">
+<meta property="og:site_name" content="DragonBlog">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-08-11T14:15:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="高德地图工具类（原创）">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-97008058-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?c65037b3d2c6eca9155d28724b4d7827";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">DragonBlog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories/Java">Java</a>
+                
+                    <a class="main-nav-link" href="/categories/Gallery">Gallery</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories/Java">Java</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories/Gallery">Gallery</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" style="display: none;" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.jpg" />
+            <h2 id="name">Dragon</h2>
+            <h3 id="title">Java Web Developer</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Beijing (Harbin), China</span>
+            <a id="follow" target="_blank" href="https://github.com/dragon-yuan">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                124
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                0
+                <span>tag</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/dragon-yuan" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://twitter.com/p17856001" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://www.facebook.com/idragonyuan" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="http://weibo.com/529383542" target="_blank" title="weibo" class=tooltip>
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+	</div>
+</aside>
+
+            
+            <section id="main"><article id="post-gaode-java" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            高德地图工具类（原创）
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/08/11/gaode-java/">
+            <time datetime="2017-08-11T13:41:47.000Z" itemprop="datePublished">2017-08-11</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSON;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSONArray;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSONObject;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.HttpEntity;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.client.config.RequestConfig;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.client.methods.CloseableHttpResponse;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.client.methods.HttpGet;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.impl.client.CloseableHttpClient;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.impl.client.HttpClients;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.util.EntityUtils;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取高德地图坐标数据</span></span><br><span class="line"><span class="comment"> * Created by dragon on 2017/8/10.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GaodeMapGeographyUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Logger logger = LoggerFactory.getLogger(<span class="keyword">this</span>.getClass());</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String KEY = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">private</span> RequestConfig requestConfig = RequestConfig.custom()</span><br><span class="line">            .setSocketTimeout(<span class="number">15000</span>)</span><br><span class="line">            .setConnectTimeout(<span class="number">15000</span>)</span><br><span class="line">            .setConnectionRequestTimeout(<span class="number">15000</span>)</span><br><span class="line">            .build();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 方法入口1 : 通过城市名称，详细地址；获取高德地图经纬度</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> city</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> address</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 地理坐标</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getContantGeographical</span><span class="params">(String city,String address)</span> </span>&#123;</span><br><span class="line">        String getUrl = <span class="string">"http://restapi.amap.com/v3/geocode/geo?batch=true&amp;address="</span> + address + <span class="string">"&amp;city="</span> + city + <span class="string">"&amp;output=JSON&amp;key="</span> + KEY;</span><br><span class="line">        String location = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            HttpGet httpGet = <span class="keyword">new</span> HttpGet(getUrl);</span><br><span class="line">            String resultStr = sendHttpGet(httpGet);</span><br><span class="line">            JSONObject resultObj = JSON.parseObject(resultStr);</span><br><span class="line">            JSONArray geocodesArray = resultObj.getJSONArray(<span class="string">"geocodes"</span>);</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">null</span> != geocodesArray &amp;&amp; geocodesArray.size() &gt; <span class="number">0</span>)&#123;</span><br><span class="line">                JSONObject geocodesObj = JSON.parseObject(geocodesArray.get(<span class="number">0</span>).toString());</span><br><span class="line">                location = geocodesObj.get(<span class="string">"location"</span>).toString();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> location;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 方法入口2 : 通过高德地图经纬度，逆向获取地址</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> geographical</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 地址</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getContantAddressByGeographical</span><span class="params">(String geographical)</span></span>&#123;</span><br><span class="line">        String getUrl = <span class="string">"http://restapi.amap.com/v3/geocode/regeo?key="</span> + KEY + <span class="string">"&amp;location="</span> + geographical + <span class="string">"&amp;poitype=&amp;radius=1000&amp;extensions=all&amp;batch=false&amp;roadlevel=0"</span>;</span><br><span class="line">        String address = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            HttpGet httpGet = <span class="keyword">new</span> HttpGet(getUrl);</span><br><span class="line">            String resultStr = sendHttpGet(httpGet);</span><br><span class="line">            JSONObject resultObj = JSON.parseObject(resultStr);</span><br><span class="line">            Object regeocodeObj = resultObj.get(<span class="string">"regeocode"</span>);</span><br><span class="line">            String jsonString = JSON.toJSONString(regeocodeObj);</span><br><span class="line">            JSONObject jsonObj = JSON.parseObject(jsonString);</span><br><span class="line">            address = jsonObj.get(<span class="string">"formatted_address"</span>).toString();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> address;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 方法入口3 : 测试方法，通过高德地图经纬度，逆向获取地址，POIS</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> geographical</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 地址</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getContantAddressByGeographicalPois</span><span class="params">(String geographical)</span></span>&#123;</span><br><span class="line">        String getUrl = <span class="string">"http://restapi.amap.com/v3/geocode/regeo?key="</span> + KEY + <span class="string">"&amp;location="</span> + geographical + <span class="string">"&amp;poitype=&amp;radius=1000&amp;extensions=all&amp;batch=false&amp;roadlevel=0"</span>;</span><br><span class="line">        String address = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">double</span> distance = <span class="number">500</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            HttpGet httpGet = <span class="keyword">new</span> HttpGet(getUrl);</span><br><span class="line">            String resultStr = sendHttpGet(httpGet);</span><br><span class="line">            JSONObject resultObj = JSON.parseObject(resultStr);</span><br><span class="line">            <span class="comment">// 获取 [regeocode]</span></span><br><span class="line">            Object regeocodeObj = resultObj.get(<span class="string">"regeocode"</span>);</span><br><span class="line">            String regeocodeObjToStr = JSON.toJSONString(regeocodeObj);</span><br><span class="line">            JSONObject jsonObj = JSON.parseObject(regeocodeObjToStr);</span><br><span class="line">            <span class="comment">// 获取 [pois]</span></span><br><span class="line">            Object poisObj = jsonObj.get(<span class="string">"pois"</span>);</span><br><span class="line">            String poisObjToStr = JSON.toJSONString(poisObj);</span><br><span class="line">            JSONArray poisArray = JSON.parseArray(poisObjToStr);</span><br><span class="line">            <span class="comment">// 获取最近 [poi]</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; poisArray.size(); i++)&#123;</span><br><span class="line">                Object poiObj = poisArray.get(i);</span><br><span class="line">                String poiStr = JSON.toJSONString(poiObj);</span><br><span class="line">                JSONObject poi = JSON.parseObject(poiStr);</span><br><span class="line">                <span class="keyword">double</span> poiDistance = Double.parseDouble(poi.get(<span class="string">"distance"</span>).toString());</span><br><span class="line">                <span class="keyword">if</span> (poiDistance &lt; distance)&#123;</span><br><span class="line">                    <span class="comment">// 返回地址数据</span></span><br><span class="line">                    distance = poiDistance;</span><br><span class="line">                    address = poi.get(<span class="string">"address"</span>).toString() + poi.get(<span class="string">"name"</span>).toString();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            logger.info(<span class="string">"address = "</span> + address + <span class="string">" , "</span> +<span class="string">"pois.distance = "</span> + distance);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> address;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">sendHttpGet</span><span class="params">(HttpGet httpGet)</span> </span>&#123;</span><br><span class="line">        CloseableHttpClient httpClient = <span class="keyword">null</span>;</span><br><span class="line">        CloseableHttpResponse response = <span class="keyword">null</span>;</span><br><span class="line">        HttpEntity entity = <span class="keyword">null</span>;</span><br><span class="line">        String responseContent = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            httpClient = HttpClients.createDefault();</span><br><span class="line">            httpGet.setConfig(requestConfig);</span><br><span class="line">            response = httpClient.execute(httpGet);</span><br><span class="line">            entity = response.getEntity();</span><br><span class="line">            responseContent = EntityUtils.toString(entity, <span class="string">"UTF-8"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (response != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    response.close();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (httpClient != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    httpClient.close();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> responseContent;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/08/11/gaode-java/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/11/gaode-java/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/08/14/java-zip/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    使用JAVA压缩文件
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2017/08/10/100/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">值得纪念的第一百篇博客</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        <!-- 代码1：放在页面需要展示的位置  -->
+<div id="cyReward" role="cylabs" data-use="reward"></div>
+<!-- 代码2：用来读取评论框配置，此代码需放置在代码1之后。 -->
+<!-- 如果当前页面有评论框，代码2请勿放置在评论框代码之前。 -->
+<!-- 如果页面同时使用多个实验室项目，以下代码只需要引入一次，只配置上面的div标签即可 -->
+<script type="text/javascript" charset="utf-8" src="https://changyan.itc.cn/js/lib/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://changyan.sohu.com/js/changyan.labs.https.js?appid=cyt6NLeqm"></script>
+<div id="SOHUCS" ></div>
+<style>
+	.header-skin {display: none !important;}
+	#SOHUCS #SOHU_MAIN .module-cmt-header .section-cbox-w .block-head-w .header-skin {display: none !important;}
+</style>
+<script type="text/javascript"> 
+(function(){ 
+var appid = 'cyt6NLeqm'; 
+var conf = 'prod_ea00622159dfcb4d47e875bcf56d23d7'; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+	<div style="height:30px;widget:300px;"></div>
+	<iframe id="sidebariframe" frameborder="no" border="0" marginwidth="0" marginheight="0" width=300 height=497 src="//music.163.com/outchain/player?type=0&id=909216018&auto=0&height=430"></iframe>
+	<div style="margin-top:20px;">
+        
+			
+		
+			
+		
+    </div>
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+<script>
+var userAgentInfo = navigator.userAgent;  
+var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");  
+var flag = true;
+for (var v = 0; v < Agents.length; v++) {  
+    if (userAgentInfo.indexOf(Agents[v]) > 0) {
+        document.getElementById("sidebariframe").style.display ="none";
+    }
+}   
+</script>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 dragon<br>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'dragon-yuan'};
+    (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
