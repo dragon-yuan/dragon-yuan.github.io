@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                125
+                126
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,6 +248,87 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-gaode-java" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/08/11/gaode-java/">高德地图工具类（原创）</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/08/11/gaode-java/">
+            <time datetime="2017-08-11T13:41:47.000Z" itemprop="datePublished">2017-08-11</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSON;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSONArray;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSONObject;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.HttpEntity;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.client.config.RequestConfig;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.client.methods.CloseableHttpResponse;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.client.methods.HttpGet;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.impl.client.CloseableHttpClient;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.impl.client.HttpClients;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.util.EntityUtils;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取高德地图坐标数据</span></span><br><span class="line"><span class="comment"> * Created by dragon on 2017/8/10.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GaodeMapGeographyUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Logger logger = LoggerFactory.getLogger(<span class="keyword">this</span>.getClass());</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String KEY = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">private</span> RequestConfig requestConfig = RequestConfig.custom()</span><br><span class="line">            .setSocketTimeout(<span class="number">15000</span>)</span><br><span class="line">            .setConnectTimeout(<span class="number">15000</span>)</span><br><span class="line">            .setConnectionRequestTimeout(<span class="number">15000</span>)</span><br><span class="line">            .build();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 方法入口1 : 通过城市名称，详细地址；获取高德地图经纬度</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> city</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> address</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 地理坐标</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getContantGeographical</span><span class="params">(String city,String address)</span> </span>&#123;</span><br><span class="line">        String getUrl = <span class="string">"http://restapi.amap.com/v3/geocode/geo?batch=true&amp;address="</span> + address + <span class="string">"&amp;city="</span> + city + <span class="string">"&amp;output=JSON&amp;key="</span> + KEY;</span><br><span class="line">        String location = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            HttpGet httpGet = <span class="keyword">new</span> HttpGet(getUrl);</span><br><span class="line">            String resultStr = sendHttpGet(httpGet);</span><br><span class="line">            JSONObject resultObj = JSON.parseObject(resultStr);</span><br><span class="line">            JSONArray geocodesArray = resultObj.getJSONArray(<span class="string">"geocodes"</span>);</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">null</span> != geocodesArray &amp;&amp; geocodesArray.size() &gt; <span class="number">0</span>)&#123;</span><br><span class="line">                JSONObject geocodesObj = JSON.parseObject(geocodesArray.get(<span class="number">0</span>).toString());</span><br><span class="line">                location = geocodesObj.get(<span class="string">"location"</span>).toString();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> location;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 方法入口2 : 通过高德地图经纬度，逆向获取地址</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> geographical</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 地址</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getContantAddressByGeographical</span><span class="params">(String geographical)</span></span>&#123;</span><br><span class="line">        String getUrl = <span class="string">"http://restapi.amap.com/v3/geocode/regeo?key="</span> + KEY + <span class="string">"&amp;location="</span> + geographical + <span class="string">"&amp;poitype=&amp;radius=1000&amp;extensions=all&amp;batch=false&amp;roadlevel=0"</span>;</span><br><span class="line">        String address = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            HttpGet httpGet = <span class="keyword">new</span> HttpGet(getUrl);</span><br><span class="line">            String resultStr = sendHttpGet(httpGet);</span><br><span class="line">            JSONObject resultObj = JSON.parseObject(resultStr);</span><br><span class="line">            Object regeocodeObj = resultObj.get(<span class="string">"regeocode"</span>);</span><br><span class="line">            String jsonString = JSON.toJSONString(regeocodeObj);</span><br><span class="line">            JSONObject jsonObj = JSON.parseObject(jsonString);</span><br><span class="line">            address = jsonObj.get(<span class="string">"formatted_address"</span>).toString();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> address;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 方法入口3 : 测试方法，通过高德地图经纬度，逆向获取地址，POIS</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> geographical</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 地址</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getContantAddressByGeographicalPois</span><span class="params">(String geographical)</span></span>&#123;</span><br><span class="line">        String getUrl = <span class="string">"http://restapi.amap.com/v3/geocode/regeo?key="</span> + KEY + <span class="string">"&amp;location="</span> + geographical + <span class="string">"&amp;poitype=&amp;radius=1000&amp;extensions=all&amp;batch=false&amp;roadlevel=0"</span>;</span><br><span class="line">        String address = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">double</span> distance = <span class="number">500</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            HttpGet httpGet = <span class="keyword">new</span> HttpGet(getUrl);</span><br><span class="line">            String resultStr = sendHttpGet(httpGet);</span><br><span class="line">            JSONObject resultObj = JSON.parseObject(resultStr);</span><br><span class="line">            <span class="comment">// 获取 [regeocode]</span></span><br><span class="line">            Object regeocodeObj = resultObj.get(<span class="string">"regeocode"</span>);</span><br><span class="line">            String regeocodeObjToStr = JSON.toJSONString(regeocodeObj);</span><br><span class="line">            JSONObject jsonObj = JSON.parseObject(regeocodeObjToStr);</span><br><span class="line">            <span class="comment">// 获取 [pois]</span></span><br><span class="line">            Object poisObj = jsonObj.get(<span class="string">"pois"</span>);</span><br><span class="line">            String poisObjToStr = JSON.toJSONString(poisObj);</span><br><span class="line">            JSONArray poisArray = JSON.parseArray(poisObjToStr);</span><br><span class="line">            <span class="comment">// 获取最近 [poi]</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; poisArray.size(); i++)&#123;</span><br><span class="line">                Object poiObj = poisArray.get(i);</span><br><span class="line">                String poiStr = JSON.toJSONString(poiObj);</span><br><span class="line">                JSONObject poi = JSON.parseObject(poiStr);</span><br><span class="line">                <span class="keyword">double</span> poiDistance = Double.parseDouble(poi.get(<span class="string">"distance"</span>).toString());</span><br><span class="line">                <span class="keyword">if</span> (poiDistance &lt; distance)&#123;</span><br><span class="line">                    <span class="comment">// 返回地址数据</span></span><br><span class="line">                    distance = poiDistance;</span><br><span class="line">                    address = poi.get(<span class="string">"address"</span>).toString() + poi.get(<span class="string">"name"</span>).toString();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            logger.info(<span class="string">"address = "</span> + address + <span class="string">" , "</span> +<span class="string">"pois.distance = "</span> + distance);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> address;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">sendHttpGet</span><span class="params">(HttpGet httpGet)</span> </span>&#123;</span><br><span class="line">        CloseableHttpClient httpClient = <span class="keyword">null</span>;</span><br><span class="line">        CloseableHttpResponse response = <span class="keyword">null</span>;</span><br><span class="line">        HttpEntity entity = <span class="keyword">null</span>;</span><br><span class="line">        String responseContent = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            httpClient = HttpClients.createDefault();</span><br><span class="line">            httpGet.setConfig(requestConfig);</span><br><span class="line">            response = httpClient.execute(httpGet);</span><br><span class="line">            entity = response.getEntity();</span><br><span class="line">            responseContent = EntityUtils.toString(entity, <span class="string">"UTF-8"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (response != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    response.close();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (httpClient != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    httpClient.close();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> responseContent;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/08/11/gaode-java/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/11/gaode-java/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-100" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -987,89 +1068,6 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2017/07/22/yuanzixing/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/22/yuanzixing/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-vue-rules" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/19/vue-rules/">VueJS中的rules校验</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/07/19/vue-rules/">
-            <time datetime="2017-07-19T15:00:25.000Z" itemprop="datePublished">2017-07-19</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/web/">web</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">rules: &#123;</span><br><span class="line">    rulesOne: [</span><br><span class="line">        &#123; <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">'请输入'</span>, <span class="attr">trigger</span>: <span class="string">'blur'</span> &#125;</span><br><span class="line">    ],</span><br><span class="line">    rulesTwo: [</span><br><span class="line">        &#123; <span class="attr">max</span>: <span class="number">100</span>, <span class="attr">message</span>: <span class="string">'长度在 100个字符以内'</span>, <span class="attr">trigger</span>: <span class="string">'blur'</span> &#125;</span><br><span class="line">    ],</span><br><span class="line">    rulesThree: [</span><br><span class="line">        &#123; <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">'请选择'</span>, <span class="attr">trigger</span>: <span class="string">'change'</span> &#125;</span><br><span class="line">    ],</span><br><span class="line">    rulesFour: [</span><br><span class="line">        &#123; <span class="attr">type</span>: <span class="string">'array'</span>, <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">'请至少选择一个'</span>, <span class="attr">trigger</span>: <span class="string">'change'</span> &#125;</span><br><span class="line">    ],</span><br><span class="line">    rulesFive: [</span><br><span class="line">        &#123; <span class="attr">validator</span>: checkSomething, <span class="attr">trigger</span>: <span class="string">'blur'</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>trigger: ‘blur’为离开输入框<br>trigger: ‘change’为更换下拉框或多选框<br>validator为自定义规则方法名</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/07/19/vue-rules/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/19/vue-rules/">Comments</a>
     
 
         </footer>
