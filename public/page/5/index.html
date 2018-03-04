@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                125
+                126
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,6 +248,89 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-vue-rules" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/07/19/vue-rules/">VueJS中的rules校验</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/19/vue-rules/">
+            <time datetime="2017-07-19T15:00:25.000Z" itemprop="datePublished">2017-07-19</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/web/">web</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">rules: &#123;</span><br><span class="line">    rulesOne: [</span><br><span class="line">        &#123; <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">'请输入'</span>, <span class="attr">trigger</span>: <span class="string">'blur'</span> &#125;</span><br><span class="line">    ],</span><br><span class="line">    rulesTwo: [</span><br><span class="line">        &#123; <span class="attr">max</span>: <span class="number">100</span>, <span class="attr">message</span>: <span class="string">'长度在 100个字符以内'</span>, <span class="attr">trigger</span>: <span class="string">'blur'</span> &#125;</span><br><span class="line">    ],</span><br><span class="line">    rulesThree: [</span><br><span class="line">        &#123; <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">'请选择'</span>, <span class="attr">trigger</span>: <span class="string">'change'</span> &#125;</span><br><span class="line">    ],</span><br><span class="line">    rulesFour: [</span><br><span class="line">        &#123; <span class="attr">type</span>: <span class="string">'array'</span>, <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">'请至少选择一个'</span>, <span class="attr">trigger</span>: <span class="string">'change'</span> &#125;</span><br><span class="line">    ],</span><br><span class="line">    rulesFive: [</span><br><span class="line">        &#123; <span class="attr">validator</span>: checkSomething, <span class="attr">trigger</span>: <span class="string">'blur'</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>trigger: ‘blur’为离开输入框<br>trigger: ‘change’为更换下拉框或多选框<br>validator为自定义规则方法名</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/07/19/vue-rules/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/19/vue-rules/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-mybatis-insert-id" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1003,99 +1086,6 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2017/07/11/java-dto-vo/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/11/java-dto-vo/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-http-request-headers" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/11/http-request-headers/">HTTP中Request-Headers详解</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/07/11/http-request-headers/">
-            <time datetime="2017-07-11T12:52:38.000Z" itemprop="datePublished">2017-07-11</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Operations/">Operations</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>Request Headers：<br>Accept<br>作用：浏览器端可以接受的媒体类型,<br>例如：Accept: text/html 代表浏览器可以接受服务器回发的类型为 text/html<br>也就是我们常说的html文档,如果服务器无法返回text/html类型的数据,<br>服务器应该返回一个406错误(non acceptable)通配符 <em> 代表任意类型<br>例如 Accept: </em>/*  代表浏览器可以处理所有类型,(一般浏览器发给服务器都是发这个)</p>
-<p>Accept-Encoding：<br>作用：浏览器申明自己接收的编码方法，通常指定压缩方法，是否支持压缩，支持什么压缩方法<br>（gzip，deflate）<br>例如： Accept-Encoding: gzip, deflate</p>
-<p>Accept-Language：<br>作用：浏览器申明自己接收的语言。<br>语言跟字符集的区别：中文是语言，中文有多种字符集，比如big5，gb2312，gbk等等<br>例如： Accept-Language: en-us或zh-CN</p>
-<p>User-Agent：<br>作用：告诉HTTP服务器， 客户端使用的操作系统和浏览器的名称和版本.<br>我们上网登陆论坛的时候，往往会看到一些欢迎信息，其中列出了你的操作系统的名称和版本，<br>你所使用的浏览器的名称和版本，服务器应用程序就是从User-Agent这个请求报头域中获取到<br>这些信息User-Agent请求报头域允许客户端将它的操作系统、浏览器和其它属性告诉服务器。<br>例如： User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64)<br>AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36</p>
-<p>Referer：<br>作用：提供了Request的上下文信息的服务器，告诉服务器是从哪个链接过来的</p>
-<p>Origin：<br>作用：告诉Request服务是从何处过来的</p>
-<p>Host：<br>作用：请求报头域主要用于指定被请求资源的Internet主机和端口号它通常从URL中提取出来的</p>
-<p>Cookie：<br>作用：最重要的header, 将cookie的值发送给HTTP服务器<br>Cookie通过URL编码形式发送，转码网站：<a href="http://tool.chinaz.com/tools/urlencode.aspx" target="_blank" rel="noopener">http://tool.chinaz.com/tools/urlencode.aspx</a></p>
-<p>Content-Length：<br>作用：发送给HTTP服务器数据的长度<br>例如：Content-Length: 38</p>
-<p>Content-Type：<br>作用：发送给HTTP服务器数据的类型<br>例如：Content-Type: application/json;charset=UTF-8</p>
-<p>Connection：<br>例如：Connection: keep-alive<br>当一个网页打开完成后，客户端和服务器之间用于传输HTTP数据的TCP连接不会关闭，<br>如果客户端再次访问这个服务器上的网页，会继续使用这一条已经建立的连接<br>例如：Connection: close<br>代表一个Request完成后，客户端和服务器之间用于传输HTTP数据的TCP连接会关闭，<br>当客户端再次发送Request，需要重新建立TCP连接。</p>
-<p>Authorization：<br>Authorization消息头的用户名和口令的值可以容易地编码和解码，通过Base64<br>例如：客户端的请求（用户名“”Aladdin”，口令, password “open sesame”）<br>Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==<br>print encode_base64(‘Aladdin:open sesame’), “\n”;<br>print decode_base64(‘QWxhZGRpbjpvcGVuIHNlc2FtZQ==’), “\n”;</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/07/11/http-request-headers/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/11/http-request-headers/">Comments</a>
     
 
         </footer>
