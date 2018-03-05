@@ -47,7 +47,7 @@ public enum BusinessTypeEnum {
 }
 ```
 可以加入上面注解，此注解可以将枚举类以对象的方式进行序列化。
-在<pre>shape</pre>中有如下转换形式，可按需使用。
+在shape中有如下转换形式，可按需使用。
 ```Java
 public static enum Shape {
   ANY,
