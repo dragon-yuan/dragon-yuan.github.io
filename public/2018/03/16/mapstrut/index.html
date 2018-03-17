@@ -26,19 +26,19 @@
 	})();
 	</script>
     
-    <title>Spring中AOP对异常的处理 | DragonBlog</title>
+    <title>MapStruct实体与模型之间的映射（初体验） | DragonBlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="1234567891011121314151617181920212223242526272829303132import com.exception.BusinessException;import java.lang.reflect.Method;import org.slf4j.Logger;import org.slf4j.LoggerFactory;import org.springfr">
+    <meta name="description" content="工程中引入mapstruct依赖12345&amp;lt;dependency&amp;gt;  &amp;lt;groupId&amp;gt;org.mapstruct&amp;lt;/groupId&amp;gt;  &amp;lt;artifactId&amp;gt;mapstruct&amp;lt;/artifactId&amp;gt;  &amp;lt;version&amp;gt;1.2.0.Final&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt; 首先对">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring中AOP对异常的处理">
-<meta property="og:url" content="http://blog.dragon-yuan.me/2017/07/23/spring-aop-exception/index.html">
+<meta property="og:title" content="MapStruct实体与模型之间的映射（初体验）">
+<meta property="og:url" content="http://blog.dragon-yuan.me/2018/03/16/mapstrut/index.html">
 <meta property="og:site_name" content="DragonBlog">
-<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132import com.exception.BusinessException;import java.lang.reflect.Method;import org.slf4j.Logger;import org.slf4j.LoggerFactory;import org.springfr">
+<meta property="og:description" content="工程中引入mapstruct依赖12345&amp;lt;dependency&amp;gt;  &amp;lt;groupId&amp;gt;org.mapstruct&amp;lt;/groupId&amp;gt;  &amp;lt;artifactId&amp;gt;mapstruct&amp;lt;/artifactId&amp;gt;  &amp;lt;version&amp;gt;1.2.0.Final&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt; 首先对">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-07-23T07:09:02.000Z">
+<meta property="og:updated_time" content="2018-03-17T11:08:00.058Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring中AOP对异常的处理">
-<meta name="twitter:description" content="1234567891011121314151617181920212223242526272829303132import com.exception.BusinessException;import java.lang.reflect.Method;import org.slf4j.Logger;import org.slf4j.LoggerFactory;import org.springfr">
+<meta name="twitter:title" content="MapStruct实体与模型之间的映射（初体验）">
+<meta name="twitter:description" content="工程中引入mapstruct依赖12345&amp;lt;dependency&amp;gt;  &amp;lt;groupId&amp;gt;org.mapstruct&amp;lt;/groupId&amp;gt;  &amp;lt;artifactId&amp;gt;mapstruct&amp;lt;/artifactId&amp;gt;  &amp;lt;version&amp;gt;1.2.0.Final&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt; 首先对">
     
 
     
@@ -248,7 +248,7 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-spring-aop-exception" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-mapstrut" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -256,7 +256,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            Spring中AOP对异常的处理
+            MapStruct实体与模型之间的映射（初体验）
         </h1>
     
 
@@ -265,8 +265,8 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/07/23/spring-aop-exception/">
-            <time datetime="2017-07-23T07:08:01.000Z" itemprop="datePublished">2017-07-23</time>
+        <a href="/2018/03/16/mapstrut/">
+            <time datetime="2018-03-16T09:23:27.000Z" itemprop="datePublished">2018-03-16</time>
         </a>
     </div>
 
@@ -286,8 +286,10 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.exception.BusinessException;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"><span class="keyword">import</span> org.springframework.aop.ThrowsAdvice;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExceptionInterceptorLog</span> <span class="keyword">implements</span> <span class="title">ThrowsAdvice</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger logger = LoggerFactory.getLogger(ExceptionInterceptorLog.class);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ExceptionInterceptorLog</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterThrowing</span><span class="params">(Method method, Object[] args, Object target, BusinessException ex)</span> </span>&#123;</span><br><span class="line">        logger.error(<span class="string">"==&gt;ExceptionInterceptorLog.BusinessException"</span>);</span><br><span class="line">        logger.error(<span class="string">"==&gt;errCode:"</span> + ex.getCode() + <span class="string">" errMsg:"</span> + ex.getMessage());</span><br><span class="line">        logger.error(<span class="string">"==&gt;"</span> + ex.fillInStackTrace());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterThrowing</span><span class="params">(Method method, Object[] args, Object target, Exception ex)</span> </span>&#123;</span><br><span class="line">        logger.error(<span class="string">"==&gt;ExceptionInterceptorLog.Exception"</span>);</span><br><span class="line">        logger.error(<span class="string">"==&gt;Error class: "</span> + target.getClass().getName());</span><br><span class="line">        logger.error(<span class="string">"==&gt;Error method: "</span> + method.getName());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; args.length; ++i) &#123;</span><br><span class="line">            logger.error(<span class="string">"==&gt;args["</span> + i + <span class="string">"]: "</span> + args[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        logger.error(<span class="string">"==&gt;Exception class: "</span> + ex.getClass().getName());</span><br><span class="line">        logger.error(<span class="string">"==&gt;"</span> + ex.fillInStackTrace());</span><br><span class="line">        logger.error(<span class="string">"==&gt; 堆栈信息&#123;&#125;"</span>, ex.toString(), ex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在spring-config-aop.xml进行配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:aop</span>=<span class="string">"http://www.springframework.org/schema/aop"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 异常信息 拦截 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"exceptionInterceptorLog"</span> <span class="attr">class</span>=<span class="string">"com.xescm.core.exception.ExceptionInterceptorLog"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:config</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">id</span>=<span class="string">"exceptionTrade"</span> <span class="attr">expression</span>=<span class="string">"</span></span></span><br><span class="line"><span class="tag"><span class="string">        execution(* com.controller.*.*(..))</span></span></span><br><span class="line"><span class="tag"><span class="string">        or execution(* com.controller.*.*(..))</span></span></span><br><span class="line"><span class="tag"><span class="string">        "</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">aop:advisor</span> <span class="attr">pointcut-ref</span>=<span class="string">"exceptionTrade"</span> <span class="attr">advice-ref</span>=<span class="string">"exceptionInterceptorLog"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+            <p>工程中引入mapstruct依赖<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mapstruct<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mapstruct<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.0.Final<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>首先对于注解@Mapper(uses = Info.class)这个注解用于表示需要对什么类进行映射。<br>比如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Mapper</span>(uses = Info.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OrderMapper</span> </span>&#123;</span><br><span class="line">    OrderMapper INSTANCE = Mappers.getMapper(OrderMapper.class);</span><br><span class="line">    <span class="meta">@Mappings</span>(&#123;</span><br><span class="line">        <span class="meta">@Mapping</span>(target = <span class="string">"orderCode"</span>, source = <span class="string">"resourceCode"</span>,</span><br><span class="line">        <span class="meta">@Mapping</span>(target = <span class="string">"businessType"</span>, constant = <span class="string">"10"</span>),</span><br><span class="line">        <span class="meta">@Mapping</span>(target = <span class="string">"weight"</span>,</span><br><span class="line">            expression = <span class="string">"java(MapStructConvertor.convertTonToKg(info.getWeight()))"</span>)</span><br><span class="line">    )&#125;)</span><br><span class="line">    <span class="function">Object <span class="title">infoToObject</span><span class="params">(Info info)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">其中@Mapper(uses = Info.class)为需要被转换的类</span><br><span class="line"></span><br><span class="line">#单例模式获取实例对象</span><br><span class="line">OrderMapper INSTANCE = Mappers.getMapper(OrderMapper.class);</span><br><span class="line">#其源代码：</span><br><span class="line">T mapper = classLoader.loadClass(clazz.getName() + "Impl").newInstance();</span><br><span class="line"></span><br><span class="line">@Mappings,@Mapping为映射对应字段。</span><br><span class="line">target为转换字段，source为源字段，constant，定义常量值，expression可以自定义方法转换</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MapStructConvertor</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">convertTonToKg</span><span class="params">(BigDecimal ton)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (ton == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"0.00"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        DecimalFormat df = <span class="keyword">new</span> DecimalFormat(<span class="string">"#.00"</span>);</span><br><span class="line">        <span class="keyword">return</span> df.format(ton.multiply(<span class="keyword">new</span> BigDecimal(<span class="number">1000</span>)));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         
         </div>
@@ -321,7 +323,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/07/23/spring-aop-exception/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/23/spring-aop-exception/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2018/03/16/mapstrut/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/03/16/mapstrut/">Comments</a>
     
 
         </footer>
@@ -330,19 +332,10 @@ var jiathis_config={
         
 <nav id="article-nav">
     
-        <a href="/2017/07/27/github-push/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    GitHub进阶
-                
-            </div>
-        </a>
     
-    
-        <a href="/2017/07/22/vue-filters/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/03/04/obj-jsonfomat/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">VueJS中的filters使用</div>
+            <div class="article-nav-title">数据库查询字段后，指定格式化类型</div>
         </a>
     
 </nav>
