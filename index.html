@@ -1004,7 +1004,7 @@ var jiathis_config={
 
 
 
-    <article id="post-maven-dependencymanagement" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-java-transient" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -1012,7 +1012,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/01/20/maven-dependencymanagement/">Maven中的dependencyManagement</a>
+            <a class="article-title" href="/2018/01/20/java-transient/">浅析Java关键字 transient</a>
         </h1>
     
 
@@ -1021,7 +1021,7 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/01/20/maven-dependencymanagement/">
+        <a href="/2018/01/20/java-transient/">
             <time datetime="2018-01-20T03:11:33.000Z" itemprop="datePublished">2018-01-20</time>
         </a>
     </div>
@@ -1042,7 +1042,9 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># pom.xml</span><br><span class="line"># 只是对版本进行管理，不会实际引入jar包</span><br><span class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.2.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line"># 实际下载jar包 </span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+            <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">transient官方解释：</span><br><span class="line">Variables may be marked transient to indicate that they are not part of the persistent state of an object.</span><br><span class="line">变量可以被标记为瞬态，表示它们不是对象的持久状态的一部分。</span><br></pre></td></tr></table></figure>
+<p>Java中transient关键字可以让被修饰的变量不被序列化，只需要实现Serilizable接口，将不需要<br>序列化的属添加transient，在序列化对象时此属性就不会被序列化到指定的目的地中。</p>
+
         
         </div>
         <footer class="article-footer">
@@ -1075,7 +1077,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2018/01/20/maven-dependencymanagement/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/01/20/maven-dependencymanagement/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2018/01/20/java-transient/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/01/20/java-transient/">Comments</a>
     
 
         </footer>
