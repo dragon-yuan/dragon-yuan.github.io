@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                126
+                127
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,6 +248,88 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-js-myeclipse" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2015/12/26/js-myeclipse/">JS在MyEclipse中报错解决办法</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2015/12/26/js-myeclipse/">
+            <time datetime="2015-12-25T19:07:13.000Z" itemprop="datePublished">2015-12-26</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><span style="color: #000000; font-family: tahoma, arial, 宋体; font-size: 14px; line-height: 25.2000007629395px;">1. 选中报错的jquery文件“jquery-1.2.6.min.js”</span><br><span style="color: #000000; font-family: tahoma, arial, 宋体; font-size: 14px; line-height: 25.2000007629395px;">2. 右键选择 MyEclipse–&gt;Exclude From Validation。 </span></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2015/12/26/js-myeclipse/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2015/12/26/js-myeclipse/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-jdbc-api" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1285,97 +1367,6 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2015/10/13/myeclipse10-0-key/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2015/10/13/myeclipse10-0-key/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-ubuntu-apache2-php5-mysql" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2015/09/25/ubuntu-apache2-php5-mysql/">Ubuntu--apache2+php5+mysql</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2015/09/25/ubuntu-apache2-php5-mysql/">
-            <time datetime="2015-09-25T06:41:57.000Z" itemprop="datePublished">2015-09-25</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Operations/">Operations</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>sudo apt-get install build-essential autoconf automake1.9 cvs subversion</p>
-<p>sudo apt-get install apache2</p>
-<p>sudo apt-get install php5</p>
-<p>sudo apt-get install mysql-server libapache2-mod-auth-mysql php5-mysql</p>
-<p>Mysql的启动/停止/重启<br>sudo /etc/init.d/mysql start<br>sudo /etc/init.d/mysql stop<br>sudo /etc/init.d/mysql restart</p>
-<p>/*</p>
-<p>Mysql 安装完后设置root密码<br>mysql -uroot    (一开始root用户的密码为空所以可以进去， 如果在安装的时候您在界面中设置了password<br>可跳过此步)<br>进入mysql控制台：<br>set password for ‘root‘@’localhost’=PASSWORD(‘yourpassword’);<br>如果成功， mysql提示 ： Query OK 0rows affected（0.00sec）</p>
-<p>*/</p>
-<p>安装完成配置<br>//    sudo gedit /etc/apach2/apach2.conf配置apache服务器<br>//    sudo gedit  /etc/php5/apach2/php.ini 配置php在文本框中找到”; extension=mysql.so”， 去掉；表示apache启动时加载与mysql连接的模块， 然后保存，</p>
-<p>重启apache服务器。sudo /etc/init.d/apache2 restart</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2015/09/25/ubuntu-apache2-php5-mysql/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2015/09/25/ubuntu-apache2-php5-mysql/">Comments</a>
     
 
         </footer>
