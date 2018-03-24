@@ -248,6 +248,92 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-mysql-about-date" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/10/25/mysql-about-date/">关于时间的处理，以及MyBatis中对时间的处理</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/10/25/mysql-about-date/">
+            <time datetime="2017-10-25T14:04:19.000Z" itemprop="datePublished">2017-10-25</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><code>java</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// String -&gt; Date</span></span><br><span class="line">SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">""</span>);</span><br><span class="line">Date date = sdf.parse(dateString);</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Date -&gt; String</span></span><br><span class="line">Date date = <span class="keyword">new</span> Date();</span><br><span class="line">String dateString = (<span class="keyword">new</span> SimpleDateFormat(<span class="string">""</span>)).format(date);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在日期上增加数个整月</span></span><br><span class="line">Calendar cal = Calendar.getInstance();</span><br><span class="line">cal.setTime(<span class="keyword">new</span> Date());</span><br><span class="line">cal.add(Calendar.MONTH, <span class="number">1</span>);</span><br><span class="line">Date date = cal.getTime();</span><br></pre></td></tr></table></figure>
+<p><code>mysql</code><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 时间转换</span><br><span class="line">DATE_FORMAT(NOW(),'%b %d %Y %h:%i %p')  </span><br><span class="line">DATE_FORMAT(NOW(),'%m-%d-%Y')  </span><br><span class="line">DATE_FORMAT(NOW(),'%d %b %y')  </span><br><span class="line">DATE_FORMAT(NOW(),'%d %b %Y %T:%f')</span><br></pre></td></tr></table></figure></p>
+<p><code>mybatis</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;![CDATA[&gt;]]&gt;</span><br><span class="line">&lt;![CDATA[&gt;=]]&gt;</span><br><span class="line">&lt;![CDATA[&lt;]]&gt;</span><br><span class="line">&lt;![CDATA[&lt;=]]&gt;</span><br></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/10/25/mysql-about-date/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/10/25/mysql-about-date/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-sql-about-date" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1031,88 +1117,6 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2017/08/30/vue-keepalive/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/30/vue-keepalive/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-ico-wallet" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/08/30/ico-wallet/">This is ICO Wallet</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/08/30/ico-wallet/">
-            <time datetime="2017-08-30T14:59:09.000Z" itemprop="datePublished">2017-08-30</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Other/">Other</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BTC:<span class="number">18</span>SopfAEbGqosgUw8oTHSv5xTVYxLXziVy</span><br><span class="line">ETH:<span class="number">0xfaeA5Db637f902451Ce173bf0DC08FDBF86C2dd9</span></span><br></pre></td></tr></table></figure>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/08/30/ico-wallet/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/30/ico-wallet/">Comments</a>
     
 
         </footer>
