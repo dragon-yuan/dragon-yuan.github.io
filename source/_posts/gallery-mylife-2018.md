@@ -50,4 +50,10 @@ photos:
   - http://img-blog.dragon-yuan.me/2018-LIFE/42.jpeg
   - http://img-blog.dragon-yuan.me/2018-LIFE/43.jpeg
   - http://img-blog.dragon-yuan.me/2018-LIFE/44.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/45.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/46.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/47.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/48.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/49.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/50.jpeg
 ---
