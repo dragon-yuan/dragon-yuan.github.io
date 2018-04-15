@@ -56,4 +56,5 @@ photos:
   - http://img-blog.dragon-yuan.me/2018-LIFE/48.jpeg
   - http://img-blog.dragon-yuan.me/2018-LIFE/49.jpeg
   - http://img-blog.dragon-yuan.me/2018-LIFE/50.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/51.jpeg
 ---
