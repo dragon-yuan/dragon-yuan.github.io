@@ -82,4 +82,14 @@ photos:
   - http://img-blog.dragon-yuan.me/2018-LIFE/74.jpeg
   - http://img-blog.dragon-yuan.me/2018-LIFE/75.jpeg
   - http://img-blog.dragon-yuan.me/2018-LIFE/76.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/77.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/78.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/79.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/80.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/81.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/82.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/83.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/84.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/85.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/86.jpeg
 ---
