@@ -26,19 +26,19 @@
 	})();
 	</script>
     
-    <title>JAVA随机生成6位验证码 | DragonBlog</title>
+    <title>Spring Boot加载yaml配置到Bean | DragonBlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="public static String createRandomCode() {         String code = &quot;&quot;;         Random r = new Random();         for (int i = 0; i &amp;lt; 6; i++) {             code += r.nextInt(10);         }         return">
+    <meta name="description" content="Spring Boot可能遇到项目启动无法加载yaml配置的情况，可以使用如下配置注入PropertySourcesPlaceholderConfigurer12345678@Beanpublic static PropertySourcesPlaceholderConfigurer properties() &amp;#123;    PropertySourcesPlaceholderConfigur">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA随机生成6位验证码">
-<meta property="og:url" content="http://blog.dragon-yuan.me/2016/12/23/java-random/index.html">
+<meta property="og:title" content="Spring Boot加载yaml配置到Bean">
+<meta property="og:url" content="http://blog.dragon-yuan.me/2018/05/10/spring-boot-yaml-bean/index.html">
 <meta property="og:site_name" content="DragonBlog">
-<meta property="og:description" content="public static String createRandomCode() {         String code = &quot;&quot;;         Random r = new Random();         for (int i = 0; i &amp;lt; 6; i++) {             code += r.nextInt(10);         }         return">
+<meta property="og:description" content="Spring Boot可能遇到项目启动无法加载yaml配置的情况，可以使用如下配置注入PropertySourcesPlaceholderConfigurer12345678@Beanpublic static PropertySourcesPlaceholderConfigurer properties() &amp;#123;    PropertySourcesPlaceholderConfigur">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2016-12-23T08:32:56.000Z">
+<meta property="og:updated_time" content="2018-05-10T14:12:27.201Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA随机生成6位验证码">
-<meta name="twitter:description" content="public static String createRandomCode() {         String code = &quot;&quot;;         Random r = new Random();         for (int i = 0; i &amp;lt; 6; i++) {             code += r.nextInt(10);         }         return">
+<meta name="twitter:title" content="Spring Boot加载yaml配置到Bean">
+<meta name="twitter:description" content="Spring Boot可能遇到项目启动无法加载yaml配置的情况，可以使用如下配置注入PropertySourcesPlaceholderConfigurer12345678@Beanpublic static PropertySourcesPlaceholderConfigurer properties() &amp;#123;    PropertySourcesPlaceholderConfigur">
     
 
     
@@ -248,7 +248,7 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-java-random" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-spring-boot-yaml-bean" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -256,7 +256,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            JAVA随机生成6位验证码
+            Spring Boot加载yaml配置到Bean
         </h1>
     
 
@@ -265,8 +265,8 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/12/23/java-random/">
-            <time datetime="2016-12-23T08:32:56.000Z" itemprop="datePublished">2016-12-23</time>
+        <a href="/2018/05/10/spring-boot-yaml-bean/">
+            <time datetime="2018-05-10T14:11:15.000Z" itemprop="datePublished">2018-05-10</time>
         </a>
     </div>
 
@@ -286,16 +286,7 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <pre>
-public static String createRandomCode() {
-        String code = "";
-        Random r = new Random();
-        for (int i = 0; i < 6; i++) {
-            code += r.nextInt(10);
-        }
-        return code;
-}
-</pre>
+            <p>Spring Boot可能遇到项目启动无法加载yaml配置的情况，可以使用如下配置注入PropertySourcesPlaceholderConfigurer<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> PropertySourcesPlaceholderConfigurer <span class="title">properties</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    PropertySourcesPlaceholderConfigurer configurer = <span class="keyword">new</span> PropertySourcesPlaceholderConfigurer();</span><br><span class="line">    YamlPropertiesFactoryBean yaml = <span class="keyword">new</span> YamlPropertiesFactoryBean();</span><br><span class="line">    yaml.setResources(<span class="keyword">new</span> ClassPathResource(<span class="string">"xxx.yml"</span>));</span><br><span class="line">    configurer.setProperties(yaml.getObject());</span><br><span class="line">    <span class="keyword">return</span> configurer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
         
         </div>
@@ -329,7 +320,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2016/12/23/java-random/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2016/12/23/java-random/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2018/05/10/spring-boot-yaml-bean/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/05/10/spring-boot-yaml-bean/">Comments</a>
     
 
         </footer>
@@ -338,19 +329,10 @@ var jiathis_config={
         
 <nav id="article-nav">
     
-        <a href="/2016/12/23/SQL-RAND()/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    通过SQL语句实现关于随机选择等功能
-                
-            </div>
-        </a>
     
-    
-        <a href="/2016/12/23/java-md5/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/05/06/life-to-myselef-2017-2018/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">JAVA中明文转MD5</div>
+            <div class="article-nav-title">时间轴，一年前的自己（2017-2018）</div>
         </a>
     
 </nav>
