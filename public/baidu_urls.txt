@@ -1,1 +1,1 @@
-http://blog.dragon-yuan.me/2018/05/06/life-to-myselef-2017-2018/
+http://blog.dragon-yuan.me/2018/05/10/spring-boot-yaml-bean/
