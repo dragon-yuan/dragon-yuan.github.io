@@ -1,1 +1,1 @@
-http://blog.dragon-yuan.me/2018/05/10/spring-boot-yaml-bean/
+http://blog.dragon-yuan.me/2018/05/13/my-domain/
