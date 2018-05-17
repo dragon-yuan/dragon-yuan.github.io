@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                131
+                132
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,6 +248,95 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-java-postconstruct-predestroy" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/05/17/java-postconstruct-predestroy/">什么是@PostConstruct，@PreDestroy注解</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/05/17/java-postconstruct-predestroy/">
+            <time datetime="2018-05-17T15:19:17.000Z" itemprop="datePublished">2018-05-17</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>首先这两个注解是在JDK1.5增加的，注解@PostConstruct允许在Bean初始化之前执行一些方法，而@PreDestroy是在Bean销毁之前执行的操作。</p>
+<p>@PostConstruct（@PreDestroy）:被@PostConstruct修饰的方法会在服务器加载Servlet（Bean）的时候运行，并且只会被服务器调用一次。</p>
+<p>生命周期如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">PostConstruct--&gt;init</span><br><span class="line">init--&gt;some-methods</span><br><span class="line">some-methods--&gt;destory</span><br><span class="line">destory--&gt;PreDestroy</span><br></pre></td></tr></table></figure>
+<p>例如如下代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;Title: RegistryCenterConfig. &lt;/p&gt;</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;Description 调度作业，Zookeeper配置（ZK集群配置） &lt;/p&gt;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> dragon</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2018/5/7 上午11:08</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ConditionalOnClass</span>(ElasticJob.class)</span><br><span class="line"><span class="meta">@ConditionalOnBean</span>(annotation = MarkElasticJob.class)</span><br><span class="line"><span class="meta">@EnableConfigurationProperties</span>(ZookeeperRegistryProperties.class)</span><br><span class="line"><span class="meta">@ConditionalOnExpression</span>(<span class="string">"'$&#123;elaticjob.zookeeper.server-lists&#125;'.length() &gt; 0"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RegistryCenterConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> ZookeeperRegistryProperties regCenterProperties;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RegistryCenterConfig</span><span class="params">(ZookeeperRegistryProperties regCenterProperties)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.regCenterProperties = regCenterProperties;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;Title: regCenter. &lt;/p&gt;</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;初始化配置中心 &lt;/p&gt;</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> serverList 服务列表</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> namespace  名称</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">     * 注意，在console上配置注册中心时，需要注意：</span></span><br><span class="line"><span class="comment">     * 注册中心名称和命名空间-&gt;需要和namespace保持一致</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span>(initMethod = <span class="string">"init"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ZookeeperRegistryCenter <span class="title">regCenter</span><span class="params">(@Value(<span class="string">"$&#123;elaticjob.zookeeper.server-lists&#125;"</span>)</span> <span class="keyword">final</span> String serverList,</span></span><br><span class="line"><span class="function">                                             @<span class="title">Value</span><span class="params">(<span class="string">"$&#123;elaticjob.zookeeper.namespace&#125;"</span>)</span> <span class="keyword">final</span> String namespace) </span>&#123;</span><br><span class="line">        ZookeeperConfiguration zookeeperConfiguration = <span class="keyword">new</span> ZookeeperConfiguration(serverList, namespace);</span><br><span class="line">        zookeeperConfiguration.setBaseSleepTimeMilliseconds(regCenterProperties.getBaseSleepTimeMilliseconds());</span><br><span class="line">        zookeeperConfiguration.setConnectionTimeoutMilliseconds(regCenterProperties.getConnectionTimeoutMilliseconds());</span><br><span class="line">        zookeeperConfiguration.setMaxSleepTimeMilliseconds(regCenterProperties.getMaxSleepTimeMilliseconds());</span><br><span class="line">        zookeeperConfiguration.setSessionTimeoutMilliseconds(regCenterProperties.getSessionTimeoutMilliseconds());</span><br><span class="line">        zookeeperConfiguration.setMaxRetries(regCenterProperties.getMaxRetries());</span><br><span class="line">        zookeeperConfiguration.setDigest(regCenterProperties.getDigest());</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ZookeeperRegistryCenter(zookeeperConfiguration);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;Title: ElasticJobConfig. &lt;/p&gt;</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;在初始化Zookeeper前，注入Elastic-Job，自动扫描开放任务 &lt;/p&gt;</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@author</span> dragon</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@date</span> 2018/5/9 下午2:35</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostConstruct</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ElasticJobConfig <span class="title">initElasticJob</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ElasticJobConfig();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PreDestroy</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preDestoryMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"preDestoryMethod..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>对于如上代码，应用场景是elastic-job + zk 的启动方式，需要在zk启动前，先扫描Jobs，然后在执行Zk的init方法。</p>
+<p>运行如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">RegistryCenterConfig--&gt;ElasticJobConfig</span><br><span class="line">ElasticJobConfig--&gt;Autowired-RegistryCenterConfig</span><br><span class="line">Autowired-RegistryCenterConfig--&gt;init(regCenter)</span><br><span class="line">init(regCenter)--&gt;preDestoryMethod</span><br></pre></td></tr></table></figure>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2018/05/17/java-postconstruct-predestroy/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/05/17/java-postconstruct-predestroy/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-druid-utf8mb4" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1014,88 +1103,6 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2018/02/09/spring-boot-mybatis-mapper-druid/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/02/09/spring-boot-mybatis-mapper-druid/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-maven-jar-annotation" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/02/05/maven-jar-annotation/">Maven打包添加源代码</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/02/05/maven-jar-annotation/">
-            <time datetime="2018-02-05T13:49:03.000Z" itemprop="datePublished">2018-02-05</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>在Maven pom.xml添加插件，打包jar文件时会自动引入注释：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">      	<span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">	        <span class="comment">&lt;!--引入source插件 --&gt;</span></span><br><span class="line">	        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-source-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	        <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">	        <span class="comment">&lt;!-- 绑定source插件到Maven的生命周期,并在生命周期后执行绑定的source的goal --&gt;</span></span><br><span class="line">	        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">	          <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">	            <span class="comment">&lt;!-- 绑定source插件到Maven的生命周期 --&gt;</span></span><br><span class="line">	            <span class="tag">&lt;<span class="name">phase</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">	            <span class="comment">&lt;!--在生命周期后执行绑定的source插件的goals --&gt;</span></span><br><span class="line">	            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">	              <span class="tag">&lt;<span class="name">goal</span>&gt;</span>jar-no-fork<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">	              <span class="tag">&lt;<span class="name">goal</span>&gt;</span>test-jar<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">	            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">	          <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">	        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">      	<span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2018/02/05/maven-jar-annotation/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/02/05/maven-jar-annotation/">Comments</a>
     
 
         </footer>
