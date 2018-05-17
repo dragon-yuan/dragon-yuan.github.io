@@ -26,19 +26,19 @@
 	})();
 	</script>
     
-    <title>MySQL中CONVERT | DragonBlog</title>
+    <title>什么是@PostConstruct，@PreDestroy注解 | DragonBlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="CONVERT类型转换：CONVERT(VALUE,TYPE)可用的类型：二进制：BINARY字符串，可以带参数：CHAR()日期：DATE时间：TIME日期时间型：DATETIME浮点数：DECIMAL整数：SIGNED无符号整数：UNSIGNED">
+    <meta name="description" content="首先这两个注解是在JDK1.5增加的，注解@PostConstruct允许在Bean初始化之前执行一些方法，而@PreDestroy是在Bean销毁之前执行的操作。 @PostConstruct（@PreDestroy）:被@PostConstruct修饰的方法会在服务器加载Servlet（Bean）的时候运行，并且只会被服务器调用一次。 生命周期如下： 12345graph LRPostCons">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL中CONVERT">
-<meta property="og:url" content="http://blog.dragon-yuan.me/2017/07/12/mysql-convert/index.html">
+<meta property="og:title" content="什么是@PostConstruct，@PreDestroy注解">
+<meta property="og:url" content="http://blog.dragon-yuan.me/2018/05/17/java-postconstruct-predestroy/index.html">
 <meta property="og:site_name" content="DragonBlog">
-<meta property="og:description" content="CONVERT类型转换：CONVERT(VALUE,TYPE)可用的类型：二进制：BINARY字符串，可以带参数：CHAR()日期：DATE时间：TIME日期时间型：DATETIME浮点数：DECIMAL整数：SIGNED无符号整数：UNSIGNED">
+<meta property="og:description" content="首先这两个注解是在JDK1.5增加的，注解@PostConstruct允许在Bean初始化之前执行一些方法，而@PreDestroy是在Bean销毁之前执行的操作。 @PostConstruct（@PreDestroy）:被@PostConstruct修饰的方法会在服务器加载Servlet（Bean）的时候运行，并且只会被服务器调用一次。 生命周期如下： 12345graph LRPostCons">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-07-12T15:23:46.000Z">
+<meta property="og:updated_time" content="2018-05-17T15:43:26.750Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL中CONVERT">
-<meta name="twitter:description" content="CONVERT类型转换：CONVERT(VALUE,TYPE)可用的类型：二进制：BINARY字符串，可以带参数：CHAR()日期：DATE时间：TIME日期时间型：DATETIME浮点数：DECIMAL整数：SIGNED无符号整数：UNSIGNED">
+<meta name="twitter:title" content="什么是@PostConstruct，@PreDestroy注解">
+<meta name="twitter:description" content="首先这两个注解是在JDK1.5增加的，注解@PostConstruct允许在Bean初始化之前执行一些方法，而@PreDestroy是在Bean销毁之前执行的操作。 @PostConstruct（@PreDestroy）:被@PostConstruct修饰的方法会在服务器加载Servlet（Bean）的时候运行，并且只会被服务器调用一次。 生命周期如下： 12345graph LRPostCons">
     
 
     
@@ -248,7 +248,7 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-mysql-convert" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-java-postconstruct-predestroy" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -256,7 +256,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            MySQL中CONVERT
+            什么是@PostConstruct，@PreDestroy注解
         </h1>
     
 
@@ -265,8 +265,8 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/07/12/mysql-convert/">
-            <time datetime="2017-07-12T15:19:22.000Z" itemprop="datePublished">2017-07-12</time>
+        <a href="/2018/05/17/java-postconstruct-predestroy/">
+            <time datetime="2018-05-17T15:19:17.000Z" itemprop="datePublished">2018-05-17</time>
         </a>
     </div>
 
@@ -274,7 +274,7 @@ var _hmt = _hmt || [];
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/MySQL/">MySQL</a>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
     </div>
 
                         
@@ -286,7 +286,14 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>CONVERT类型转换：CONVERT(VALUE,TYPE)<br>可用的类型：<br>二进制：BINARY<br>字符串，可以带参数：CHAR()<br>日期：DATE<br>时间：TIME<br>日期时间型：DATETIME<br>浮点数：DECIMAL<br>整数：SIGNED<br>无符号整数：UNSIGNED</p>
+            <p>首先这两个注解是在JDK1.5增加的，注解@PostConstruct允许在Bean初始化之前执行一些方法，而@PreDestroy是在Bean销毁之前执行的操作。</p>
+<p>@PostConstruct（@PreDestroy）:被@PostConstruct修饰的方法会在服务器加载Servlet（Bean）的时候运行，并且只会被服务器调用一次。</p>
+<p>生命周期如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">PostConstruct--&gt;init</span><br><span class="line">init--&gt;some-methods</span><br><span class="line">some-methods--&gt;destory</span><br><span class="line">destory--&gt;PreDestroy</span><br></pre></td></tr></table></figure>
+<p>例如如下代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;Title: RegistryCenterConfig. &lt;/p&gt;</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;Description 调度作业，Zookeeper配置（ZK集群配置） &lt;/p&gt;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> dragon</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2018/5/7 上午11:08</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ConditionalOnClass</span>(ElasticJob.class)</span><br><span class="line"><span class="meta">@ConditionalOnBean</span>(annotation = MarkElasticJob.class)</span><br><span class="line"><span class="meta">@EnableConfigurationProperties</span>(ZookeeperRegistryProperties.class)</span><br><span class="line"><span class="meta">@ConditionalOnExpression</span>(<span class="string">"'$&#123;elaticjob.zookeeper.server-lists&#125;'.length() &gt; 0"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RegistryCenterConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> ZookeeperRegistryProperties regCenterProperties;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RegistryCenterConfig</span><span class="params">(ZookeeperRegistryProperties regCenterProperties)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.regCenterProperties = regCenterProperties;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;Title: regCenter. &lt;/p&gt;</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;初始化配置中心 &lt;/p&gt;</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> serverList 服务列表</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> namespace  名称</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">     * 注意，在console上配置注册中心时，需要注意：</span></span><br><span class="line"><span class="comment">     * 注册中心名称和命名空间-&gt;需要和namespace保持一致</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span>(initMethod = <span class="string">"init"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ZookeeperRegistryCenter <span class="title">regCenter</span><span class="params">(@Value(<span class="string">"$&#123;elaticjob.zookeeper.server-lists&#125;"</span>)</span> <span class="keyword">final</span> String serverList,</span></span><br><span class="line"><span class="function">                                             @<span class="title">Value</span><span class="params">(<span class="string">"$&#123;elaticjob.zookeeper.namespace&#125;"</span>)</span> <span class="keyword">final</span> String namespace) </span>&#123;</span><br><span class="line">        ZookeeperConfiguration zookeeperConfiguration = <span class="keyword">new</span> ZookeeperConfiguration(serverList, namespace);</span><br><span class="line">        zookeeperConfiguration.setBaseSleepTimeMilliseconds(regCenterProperties.getBaseSleepTimeMilliseconds());</span><br><span class="line">        zookeeperConfiguration.setConnectionTimeoutMilliseconds(regCenterProperties.getConnectionTimeoutMilliseconds());</span><br><span class="line">        zookeeperConfiguration.setMaxSleepTimeMilliseconds(regCenterProperties.getMaxSleepTimeMilliseconds());</span><br><span class="line">        zookeeperConfiguration.setSessionTimeoutMilliseconds(regCenterProperties.getSessionTimeoutMilliseconds());</span><br><span class="line">        zookeeperConfiguration.setMaxRetries(regCenterProperties.getMaxRetries());</span><br><span class="line">        zookeeperConfiguration.setDigest(regCenterProperties.getDigest());</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ZookeeperRegistryCenter(zookeeperConfiguration);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;Title: ElasticJobConfig. &lt;/p&gt;</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;在初始化Zookeeper前，注入Elastic-Job，自动扫描开放任务 &lt;/p&gt;</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@author</span> dragon</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@date</span> 2018/5/9 下午2:35</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostConstruct</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ElasticJobConfig <span class="title">initElasticJob</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ElasticJobConfig();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PreDestroy</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preDestoryMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"preDestoryMethod..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>对于如上代码，应用场景是elastic-job + zk 的启动方式，需要在zk启动前，先扫描Jobs，然后在执行Zk的init方法。</p>
+<p>运行如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">RegistryCenterConfig--&gt;ElasticJobConfig</span><br><span class="line">ElasticJobConfig--&gt;Autowired-RegistryCenterConfig</span><br><span class="line">Autowired-RegistryCenterConfig--&gt;init(regCenter)</span><br><span class="line">init(regCenter)--&gt;preDestoryMethod</span><br></pre></td></tr></table></figure>
 
         
         </div>
@@ -320,7 +327,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/07/12/mysql-convert/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/12/mysql-convert/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2018/05/17/java-postconstruct-predestroy/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/05/17/java-postconstruct-predestroy/">Comments</a>
     
 
         </footer>
@@ -329,19 +336,10 @@ var jiathis_config={
         
 <nav id="article-nav">
     
-        <a href="/2017/07/13/vue-bind/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    VueJS中的各项绑定(不定期更新)
-                
-            </div>
-        </a>
     
-    
-        <a href="/2017/07/12/java-AtomicBoolean/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/05/15/druid-utf8mb4/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">AtomicBoolean介绍与使用</div>
+            <div class="article-nav-title">Druid连接池配置连接属性utf8mb4</div>
         </a>
     
 </nav>

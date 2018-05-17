@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                131
+                132
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,6 +248,111 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-jquery-DOM" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/12/07/jquery-DOM/">jQuery对DOM元素的操作</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/12/07/jquery-DOM/">
+            <time datetime="2016-12-07T14:14:26.000Z" itemprop="datePublished">2016-12-07</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <pre>
+获取单选按钮的值
+$('input[name="object"]:checked').val();
+
+获取select选中的值
+$("#object").find("option:selected").val();
+
+判断是不是空
+$.trim($("#object").val()) == "")
+
+通过Value选择单选按钮
+$(":radio[name='object'][value='"+object+"']").attr("checked",'checked');
+
+通过Value选择Select组
+$("#object option[value='"+object+"']").attr("selected","selected");
+
+通过name选择单选按钮
+$(":radio[name='name'][value='"+value+"']").attr("checked",'checked');
+
+通过name遍历获取复选框选中元素
+$("input:checkbox[name='supplyCheckBox']:checked").each(function(i) {
+
+});
+</pre>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2016/12/07/jquery-DOM/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2016/12/07/jquery-DOM/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-2016-08-10-07-47-12" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1137,93 +1242,6 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2016/06/23/2016-06-23-05-58-25/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2016/06/23/2016-06-23-05-58-25/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-java-compiler-level-does-not-match-the-version-of-the-installed-java-project-facet" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/06/21/java-compiler-level-does-not-match-the-version-of-the-installed-java-project-facet/">解决java compiler level does not match the version of the installed java project facet</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/06/21/java-compiler-level-does-not-match-the-version-of-the-installed-java-project-facet/">
-            <time datetime="2016-06-21T05:14:08.000Z" itemprop="datePublished">2016-06-21</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p><span style="text-align: center;">其实要解决也很简单，在资源管理器下，找到项目所在的目录，在.settings子目录里面，用文本编辑器打开org.eclipse.wst.common.project.facet.core.xml配置文件，如图所示：</span></p>
-<p><span style="text-align: center;"><img src="http://img.my.csdn.net/uploads/201210/29/1351513323_5843.jpg" alt=""><br></span></p>
-<p><span style="text-align: center;">修改红色画线部分，让它与项目的编译器版本设置保持一致即可。</span></p>
-<p><span style="text-align: center;">要查看项目的编译器版本设置，在Eclipse环境中，鼠标右键选择项目，点击Properties，选择Java Compiler，可以在窗口右边看到编译器版本，如图所示：</span></p>
-<p><span style="text-align: center;"><img src="http://img.my.csdn.net/uploads/201210/29/1351513471_5803.jpg" alt=""></span></p>
-<p>转载：<a href="http://blog.csdn.net/chszs/article/details/8125828" target="_blank" rel="noopener">http://blog.csdn.net/chszs/article/details/8125828</a> 感谢博主</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2016/06/21/java-compiler-level-does-not-match-the-version-of-the-installed-java-project-facet/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2016/06/21/java-compiler-level-does-not-match-the-version-of-the-installed-java-project-facet/">Comments</a>
     
 
         </footer>
