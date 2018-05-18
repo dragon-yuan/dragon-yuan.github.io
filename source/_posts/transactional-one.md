@@ -1,11 +1,12 @@
 ---
-title: 事物传播行为
+title: Spring事务的七种传播行为
 categories:
   - Java
 date: 2018-01-16 22:57:15
 ---
 ```xml
-如果有事务，那么加入事务，没有的话新建一个
+spring默认传播行为。
+如果有事务，那么加入事务，没有的话新建一个。
 @Transactional(propagation=Propagation.REQUIRED)
 
 容器不为这个方法开启事务
@@ -23,4 +24,7 @@ date: 2018-01-16 22:57:15
 
 如果其他bean调用这个方法，在其他bean中声明事务，那就用事务，如果其他bean没有声明事务，那就不用事务。
 @Transactional(propagation=Propagation.SUPPORTS)
+
+如果当前存在事务，则在嵌套事务内执行，如果当前不存在事务，则创建一个新的事务，嵌套事务使用数据库中的保存点来实现，即嵌套事务回滚不影响外部事务，但外部事务回滚将导致嵌套事务回滚。
+@Transactional(propagation=Propagation.Nested)
 ```
