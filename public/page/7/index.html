@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                132
+                134
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,6 +248,170 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-java-mysql-concat" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/07/10/java-mysql-concat/">MySQL中CONCAT值为空的问题解决办法</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/10/java-mysql-concat/">
+            <time datetime="2017-07-10T14:12:26.000Z" itemprop="datePublished">2017-07-10</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/MySQL/">MySQL</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在MySQL中concat函数有一个特点就是有一个值为null那么不管第二个字符有多少内容都返回为空了，</span><br><span class="line">这个特性让我们在实例应用中可能觉得不方便，但实现就是这样我们需要使用其它办法来解决。</span><br><span class="line">返回结果为连接参数产生的字符串。如有任何一个参数为NULL，则返回值为NULL。</span><br><span class="line"></span><br><span class="line">使用个IFNULL可以判断一下字段是否为空：</span><br><span class="line">MySQL内置的IFNULL函数可以用在查询时候为NULL值字段给一个默认值：</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CONCAT</span>(<span class="keyword">IFNULL</span>(code,<span class="string">''</span>),telephone) <span class="keyword">FROM</span> info</span><br></pre></td></tr></table></figure>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/07/10/java-mysql-concat/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/10/java-mysql-concat/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-java-linux-properties" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/04/10/java-linux-properties/">通过JAVA环境监听Linux系统属性</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/04/10/java-linux-properties/">
+            <time datetime="2017-04-10T12:22:26.000Z" itemprop="datePublished">2017-04-10</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>获取当前系统内存和CPU使用状态<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.hyperic.sigar.Mem;</span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.util.StringTokenizer;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">LinuxSystemTool</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> int[] result</span></span><br><span class="line"><span class="comment">     * result.length==4;int[0]=MemTotal;int[1]=MemFree;int[2]=SwapTotal;int[3]=SwapFree;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] getMemInfo() <span class="keyword">throws</span> IOException, InterruptedException &#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">"/proc/meminfo"</span>);</span><br><span class="line">        BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(</span><br><span class="line">                <span class="keyword">new</span> FileInputStream(file)));</span><br><span class="line">        <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">4</span>];</span><br><span class="line">        String str = <span class="keyword">null</span>;</span><br><span class="line">        StringTokenizer token = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">while</span>((str = br.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">            token = <span class="keyword">new</span> StringTokenizer(str);</span><br><span class="line">            <span class="keyword">if</span>(!token.hasMoreTokens())</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            str = token.nextToken();</span><br><span class="line">            <span class="keyword">if</span>(!token.hasMoreTokens())</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(str.equalsIgnoreCase(<span class="string">"MemTotal:"</span>))</span><br><span class="line">                result[<span class="number">0</span>] = Integer.parseInt(token.nextToken());</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str.equalsIgnoreCase(<span class="string">"MemFree:"</span>))</span><br><span class="line">                result[<span class="number">1</span>] = Integer.parseInt(token.nextToken());</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str.equalsIgnoreCase(<span class="string">"SwapTotal:"</span>))</span><br><span class="line">                result[<span class="number">2</span>] = Integer.parseInt(token.nextToken());</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str.equalsIgnoreCase(<span class="string">"SwapFree:"</span>))</span><br><span class="line">                result[<span class="number">3</span>] = Integer.parseInt(token.nextToken());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">float</span> <span class="title">getCpuInfo</span><span class="params">()</span> <span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">"/proc/stat"</span>);</span><br><span class="line">        BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(</span><br><span class="line">                <span class="keyword">new</span> FileInputStream(file)));</span><br><span class="line">        StringTokenizer token = <span class="keyword">new</span> StringTokenizer(br.readLine());</span><br><span class="line">        token.nextToken();</span><br><span class="line">        <span class="keyword">int</span> user1 = Integer.parseInt(token.nextToken());</span><br><span class="line">        <span class="keyword">int</span> nice1 = Integer.parseInt(token.nextToken());</span><br><span class="line">        <span class="keyword">int</span> sys1 = Integer.parseInt(token.nextToken());</span><br><span class="line">        <span class="keyword">int</span> idle1 = Integer.parseInt(token.nextToken());</span><br><span class="line"></span><br><span class="line">        Thread.sleep(<span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">        br = <span class="keyword">new</span> BufferedReader(</span><br><span class="line">                <span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(file)));</span><br><span class="line">        token = <span class="keyword">new</span> StringTokenizer(br.readLine());</span><br><span class="line">        token.nextToken();</span><br><span class="line">        <span class="keyword">int</span> user2 = Integer.parseInt(token.nextToken());</span><br><span class="line">        <span class="keyword">int</span> nice2 = Integer.parseInt(token.nextToken());</span><br><span class="line">        <span class="keyword">int</span> sys2 = Integer.parseInt(token.nextToken());</span><br><span class="line">        <span class="keyword">int</span> idle2 = Integer.parseInt(token.nextToken());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">float</span>)((user2 + sys2 + nice2) -</span><br><span class="line">              (user1 + sys1 + nice1)) / (<span class="keyword">float</span>)((user2 + nice2 + sys2 + idle2) -</span><br><span class="line">              (user1 + nice1 + sys1 + idle1));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/04/10/java-linux-properties/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/04/10/java-linux-properties/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-java-windows-properties" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1031,201 +1195,6 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2017/02/22/poi-write-excel/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/02/22/poi-write-excel/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-poi-read-excel" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/02/22/poi-read-excel/">APACHE POI读取Excel-07操作</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/02/22/poi-read-excel/">
-            <time datetime="2017-02-22T06:14:26.000Z" itemprop="datePublished">2017-02-22</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <pre>
-// 得到Excel工作簿对象
-XSSFWorkbook workbook = new XSSFWorkbook(new FileInputStream(file));
-// 得到Excel工作表对象
-XSSFSheet sheet = workbook.getSheetAt(0);
-// 遍历工作表中行
-for (Row row : sheet) {
-    // 获取当行数
-    int rowNum = row.getRowNum();
-    // 跳过第一行，如导入Excel模版
-    if (rowNum != 0) {
-    // 获取此行上的单元格
-          Cell cell = row.getCell(0);
-      // 得到Excel工作表指定行的单元格，并设置读取编码方式
-            cell.setCellType(HSSFCell.CELL_TYPE_STRING);
-            row.getCell(1).setCellType(HSSFCell.CELL_TYPE_STRING);
-          row.getCell(2).setCellType(HSSFCell.CELL_TYPE_STRING);
-            row.getCell(3).setCellType(HSSFCell.CELL_TYPE_STRING);
-      // 获取内容
-      String str1 = cell.getStringCellValue();
-            String str2 = row.getCell(1).getStringCellValue();
-            String str3 = row.getCell(2).getStringCellValue();
-    }
-}
-
-此方法没有处理异常，请自行添加
-</pre>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/02/22/poi-read-excel/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/02/22/poi-read-excel/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-java-pattern-matcher" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/02/17/java-pattern-matcher/">JAVA中正则表达式的使用Pattern</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/02/17/java-pattern-matcher/">
-            <time datetime="2017-02-17T08:30:54.000Z" itemprop="datePublished">2017-02-17</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <pre>
-String reg = "^([1-9]\\d{0,6}(\\.\\d{0,}){0,1})$|^(10000000(\\.0{0,}){0,1})$";
-Pattern pattern = Pattern.compile(reg);
-Matcher matcher = pattern.matcher(object);
-boolean flag = matcher.matches();
-</pre>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/02/17/java-pattern-matcher/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/02/17/java-pattern-matcher/">Comments</a>
     
 
         </footer>

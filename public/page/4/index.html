@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                132
+                134
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,6 +248,172 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-sql-union" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/10/11/sql-union/">SQL中UNION和UNION ALL操作符</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/10/11/sql-union/">
+            <time datetime="2017-10-11T14:22:29.000Z" itemprop="datePublished">2017-10-11</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>UNION操作符用于合并两个或多个SELECT语句的结果集。<br>UNION内部的SELECT语句必须拥有相同数量的列。列也必须拥有相似的数据类型。<br>同时，每条SELECT语句中的列的顺序必须相同。<br>UNION操作符选取的是不同的值。如需要重复的值，需要用UNION ALL。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name(s) <span class="keyword">FROM</span> table_name1</span><br><span class="line"><span class="keyword">UNION</span></span><br><span class="line"><span class="keyword">SELECT</span> column_name(s) <span class="keyword">FROM</span> table_name2</span><br></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/10/11/sql-union/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/10/11/sql-union/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-java-at-interface" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/09/18/java-at-interface/">Java注释@interface的用法</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/09/18/java-at-interface/">
+            <time datetime="2017-09-18T13:30:59.000Z" itemprop="datePublished">2017-09-18</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>注解大都用在开发框架中。<br>Java用 @interface Annotation{} 定义一个注解 @Annotation，一个注解是一个类。<br>用@Retention(RetentionPolicy.CLASS)修饰的注解，表示注解的信息被保留在class文件(字节码文件)中当程序编译时，<br>但不会被虚拟机读取在运行的时候;<br>用@Retention(RetentionPolicy.SOURCE )修饰的注解,表示注解的信息会被编译器抛弃，不会留在class文件中，注解的<br>信息只会留在源文件中;<br>用@Retention(RetentionPolicy.RUNTIME )修饰的注解，表示注解的信息被保留在class文件(字节码文件)中当程序编译<br>时，会被虚拟机保留在运行时，所以他们可以用反射的方式读取。</p>
+<p>定义个一注解@MyTarget，用RetentionPolicy.RUNTIME修饰;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)  </span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyTarget&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注解@Target也是用来修饰注解的元注解，它有一个属性ElementType也是枚举类型，<br>值为：ANNOTATION_TYPE,CONSTRUCTOR,FIELD,LOCAL_VARIABLE,METHOD,PACKAGE,PARAMETER,TYPE<br>如@Target(ElementType.METHOD) 修饰的注解表示该注解只能用来修饰在方法上。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.METHOD)  </span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)  </span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyTarget&#123;</span><br><span class="line">	<span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> "val"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/09/18/java-at-interface/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/09/18/java-at-interface/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-linux-crontab" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -915,175 +1081,6 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2017/08/11/gaode-java/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/11/gaode-java/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-100" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/08/10/100/">值得纪念的第一百篇博客</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/08/10/100/">
-            <time datetime="2017-08-10T13:00:00.000Z" itemprop="datePublished">2017-08-10</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Reading/">Reading</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>自2015年3月29日第一次注册域名，搭建博客开始不断的积累着。两年半的时间里，从大学到毕业，<br>如今已经积累到整整100篇博文了。希望通过写博客来记录我的技术成长和生活琐事。</p>
-<p>在生活上，希望自己能够摆正心态，从心理学的角度来讲，心态是一个人的心理活动和状态的总和，<br>是人们对社会生活的反映和体验。心态对一个人的思想、情感、需要和欲望有着决定性的影响，它制<br>约着一个人对待工作、对待生活、对待事业的态度。心态是把双刃剑，积极的心态往往能够成就人生<br>，相反消极的心态则往往影响成功。</p>
-<p>从大四的实习，到如今的毕业，有了属于自己的正式工作。在工作上，希望自己能记住这几句话：<br>工资不是用来支付给技能的，不要以为技能越高、工资自然应该越高。 工资是用来支付给责任的，责<br>任越大，工资越高。 涨工资，是因为承担了更大的责任。</p>
-<p>愿自己继续坚持，加油！加油！加油！</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/08/10/100/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/10/100/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-httpclient-get" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/08/09/httpclient-get/">HttpClient中GET请求</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/08/09/httpclient-get/">
-            <time datetime="2017-08-09T13:41:21.000Z" itemprop="datePublished">2017-08-09</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>HttpClient版本4.5.2<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> RequestConfig requestConfig = RequestConfig.custom()  </span><br><span class="line">        .setSocketTimeout(<span class="number">15000</span>)  </span><br><span class="line">        .setConnectTimeout(<span class="number">15000</span>)  </span><br><span class="line">        .setConnectionRequestTimeout(<span class="number">15000</span>)  </span><br><span class="line">        .build();</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> String <span class="title">sendHttpGet</span><span class="params">(HttpGet httpGet)</span> </span>&#123;</span><br><span class="line">    CloseableHttpClient httpClient = <span class="keyword">null</span>;</span><br><span class="line">    CloseableHttpResponse response = <span class="keyword">null</span>;</span><br><span class="line">    HttpEntity entity = <span class="keyword">null</span>;</span><br><span class="line">    String responseContent = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        httpClient = HttpClients.createDefault();</span><br><span class="line">        httpGet.setConfig(requestConfig);</span><br><span class="line">        response = httpClient.execute(httpGet);</span><br><span class="line">        entity = response.getEntity();</span><br><span class="line">        responseContent = EntityUtils.toString(entity, <span class="string">"UTF-8"</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (response != <span class="keyword">null</span>) &#123;</span><br><span class="line">                response.close();    </span><br><span class="line">            &#125;    </span><br><span class="line">            <span class="keyword">if</span> (httpClient != <span class="keyword">null</span>) &#123;</span><br><span class="line">                httpClient.close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> responseContent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>入口：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HttpGet httpGet = <span class="keyword">new</span> HttpGet(getUrl);</span><br><span class="line">String resultStr = sendHttpGet(httpGet)</span><br></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/08/09/httpclient-get/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/09/httpclient-get/">Comments</a>
     
 
         </footer>
