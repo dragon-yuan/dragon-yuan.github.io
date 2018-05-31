@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                133
+                134
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,6 +248,88 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-java-mysql-concat" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/07/10/java-mysql-concat/">MySQL中CONCAT值为空的问题解决办法</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/10/java-mysql-concat/">
+            <time datetime="2017-07-10T14:12:26.000Z" itemprop="datePublished">2017-07-10</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/MySQL/">MySQL</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在MySQL中concat函数有一个特点就是有一个值为null那么不管第二个字符有多少内容都返回为空了，</span><br><span class="line">这个特性让我们在实例应用中可能觉得不方便，但实现就是这样我们需要使用其它办法来解决。</span><br><span class="line">返回结果为连接参数产生的字符串。如有任何一个参数为NULL，则返回值为NULL。</span><br><span class="line"></span><br><span class="line">使用个IFNULL可以判断一下字段是否为空：</span><br><span class="line">MySQL内置的IFNULL函数可以用在查询时候为NULL值字段给一个默认值：</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CONCAT</span>(<span class="keyword">IFNULL</span>(code,<span class="string">''</span>),telephone) <span class="keyword">FROM</span> info</span><br></pre></td></tr></table></figure>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/07/10/java-mysql-concat/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/10/java-mysql-concat/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-java-linux-properties" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1113,114 +1195,6 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2017/02/22/poi-write-excel/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/02/22/poi-write-excel/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-poi-read-excel" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/02/22/poi-read-excel/">APACHE POI读取Excel-07操作</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/02/22/poi-read-excel/">
-            <time datetime="2017-02-22T06:14:26.000Z" itemprop="datePublished">2017-02-22</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <pre>
-// 得到Excel工作簿对象
-XSSFWorkbook workbook = new XSSFWorkbook(new FileInputStream(file));
-// 得到Excel工作表对象
-XSSFSheet sheet = workbook.getSheetAt(0);
-// 遍历工作表中行
-for (Row row : sheet) {
-    // 获取当行数
-    int rowNum = row.getRowNum();
-    // 跳过第一行，如导入Excel模版
-    if (rowNum != 0) {
-    // 获取此行上的单元格
-          Cell cell = row.getCell(0);
-      // 得到Excel工作表指定行的单元格，并设置读取编码方式
-            cell.setCellType(HSSFCell.CELL_TYPE_STRING);
-            row.getCell(1).setCellType(HSSFCell.CELL_TYPE_STRING);
-          row.getCell(2).setCellType(HSSFCell.CELL_TYPE_STRING);
-            row.getCell(3).setCellType(HSSFCell.CELL_TYPE_STRING);
-      // 获取内容
-      String str1 = cell.getStringCellValue();
-            String str2 = row.getCell(1).getStringCellValue();
-            String str3 = row.getCell(2).getStringCellValue();
-    }
-}
-
-此方法没有处理异常，请自行添加
-</pre>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/02/22/poi-read-excel/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/02/22/poi-read-excel/">Comments</a>
     
 
         </footer>
