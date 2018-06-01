@@ -8,6 +8,4 @@ date: 2018-05-31 22:31:26
 
 ![image](https://img-dragon-blog.oss-cn-beijing.aliyuncs.com/github/imgs/weibo-gqz-video-1.png)
 
-<html>
-<iframe src="//player.bilibili.com/player.html?aid=24184521&cid=40537854&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-</html>
+<iframe src="//player.bilibili.com/player.html?aid=24184521&cid=40537854&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height: 500px;"></iframe>
