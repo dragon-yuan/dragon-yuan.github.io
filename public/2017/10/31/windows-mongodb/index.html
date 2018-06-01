@@ -288,9 +288,9 @@ var _hmt = _hmt || [];
             
             <p><1>首先安装mongodb不多说了。</1></p>
 <p><2>配置：<br>1.在自定义的工作空间下新建Data文件夹<br>2.在Data下新建db和log文件夹<br>3.在log文件夹下新建MongoDB.log文件</2></p>
-<p><3>开启Mongodb Service<br>通过cmd找到mongodb的安装路径并进入bin文件夹下<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#".....\Data\db"为配置中第二项的路径</span><br><span class="line">#".....\Data\log\MongoDB.log"为配置中第三项的路径</span><br><span class="line">mongod -dbpath ".....\Data\db" -logpath ".....\Data\log\MongoDB.log" -install -serviceName "MongoDB"</span><br></pre></td></tr></table></figure></3></p>
+<p><3>开启Mongodb Service<br>通过cmd找到mongodb的安装路径并进入bin文件夹下<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#".....\Data\db"为配置中第二项的路径</div><div class="line">#".....\Data\log\MongoDB.log"为配置中第三项的路径</div><div class="line">mongod -dbpath ".....\Data\db" -logpath ".....\Data\log\MongoDB.log" -install -serviceName "MongoDB"</div></pre></td></tr></table></figure></3></p>
 <p>开启服务 net start mongodb<br>关闭服务 net stop mongodb</p>
-<p><4>删除Mongodb Service<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#".....\Data\db"为配置中第二项的路径</span><br><span class="line">#".....\Data\log\MongoDB.log"为配置中第三项的路径</span><br><span class="line">mongod -dbpath ".....\Data\db" -logpath ".....\Data\log\MongoDB.log" -remove -serviceName "MongoDB"</span><br></pre></td></tr></table></figure></4></p>
+<p><4>删除Mongodb Service<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#".....\Data\db"为配置中第二项的路径</div><div class="line">#".....\Data\log\MongoDB.log"为配置中第三项的路径</div><div class="line">mongod -dbpath ".....\Data\db" -logpath ".....\Data\log\MongoDB.log" -remove -serviceName "MongoDB"</div></pre></td></tr></table></figure></4></p>
 
         
         </div>

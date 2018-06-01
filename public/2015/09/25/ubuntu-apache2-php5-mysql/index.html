@@ -292,7 +292,7 @@ var _hmt = _hmt || [];
 <p>sudo apt-get install mysql-server libapache2-mod-auth-mysql php5-mysql</p>
 <p>Mysql的启动/停止/重启<br>sudo /etc/init.d/mysql start<br>sudo /etc/init.d/mysql stop<br>sudo /etc/init.d/mysql restart</p>
 <p>/*</p>
-<p>Mysql 安装完后设置root密码<br>mysql -uroot    (一开始root用户的密码为空所以可以进去， 如果在安装的时候您在界面中设置了password<br>可跳过此步)<br>进入mysql控制台：<br>set password for ‘root‘@’localhost’=PASSWORD(‘yourpassword’);<br>如果成功， mysql提示 ： Query OK 0rows affected（0.00sec）</p>
+<p>Mysql 安装完后设置root密码<br>mysql -uroot    (一开始root用户的密码为空所以可以进去， 如果在安装的时候您在界面中设置了password<br>可跳过此步)<br>进入mysql控制台：<br>set password for ‘root’@’localhost’=PASSWORD(‘yourpassword’);<br>如果成功， mysql提示 ： Query OK 0rows affected（0.00sec）</p>
 <p>*/</p>
 <p>安装完成配置<br>//    sudo gedit /etc/apach2/apach2.conf配置apache服务器<br>//    sudo gedit  /etc/php5/apach2/php.ini 配置php在文本框中找到”; extension=mysql.so”， 去掉；表示apache启动时加载与mysql连接的模块， 然后保存，</p>
 <p>重启apache服务器。sudo /etc/init.d/apache2 restart</p>
