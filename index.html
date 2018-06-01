@@ -201,7 +201,11 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
+<<<<<<< HEAD
                 133
+=======
+                134
+>>>>>>> b50a91a0578b53ecd3cf6f2ab38e70e5e23a151a
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,6 +252,7 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+<<<<<<< HEAD
     <article id="post-my-first-github-opensource" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -343,6 +348,9 @@ var jiathis_config={
 
 
     <article id="post-java-postconstruct-predestroy" class="article article-type-post" itemscope itemprop="blogPost">
+=======
+    <article id="post-springboot-transactional" class="article article-type-post" itemscope itemprop="blogPost">
+>>>>>>> b50a91a0578b53ecd3cf6f2ab38e70e5e23a151a
     <div class="article-inner">
         
         
@@ -350,7 +358,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/05/17/java-postconstruct-predestroy/">什么是@PostConstruct，@PreDestroy注解</a>
+            <a class="article-title" href="/2018/06/01/springboot-transactional/">Spring Boot事务管理</a>
         </h1>
     
 
@@ -359,8 +367,8 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/05/17/java-postconstruct-predestroy/">
-            <time datetime="2018-05-17T15:19:17.000Z" itemprop="datePublished">2018-05-17</time>
+        <a href="/2018/06/01/springboot-transactional/">
+            <time datetime="2018-06-01T12:58:47.694Z" itemprop="datePublished">2018-06-01</time>
         </a>
     </div>
 
@@ -380,14 +388,14 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>首先这两个注解是在JDK1.5增加的，注解@PostConstruct允许在Bean初始化之前执行一些方法，而@PreDestroy是在Bean销毁之前执行的操作。</p>
-<p>@PostConstruct（@PreDestroy）:被@PostConstruct修饰的方法会在服务器加载Servlet（Bean）的时候运行，并且只会被服务器调用一次。</p>
-<p>生命周期如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">PostConstruct--&gt;init</span><br><span class="line">init--&gt;some-methods</span><br><span class="line">some-methods--&gt;destory</span><br><span class="line">destory--&gt;PreDestroy</span><br></pre></td></tr></table></figure>
-<p>例如如下代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;Title: RegistryCenterConfig. &lt;/p&gt;</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;Description 调度作业，Zookeeper配置（ZK集群配置） &lt;/p&gt;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> dragon</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2018/5/7 上午11:08</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ConditionalOnClass</span>(ElasticJob.class)</span><br><span class="line"><span class="meta">@ConditionalOnBean</span>(annotation = MarkElasticJob.class)</span><br><span class="line"><span class="meta">@EnableConfigurationProperties</span>(ZookeeperRegistryProperties.class)</span><br><span class="line"><span class="meta">@ConditionalOnExpression</span>(<span class="string">"'$&#123;elaticjob.zookeeper.server-lists&#125;'.length() &gt; 0"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RegistryCenterConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> ZookeeperRegistryProperties regCenterProperties;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RegistryCenterConfig</span><span class="params">(ZookeeperRegistryProperties regCenterProperties)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.regCenterProperties = regCenterProperties;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;Title: regCenter. &lt;/p&gt;</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;初始化配置中心 &lt;/p&gt;</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> serverList 服务列表</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> namespace  名称</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">     * 注意，在console上配置注册中心时，需要注意：</span></span><br><span class="line"><span class="comment">     * 注册中心名称和命名空间-&gt;需要和namespace保持一致</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span>(initMethod = <span class="string">"init"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ZookeeperRegistryCenter <span class="title">regCenter</span><span class="params">(@Value(<span class="string">"$&#123;elaticjob.zookeeper.server-lists&#125;"</span>)</span> <span class="keyword">final</span> String serverList,</span></span><br><span class="line"><span class="function">                                             @<span class="title">Value</span><span class="params">(<span class="string">"$&#123;elaticjob.zookeeper.namespace&#125;"</span>)</span> <span class="keyword">final</span> String namespace) </span>&#123;</span><br><span class="line">        ZookeeperConfiguration zookeeperConfiguration = <span class="keyword">new</span> ZookeeperConfiguration(serverList, namespace);</span><br><span class="line">        zookeeperConfiguration.setBaseSleepTimeMilliseconds(regCenterProperties.getBaseSleepTimeMilliseconds());</span><br><span class="line">        zookeeperConfiguration.setConnectionTimeoutMilliseconds(regCenterProperties.getConnectionTimeoutMilliseconds());</span><br><span class="line">        zookeeperConfiguration.setMaxSleepTimeMilliseconds(regCenterProperties.getMaxSleepTimeMilliseconds());</span><br><span class="line">        zookeeperConfiguration.setSessionTimeoutMilliseconds(regCenterProperties.getSessionTimeoutMilliseconds());</span><br><span class="line">        zookeeperConfiguration.setMaxRetries(regCenterProperties.getMaxRetries());</span><br><span class="line">        zookeeperConfiguration.setDigest(regCenterProperties.getDigest());</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ZookeeperRegistryCenter(zookeeperConfiguration);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;Title: ElasticJobConfig. &lt;/p&gt;</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;在初始化Zookeeper前，注入Elastic-Job，自动扫描开放任务 &lt;/p&gt;</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@author</span> dragon</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@date</span> 2018/5/9 下午2:35</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostConstruct</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ElasticJobConfig <span class="title">initElasticJob</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ElasticJobConfig();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PreDestroy</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preDestoryMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"preDestoryMethod..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>对于如上代码，应用场景是elastic-job + zk 的启动方式，需要在zk启动前，先扫描Jobs，然后在执行Zk的init方法。</p>
-<p>运行如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">RegistryCenterConfig--&gt;ElasticJobConfig</span><br><span class="line">ElasticJobConfig--&gt;Autowired-RegistryCenterConfig</span><br><span class="line">Autowired-RegistryCenterConfig--&gt;init(regCenter)</span><br><span class="line">init(regCenter)--&gt;preDestoryMethod</span><br></pre></td></tr></table></figure>
+            <p>#前言<br>在开发时，由于数操作在顺序执行的过程中，任何一步操作都有可能发生异常，异常会导致后续操<br>作无法完成，此时由于业务逻辑并未正确的完成，之前成功操作数据的并不可靠，需要在这种情况<br>下进行回退。事务的作用就是为了保证用户的每一个操作都是可靠的，事务中的每一步操作都必须<br>成功执行，只要有发生异常就回退到事务开始未进行操作的状态。事务管理是Spring框架中最为常<br>用的功能之一，在开发应用时，大部分情况下也都需要使用事务。</p>
+<p>#事务回滚规则<br>事务管理器回滚一个事务的推荐方法是在当前事务的上下文内抛出异常。事务管理器会捕捉任何未<br>处理的异常，然后依据规则决定是否回滚抛出异常的事务。</p>
+<p>#操作<br>用@Transactional注解来声明一个函数需要被事务管理，一般在service层使用@Transactional<br>来对各个业务逻辑进行事务管理的配置。</p>
+<p>@Transactional 可以作用于接口、接口方法、类以及类方法上。当作用于类上时，该类的所有<br>public方法将都具有该类型的事务属性，同时，也可以在方法级别使用该标注来覆盖类级别的定义。</p>
+<p>虽然@Transactional 注解可以作用于接口、接口方法、类以及类方法上，但是 Spring建议不<br>要在接口或者接口方法上使用该注解，因为这只有在使用基于接口的代理时它才会生效。</p>
+<p>@Transactional 注解应该只被应用到public方法上，这是由Spring AOP的本质决定的。<br>如果在protected、private或者默认可见性的方法上使用@Transactional注解，这将被忽略，<br>也不会抛出任何异常。</p>
+<p>@EnableTransactionManagement<br>开启注解事务管理，等同于xml配置文件中的 &lt;tx:annotation-driven /&gt;</p>
+<p>#对于查询的注解处理<br>不需要事务管理的(只查询的)方法<br>@Transactional(propagation=Propagation.NOT_SUPPORTED)<br>在整个方法运行前就不会开启事务<br>@Transactional(propagation=Propagation.NOT_SUPPORTED,readOnly=true)<br>这样就做成一个只读事务，可以提高效率</p>
 
         
         </div>
@@ -421,7 +429,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2018/05/17/java-postconstruct-predestroy/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/05/17/java-postconstruct-predestroy/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2018/06/01/springboot-transactional/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/06/01/springboot-transactional/">Comments</a>
     
 
         </footer>
@@ -431,7 +439,7 @@ var jiathis_config={
 
 
 
-    <article id="post-druid-utf8mb4" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-springboot-1" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -439,7 +447,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/05/15/druid-utf8mb4/">Druid连接池配置连接属性utf8mb4</a>
+            <a class="article-title" href="/2018/06/01/springboot-1/">Spring Boot 优雅的入门篇</a>
         </h1>
     
 
@@ -448,8 +456,8 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/05/15/druid-utf8mb4/">
-            <time datetime="2018-05-15T06:52:16.000Z" itemprop="datePublished">2018-05-15</time>
+        <a href="/2018/06/01/springboot-1/">
+            <time datetime="2018-06-01T12:58:47.693Z" itemprop="datePublished">2018-06-01</time>
         </a>
     </div>
 
@@ -469,7 +477,41 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>由于在配置了MySQL数据库，表的编码类型为utf8mb4以后需要重新启动数据库，可由于线上场景的等一些问题的影响，可用过druid设置编码方式。从而让emoji表情可以保存。😈<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 配置druid支持表情</span></span><br><span class="line">String connectionInitSqls = <span class="string">"SET NAMES utf8mb4"</span>;</span><br><span class="line">StringTokenizer tokenizer = <span class="keyword">new</span> StringTokenizer(connectionInitSqls, <span class="string">";"</span>);</span><br><span class="line">druidDataSource.setConnectionInitSqls(Collections.list(tokenizer));</span><br></pre></td></tr></table></figure></p>
+            <p>#前言</p>
+<pre>
+Spring一直是很火的一个开源框架，之前使用Struts2+Spring框架居多，Spring Boot在社区中
+热度一直很高，所以决定花时间来了解和学习，为自己做技术储备。
+</pre>
+
+<p>#正文</p>
+<pre>
+Spring Boot其实就是Spring,它做了那些没有它你也会去做的Spring Bean配置。它使用“习惯优
+于配置”（项目中存在大量的配置，此外还内置了一个习惯性的配置，让你无需手动进行配置）的理
+念让你的项目快速运行起来。使用Spring Boot很容易创建一个独立运行（运行jar,内嵌Servlet
+容器）、准生产级别的基于Spring框架的项目，使用Spring Boot你可以不用或者只需要很少的
+Spring配置。
+</pre>
+
+<p>#Maven构建项目<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- SpringBoot --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-autoconfigure<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 添加对jsp视图解析的支持 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-tomcat<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.tomcat.embed<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>tomcat-embed-jasper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javax.servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jstl<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Druid --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>druid<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.29<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 下面两个引入为了操作数据库 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-jpa<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 只需引入spring-boot-devtools 即可实现热部署 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Log4j --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.17<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>#应用注解类</p>
+<pre>
+@SpringBootApplication是Sprnig Boot项目的核心注解，主要目的是开启自动配置。
+@RestController 一般用作与接口方式的Controller，返回值为JSON，等价于@Controller+@ResponseBody的结合
+@Controller 一般用作页面模式的Controller，返回值可为ModelAndView
+@EnableAutoConfiguration 允许自动加载配置
+@EnableScheduling Spring计划任务
+@Autowired 自动注入
+@RequestMapping("/view.do") 请求入口
+@ResponseBody和@RequestParam同时使用，表示接受前端请求值，并响应返回值
+@Repository Dao层注解，用于标注数据访问组件
+@Transactional 事务
+@Service Service层注解，用于标注业务层组件
+</pre>
+
+<p>#写在最后</p>
+<pre>
+Hello World : 初始化一个Spring Boot，添加一个控制类，启动即可。
+</pre>
 
         
         </div>
@@ -503,7 +545,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2018/05/15/druid-utf8mb4/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/05/15/druid-utf8mb4/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2018/06/01/springboot-1/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/06/01/springboot-1/">Comments</a>
     
 
         </footer>
@@ -513,7 +555,7 @@ var jiathis_config={
 
 
 
-    <article id="post-my-domain" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-span-name-attr" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -521,7 +563,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/05/13/my-domain/">聊聊我的域名史</a>
+            <a class="article-title" href="/2018/06/01/span-name-attr/">jQuery通过内容获取span属性</a>
         </h1>
     
 
@@ -530,8 +572,8 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/05/13/my-domain/">
-            <time datetime="2018-05-13T15:48:18.000Z" itemprop="datePublished">2018-05-13</time>
+        <a href="/2018/06/01/span-name-attr/">
+            <time datetime="2018-06-01T12:58:47.692Z" itemprop="datePublished">2018-06-01</time>
         </a>
     </div>
 
@@ -539,7 +581,7 @@ var jiathis_config={
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Other/">Other</a>
+        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
     </div>
 
                         
@@ -551,10 +593,9 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>最近很想收集几个有意义的域名哎…</p>
-<p>谈一谈我的域名史吧…</p>
-<p>在大学时期，我申请的第一个域名是<code>idragonyuan.com</code>，因为名字很长所以我就换了目前主站使用的<code>dragon-yuan.me</code>域名，但是真的很喜欢<code>dragon.me</code>这个域名，但是可爱的他貌似在一位米农的手中，而且我也不知道从他人手中购买域名的流程是什么，但这个域名肯定好贵好贵的哎。于是在去年的时候<code>moe</code>域名出现了，还是老样子喽，想入手一个<code>dragon.moe</code>发现已经有人提前注册了，无奈之下只好注册了一个<code>loong.moe</code>，我也叫他萌龙。</p>
-<p>最近也在想一些好一点的域名，有收藏意义，可能未来还会有商业价值的说呢！</p>
+            <pre>
+$("span:contains('......')").attr("class");
+</pre>
 
         
         </div>
@@ -588,7 +629,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2018/05/13/my-domain/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/05/13/my-domain/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2018/06/01/span-name-attr/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/06/01/span-name-attr/">Comments</a>
     
 
         </footer>
@@ -598,7 +639,7 @@ var jiathis_config={
 
 
 
-    <article id="post-spring-boot-yaml-bean" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-regular-expressions" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -606,7 +647,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/05/10/spring-boot-yaml-bean/">Spring Boot加载yaml配置到Bean</a>
+            <a class="article-title" href="/2018/06/01/regular-expressions/">正则表达式 总结</a>
         </h1>
     
 
@@ -615,280 +656,8 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/05/10/spring-boot-yaml-bean/">
-            <time datetime="2018-05-10T14:11:15.000Z" itemprop="datePublished">2018-05-10</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>Spring Boot可能遇到项目启动无法加载yaml配置的情况，可以使用如下配置注入PropertySourcesPlaceholderConfigurer<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> PropertySourcesPlaceholderConfigurer <span class="title">properties</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    PropertySourcesPlaceholderConfigurer configurer = <span class="keyword">new</span> PropertySourcesPlaceholderConfigurer();</span><br><span class="line">    YamlPropertiesFactoryBean yaml = <span class="keyword">new</span> YamlPropertiesFactoryBean();</span><br><span class="line">    yaml.setResources(<span class="keyword">new</span> ClassPathResource(<span class="string">"xxx.yml"</span>));</span><br><span class="line">    configurer.setProperties(yaml.getObject());</span><br><span class="line">    <span class="keyword">return</span> configurer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2018/05/10/spring-boot-yaml-bean/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/05/10/spring-boot-yaml-bean/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-life-to-myselef-2017-2018" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/05/06/life-to-myselef-2017-2018/">时间轴，一年前的自己（2017-2018）</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/05/06/life-to-myselef-2017-2018/">
-            <time datetime="2018-05-06T03:18:10.000Z" itemprop="datePublished">2018-05-06</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Life/">Life</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>发现已经好久没有写过关于自己生活上的博客文章了，今天还是5月4日青年节。前几日就想写一写自己在一年中有发生了什么变化。</p>
-<p>去年的这个时候，准备毕业的我已经从北京返回了哈尔滨。回忆下在毕业前到现在自己都做了些什么吧。17年4月份，我从实习单位提出了离职，当时公司还有很多的变化，实习单位是一个复式办公的环境，在我走之后之前的小伙伴们搬到了楼上，楼梯上看到一句话让我深深的记在了心里，勿忘初心。</p>
-<p><img src="https://img-dragon-blog.oss-cn-beijing.aliyuncs.com/2017-LIFE/18.jpg" alt="image"></p>
-<p>还有那最后一次的地铁，坐上地铁心情并没有很复杂，相反变得平静了很多。</p>
-<p><img src="https://img-dragon-blog.oss-cn-beijing.aliyuncs.com/2017-LIFE/WechatIMG35.jpeg" alt="image"></p>
-<p>4月末给自己留出了几天的假期，其他的日子早上都在写毕业论文，而晚上则是学习新的知识，也逐渐的在GitHub上坚持了一个礼拜的push记录，两个项目：第一个是把实习单位所收获的做了积累，并完成了<a href="https://github.com/dragon-yuan/AprilDragonSpring" target="_blank" rel="noopener">AprilDragonSpring</a>虽然是个初学者项目，懵懂时期的自己也是需要有从0到1的过程吧。第二个项目是个成型的web项目<a href="https://github.com/dragon-yuan/Ins_fb_pictureSpider_WEB" target="_blank" rel="noopener">Ins_fb_pictureSpider_WEB</a>具体内容要是感兴趣就去看Readme吧。</p>
-<p>刚才有提到几天自己的小假期，去了北京天安门城楼、故宫博物院、牛街、中关村、西北旺……<br>还记得自己发过的一条微博，说自己有朝一日一定要去中关村上班，感受互联网工作文化，梦想也在毕业后实现了。</p>
-<p><img src="https://img-dragon-blog.oss-cn-beijing.aliyuncs.com/2017-LIFE/weibo-dream.png" alt="image"></p>
-<p>还有一件对于我来说很重要的事情，去了G.E.M.的演唱会，第二次的演唱会，有一些找不到第一次看演唱会的感觉，但气氛棒的没说儿！</p>
-<p><img src="https://img-dragon-blog.oss-cn-beijing.aliyuncs.com/2017-LIFE/61.jpg" alt="image"></p>
-<p>四月的最后一天，坐上了回家的火车。</p>
-<p><img src="https://img-dragon-blog.oss-cn-beijing.aliyuncs.com/2017-LIFE/51.jpg" alt="image"></p>
-<p>五月返校到六月份，偶尔也会出去喝点，但绝大部分的时间都是在寝室修改论文格式，要不就是守望先锋，当时吃鸡还玩的比较少。最后的大学时光可能也没有很珍惜，心里一直想着赶快毕业，到时候能找个好一点的工作，大学最后的生活过得很快，两个月就这么过去了，四年的日子也画上了句号。失去后才懂得珍惜过去，可是那还会怎样呢…</p>
-<p><img src="https://img-dragon-blog.oss-cn-beijing.aliyuncs.com/2017-LIFE/70.jpg" alt="image"></p>
-<p>毕业后在家混了几天的日子就发现自己有些待不住了，整理了下面试的知识然后看了下一位朋友送的面试宝典，带着那所谓的梦后重新踏上了北京的路。7月份炎热的北京，只要出去就会汗流浃背。找工作的路上还是顺利的，1号收到offer，3号入职，有运气有贵人，可能在找工作上这小‘命’还是不错的说。工作上也学到的很多知识，开阔了眼界，掌握了许多较为流行的开发思想，一直都在努力学习，并坚持向GitHub上push积累的知识，也算是自己成长道路上的点滴记录。</p>
-<p>我很喜欢在之前的时间轴上走上那么一走，于是8月份去了趟朝阳公园，每次去的感觉都会有不一样的收获，不知道有没有朋友和我有一样的感觉。十月份假期回了趟家，工作上转正了，给老爹买了部手机，给老妈买了些北京特产，其实北京的特产也没太多值得带回去的，每年都会买一大盒稻香村，虽然妈妈总说太沉了就别往家里带了，但也算自己的心意吧。貌似是十月份回来去的恭王府，可能具体的时间想不起来了，不知道为什么记忆力会变得很差哎。</p>
-<p><img src="https://img-dragon-blog.oss-cn-beijing.aliyuncs.com/2017-LIFE/122.jpg" alt="image"></p>
-<p>十一月份除了双十一剁手之外，还听了JD和阿里云溪大会的讲座，这也是我第一次参加这样的大会，JD基础架构还是干货挺多的，可因为自己水平有限，听懂的很少，作为开拓眼界还是足够的。</p>
-<p><img src="https://img-dragon-blog.oss-cn-beijing.aliyuncs.com/2017-LIFE/134.jpg" alt="image"></p>
-<p>十二月末还代表技术部门去总部参加了年会表演，第一次去河南，长葛市，参观了总部的工厂和流水线，也让我在业务上进一步的了解了生鲜行业和供应链体系。有句话叫做见多识广，也很荣幸在毕业后就可以有机会更多的了解社会‘生态’。</p>
-<p><img src="https://img-dragon-blog.oss-cn-beijing.aliyuncs.com/2017-LIFE/175.jpg" alt="image"></p>
-<p>先说过年吧，18年到来了，这也是二月份的事情了，回到家，年味依旧没有小时候那么浓郁，初一亲戚来到家里，也就聊一聊一年各家都怎么样，有要考学的，有要复习的，上班的，生子的，各家过着各家的小日子。‘年’对于我来说除了回家看看，就是见见同学朋友，吃吃饭、聊聊天、冰天雪地浪一浪也就算过完了。</p>
-<p><img src="https://img-dragon-blog.oss-cn-beijing.aliyuncs.com/2018-LIFE/23.jpeg" alt="image"></p>
-<p>回到了工作上，一月份的公司组织调整，两个业态的整合，也预示着单位3月份要有紧张的工作任务了，年前梳理好工作计划，而自己也帮助领到完成我力所能及的工作，构建项目，制定自己的工作计划，能做的或者预支的工作我都会主动承担，不管做多做少，反正收获的都是自己的，不论未来怎样，做好自己的工作就是最好的回报。经历了‘331’的上线，一个月都在加班中付出着，加班100个小时的自己，学会的很多也成长了很多。感受到了‘互联网’模式的开发周期，也深深的体会到了程序猿这个行业的效率。附上一张早晨5点钟的中关村吧。</p>
-<p><img src="https://img-dragon-blog.oss-cn-beijing.aliyuncs.com/2018-LIFE/40.jpeg" alt="image"></p>
-<p>四月份总是想写一下一年的总结，心里可能是想了很多的事情让自己失眠并稍微有些抑郁。再加上偷懒直到今日才了却心中的这件事情，希望自己在今后的路，继续加油，不忘初心。</p>
-<p><img src="https://img-dragon-blog.oss-cn-beijing.aliyuncs.com/2018-LIFE/87.jpeg" alt="image"></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2018/05/06/life-to-myselef-2017-2018/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/05/06/life-to-myselef-2017-2018/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-ico-wallet" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/03/22/ico-wallet/">This is ICO Wallet</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/03/22/ico-wallet/">
-            <time datetime="2018-03-22T15:59:09.000Z" itemprop="datePublished">2018-03-22</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Other/">Other</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BTC:<span class="number">18</span>SopfAEbGqosgUw8oTHSv5xTVYxLXziVy</span><br><span class="line">ETH:<span class="number">0xfaeA5Db637f902451Ce173bf0DC08FDBF86C2dd9</span></span><br></pre></td></tr></table></figure>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2018/03/22/ico-wallet/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/03/22/ico-wallet/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-mapstrut" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/03/16/mapstrut/">MapStruct实体与模型之间的映射（初体验）</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/03/16/mapstrut/">
-            <time datetime="2018-03-16T09:23:27.000Z" itemprop="datePublished">2018-03-16</time>
+        <a href="/2018/06/01/regular-expressions/">
+            <time datetime="2018-06-01T12:58:47.692Z" itemprop="datePublished">2018-06-01</time>
         </a>
     </div>
 
@@ -908,10 +677,26 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>工程中引入mapstruct依赖<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mapstruct<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mapstruct<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.0.Final<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>首先对于注解@Mapper(uses = Info.class)这个注解用于表示需要对什么类进行映射。<br>比如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Mapper</span>(uses = Info.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OrderMapper</span> </span>&#123;</span><br><span class="line">    OrderMapper INSTANCE = Mappers.getMapper(OrderMapper.class);</span><br><span class="line">    <span class="meta">@Mappings</span>(&#123;</span><br><span class="line">        <span class="meta">@Mapping</span>(target = <span class="string">"orderCode"</span>, source = <span class="string">"resourceCode"</span>,</span><br><span class="line">        <span class="meta">@Mapping</span>(target = <span class="string">"businessType"</span>, constant = <span class="string">"10"</span>),</span><br><span class="line">        <span class="meta">@Mapping</span>(target = <span class="string">"weight"</span>,</span><br><span class="line">            expression = <span class="string">"java(MapStructConvertor.convertTonToKg(info.getWeight()))"</span>)</span><br><span class="line">    )&#125;)</span><br><span class="line">    <span class="function">Object <span class="title">infoToObject</span><span class="params">(Info info)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">其中@Mapper(uses = Info.class)为需要被转换的类</span><br><span class="line"></span><br><span class="line">#单例模式获取实例对象</span><br><span class="line">OrderMapper INSTANCE = Mappers.getMapper(OrderMapper.class);</span><br><span class="line">#其源代码：</span><br><span class="line">T mapper = classLoader.loadClass(clazz.getName() + "Impl").newInstance();</span><br><span class="line"></span><br><span class="line">@Mappings,@Mapping为映射对应字段。</span><br><span class="line">target为转换字段，source为源字段，constant，定义常量值，expression可以自定义方法转换</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MapStructConvertor</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">convertTonToKg</span><span class="params">(BigDecimal ton)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (ton == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"0.00"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        DecimalFormat df = <span class="keyword">new</span> DecimalFormat(<span class="string">"#.00"</span>);</span><br><span class="line">        <span class="keyword">return</span> df.format(ton.multiply(<span class="keyword">new</span> BigDecimal(<span class="number">1000</span>)));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <p>网络总结-全部可用</p>
+
+<p>匹配中文：<br>[\u4e00-\u9fa5]</p>
+<p>匹配双字节字符(包括汉字在内)：<br>[^\x00-\xff]</p>
+<p>匹配空白行：<br>\n\s*\r</p>
+<p>匹配Email地址：<br>/^[^.@]+@[^.@]+.[a-z]+$/</p>
+<p>匹配手机号：<br>/^1(3|4|5|7|8)\d{9}$/</p>
+<p>匹配网址URL：<br>[a-zA-z]+://[^\s]*</p>
+<p>匹配国内电话号码：<br>\d{3}-\d{8}|\d{4}-{7,8}</p>
+<p>匹配腾讯QQ号：<br>[1-9][0-9]{4,}</p>
+<p>匹配中国邮政编码：<br>[1-9]\d{5}(?!\d)</p>
+<p>匹配18位身份证号：<br>^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]|X)$</p>
+<p>匹配(年-月-日)格式日期：<br>([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3})-(((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01]))|((0[469]|11)-(0[1-9]|[12][0-9]|30))|(02-(0[1-9]|[1][0-9]|2[0-8])))</p>
+<p>匹配正整数：<br>^[1-9]\d*$</p>
+<p>匹配负整数：<br>^-[1-9]\d*$</p>
+<p>匹配整数：<br>^-?[1-9]\d*$</p>
+<p>匹配非负整数（正整数 + 0）：<br>^[1-9]\d*|0$</p>
+<p>匹配非正整数（负整数 + 0）：<br>^-[1-9]\d*|0$</p>
+<p>匹配正浮点数：<br>^[1-9]\d<em>.\d</em>|0.\d<em>[1-9]\d</em>$</p>
+<p>匹配负浮点数：<br>^-[1-9]\d<em>.\d</em>|-0.\d<em>[1-9]\d</em>$</p>
 
         
         </div>
@@ -945,7 +730,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2018/03/16/mapstrut/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/03/16/mapstrut/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2018/06/01/regular-expressions/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/06/01/regular-expressions/">Comments</a>
     
 
         </footer>
@@ -955,7 +740,7 @@ var jiathis_config={
 
 
 
-    <article id="post-obj-jsonfomat" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-jquery-json" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -963,7 +748,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/03/04/obj-jsonfomat/">数据库查询字段后，指定格式化类型</a>
+            <a class="article-title" href="/2018/06/01/jquery-json/">jQuery解析JSON</a>
         </h1>
     
 
@@ -972,8 +757,101 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/03/04/obj-jsonfomat/">
-            <time datetime="2018-03-04T11:04:51.000Z" itemprop="datePublished">2018-03-04</time>
+        <a href="/2018/06/01/jquery-json/">
+            <time datetime="2018-06-01T12:58:47.680Z" itemprop="datePublished">2018-06-01</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <pre>
+使用全局的JSON对象
+function strToJson(str){
+    return JSON.parse(str);
+}
+
+eval方式解析
+function strToJson(str){
+     var json = eval('(' + str + ')');
+     return json;
+}
+</pre>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2018/06/01/jquery-json/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/06/01/jquery-json/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-java-random" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/06/01/java-random/">JAVA随机生成6位验证码</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/06/01/java-random/">
+            <time datetime="2018-06-01T12:58:47.677Z" itemprop="datePublished">2018-06-01</time>
         </a>
     </div>
 
@@ -993,10 +871,16 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>推荐使用工具类：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-annotations<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>应用场景中的使用：<br>1.在对时间的处理，查询数据库获取的时间格式为Date，获取到的数据形式为毫秒级别，此时，可以使用注解：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@DateTimeFormat</span>(pattern = <span class="string">"yyyy-MM-dd HH:mm:ss"</span>)</span><br><span class="line"><span class="meta">@JsonFormat</span>(pattern = <span class="string">"yyyy-MM-dd HH:mm:ss"</span>, timezone = <span class="string">"GMT+8"</span>)</span><br></pre></td></tr></table></figure></p>
-<p>处理时间格式，将其转换为通用时间格式。<br>2.如存储的数据格式为字符串，但有与之对应的枚举格式，场景如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@JsonFormat</span>(shape = JsonFormat.Shape.OBJECT)</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> BusinessTypeEnum &#123;</span><br><span class="line">    BUSINESS_ONE(<span class="string">"1"</span>, <span class="string">"1"</span>),</span><br><span class="line">    BUSINESS_TWO(<span class="string">"2"</span>, <span class="string">"2"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String code;</span><br><span class="line">    <span class="keyword">private</span> String desc;</span><br><span class="line"></span><br><span class="line">    BusinessTypeEnum(String code, String desc) &#123;</span><br><span class="line">        <span class="keyword">this</span>.code = code;</span><br><span class="line">        <span class="keyword">this</span>.desc = desc;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> code;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCode</span><span class="params">(String code)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.code = code;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getDesc</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> desc;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDesc</span><span class="params">(String desc)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.desc = desc;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>可以加入上面注解，此注解可以将枚举类以对象的方式进行序列化。<br>在shape中有如下转换形式，可按需使用。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">enum</span> Shape &#123;</span><br><span class="line">  ANY,</span><br><span class="line">  NATURAL,</span><br><span class="line">  SCALAR,</span><br><span class="line">  ARRAY,</span><br><span class="line">  OBJECT,</span><br><span class="line">  NUMBER,</span><br><span class="line">  NUMBER_FLOAT,</span><br><span class="line">  NUMBER_INT,</span><br><span class="line">  STRING,</span><br><span class="line">  BOOLEAN;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+            <pre>
+public static String createRandomCode() {
+        String code = "";
+        Random r = new Random();
+        for (int i = 0; i < 6; i++) {
+            code += r.nextInt(10);
+        }
+        return code;
+}
+</pre>
 
         
         </div>
@@ -1030,7 +914,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2018/03/04/obj-jsonfomat/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/03/04/obj-jsonfomat/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2018/06/01/java-random/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/06/01/java-random/">Comments</a>
     
 
         </footer>
@@ -1040,7 +924,7 @@ var jiathis_config={
 
 
 
-    <article id="post-20180302" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-java-random4j" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -1048,7 +932,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/03/02/20180302/">2018年3月2日</a>
+            <a class="article-title" href="/2018/06/01/java-random4j/">JAVA随机抽取对象</a>
         </h1>
     
 
@@ -1057,8 +941,8 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/03/02/20180302/">
-            <time datetime="2018-03-02T13:18:10.000Z" itemprop="datePublished">2018-03-02</time>
+        <a href="/2018/06/01/java-random4j/">
+            <time datetime="2018-06-01T12:58:47.677Z" itemprop="datePublished">2018-06-01</time>
         </a>
     </div>
 
@@ -1066,7 +950,7 @@ var jiathis_config={
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Life/">Life</a>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
     </div>
 
                         
@@ -1078,7 +962,22 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>2018年，元宵节快乐。<br>这应该是第二年在北京过十五了，最近项目进度紧张，从年后开始，也第一次这么快的转换假期综合症。刚刚给爸妈打电话，给姥姥买的座机铃声放大器也到了，老爸也给安装上了，心想这回姥姥应该会很开心吧。家里的网在临走的时候也给升级到50M了，不知道爸妈有没有感觉到网速变得快了。<br>紧张的工作之后，晚上看几集赵丽颖的电视剧（陆贞传奇）心里也是美滋滋的，自从看了女儿国电影，突然间就路转粉了赵丽颖。现在也变成了她的小迷弟。<br>写一写最近的心感，每次回家过完年都感觉自己突然间就成长了好多，对于生活更加珍惜了，还是那么喜欢找自己的回忆，等忙过这一段时间，帝都的天气也暖和了，一定要去过去去过的地方再次追忆下，感受时间的变化。<br>还有几天也快过生日了，愿一切顺利。</p>
+            <pre>
+/**
+ * @param resultList "最终抽取结果集"
+ * @param totalFlag "最多抽取数量"
+ * @param canRandomFlag "可以抽取数量"
+ * @param personCountNum "当前需要抽取数量"
+ */
+
+for(int k = 0; k < personCountNum; k++){
+    double randomNum = Math.random();
+    int d = (int)(randomNum * canRandomFlag);
+    Object obj = list.get(d); // 获取抽取对象
+    resultList.add(obj); // 添加对象到结果集
+    list.remove(d); // 移除原始采样组
+}
+</pre>
 
         
         </div>
@@ -1112,7 +1011,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2018/03/02/20180302/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/03/02/20180302/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2018/06/01/java-random4j/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/06/01/java-random4j/">Comments</a>
     
 
         </footer>
@@ -1122,6 +1021,298 @@ var jiathis_config={
 
 
 
+    <article id="post-java-pattern-matcher" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/06/01/java-pattern-matcher/">JAVA中正则表达式的使用Pattern</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/06/01/java-pattern-matcher/">
+            <time datetime="2018-06-01T12:58:47.676Z" itemprop="datePublished">2018-06-01</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <pre>
+String reg = "^([1-9]\\d{0,6}(\\.\\d{0,}){0,1})$|^(10000000(\\.0{0,}){0,1})$";
+Pattern pattern = Pattern.compile(reg);
+Matcher matcher = pattern.matcher(object);
+boolean flag = matcher.matches();
+</pre>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2018/06/01/java-pattern-matcher/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/06/01/java-pattern-matcher/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-java-md5" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/06/01/java-md5/">JAVA中明文转MD5</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/06/01/java-md5/">
+            <time datetime="2018-06-01T12:58:47.675Z" itemprop="datePublished">2018-06-01</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p></p><p style="color:#c6c6c6;"><br>/*<em>
+     </em></p>
+<pre><code>* @param plainText 明文
+* @return 32位密文
+*/
+</code></pre><p></p><p></p>
+<pre>
+public static String encryption(String plainText) {
+        String re_md5 = new String();
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(plainText.getBytes());
+            byte b[] = md.digest();
+            int i;
+            StringBuffer buf = new StringBuffer("");
+            for (int offset = 0; offset < b.length; offset++) {
+                i = b[offset];
+                if (i < 0)
+                    i += 256;
+                if (i < 16)
+                    buf.append("0");
+                buf.append(Integer.toHexString(i));
+            }
+            re_md5 = buf.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return re_md5;
+    }
+</pre>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2018/06/01/java-md5/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/06/01/java-md5/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+<<<<<<< HEAD
+=======
+    <article id="post-java-list-remove" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/06/01/java-list-remove/">List对于remove操作抛出ConcurrentModificationException</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/06/01/java-list-remove/">
+            <time datetime="2018-06-01T12:58:47.675Z" itemprop="datePublished">2018-06-01</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <pre>
+for(int i=0;i<list.size();i++){ if(list.get(i).equals("del"))="" list.remove(i);="" }="" 这种方式的问题在于，删除某个元素后，list的大小发生了变化，而你的索引也在变化，="" 所以会导致你在遍历的时候漏掉某些元素。比如当你删除第1个元素后，="" 继续根据索引访问第2个元素时，因为删除的关系后面的元素都往前移动了一位，="" 所以实际访问的是第3个元素。因此，这种方式可以用在删除特定的一个元素时使用，="" 但不适合循环删除多个元素时使用。="" for(string="" x:list){="" if(x.equals("del"))="" list.remove(x);="" 这种方式的问题在于，删除元素后继续循环会报错误信息concurrentmodificationexception，="" 因为元素在使用的时候发生了并发的修改，导致异常抛出。="" 但是删除完毕马上使用break跳出，则不会触发报错。="" iterator<string=""> it = list.iterator();
+while(it.hasNext()){
+    String x = it.next();
+    if(x.equals("del")){
+        it.remove();
+    }
+}
+这种方式可以正常的循环及删除。
+</list.size();i++){></pre>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2018/06/01/java-list-remove/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/06/01/java-list-remove/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+>>>>>>> b50a91a0578b53ecd3cf6f2ab38e70e5e23a151a
     <nav id="page-nav">
         <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>

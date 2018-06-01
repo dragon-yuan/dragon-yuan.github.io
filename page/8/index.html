@@ -201,7 +201,11 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
+<<<<<<< HEAD
                 133
+=======
+                134
+>>>>>>> b50a91a0578b53ecd3cf6f2ab38e70e5e23a151a
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,6 +252,7 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+<<<<<<< HEAD
     <article id="post-java-pattern-matcher" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -336,6 +341,9 @@ var jiathis_config={
 
 
     <article id="post-java-ConvertUtils" class="article article-type-post" itemscope itemprop="blogPost">
+=======
+    <article id="post-java-dto-vo" class="article article-type-post" itemscope itemprop="blogPost">
+>>>>>>> b50a91a0578b53ecd3cf6f2ab38e70e5e23a151a
     <div class="article-inner">
         
         
@@ -343,7 +351,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/02/10/java-ConvertUtils/">ConvertUtils的简单使用</a>
+            <a class="article-title" href="/2017/07/11/java-dto-vo/">浅析VO、DTO、DO、PO的概念、区别和用处</a>
         </h1>
     
 
@@ -352,8 +360,8 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/02/10/java-ConvertUtils/">
-            <time datetime="2017-02-10T10:44:32.000Z" itemprop="datePublished">2017-02-10</time>
+        <a href="/2017/07/11/java-dto-vo/">
+            <time datetime="2017-07-11T13:52:26.000Z" itemprop="datePublished">2017-07-11</time>
         </a>
     </div>
 
@@ -373,12 +381,11 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <pre>
-import org.apache.commons.beanutils.ConvertUtils;
-// 将字符串转换为指定类型
-String[] idStringArray = new String[] { "1", "2", "3", "4", "5" };
-Long[] idLongArray = (Long[]) ConvertUtils.convert(idString, Long.class);
-</pre>
+            <p>VO（View Object）：视图对象，用于展示层，它的作用是把某个指定页面（或组件）的所有数据<br>封装起来。</p>
+<p>DTO（Data Transfer Object）：数据传输对象，这个概念来源于J2EE的设计模式，原来的目的<br>是为了EJB的分布式应用提供粗粒度的数据实体，以减少分布式调用的次数，从而提高分布式调用<br>的性能和降低网络负载，但在这里，我泛指用于展示层与服务层之间的数据传输对象。</p>
+<p>DO（Domain Object）：领域对象，就是从现实世界中抽象出来的有形或无形的业务实体。</p>
+<p>PO（Persistent Object）：持久化对象，它跟持久层（通常是关系型数据库）的数据结构形成一<br>一对应的映射关系，如果持久层是关系型数据库，那么，数据表中的每个字段（或若干个）就对应<br>PO的一个（或若干个）属性。</p>
+<p>DTO和VO：<br>DTO和VO的属性值基本是一致的，而且他们通常都是POJO，因此没必要多此一举，但不要忘记这是<br>实现层面的思维，对于设计层面来说，概念上还是应该存在VO和DTO，因为两者有着本质的区别，<br>DTO代表服务层需要接收的数据和返回的数据，而VO代表展示层需要显示的数据。</p>
 
         
         </div>
@@ -412,7 +419,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/02/10/java-ConvertUtils/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/02/10/java-ConvertUtils/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/07/11/java-dto-vo/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/11/java-dto-vo/">Comments</a>
     
 
         </footer>
@@ -422,7 +429,7 @@ var jiathis_config={
 
 
 
-    <article id="post-java-list-remove" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-http-request-headers" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -430,7 +437,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/02/10/java-list-remove/">List对于remove操作抛出ConcurrentModificationException</a>
+            <a class="article-title" href="/2017/07/11/http-request-headers/">HTTP中Request-Headers详解</a>
         </h1>
     
 
@@ -439,8 +446,8 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/02/10/java-list-remove/">
-            <time datetime="2017-02-10T09:13:18.000Z" itemprop="datePublished">2017-02-10</time>
+        <a href="/2017/07/11/http-request-headers/">
+            <time datetime="2017-07-11T12:52:38.000Z" itemprop="datePublished">2017-07-11</time>
         </a>
     </div>
 
@@ -448,7 +455,7 @@ var jiathis_config={
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
+        <a class="article-category-link" href="/categories/Operations/">Operations</a>
     </div>
 
                         
@@ -460,16 +467,18 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <pre>
-for(int i=0;i<list.size();i++){ if(list.get(i).equals("del"))="" list.remove(i);="" }="" 这种方式的问题在于，删除某个元素后，list的大小发生了变化，而你的索引也在变化，="" 所以会导致你在遍历的时候漏掉某些元素。比如当你删除第1个元素后，="" 继续根据索引访问第2个元素时，因为删除的关系后面的元素都往前移动了一位，="" 所以实际访问的是第3个元素。因此，这种方式可以用在删除特定的一个元素时使用，="" 但不适合循环删除多个元素时使用。="" for(string="" x:list){="" if(x.equals("del"))="" list.remove(x);="" 这种方式的问题在于，删除元素后继续循环会报错误信息concurrentmodificationexception，="" 因为元素在使用的时候发生了并发的修改，导致异常抛出。="" 但是删除完毕马上使用break跳出，则不会触发报错。="" iterator<string=""> it = list.iterator();
-while(it.hasNext()){
-    String x = it.next();
-    if(x.equals("del")){
-        it.remove();
-    }
-}
-这种方式可以正常的循环及删除。
-</list.size();i++){></pre>
+            <p>Request Headers：<br>Accept<br>作用：浏览器端可以接受的媒体类型,<br>例如：Accept: text/html 代表浏览器可以接受服务器回发的类型为 text/html<br>也就是我们常说的html文档,如果服务器无法返回text/html类型的数据,<br>服务器应该返回一个406错误(non acceptable)通配符 <em> 代表任意类型<br>例如 Accept: </em>/*  代表浏览器可以处理所有类型,(一般浏览器发给服务器都是发这个)</p>
+<p>Accept-Encoding：<br>作用：浏览器申明自己接收的编码方法，通常指定压缩方法，是否支持压缩，支持什么压缩方法<br>（gzip，deflate）<br>例如： Accept-Encoding: gzip, deflate</p>
+<p>Accept-Language：<br>作用：浏览器申明自己接收的语言。<br>语言跟字符集的区别：中文是语言，中文有多种字符集，比如big5，gb2312，gbk等等<br>例如： Accept-Language: en-us或zh-CN</p>
+<p>User-Agent：<br>作用：告诉HTTP服务器， 客户端使用的操作系统和浏览器的名称和版本.<br>我们上网登陆论坛的时候，往往会看到一些欢迎信息，其中列出了你的操作系统的名称和版本，<br>你所使用的浏览器的名称和版本，服务器应用程序就是从User-Agent这个请求报头域中获取到<br>这些信息User-Agent请求报头域允许客户端将它的操作系统、浏览器和其它属性告诉服务器。<br>例如： User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64)<br>AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36</p>
+<p>Referer：<br>作用：提供了Request的上下文信息的服务器，告诉服务器是从哪个链接过来的</p>
+<p>Origin：<br>作用：告诉Request服务是从何处过来的</p>
+<p>Host：<br>作用：请求报头域主要用于指定被请求资源的Internet主机和端口号它通常从URL中提取出来的</p>
+<p>Cookie：<br>作用：最重要的header, 将cookie的值发送给HTTP服务器<br>Cookie通过URL编码形式发送，转码网站：<a href="http://tool.chinaz.com/tools/urlencode.aspx" target="_blank" rel="noopener">http://tool.chinaz.com/tools/urlencode.aspx</a></p>
+<p>Content-Length：<br>作用：发送给HTTP服务器数据的长度<br>例如：Content-Length: 38</p>
+<p>Content-Type：<br>作用：发送给HTTP服务器数据的类型<br>例如：Content-Type: application/json;charset=UTF-8</p>
+<p>Connection：<br>例如：Connection: keep-alive<br>当一个网页打开完成后，客户端和服务器之间用于传输HTTP数据的TCP连接不会关闭，<br>如果客户端再次访问这个服务器上的网页，会继续使用这一条已经建立的连接<br>例如：Connection: close<br>代表一个Request完成后，客户端和服务器之间用于传输HTTP数据的TCP连接会关闭，<br>当客户端再次发送Request，需要重新建立TCP连接。</p>
+<p>Authorization：<br>Authorization消息头的用户名和口令的值可以容易地编码和解码，通过Base64<br>例如：客户端的请求（用户名“”Aladdin”，口令, password “open sesame”）<br>Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==<br>print encode_base64(‘Aladdin:open sesame’), “\n”;<br>print decode_base64(‘QWxhZGRpbjpvcGVuIHNlc2FtZQ==’), “\n”;</p>
 
         
         </div>
@@ -503,7 +512,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/02/10/java-list-remove/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/02/10/java-list-remove/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/07/11/http-request-headers/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/11/http-request-headers/">Comments</a>
     
 
         </footer>
@@ -513,7 +522,7 @@ var jiathis_config={
 
 
 
-    <article id="post-java-random4j" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-java-mysql-concat" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -521,7 +530,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/17/java-random4j/">JAVA随机抽取对象</a>
+            <a class="article-title" href="/2017/07/10/java-mysql-concat/">MySQL中CONCAT值为空的问题解决办法</a>
         </h1>
     
 
@@ -530,8 +539,8 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/01/17/java-random4j/">
-            <time datetime="2017-01-17T03:39:28.000Z" itemprop="datePublished">2017-01-17</time>
+        <a href="/2017/07/10/java-mysql-concat/">
+            <time datetime="2017-07-10T14:12:26.000Z" itemprop="datePublished">2017-07-10</time>
         </a>
     </div>
 
@@ -539,7 +548,7 @@ var jiathis_config={
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
+        <a class="article-category-link" href="/categories/MySQL/">MySQL</a>
     </div>
 
                         
@@ -551,22 +560,7 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <pre>
-/**
- * @param resultList "最终抽取结果集"
- * @param totalFlag "最多抽取数量"
- * @param canRandomFlag "可以抽取数量"
- * @param personCountNum "当前需要抽取数量"
- */
-
-for(int k = 0; k < personCountNum; k++){
-    double randomNum = Math.random();
-    int d = (int)(randomNum * canRandomFlag);
-    Object obj = list.get(d); // 获取抽取对象
-    resultList.add(obj); // 添加对象到结果集
-    list.remove(d); // 移除原始采样组
-}
-</pre>
+            <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在MySQL中concat函数有一个特点就是有一个值为null那么不管第二个字符有多少内容都返回为空了，</span><br><span class="line">这个特性让我们在实例应用中可能觉得不方便，但实现就是这样我们需要使用其它办法来解决。</span><br><span class="line">返回结果为连接参数产生的字符串。如有任何一个参数为NULL，则返回值为NULL。</span><br><span class="line"></span><br><span class="line">使用个IFNULL可以判断一下字段是否为空：</span><br><span class="line">MySQL内置的IFNULL函数可以用在查询时候为NULL值字段给一个默认值：</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CONCAT</span>(<span class="keyword">IFNULL</span>(code,<span class="string">''</span>),telephone) <span class="keyword">FROM</span> info</span><br></pre></td></tr></table></figure>
 
         
         </div>
@@ -600,7 +594,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/01/17/java-random4j/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/01/17/java-random4j/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/07/10/java-mysql-concat/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/10/java-mysql-concat/">Comments</a>
     
 
         </footer>
@@ -610,7 +604,7 @@ var jiathis_config={
 
 
 
-    <article id="post-regular-expressions" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-java-linux-properties" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -618,7 +612,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/10/regular-expressions/">正则表达式 总结</a>
+            <a class="article-title" href="/2017/04/10/java-linux-properties/">通过JAVA环境监听Linux系统属性</a>
         </h1>
     
 
@@ -627,8 +621,8 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/01/10/regular-expressions/">
-            <time datetime="2017-01-10T07:29:00.000Z" itemprop="datePublished">2017-01-10</time>
+        <a href="/2017/04/10/java-linux-properties/">
+            <time datetime="2017-04-10T12:22:26.000Z" itemprop="datePublished">2017-04-10</time>
         </a>
     </div>
 
@@ -648,26 +642,7 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>网络总结-全部可用</p>
-
-<p>匹配中文：<br>[\u4e00-\u9fa5]</p>
-<p>匹配双字节字符(包括汉字在内)：<br>[^\x00-\xff]</p>
-<p>匹配空白行：<br>\n\s*\r</p>
-<p>匹配Email地址：<br>/^[^.@]+@[^.@]+.[a-z]+$/</p>
-<p>匹配手机号：<br>/^1(3|4|5|7|8)\d{9}$/</p>
-<p>匹配网址URL：<br>[a-zA-z]+://[^\s]*</p>
-<p>匹配国内电话号码：<br>\d{3}-\d{8}|\d{4}-{7,8}</p>
-<p>匹配腾讯QQ号：<br>[1-9][0-9]{4,}</p>
-<p>匹配中国邮政编码：<br>[1-9]\d{5}(?!\d)</p>
-<p>匹配18位身份证号：<br>^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]|X)$</p>
-<p>匹配(年-月-日)格式日期：<br>([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3})-(((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01]))|((0[469]|11)-(0[1-9]|[12][0-9]|30))|(02-(0[1-9]|[1][0-9]|2[0-8])))</p>
-<p>匹配正整数：<br>^[1-9]\d*$</p>
-<p>匹配负整数：<br>^-[1-9]\d*$</p>
-<p>匹配整数：<br>^-?[1-9]\d*$</p>
-<p>匹配非负整数（正整数 + 0）：<br>^[1-9]\d*|0$</p>
-<p>匹配非正整数（负整数 + 0）：<br>^-[1-9]\d*|0$</p>
-<p>匹配正浮点数：<br>^[1-9]\d<em>.\d</em>|0.\d<em>[1-9]\d</em>$</p>
-<p>匹配负浮点数：<br>^-[1-9]\d<em>.\d</em>|-0.\d<em>[1-9]\d</em>$</p>
+            <p>获取当前系统内存和CPU使用状态<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.hyperic.sigar.Mem;</span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.util.StringTokenizer;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">LinuxSystemTool</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> int[] result</span></span><br><span class="line"><span class="comment">     * result.length==4;int[0]=MemTotal;int[1]=MemFree;int[2]=SwapTotal;int[3]=SwapFree;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] getMemInfo() <span class="keyword">throws</span> IOException, InterruptedException &#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">"/proc/meminfo"</span>);</span><br><span class="line">        BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(</span><br><span class="line">                <span class="keyword">new</span> FileInputStream(file)));</span><br><span class="line">        <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">4</span>];</span><br><span class="line">        String str = <span class="keyword">null</span>;</span><br><span class="line">        StringTokenizer token = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">while</span>((str = br.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">            token = <span class="keyword">new</span> StringTokenizer(str);</span><br><span class="line">            <span class="keyword">if</span>(!token.hasMoreTokens())</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            str = token.nextToken();</span><br><span class="line">            <span class="keyword">if</span>(!token.hasMoreTokens())</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(str.equalsIgnoreCase(<span class="string">"MemTotal:"</span>))</span><br><span class="line">                result[<span class="number">0</span>] = Integer.parseInt(token.nextToken());</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str.equalsIgnoreCase(<span class="string">"MemFree:"</span>))</span><br><span class="line">                result[<span class="number">1</span>] = Integer.parseInt(token.nextToken());</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str.equalsIgnoreCase(<span class="string">"SwapTotal:"</span>))</span><br><span class="line">                result[<span class="number">2</span>] = Integer.parseInt(token.nextToken());</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str.equalsIgnoreCase(<span class="string">"SwapFree:"</span>))</span><br><span class="line">                result[<span class="number">3</span>] = Integer.parseInt(token.nextToken());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">float</span> <span class="title">getCpuInfo</span><span class="params">()</span> <span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">"/proc/stat"</span>);</span><br><span class="line">        BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(</span><br><span class="line">                <span class="keyword">new</span> FileInputStream(file)));</span><br><span class="line">        StringTokenizer token = <span class="keyword">new</span> StringTokenizer(br.readLine());</span><br><span class="line">        token.nextToken();</span><br><span class="line">        <span class="keyword">int</span> user1 = Integer.parseInt(token.nextToken());</span><br><span class="line">        <span class="keyword">int</span> nice1 = Integer.parseInt(token.nextToken());</span><br><span class="line">        <span class="keyword">int</span> sys1 = Integer.parseInt(token.nextToken());</span><br><span class="line">        <span class="keyword">int</span> idle1 = Integer.parseInt(token.nextToken());</span><br><span class="line"></span><br><span class="line">        Thread.sleep(<span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">        br = <span class="keyword">new</span> BufferedReader(</span><br><span class="line">                <span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(file)));</span><br><span class="line">        token = <span class="keyword">new</span> StringTokenizer(br.readLine());</span><br><span class="line">        token.nextToken();</span><br><span class="line">        <span class="keyword">int</span> user2 = Integer.parseInt(token.nextToken());</span><br><span class="line">        <span class="keyword">int</span> nice2 = Integer.parseInt(token.nextToken());</span><br><span class="line">        <span class="keyword">int</span> sys2 = Integer.parseInt(token.nextToken());</span><br><span class="line">        <span class="keyword">int</span> idle2 = Integer.parseInt(token.nextToken());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">float</span>)((user2 + sys2 + nice2) -</span><br><span class="line">              (user1 + sys1 + nice1)) / (<span class="keyword">float</span>)((user2 + nice2 + sys2 + idle2) -</span><br><span class="line">              (user1 + nice1 + sys1 + idle1));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
         
         </div>
@@ -701,7 +676,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/01/10/regular-expressions/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/01/10/regular-expressions/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/04/10/java-linux-properties/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/04/10/java-linux-properties/">Comments</a>
     
 
         </footer>
@@ -711,7 +686,7 @@ var jiathis_config={
 
 
 
-    <article id="post-gallery-mylife-2017" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-java-windows-properties" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -719,7 +694,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/01/gallery-mylife-2017/">2017 - Dragon&#39;s Life</a>
+            <a class="article-title" href="/2017/04/10/java-windows-properties/">通过JAVA环境使用sigar监听Windows系统属性</a>
         </h1>
     
 
@@ -728,8 +703,8 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/01/01/gallery-mylife-2017/">
-            <time datetime="2016-12-31T16:00:00.000Z" itemprop="datePublished">2017-01-01</time>
+        <a href="/2017/04/10/java-windows-properties/">
+            <time datetime="2017-04-10T12:12:26.000Z" itemprop="datePublished">2017-04-10</time>
         </a>
     </div>
 
@@ -737,7 +712,7 @@ var jiathis_config={
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Gallery/">Gallery</a>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
     </div>
 
                         
@@ -746,6 +721,7 @@ var jiathis_config={
             </header>
         
         
+<<<<<<< HEAD
 <div class="article-gallery">
     
     <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2017-LIFE/0.jpg" rel="gallery_cjhqf4t5g001wnuitmju70pmq">
@@ -1526,10 +1502,13 @@ var jiathis_config={
     
 </div>
 
+=======
+>>>>>>> b50a91a0578b53ecd3cf6f2ab38e70e5e23a151a
         <div class="article-entry" itemprop="articleBody">
         
             
-            
+            <p>使用sigar开源组件，获取当前系统各项属性<br>1.下载sigar.jar<br>2.将sigar-amd64-winnt.dll，sigar-x86-winnt.dll，sigar-x86-winnt.lib<br>复制到JDK的bin目录下，使sigar拥有运行依赖。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.hyperic.sigar.*;</span><br><span class="line"><span class="keyword">import</span> java.net.InetAddress;</span><br><span class="line"><span class="keyword">import</span> java.net.UnknownHostException;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WindowsSystemTool</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            property();</span><br><span class="line">            cpu();</span><br><span class="line">            memory();</span><br><span class="line">            os();</span><br><span class="line">            who();</span><br><span class="line">            file();</span><br><span class="line">            net();</span><br><span class="line">            ethernet();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e1) &#123;</span><br><span class="line">            e1.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">property</span><span class="params">()</span> <span class="keyword">throws</span> UnknownHostException </span>&#123;</span><br><span class="line">        Runtime r = Runtime.getRuntime();</span><br><span class="line">        Properties props = System.getProperties();</span><br><span class="line">        InetAddress addr;</span><br><span class="line">        addr = InetAddress.getLocalHost();</span><br><span class="line">        String ip = addr.getHostAddress();</span><br><span class="line">        Map&lt;String, String&gt; map = System.getenv();</span><br><span class="line">        String userName = map.get(<span class="string">"USERNAME"</span>);</span><br><span class="line">        String computerName = map.get(<span class="string">"COMPUTERNAME"</span>);</span><br><span class="line">        String userDomain = map.get(<span class="string">"USERDOMAIN"</span>);</span><br><span class="line">        System.out.println(<span class="string">"用户名:"</span> + userName);</span><br><span class="line">        System.out.println(<span class="string">"计算机名:"</span> + computerName);</span><br><span class="line">        System.out.println(<span class="string">"计算机域名:"</span> + userDomain);</span><br><span class="line">        System.out.println(<span class="string">"本地ip地址:"</span> + ip);</span><br><span class="line">        System.out.println(<span class="string">"本地主机名:"</span> + addr.getHostName());</span><br><span class="line">        System.out.println(<span class="string">"JVM可以使用的总内存:"</span> + r.totalMemory());</span><br><span class="line">        System.out.println(<span class="string">"JVM可以使用的剩余内存:"</span> + r.freeMemory());</span><br><span class="line">        System.out.println(<span class="string">"JVM可以使用的处理器个数:"</span> + r.availableProcessors());</span><br><span class="line">        System.out.println(<span class="string">"Java的运行环境版本："</span> + props.getProperty(<span class="string">"java.version"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java的运行环境供应商："</span> + props.getProperty(<span class="string">"java.vendor"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java供应商的URL："</span> + props.getProperty(<span class="string">"java.vendor.url"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java的安装路径："</span> + props.getProperty(<span class="string">"java.home"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java的虚拟机规范版本："</span> + props.getProperty(<span class="string">"java.vm.specification.version"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java的虚拟机规范供应商：    "</span> + props.getProperty(<span class="string">"java.vm.specification.vendor"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java的虚拟机规范名称："</span> + props.getProperty(<span class="string">"java.vm.specification.name"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java的虚拟机实现版本："</span> + props.getProperty(<span class="string">"java.vm.version"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java的虚拟机实现供应商："</span> + props.getProperty(<span class="string">"java.vm.vendor"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java的虚拟机实现名称："</span> + props.getProperty(<span class="string">"java.vm.name"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java运行时环境规范版本："</span> + props.getProperty(<span class="string">"java.specification.version"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java运行时环境规范供应商："</span> + props.getProperty(<span class="string">"java.specification.vender"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java运行时环境规范名称："</span> + props.getProperty(<span class="string">"java.specification.name"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java的类格式版本号："</span> + props.getProperty(<span class="string">"java.class.version"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java的类路径："</span> + props.getProperty(<span class="string">"java.class.path"</span>));</span><br><span class="line">        System.out.println(<span class="string">"加载库时搜索的路径列表："</span> + props.getProperty(<span class="string">"java.library.path"</span>));</span><br><span class="line">        System.out.println(<span class="string">"默认的临时文件路径："</span> + props.getProperty(<span class="string">"java.io.tmpdir"</span>));</span><br><span class="line">        System.out.println(<span class="string">"一个或多个扩展目录的路径："</span> + props.getProperty(<span class="string">"java.ext.dirs"</span>));</span><br><span class="line">        System.out.println(<span class="string">"操作系统的名称："</span> + props.getProperty(<span class="string">"os.name"</span>));</span><br><span class="line">        System.out.println(<span class="string">"操作系统的构架："</span> + props.getProperty(<span class="string">"os.arch"</span>));</span><br><span class="line">        System.out.println(<span class="string">"操作系统的版本："</span> + props.getProperty(<span class="string">"os.version"</span>));</span><br><span class="line">        System.out.println(<span class="string">"文件分隔符："</span> + props.getProperty(<span class="string">"file.separator"</span>));</span><br><span class="line">        System.out.println(<span class="string">"路径分隔符："</span> + props.getProperty(<span class="string">"path.separator"</span>));</span><br><span class="line">        System.out.println(<span class="string">"行分隔符："</span> + props.getProperty(<span class="string">"line.separator"</span>));</span><br><span class="line">        System.out.println(<span class="string">"用户的账户名称："</span> + props.getProperty(<span class="string">"user.name"</span>));</span><br><span class="line">        System.out.println(<span class="string">"用户的主目录："</span> + props.getProperty(<span class="string">"user.home"</span>));</span><br><span class="line">        System.out.println(<span class="string">"用户的当前工作目录："</span> + props.getProperty(<span class="string">"user.dir"</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">memory</span><span class="params">()</span> <span class="keyword">throws</span> SigarException </span>&#123;</span><br><span class="line">        Sigar sigar = <span class="keyword">new</span> Sigar();</span><br><span class="line">        Mem mem = sigar.getMem();</span><br><span class="line">        System.out.println(<span class="string">"内存总量:"</span> + mem.getTotal() / <span class="number">1024L</span> + <span class="string">"K av"</span>);</span><br><span class="line">        System.out.println(<span class="string">"当前内存使用量:"</span> + mem.getUsed() / <span class="number">1024L</span> + <span class="string">"K used"</span>);</span><br><span class="line">        System.out.println(<span class="string">"当前内存剩余量:"</span> + mem.getFree() / <span class="number">1024L</span> + <span class="string">"K free"</span>);</span><br><span class="line">        Swap swap = sigar.getSwap();</span><br><span class="line">        System.out.println(<span class="string">"交换区总量:"</span> + swap.getTotal() / <span class="number">1024L</span> + <span class="string">"K av"</span>);</span><br><span class="line">        System.out.println(<span class="string">"当前交换区使用量:"</span> + swap.getUsed() / <span class="number">1024L</span> + <span class="string">"K used"</span>);</span><br><span class="line">        System.out.println(<span class="string">"当前交换区剩余量:"</span> + swap.getFree() / <span class="number">1024L</span> + <span class="string">"K free"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">cpu</span><span class="params">()</span> <span class="keyword">throws</span> SigarException </span>&#123;</span><br><span class="line">        Sigar sigar = <span class="keyword">new</span> Sigar();</span><br><span class="line">        CpuInfo infos[] = sigar.getCpuInfoList();</span><br><span class="line">        CpuPerc cpuList[] = <span class="keyword">null</span>;</span><br><span class="line">        cpuList = sigar.getCpuPercList();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; infos.length; i++) &#123;</span><br><span class="line">            CpuInfo info = infos[i];</span><br><span class="line">            System.out.println(<span class="string">"第"</span> + (i + <span class="number">1</span>) + <span class="string">"块CPU信息"</span>);</span><br><span class="line">            System.out.println(<span class="string">"CPU的总量MHz:"</span> + info.getMhz());</span><br><span class="line">            System.out.println(<span class="string">"CPU生产商:"</span> + info.getVendor());</span><br><span class="line">            System.out.println(<span class="string">"CPU类别:"</span> + info.getModel());</span><br><span class="line">            System.out.println(<span class="string">"CPU缓存数量:"</span> + info.getCacheSize());</span><br><span class="line">            printCpuPerc(cpuList[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printCpuPerc</span><span class="params">(CpuPerc cpu)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"CPU用户使用率:"</span> + CpuPerc.format(cpu.getUser()));</span><br><span class="line">        System.out.println(<span class="string">"CPU系统使用率:"</span> + CpuPerc.format(cpu.getSys()));</span><br><span class="line">        System.out.println(<span class="string">"CPU当前等待率:"</span> + CpuPerc.format(cpu.getWait()));</span><br><span class="line">        System.out.println(<span class="string">"CPU当前错误率:"</span> + CpuPerc.format(cpu.getNice()));</span><br><span class="line">        System.out.println(<span class="string">"CPU当前空闲率:"</span> + CpuPerc.format(cpu.getIdle()));</span><br><span class="line">        System.out.println(<span class="string">"CPU总的使用率:"</span> + CpuPerc.format(cpu.getCombined()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">os</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        OperatingSystem OS = OperatingSystem.getInstance();</span><br><span class="line">        System.out.println(<span class="string">"操作系统:"</span> + OS.getArch());</span><br><span class="line">        System.out.println(<span class="string">"操作系统CpuEndian():"</span> + OS.getCpuEndian());<span class="comment">//</span></span><br><span class="line">        System.out.println(<span class="string">"操作系统DataModel():"</span> + OS.getDataModel());<span class="comment">//</span></span><br><span class="line">        System.out.println(<span class="string">"操作系统的描述:"</span> + OS.getDescription());</span><br><span class="line">        System.out.println(<span class="string">"操作系统名称:"</span> + OS.getVendorName());</span><br><span class="line">        System.out.println(<span class="string">"操作系统的版本号:"</span> + OS.getVersion());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">who</span><span class="params">()</span> <span class="keyword">throws</span> SigarException </span>&#123;</span><br><span class="line">        Sigar sigar = <span class="keyword">new</span> Sigar();</span><br><span class="line">        Who who[] = sigar.getWhoList();</span><br><span class="line">        <span class="keyword">if</span> (who != <span class="keyword">null</span> &amp;&amp; who.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; who.length; i++) &#123;</span><br><span class="line">                Who _who = who[i];</span><br><span class="line">                System.out.println(<span class="string">"用户控制台:"</span> + _who.getDevice());</span><br><span class="line">                System.out.println(<span class="string">"用户host:"</span> + _who.getHost());</span><br><span class="line">                System.out.println(<span class="string">"当前系统进程表中的用户名:"</span> + _who.getUser());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">file</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Sigar sigar = <span class="keyword">new</span> Sigar();</span><br><span class="line">        FileSystem fslist[] = sigar.getFileSystemList();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; fslist.length; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">"分区的盘符名称"</span> + i);</span><br><span class="line">            FileSystem fs = fslist[i];</span><br><span class="line">            System.out.println(<span class="string">"盘符名称:    "</span> + fs.getDevName());</span><br><span class="line">            System.out.println(<span class="string">"盘符路径:    "</span> + fs.getDirName());</span><br><span class="line">            System.out.println(<span class="string">"盘符标志:    "</span> + fs.getFlags());<span class="comment">//</span></span><br><span class="line">            System.out.println(<span class="string">"盘符类型:    "</span> + fs.getSysTypeName());</span><br><span class="line">            System.out.println(<span class="string">"盘符类型名:    "</span> + fs.getTypeName());</span><br><span class="line">            System.out.println(<span class="string">"盘符文件系统类型:    "</span> + fs.getType());</span><br><span class="line">            FileSystemUsage usage = <span class="keyword">null</span>;</span><br><span class="line">            usage = sigar.getFileSystemUsage(fs.getDirName());</span><br><span class="line">            <span class="keyword">switch</span> (fs.getType()) &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">2</span>: <span class="comment">// 本地硬盘</span></span><br><span class="line">                    System.out.println(fs.getDevName() + <span class="string">"总大小:"</span> + usage.getTotal() + <span class="string">"KB"</span>);</span><br><span class="line">                    System.out.println(fs.getDevName() + <span class="string">"剩余大小:"</span> + usage.getFree() + <span class="string">"KB"</span>);</span><br><span class="line">                    System.out.println(fs.getDevName() + <span class="string">"可用大小:"</span> + usage.getAvail() + <span class="string">"KB"</span>);</span><br><span class="line">                    System.out.println(fs.getDevName() + <span class="string">"已经使用量:"</span> + usage.getUsed() + <span class="string">"KB"</span>);</span><br><span class="line">                    <span class="keyword">double</span> usePercent = usage.getUsePercent() * <span class="number">100</span>D;</span><br><span class="line">                    System.out.println(fs.getDevName() + <span class="string">"资源的利用率:"</span> + usePercent + <span class="string">"%"</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">3</span>:<span class="comment">// 网络</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">4</span>:<span class="comment">// 闪存</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">5</span>:<span class="comment">// 光驱</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">6</span>:<span class="comment">// 页面交换</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(fs.getDevName() + <span class="string">"读出："</span> + usage.getDiskReads());</span><br><span class="line">            System.out.println(fs.getDevName() + <span class="string">"写入："</span> + usage.getDiskWrites());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">net</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Sigar sigar = <span class="keyword">new</span> Sigar();</span><br><span class="line">        String ifNames[] = sigar.getNetInterfaceList();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ifNames.length; i++) &#123;</span><br><span class="line">            String name = ifNames[i];</span><br><span class="line">            NetInterfaceConfig ifconfig = sigar.getNetInterfaceConfig(name);</span><br><span class="line">            System.out.println(<span class="string">"网络设备名:"</span> + name);</span><br><span class="line">            System.out.println(<span class="string">"IP地址:"</span> + ifconfig.getAddress());</span><br><span class="line">            System.out.println(<span class="string">"子网掩码:"</span> + ifconfig.getNetmask());</span><br><span class="line">            <span class="keyword">if</span> ((ifconfig.getFlags() &amp; <span class="number">1L</span>) &lt;= <span class="number">0L</span>) &#123;</span><br><span class="line">                System.out.println(<span class="string">"!IFF_UP...skipping getNetInterfaceStat"</span>);</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            NetInterfaceStat ifstat = sigar.getNetInterfaceStat(name);</span><br><span class="line">            System.out.println(name + <span class="string">"接收的总包裹数:"</span> + ifstat.getRxPackets());</span><br><span class="line">            System.out.println(name + <span class="string">"发送的总包裹数:"</span> + ifstat.getTxPackets());</span><br><span class="line">            System.out.println(name + <span class="string">"接收到的总字节数:"</span> + ifstat.getRxBytes());</span><br><span class="line">            System.out.println(name + <span class="string">"发送的总字节数:"</span> + ifstat.getTxBytes());</span><br><span class="line">            System.out.println(name + <span class="string">"接收到的错误包数:"</span> + ifstat.getRxErrors());</span><br><span class="line">            System.out.println(name + <span class="string">"发送数据包时的错误数:"</span> + ifstat.getTxErrors());</span><br><span class="line">            System.out.println(name + <span class="string">"接收时丢弃的包数:"</span> + ifstat.getRxDropped());</span><br><span class="line">            System.out.println(name + <span class="string">"发送时丢弃的包数:"</span> + ifstat.getTxDropped());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ethernet</span><span class="params">()</span> <span class="keyword">throws</span> SigarException </span>&#123;</span><br><span class="line">        Sigar sigar = <span class="keyword">null</span>;</span><br><span class="line">        sigar = <span class="keyword">new</span> Sigar();</span><br><span class="line">        String[] ifaces = sigar.getNetInterfaceList();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ifaces.length; i++) &#123;</span><br><span class="line">            NetInterfaceConfig cfg = sigar.getNetInterfaceConfig(ifaces[i]);</span><br><span class="line">            <span class="keyword">if</span> (NetFlags.LOOPBACK_ADDRESS.equals(cfg.getAddress()) || (cfg.getFlags() &amp; NetFlags.IFF_LOOPBACK) != <span class="number">0</span></span><br><span class="line">                    || NetFlags.NULL_HWADDR.equals(cfg.getHwaddr())) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(cfg.getName() + <span class="string">"IP地址:"</span> + cfg.getAddress());</span><br><span class="line">            System.out.println(cfg.getName() + <span class="string">"网关广播地址:"</span> + cfg.getBroadcast());</span><br><span class="line">            System.out.println(cfg.getName() + <span class="string">"网卡MAC地址:"</span> + cfg.getHwaddr());</span><br><span class="line">            System.out.println(cfg.getName() + <span class="string">"子网掩码:"</span> + cfg.getNetmask());</span><br><span class="line">            System.out.println(cfg.getName() + <span class="string">"网卡描述信息:"</span> + cfg.getDescription());</span><br><span class="line">            System.out.println(cfg.getName() + <span class="string">"网卡类型"</span> + cfg.getType());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
         
         </div>
         <footer class="article-footer">
@@ -1562,7 +1541,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/01/01/gallery-mylife-2017/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/01/01/gallery-mylife-2017/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/04/10/java-windows-properties/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/04/10/java-windows-properties/">Comments</a>
     
 
         </footer>
@@ -1572,7 +1551,7 @@ var jiathis_config={
 
 
 
-    <article id="post-different-arrays" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-js-replace" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -1580,7 +1559,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2016/12/30/different-arrays/">找出两个数组中不相同的元素</a>
+            <a class="article-title" href="/2017/03/27/js-replace/">使用JS转换文件路径</a>
         </h1>
     
 
@@ -1589,8 +1568,8 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/12/30/different-arrays/">
-            <time datetime="2016-12-30T07:02:40.000Z" itemprop="datePublished">2016-12-30</time>
+        <a href="/2017/03/27/js-replace/">
+            <time datetime="2017-03-27T08:22:26.000Z" itemprop="datePublished">2017-03-27</time>
         </a>
     </div>
 
@@ -1598,7 +1577,7 @@ var jiathis_config={
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
+        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
     </div>
 
                         
@@ -1610,17 +1589,10 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>// flagArray为String[]</p>
-<pre>
-String existsArray[] = new String[]{}; // 与之进行比对的字符集
-List<string> list1 = Arrays.asList(flagArray);
-List<string> list2 = new ArrayList<string>(); // list2用来装载最终字符集
-for (String string : existsArray) {
-        if (!list1.contains(string)) {
-                list2.add(string);
-        }
-}
-</string></string></string></pre>
+            <pre>
+将Linux文件路径转换为Windows文件路径
+<code>filePath = filePath.replace(/\\/g, "/");</code>
+</pre>
 
         
         </div>
@@ -1654,7 +1626,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2016/12/30/different-arrays/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2016/12/30/different-arrays/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/03/27/js-replace/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/03/27/js-replace/">Comments</a>
     
 
         </footer>
@@ -1664,7 +1636,7 @@ var jiathis_config={
 
 
 
-    <article id="post-SQL-RAND()" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-centos-utils" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -1672,7 +1644,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2016/12/23/SQL-RAND()/">通过SQL语句实现关于随机选择等功能</a>
+            <a class="article-title" href="/2017/03/07/centos-utils/">lsof-top-free命令</a>
         </h1>
     
 
@@ -1681,8 +1653,8 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/12/23/SQL-RAND()/">
-            <time datetime="2016-12-23T08:36:52.000Z" itemprop="datePublished">2016-12-23</time>
+        <a href="/2017/03/07/centos-utils/">
+            <time datetime="2017-03-07T09:44:49.000Z" itemprop="datePublished">2017-03-07</time>
         </a>
     </div>
 
@@ -1690,7 +1662,7 @@ var jiathis_config={
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
+        <a class="article-category-link" href="/categories/Operations/">Operations</a>
     </div>
 
                         
@@ -1702,11 +1674,11 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>SQL：SELECT * FROM TABLENAME WHERE ??? ORDER BY rand() LIMIT (TIMES);</p>
-<p><span style="color:#857F6B;font-style:italic;"><br>/**</span></p>
-<ul>
-<li>TIMES : 从多少条数据中随机查询<br>*/<br></li>
-</ul>
+            <pre>
+top：查看系统资源使用率
+free：free -h 查看内存资源
+lsof：lsof -i:8080 查看端口使用情况
+</pre>
 
         
         </div>
@@ -1740,7 +1712,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2016/12/23/SQL-RAND()/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2016/12/23/SQL-RAND()/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/03/07/centos-utils/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/03/07/centos-utils/">Comments</a>
     
 
         </footer>
@@ -1750,7 +1722,7 @@ var jiathis_config={
 
 
 
-    <article id="post-java-random" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-js-parsefloat" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -1758,7 +1730,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2016/12/23/java-random/">JAVA随机生成6位验证码</a>
+            <a class="article-title" href="/2017/03/07/js-parsefloat/">使用JS保留两位小数</a>
         </h1>
     
 
@@ -1767,8 +1739,93 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/12/23/java-random/">
-            <time datetime="2016-12-23T08:32:56.000Z" itemprop="datePublished">2016-12-23</time>
+        <a href="/2017/03/07/js-parsefloat/">
+            <time datetime="2017-03-07T09:22:26.000Z" itemprop="datePublished">2017-03-07</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <pre>
+由于js显示的值为varchar类型，所以显示小数需要转换成float类型，并用toFixed保留位数
+<code>parseFloat(value).toFixed(2)</code>
+</pre>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/03/07/js-parsefloat/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/03/07/js-parsefloat/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-poi-write-word07" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/02/23/poi-write-word07/">APACHE POI写入Word-07操作</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/02/23/poi-write-word07/">
+            <time datetime="2017-02-23T07:22:26.000Z" itemprop="datePublished">2017-02-23</time>
         </a>
     </div>
 
@@ -1789,15 +1846,76 @@ var jiathis_config={
         
             
             <pre>
-public static String createRandomCode() {
-        String code = "";
-        Random r = new Random();
-        for (int i = 0; i < 6; i++) {
-            code += r.nextInt(10);
-        }
-        return code;
+// 使用POI读取模版
+MSWordTool changer = new MSWordTool();
+changer.setTemplate(templatePath);
+// 导入书签
+Map<string, string=""> wordContent = getContent();
+// 替换文件
+changer.replaceBookMark(wordContent);
+changer.saveAs("path");
+
+// 获取书签数据
+private Map<string, string=""> getContent(){
+    Map<string, string=""> content = new HashMap<string, string="">();
+      try {
+      content.put("A1", obj);
+    } catch (Exception ex) {
+      ex.printStackTrace();
+    }
+    return content;
 }
-</pre>
+
+/**
+     * 为文档设置模板
+     * @param templatePath  模板文件路径
+   */
+public void setTemplate(String templatePath) {
+        try {
+            this.document = new XWPFDocument(POIXMLDocument.openPackage(templatePath));
+            bookMarks = new BookMarks(document);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+}
+
+/**
+     * 进行标签替换的例子,传入的Map中，key表示标签名称，value是替换的信息
+     * @param indicator
+*/
+public void  replaceBookMark(Map<string,string> indicator) {
+        //循环进行替换
+        Iterator<string> bookMarkIter = bookMarks.getNameIterator();
+        while (bookMarkIter.hasNext()) {
+            String bookMarkName = bookMarkIter.next();
+
+            //得到标签名称
+            BookMark bookMark = bookMarks.getBookmark(bookMarkName);
+
+            //进行替换
+            if (indicator.get(bookMarkName)!=null) {
+                bookMark.insertTextAtBookMark(indicator.get(bookMarkName), BookMark.INSERT_BEFORE);
+            }
+      }
+}
+
+public void saveAs(String path) {
+      File newFile = new File(path);
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(newFile);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            this.document.write(fos);
+            fos.flush();
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+}
+</string></string,string></string,></string,></string,></string,></pre>
 
         
         </div>
@@ -1831,7 +1949,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2016/12/23/java-random/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2016/12/23/java-random/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/02/23/poi-write-word07/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/02/23/poi-write-word07/">Comments</a>
     
 
         </footer>
@@ -1841,7 +1959,9 @@ var jiathis_config={
 
 
 
-    <article id="post-java-md5" class="article article-type-post" itemscope itemprop="blogPost">
+<<<<<<< HEAD
+=======
+    <article id="post-poi-write-excel" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -1849,7 +1969,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2016/12/23/java-md5/">JAVA中明文转MD5</a>
+            <a class="article-title" href="/2017/02/22/poi-write-excel/">APACHE POI写入Excel-07操作</a>
         </h1>
     
 
@@ -1858,8 +1978,8 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/12/23/java-md5/">
-            <time datetime="2016-12-23T08:32:24.000Z" itemprop="datePublished">2016-12-23</time>
+        <a href="/2017/02/22/poi-write-excel/">
+            <time datetime="2017-02-22T06:22:26.000Z" itemprop="datePublished">2017-02-22</time>
         </a>
     </div>
 
@@ -1879,35 +1999,25 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p></p><p style="color:#c6c6c6;"><br>/*<em>
-     </em></p>
-<pre><code>* @param plainText 明文
-* @return 32位密文
-*/
-</code></pre><p></p><p></p>
-<pre>
-public static String encryption(String plainText) {
-        String re_md5 = new String();
-        try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            md.update(plainText.getBytes());
-            byte b[] = md.digest();
-            int i;
-            StringBuffer buf = new StringBuffer("");
-            for (int offset = 0; offset < b.length; offset++) {
-                i = b[offset];
-                if (i < 0)
-                    i += 256;
-                if (i < 16)
-                    buf.append("0");
-                buf.append(Integer.toHexString(i));
-            }
-            re_md5 = buf.toString();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        return re_md5;
-    }
+            <pre>
+// 创建Excel工作簿
+XSSFWorkbook workBook = new XSSFWorkbook();
+// 创建一个工作薄对象
+XSSFSheet sheet = workBook.createSheet("sheet1");
+// 设置单元格宽度
+sheet.setDefaultColumnWidth(20);
+// 画表
+XSSFRow row_1 = sheet.createRow(0);
+XSSFCell cell_1_0 = row_1.createCell(0);
+XSSFCell cell_1_1 = row_1.createCell(1);
+cell_1_0.setCellValue("value");
+cell_1_1.setCellValue("value");
+// 写入文件
+File file = new File("");
+file.createNewFile();
+FileOutputStream os = FileUtils.openOutputStream(file);
+workBook.write(os);
+os.close();
 </pre>
 
         
@@ -1942,7 +2052,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2016/12/23/java-md5/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2016/12/23/java-md5/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/02/22/poi-write-excel/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/02/22/poi-write-excel/">Comments</a>
     
 
         </footer>
@@ -1952,6 +2062,7 @@ var jiathis_config={
 
 
 
+>>>>>>> b50a91a0578b53ecd3cf6f2ab38e70e5e23a151a
     <nav id="page-nav">
         <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
     </nav>
