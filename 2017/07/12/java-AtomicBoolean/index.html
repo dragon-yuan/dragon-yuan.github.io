@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?c65037b3d2c6eca9155d28724b4d7827";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+	<script>
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+	</script>
+    
+    <title>AtomicBoolean介绍与使用 | DragonBlog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="AtomicBoolean是Java.util.concurrent.atomic包下的原子变量，这个包里面提供了一组原子类。其基本的特性就是在多线程环境下，当有多个线程同时执行这些类的实例包含的方法时，具有排他性，即当某个线程进入方法，执行其中的指令时，不会被其他线程打断，而别的线程就像自旋锁一样，一直等到该方法执行完成，才由JVM从等待队列中选择一个另一个线程进入，这只是一种逻辑上的理解。实际">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AtomicBoolean介绍与使用">
+<meta property="og:url" content="http://blog.dragon-yuan.me/2017/07/12/java-AtomicBoolean/index.html">
+<meta property="og:site_name" content="DragonBlog">
+<meta property="og:description" content="AtomicBoolean是Java.util.concurrent.atomic包下的原子变量，这个包里面提供了一组原子类。其基本的特性就是在多线程环境下，当有多个线程同时执行这些类的实例包含的方法时，具有排他性，即当某个线程进入方法，执行其中的指令时，不会被其他线程打断，而别的线程就像自旋锁一样，一直等到该方法执行完成，才由JVM从等待队列中选择一个另一个线程进入，这只是一种逻辑上的理解。实际">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-06-01T12:58:47.668Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AtomicBoolean介绍与使用">
+<meta name="twitter:description" content="AtomicBoolean是Java.util.concurrent.atomic包下的原子变量，这个包里面提供了一组原子类。其基本的特性就是在多线程环境下，当有多个线程同时执行这些类的实例包含的方法时，具有排他性，即当某个线程进入方法，执行其中的指令时，不会被其他线程打断，而别的线程就像自旋锁一样，一直等到该方法执行完成，才由JVM从等待队列中选择一个另一个线程进入，这只是一种逻辑上的理解。实际">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-97008058-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?c65037b3d2c6eca9155d28724b4d7827";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">DragonBlog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories/Java">Java</a>
+                
+                    <a class="main-nav-link" href="/categories/Gallery">Gallery</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories/Java">Java</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories/Gallery">Gallery</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" style="display: none;" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.jpg" />
+            <h2 id="name">Dragon</h2>
+            <h3 id="title">Java Web Developer</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Beijing (Harbin), China</span>
+            <a id="follow" target="_blank" href="https://github.com/dragon-yuan">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                134
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                0
+                <span>tag</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/dragon-yuan" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://twitter.com/p17856001" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://www.facebook.com/idragonyuan" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="http://weibo.com/529383542" target="_blank" title="weibo" class=tooltip>
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+	</div>
+</aside>
+
+            
+            <section id="main"><article id="post-java-AtomicBoolean" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            AtomicBoolean介绍与使用
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/12/java-AtomicBoolean/">
+            <time datetime="2017-07-12T14:52:26.000Z" itemprop="datePublished">2017-07-12</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>AtomicBoolean是Java.util.concurrent.atomic包下的原子变量，这个包里面提供了一组原子类。<br>其基本的特性就是在多线程环境下，当有多个线程同时执行这些类的实例包含的方法时，具有排他性，<br>即当某个线程进入方法，执行其中的指令时，不会被其他线程打断，而别的线程就像自旋锁一样，一<br>直等到该方法执行完成，才由JVM从等待队列中选择一个另一个线程进入，这只是一种逻辑上的理解。<br>实际上是借助硬件的相关指令来实现的，不会阻塞线程(或者说只是在硬件级别上阻塞了)。</p>
+<p>例如AtomicBoolean，在这个Boolean值的变化的时候不允许在之间插入，保持操作的原子性。<br>方法和举例：compareAndSet(boolean expect, boolean update)。<br>这个方法主要两个作用:</p>
+<ol>
+<li>比较AtomicBoolean和expect的值，如果一致，执行方法内的语句。其实就是一个if语句。</li>
+<li>把AtomicBoolean的值设成update。<br>较最要的是这两件事是一气呵成的，这连个动作之间不会被打断，任何内部或者外部的语句都不可能<br>在两个动作之间运行。为多线程的控制提供了解决的方案。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BarWorker</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">	 <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> exists = <span class="keyword">false</span>;  </div><div class="line">	 <span class="keyword">private</span> String name;  </div><div class="line"></div><div class="line">	 <span class="function"><span class="keyword">public</span> <span class="title">BarWorker</span><span class="params">(String name)</span> </span>&#123;   </div><div class="line">		  <span class="keyword">this</span>.name = name;  </div><div class="line">   &#125;  </div><div class="line"></div><div class="line">	 <span class="meta">@Override</span>  </div><div class="line">	 <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;   </div><div class="line">		 <span class="keyword">if</span> (!exists) &#123;  </div><div class="line">			     <span class="keyword">try</span> &#123;  </div><div class="line">			      TimeUnit.SECONDS.sleep(<span class="number">1</span>);  </div><div class="line">			     &#125; <span class="keyword">catch</span> (InterruptedException e1) &#123;  </div><div class="line">			      <span class="comment">// do nothing</span></div><div class="line">			     &#125;  </div><div class="line">			     exists = <span class="keyword">true</span>;  </div><div class="line">			     System.out.println(name + <span class="string">" enter"</span>);  </div><div class="line">			     <span class="keyword">try</span> &#123;  </div><div class="line">			      System.out.println(name + <span class="string">" working"</span>);  </div><div class="line">			      TimeUnit.SECONDS.sleep(<span class="number">2</span>);  </div><div class="line">			     &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;  </div><div class="line">			      <span class="comment">// do nothing  </span></div><div class="line">			     &#125;  </div><div class="line">			     System.out.println(name + <span class="string">" leave"</span>);  </div><div class="line">			     exists = <span class="keyword">false</span>;  </div><div class="line">	    &#125; <span class="keyword">else</span> &#123;  </div><div class="line">	     System.out.println(name + <span class="string">" give up"</span>);  </div><div class="line">	    &#125;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">	 <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		 BarWorker bar1 = <span class="keyword">new</span> BarWorker(<span class="string">"bar1"</span>);</div><div class="line">		 BarWorker bar2 = <span class="keyword">new</span> BarWorker(<span class="string">"bar2"</span>);</div><div class="line">		 <span class="keyword">new</span> Thread(bar1).start();</div><div class="line">		 <span class="keyword">new</span> Thread(bar2).start();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出如下：<br>bar1 enter<br>bar2 enter<br>bar1 working<br>bar2 working<br>bar1 leave<br>bar2 leave</p>
+<p>用AtomicBoolean进行线程同步，代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</div><div class="line"><span class="keyword">import</span> java.util.concurrent.atomic.AtomicBoolean;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BarWorker2</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">	 <span class="keyword">private</span> <span class="keyword">static</span> AtomicBoolean exists = <span class="keyword">new</span> AtomicBoolean(<span class="keyword">false</span>);  </div><div class="line">	 <span class="keyword">private</span> String name;  </div><div class="line"></div><div class="line">	 <span class="function"><span class="keyword">public</span> <span class="title">BarWorker2</span><span class="params">(String name)</span> </span>&#123;   </div><div class="line">		  <span class="keyword">this</span>.name = name;  </div><div class="line">   &#125;  </div><div class="line"></div><div class="line">	 <span class="meta">@Override</span>  </div><div class="line">	 <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;   </div><div class="line">		 <span class="keyword">if</span> (exists.compareAndSet(<span class="keyword">false</span>, <span class="keyword">true</span>)) &#123;     </div><div class="line">		     System.out.println(name + <span class="string">" enter"</span>);  </div><div class="line">		     <span class="keyword">try</span> &#123;  </div><div class="line">			      System.out.println(name + <span class="string">" working"</span>);  </div><div class="line">			      TimeUnit.SECONDS.sleep(<span class="number">2</span>);  </div><div class="line">		     &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;  </div><div class="line">		    	  <span class="comment">// do nothing  </span></div><div class="line">		     &#125;  </div><div class="line">		     System.out.println(name + <span class="string">" leave"</span>);  </div><div class="line">		     exists.set(<span class="keyword">false</span>);    </div><div class="line">	    &#125; <span class="keyword">else</span> &#123;  </div><div class="line">	         System.out.println(name + <span class="string">" give up"</span>);  </div><div class="line">	    &#125;  </div><div class="line">   &#125;</div><div class="line"></div><div class="line">	 <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		 BarWorker2 bar1 = <span class="keyword">new</span> BarWorker2(<span class="string">"bar1"</span>);</div><div class="line">		 BarWorker2 bar2 = <span class="keyword">new</span> BarWorker2(<span class="string">"bar2"</span>);</div><div class="line">		 <span class="keyword">new</span> Thread(bar1).start();</div><div class="line">		 <span class="keyword">new</span> Thread(bar2).start();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>执行结果如下：<br>bar1 enter<br>bar1 working<br>bar2 give up<br>bar1 leave</p>
+<p>可以看出仅仅一个线程进行工作，因为exists.compareAndSet(false, true)提供了原子性操作，<br>比较和赋值操作组成了一个原子操作, 中间不会提供可乘之机。</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/07/12/java-AtomicBoolean/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/12/java-AtomicBoolean/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/07/12/mysql-convert/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    MySQL中CONVERT
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2017/07/12/java-charqequence/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">CharSequence类型</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        <!-- 代码1：放在页面需要展示的位置  -->
+<div id="cyReward" role="cylabs" data-use="reward"></div>
+<!-- 代码2：用来读取评论框配置，此代码需放置在代码1之后。 -->
+<!-- 如果当前页面有评论框，代码2请勿放置在评论框代码之前。 -->
+<!-- 如果页面同时使用多个实验室项目，以下代码只需要引入一次，只配置上面的div标签即可 -->
+<script type="text/javascript" charset="utf-8" src="https://changyan.itc.cn/js/lib/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://changyan.sohu.com/js/changyan.labs.https.js?appid=cyt6NLeqm"></script>
+<div id="SOHUCS" ></div>
+<style>
+	.header-skin {display: none !important;}
+	#SOHUCS #SOHU_MAIN .module-cmt-header .section-cbox-w .block-head-w .header-skin {display: none !important;}
+</style>
+<script type="text/javascript"> 
+(function(){ 
+var appid = 'cyt6NLeqm'; 
+var conf = 'prod_ea00622159dfcb4d47e875bcf56d23d7'; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+	<div style="height:30px;widget:300px;"></div>
+	<iframe id="sidebariframe" frameborder="no" border="0" marginwidth="0" marginheight="0" width=300 height=497 src="//music.163.com/outchain/player?type=0&id=909216018&auto=0&height=430"></iframe>
+	<div style="margin-top:20px;">
+        
+			
+		
+			
+		
+    </div>
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+<script>
+var userAgentInfo = navigator.userAgent;  
+var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");  
+var flag = true;
+for (var v = 0; v < Agents.length; v++) {  
+    if (userAgentInfo.indexOf(Agents[v]) > 0) {
+        document.getElementById("sidebariframe").style.display ="none";
+    }
+}   
+</script>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 dragon<br>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'dragon-yuan'};
+    (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

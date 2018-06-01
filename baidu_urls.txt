@@ -1,9 +1,1 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-http://blog.dragon-yuan.me/2018/05/27/my-first-github-opensource/
-=======
-http://blog.dragon-yuan.me/2018/06/01/springboot-transactional/
->>>>>>> b50a91a0578b53ecd3cf6f2ab38e70e5e23a151a
-=======
 http://blog.dragon-yuan.me/2018/06/01/call-gaoqiuzi-weibo-video/
->>>>>>> f4258df76fc11eb0aef81c5ccc448771ee6f37a1
