@@ -248,7 +248,7 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
-    <article id="post-sql-union" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-java-builder" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -256,7 +256,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/10/11/sql-union/">SQL中UNION和UNION ALL操作符</a>
+            <a class="article-title" href="/2018/01/25/java-builder/">Java Builder设计模式</a>
         </h1>
     
 
@@ -265,8 +265,8 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/10/11/sql-union/">
-            <time datetime="2017-10-11T14:22:29.000Z" itemprop="datePublished">2017-10-11</time>
+        <a href="/2018/01/25/java-builder/">
+            <time datetime="2018-01-25T15:01:55.000Z" itemprop="datePublished">2018-01-25</time>
         </a>
     </div>
 
@@ -286,7 +286,7 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>UNION操作符用于合并两个或多个SELECT语句的结果集。<br>UNION内部的SELECT语句必须拥有相同数量的列。列也必须拥有相似的数据类型。<br>同时，每条SELECT语句中的列的顺序必须相同。<br>UNION操作符选取的是不同的值。如需要重复的值，需要用UNION ALL。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name(s) <span class="keyword">FROM</span> table_name1</span><br><span class="line"><span class="keyword">UNION</span></span><br><span class="line"><span class="keyword">SELECT</span> column_name(s) <span class="keyword">FROM</span> table_name2</span><br></pre></td></tr></table></figure></p>
+            <p>适用场景：复杂对象的组装和创建<br>建造者模式，是为了将构建复杂对象的过程和它的部件解耦。<br>它允许用户可以只通过指定复杂对象的类型和内容就可以构建它们。<br>使用者可以在不知道内部的具体构建细节。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Address</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String province;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String city;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String area;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String street;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Builder</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> String province;</span><br><span class="line">        <span class="keyword">private</span> String city;</span><br><span class="line">        <span class="keyword">private</span> String area;</span><br><span class="line">        <span class="keyword">private</span> String street;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Builder</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Builder <span class="title">province</span><span class="params">(String province)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.province = province;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Builder <span class="title">city</span><span class="params">(String city)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.city = city;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Builder <span class="title">area</span><span class="params">(String area)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.area = area;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Builder <span class="title">street</span><span class="params">(String street)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.street = street;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Address <span class="title">build</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Address(<span class="keyword">this</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Address</span><span class="params">(Builder builder)</span> </span>&#123;</span><br><span class="line">        province = builder.province;</span><br><span class="line">        city = builder.city;</span><br><span class="line">        area = builder.area;</span><br><span class="line">        street = builder.street;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
         
         </div>
@@ -320,7 +320,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/10/11/sql-union/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/10/11/sql-union/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2018/01/25/java-builder/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/01/25/java-builder/">Comments</a>
     
 
         </footer>
@@ -330,7 +330,7 @@ var jiathis_config={
 
 
 
-    <article id="post-java-at-interface" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-ConditionalOnExpression" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -338,7 +338,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/09/18/java-at-interface/">Java注释@interface的用法</a>
+            <a class="article-title" href="/2018/01/20/ConditionalOnExpression/">Spring Boot中使用@ConditionalOnExpression注解</a>
         </h1>
     
 
@@ -347,8 +347,8 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/09/18/java-at-interface/">
-            <time datetime="2017-09-18T13:30:59.000Z" itemprop="datePublished">2017-09-18</time>
+        <a href="/2018/01/20/ConditionalOnExpression/">
+            <time datetime="2018-01-20T15:18:10.000Z" itemprop="datePublished">2018-01-20</time>
         </a>
     </div>
 
@@ -368,9 +368,89 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>注解大都用在开发框架中。<br>Java用 @interface Annotation{} 定义一个注解 @Annotation，一个注解是一个类。<br>用@Retention(RetentionPolicy.CLASS)修饰的注解，表示注解的信息被保留在class文件(字节码文件)中当程序编译时，<br>但不会被虚拟机读取在运行的时候;<br>用@Retention(RetentionPolicy.SOURCE )修饰的注解,表示注解的信息会被编译器抛弃，不会留在class文件中，注解的<br>信息只会留在源文件中;<br>用@Retention(RetentionPolicy.RUNTIME )修饰的注解，表示注解的信息被保留在class文件(字节码文件)中当程序编译<br>时，会被虚拟机保留在运行时，所以他们可以用反射的方式读取。</p>
-<p>定义个一注解@MyTarget，用RetentionPolicy.RUNTIME修饰;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)  </span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyTarget&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>注解@Target也是用来修饰注解的元注解，它有一个属性ElementType也是枚举类型，<br>值为：ANNOTATION_TYPE,CONSTRUCTOR,FIELD,LOCAL_VARIABLE,METHOD,PACKAGE,PARAMETER,TYPE<br>如@Target(ElementType.METHOD) 修饰的注解表示该注解只能用来修饰在方法上。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.METHOD)  </span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)  </span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyTarget&#123;</span><br><span class="line">	<span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> "val"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// properties中可以配置isEnabled的值，true即开启Bean注入，false为不注入</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ConditionalOnExpression</span>(<span class="string">"$&#123;isEnabled&#125;"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SomeConfiguration</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> ... ...(... ...) &#123;</span><br><span class="line">        <span class="comment">// 实现</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2018/01/20/ConditionalOnExpression/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/01/20/ConditionalOnExpression/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-java-transient" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/01/20/java-transient/">浅析Java关键字 transient</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/01/20/java-transient/">
+            <time datetime="2018-01-20T03:11:33.000Z" itemprop="datePublished">2018-01-20</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">transient官方解释：</span><br><span class="line">Variables may be marked transient to indicate that they are not part of the persistent state of an object.</span><br><span class="line">变量可以被标记为瞬态，表示它们不是对象的持久状态的一部分。</span><br></pre></td></tr></table></figure>
+<p>Java中transient关键字可以让被修饰的变量不被序列化，只需要实现Serilizable接口，将不需要<br>序列化的属添加transient，在序列化对象时此属性就不会被序列化到指定的目的地中。</p>
 
         
         </div>
@@ -404,7 +484,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/09/18/java-at-interface/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/09/18/java-at-interface/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2018/01/20/java-transient/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/01/20/java-transient/">Comments</a>
     
 
         </footer>
@@ -414,7 +494,7 @@ var jiathis_config={
 
 
 
-    <article id="post-linux-crontab" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-maven-dependencymanagement" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -422,7 +502,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/09/13/linux-crontab/">Linux中crontab定时任务</a>
+            <a class="article-title" href="/2018/01/20/maven-dependencymanagement/">Maven中的dependencyManagement</a>
         </h1>
     
 
@@ -431,8 +511,846 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/09/13/linux-crontab/">
-            <time datetime="2017-09-13T14:09:17.000Z" itemprop="datePublished">2017-09-13</time>
+        <a href="/2018/01/20/maven-dependencymanagement/">
+            <time datetime="2018-01-20T03:11:33.000Z" itemprop="datePublished">2018-01-20</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># pom.xml</span><br><span class="line"># 只是对版本进行管理，不会实际引入jar包</span><br><span class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.2.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line"># 实际下载jar包 </span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2018/01/20/maven-dependencymanagement/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/01/20/maven-dependencymanagement/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-transactional-one" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/01/16/transactional-one/">Spring事务的七种传播行为，四种特性</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/01/16/transactional-one/">
+            <time datetime="2018-01-16T14:57:15.000Z" itemprop="datePublished">2018-01-16</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">spring默认传播行为。</span><br><span class="line">如果有事务，那么加入事务，没有的话新建一个。</span><br><span class="line">@Transactional(propagation=Propagation.REQUIRED)</span><br><span class="line"></span><br><span class="line">容器不为这个方法开启事务</span><br><span class="line">@Transactional(propagation=Propagation.NOT_SUPPORTED)</span><br><span class="line"></span><br><span class="line">创建一个新的事务，原来的挂起，新的执行完毕，继续执行老的事务</span><br><span class="line">两个事务没有依赖关系，可以实现新事务回滚了，但外部事务继续执行</span><br><span class="line">@Transactional(propagation=Propagation.REQUIRES_NEW)</span><br><span class="line"></span><br><span class="line">必须在一个已有的事务中执行,否则抛出异常</span><br><span class="line">@Transactional(propagation=Propagation.MANDATORY)</span><br><span class="line"></span><br><span class="line">必须在一个没有的事务中执行，否则抛出异常</span><br><span class="line">@Transactional(propagation=Propagation.NEVER)</span><br><span class="line"></span><br><span class="line">如果其他bean调用这个方法，在其他bean中声明事务，那就用事务，如果其他bean没有声明事务，那就不用事务。</span><br><span class="line">@Transactional(propagation=Propagation.SUPPORTS)</span><br><span class="line"></span><br><span class="line">如果当前存在事务，则在嵌套事务内执行，如果当前不存在事务，则创建一个新的事务，嵌套事务使用数据库中的保存点来实现，即嵌套事务回滚不影响外部事务，但外部事务回滚将导致嵌套事务回滚。</span><br><span class="line">@Transactional(propagation=Propagation.Nested)</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">四种特性：</span><br><span class="line">1、原子性：事务包含的所有操作要么全部成功，要么全部失败回滚。</span><br><span class="line">2、一致性：事务必须使数据库从一个一致性状态变换到另一个一致性状态，也就是说一个事务执行之前和执行之后都必须处于一致性状态。</span><br><span class="line">3、持久性：事务一旦被提交了，那么对数据库中的数据的改变就是永久性的，即便是在数据库系统遇到故障的情况下也不会丢失提交事务的操作。</span><br><span class="line">4、隔离性：当多个用户并发访问数据库时，比如操作同一张表时，数据库为每一个用户开启的事务，不能被其他事务的操作所干扰，多个并发事务之间要相互隔离。</span><br></pre></td></tr></table></figure>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2018/01/16/transactional-one/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/01/16/transactional-one/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-mybatis-batch-insert" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/01/03/mybatis-batch-insert/">按指定数量拆分List及Mybatis批量插入</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/01/03/mybatis-batch-insert/">
+            <time datetime="2018-01-03T14:44:15.000Z" itemprop="datePublished">2018-01-03</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>当数据量过多需要插入到数据库时，因为数据库连接需要的时间较长，所以可以选择连接池并批量插入数据，从而提高效率。<br>1.按指定数量拆分List<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="keyword">int</span> LIST_SIZE = <span class="number">50</span>;</span><br><span class="line">List&lt;Object&gt; objList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"><span class="comment">// 如果小于50个对象，直接插入</span></span><br><span class="line"><span class="keyword">if</span> (objList.size() &lt;= LIST_SIZE) &#123;</span><br><span class="line">    <span class="keyword">for</span> (Object obj : objList) &#123;</span><br><span class="line">        mapper.insert(obj);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    Object[] params = objList.toArray(<span class="keyword">new</span> Object[]&#123;&#125;);</span><br><span class="line">    <span class="keyword">int</span> len = params.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len / LIST_SIZE; i++) &#123;</span><br><span class="line">        Object[] tmp = Arrays.copyOfRange(params, (i - <span class="number">1</span>) * LIST_SIZE, i * LIST_SIZE);</span><br><span class="line">        List&lt;Object&gt; paramList = Arrays.asList(tmp);</span><br><span class="line">        mapper.insertByBatch(paramList);</span><br><span class="line">        <span class="keyword">if</span> (len / LIST_SIZE == i &amp;&amp; len % LIST_SIZE &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            tmp = Arrays.copyOfRange(params, objList.size() / LIST_SIZE * LIST_SIZE, len);</span><br><span class="line">            paramList = Arrays.asList(tmp);</span><br><span class="line">            mapper.insertByBatch(paramList);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2.Mybatis批量插入数据<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"insertByBatch"</span> <span class="attr">parameterType</span>=<span class="string">"java.util.List"</span>&gt;</span></span><br><span class="line">    INSERT INTO table (id, code, name) VALUES</span><br><span class="line">    <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"paramList"</span> <span class="attr">item</span>=<span class="string">"param"</span> <span class="attr">index</span>=<span class="string">"index"</span> <span class="attr">separator</span>=<span class="string">","</span>&gt;</span></span><br><span class="line">        (#&#123;param.id&#125;, #&#123;param.code&#125;, #&#123;param.name&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2018/01/03/mybatis-batch-insert/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/01/03/mybatis-batch-insert/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-gallery-mylife-2018" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/01/01/gallery-mylife-2018/">2018 - Dragon&#39;s Life</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/01/01/gallery-mylife-2018/">
+            <time datetime="2017-12-31T16:00:00.000Z" itemprop="datePublished">2018-01-01</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Gallery/">Gallery</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+<div class="article-gallery">
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/0.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/0.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/1.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/1.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/2.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/2.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/3.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/3.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/4.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/4.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/5.png" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/5.png" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/4.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/4.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/6.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/6.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/7.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/7.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/8.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/8.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/9.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/9.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/10.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/10.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/11.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/11.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/12.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/12.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/13.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/13.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/14.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/14.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/15.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/15.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/16.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/16.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/17.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/17.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/18.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/18.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/19.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/19.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/20.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/20.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/21.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/21.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/22.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/22.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/23.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/23.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/24.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/24.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/25.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/25.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/26.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/26.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/27.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/27.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/28.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/28.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/29.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/29.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/30.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/30.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/31.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/31.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/32.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/32.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/33.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/33.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/34.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/34.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/35.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/35.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/36.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/36.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/37.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/37.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/38.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/38.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/39.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/39.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/40.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/40.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/41.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/41.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/42.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/42.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/43.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/43.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/44.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/44.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/45.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/45.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/46.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/46.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/47.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/47.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/48.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/48.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/49.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/49.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/50.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/50.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/51.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/51.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/52.png" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/52.png" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/53.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/53.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/54.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/54.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/55.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/55.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/56.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/56.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/57.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/57.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/58.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/58.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/59.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/59.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/60.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/60.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/61.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/61.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/62.jpg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/62.jpg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/63.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/63.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/64.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/64.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/65.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/65.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/66.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/66.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/67.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/67.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/68.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/68.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/69.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/69.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/70.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/70.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/71.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/71.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/72.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/72.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/73.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/73.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/74.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/74.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/75.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/75.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/76.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/76.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/77.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/77.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/78.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/78.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/79.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/79.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/80.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/80.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/81.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/81.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/82.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/82.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/83.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/83.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/84.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/84.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/85.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/85.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/86.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/86.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/87.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/87.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/88.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/88.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/89.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/89.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/90.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/90.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/91.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/91.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/92.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/92.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/93.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/93.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/94.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/94.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/95.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/95.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/96.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/96.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/97.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/97.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/98.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/98.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/99.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/99.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/100.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/100.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/101.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/101.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/102.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/102.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/103.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/103.jpeg" itemprop="image" />
+    </a>
+    
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/104.jpeg" rel="gallery_cjhvzz5nq0020tjit2ujr2st2">
+        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/104.jpeg" itemprop="image" />
+    </a>
+    
+</div>
+
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2018/01/01/gallery-mylife-2018/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/01/01/gallery-mylife-2018/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-hello-my-memobird" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/12/13/hello-my-memobird/">为我的新朋友“咕咕”安个家</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/12/13/hello-my-memobird/">
+            <time datetime="2017-12-13T15:17:22.000Z" itemprop="datePublished">2017-12-13</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/notes/">notes</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>Hello my memobird.<br>我的咕咕号：768047。欢迎加好友调戏！<br>很久前就在网上看到有人种草了，今年双十二在JD果断下单了，一天到货，物流还是棒棒的。<br>开机吓了一跳，自动打印了使用方法，2333，连上WIFI开始了正常模式。（要是充电的就更好了唉）<br>知乎上还有一些有趣的玩法！<a href="https://www.zhihu.com/question/39529878" target="_blank" rel="noopener">MEMOBIRD 咕咕机有哪些有趣的玩法？</a><br>因为咕咕有自己的开放平台，准备搞一搞有趣的东西开发一下，顺便也学习学习新的语言喽。<br><img src="http://img-blog.dragon-yuan.me/2017-LIFE/150.jpg" alt="memobird"><br>还有啦，希望在2018年，能找到我咕咕机的另一个伴侣~<br>更新下，2017.12.14日部分咕咕~<br><img src="http://img-blog.dragon-yuan.me/2017-LIFE/151.jpg" alt="memobird"><br><img src="http://img-blog.dragon-yuan.me/2017-LIFE/152.jpg" alt="memobird"><br><img src="http://img-blog.dragon-yuan.me/2017-LIFE/153.jpg" alt="memobird"></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/12/13/hello-my-memobird/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/12/13/hello-my-memobird/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-https-config" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/12/03/https-config/">记录APACHE-HTTPS的配置以及遇到的一些陷阱</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/12/03/https-config/">
+            <time datetime="2017-12-02T17:39:27.000Z" itemprop="datePublished">2017-12-03</time>
         </a>
     </div>
 
@@ -452,9 +1370,11 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>crontab命令的功能是在一定的时间间隔调度一些命令的执行</p>
-<p>文件/etc/crontab中每行任务的描述格式如下:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">minute - 从0到59的整数 </span><br><span class="line">hour - 从0到23的整数 </span><br><span class="line">day - 从1到31的整数 (必须是指定月份的有效日期)</span><br><span class="line">month - 从1到12的整数 (或如Jan或Feb简写的月份)</span><br><span class="line">dayofweek - 从0到7的整数，0或7用来描述周日 (或用Sun或Mon简写来表示)</span><br><span class="line">command - 需要执行的命令(或执行自定义脚本的命令)</span><br><span class="line"></span><br><span class="line">root表示以root用户身份来运行</span><br><span class="line">run-parts表示后面跟着的是一个文件夹，要执行的是该文件夹下的所有脚本</span><br></pre></td></tr></table></figure></p>
-<p>crontab服务的启动关闭<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sbin/service crond start //启动服务</span><br><span class="line">/sbin/service crond stop //关闭服务</span><br><span class="line">/sbin/service crond restart //重启服务</span><br><span class="line">/sbin/service crond reload //重新载入配置</span><br></pre></td></tr></table></figure></p>
+            <p>在开启HTTPS之前，需要服务器防火墙（如果有使用iptables或firewall）</p>
+<p><1>httpd.conf<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#监听80和443端口</span><br><span class="line">Listen 80</span><br><span class="line">Listen 443</span><br><span class="line"></span><br><span class="line">#加载mod_ssl模块</span><br><span class="line">EnableSendfile on</span><br><span class="line">IncludeOptional conf.d/*.conf</span><br><span class="line">LoadModule ssl_module modules/mod_ssl.so</span><br><span class="line">Include conf.d/ssl.conf</span><br></pre></td></tr></table></figure></1></p>
+<p><2>ssl.conf<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#注意，在此配置文件中不需要监听443，防止重复监听</span><br><span class="line">#在对443虚拟路径映射的时候，需要填写固定IP，不要使用*代替</span><br><span class="line"><span class="tag">&lt;<span class="name">VirtualHost</span> <span class="attr">ip:443</span>&gt;</span></span><br><span class="line">#此处填写域名名称</span><br><span class="line">ServerName domain</span><br><span class="line"></span><br><span class="line">SSLEngine on</span><br><span class="line">SSLProtocol all -SSLv2 -SSLv3</span><br><span class="line">SSLCipherSuite HIGH:!RC4:!MD5:!aNULL:!eNULL:!NULL:!DH:!EDH:!EXP:+MEDIUM</span><br><span class="line">SSLHonorCipherOrder on</span><br><span class="line"></span><br><span class="line">#SSL加密密钥，可以在APACHE根路径下新建cert并存放密钥文件</span><br><span class="line">SSLCertificateFile /etc/httpd/cert/public.pem</span><br><span class="line">SSLCertificateKeyFile /etc/httpd/cert/214047770560394.key</span><br><span class="line">SSLCertificateChainFile /etc/httpd/cert/chain.pem</span><br></pre></td></tr></table></figure></2></p>
+<p>在配置好文件后，需要重新启动APACHE服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">srevice iptables restart</span><br><span class="line">service httpd restart</span><br><span class="line">service httpd status</span><br></pre></td></tr></table></figure></p>
+<p>开启301；HTTP重定向到HTTPS<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#在所需的Directory中，修改AllowOverride为All</span><br><span class="line">&lt;Directory &quot;/var/www/html&quot;&gt;</span><br><span class="line">AllowOverride All</span><br><span class="line">&lt;/Directory&gt;</span><br><span class="line"></span><br><span class="line">#在网站跟路径增加.htaccess，并写入下面脚本</span><br><span class="line">RewriteEngine On</span><br><span class="line">RewriteBase /</span><br><span class="line">RewriteCond %&#123;SERVER_PORT&#125; !^443$</span><br><span class="line">RewriteRule ^(.*)$ https://domain/$1 [R=301,L]</span><br></pre></td></tr></table></figure></p>
 
         
         </div>
@@ -488,7 +1408,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/09/13/linux-crontab/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/09/13/linux-crontab/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/12/03/https-config/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/12/03/https-config/">Comments</a>
     
 
         </footer>
@@ -498,7 +1418,7 @@ var jiathis_config={
 
 
 
-    <article id="post-java-native" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-HttpSessionListener" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -506,7 +1426,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/09/12/java-native/">Java中的native关键字</a>
+            <a class="article-title" href="/2017/11/29/HttpSessionListener/">HttpSessionListener与WebListener注解的应用</a>
         </h1>
     
 
@@ -515,8 +1435,8 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/09/12/java-native/">
-            <time datetime="2017-09-12T14:32:21.000Z" itemprop="datePublished">2017-09-12</time>
+        <a href="/2017/11/29/HttpSessionListener/">
+            <time datetime="2017-11-29T13:19:26.000Z" itemprop="datePublished">2017-11-29</time>
         </a>
     </div>
 
@@ -536,11 +1456,9 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>Native所定义的方法不能有方法体，他所定义的方法实现是由非java语言实现，比如C语言等。</p>
-<p>例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure></p>
-<p>标识符native可以与所有其它的java标识符连用，但是abstract除外。这是合理的，因为native暗示这些方法是有实现体的，<br>只不过这些实现体是非java的，但是abstract却显然的指明这些方法无实现体。<br>一个native方法可以返回任何java类型，包括非基本类型，而且同样可以进行异常控制。这些方法的实现体可以自制一个异常并且将其抛出，<br>这一点与java的方法非常相似。native的存在并不会对其他类调用这些本地方法产生任何影响，实际上调用这些方法的其他类甚至不知道它<br>所调用的是一个本地方法。JVM将控制调用本地方法的所有细节。</p>
-<p>当一个类第一次被使用到时，这个类的字节码会被加载到内存，并且只会回载一次。在这个被加载的字节码的入口维持着一个该类所有方法描述<br>符的集合，这些方法描述符包含这样一些信息：方法代码存于何处，它有哪些参数，方法的描述符等等。<br>如果一个方法描述符内有native，这个描述符块将有一个指向该方法的实现的指针。这些实现在一些DLL文件内，但是它们会被操作系统加载<br>到java程序的地址空间。当一个带有本地方法的类被加载时，其相关的DLL并未被加载，因此指向方法实现的指针并不会被设置。<br>当本地方法被调用之前，这些DLL才会被加载，这是通过调用java.system.loadLibrary()实现的。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">本文转载自：http://blog.csdn.net/jiakw_1981/article/details/3073613</span><br></pre></td></tr></table></figure>
+            <p>对于Session来说主要就是它的创建和销毁。<br>对于<code>HttpSessionListener</code>这个接口，有两个方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sessionCreated</span><span class="params">(HttpSessionEvent httpSessionEvent)</span> </span>&#123;</span><br><span class="line">	logger.info(<span class="string">"Session创建..."</span>);</span><br><span class="line">	HttpSession session = httpSessionEvent.getSession();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sessionDestroyed</span><span class="params">(HttpSessionEvent httpSessionEvent)</span> </span>&#123;</span><br><span class="line">    logger.info(<span class="string">"Session销毁..."</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当浏览器第一次访问网站的时候，WEB服务器会新建一个HttpSession对象 ，并触发 HttpSession创建事件 ，如果注册了HttpSessionListener事件监听器，则会调用HttpSessionListener事件监听器的sessionCreated方法。<br>相反，当访问结束超时的时候，WEB服务器会销毁相应的HttpSession对象，并触发 HttpSession销毁事件，同时调用所注册HttpSessionListener事件监听器的sessionDestroyed方法。<br>通过httpSessionEvent.getSession()可以获取到新增session的id。通过这个方式，也可以记录当前在线人数。</p>
+<p>@WebListener注解<br>此注解来自servlet-api(javax.servlet.annotation.WebListener)<br>WebListener注解将一个实现了特定监听器接口的类定义为监听器，这样就不需要在配置文件中配置监听器的相关描述信息<br>简化了之前WEB.XML中的配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">listener</span>&gt;</span>  </span><br><span class="line">   <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>MySessionListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">listener</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 
         
         </div>
@@ -574,513 +1492,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/09/12/java-native/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/09/12/java-native/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-span-name-attr" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/09/06/span-name-attr/">jQuery通过内容获取span属性</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/09/06/span-name-attr/">
-            <time datetime="2017-09-06T14:42:16.000Z" itemprop="datePublished">2017-09-06</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <pre>
-$("span:contains('......')").attr("class");
-</pre>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/09/06/span-name-attr/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/09/06/span-name-attr/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-jquery-json" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/09/06/jquery-json/">jQuery解析JSON</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/09/06/jquery-json/">
-            <time datetime="2017-09-06T14:42:04.000Z" itemprop="datePublished">2017-09-06</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <pre>
-使用全局的JSON对象
-function strToJson(str){
-    return JSON.parse(str);
-}
-
-eval方式解析
-function strToJson(str){
-     var json = eval('(' + str + ')');
-     return json;
-}
-</pre>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/09/06/jquery-json/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/09/06/jquery-json/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-vue-keepalive" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/08/30/vue-keepalive/">Vue中Keep-Alive缓存的使用</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/08/30/vue-keepalive/">
-            <time datetime="2017-08-30T14:59:09.000Z" itemprop="datePublished">2017-08-30</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>Vue提供了一个keep-alive组件用来缓存组件。<br>首先在vue的主页路由上添加keep-alive，并且判断是否在路由开启keepAlive<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;keep-alive&gt;</span><br><span class="line">    &lt;router-view v-<span class="keyword">if</span>=<span class="string">"$route.meta.keepAlive"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span></span><br><span class="line">&lt;router-view v-if="!$route.meta.keepAlive"&gt;&lt;/router-view&gt;</span><br></pre></td></tr></table></figure></p>
-<p>在需要缓存的页面路由上添加标志位<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keepAlive: ture</span><br></pre></td></tr></table></figure></p>
-<p>vue中生命周期相关的有：created,mounted,updated,activited,destroyed。<br>在页面上可以添加activited钩子函数。<br>针对keep-alive标签，使用keep-alive在单页中前进后退只触发activited。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">created() &#123;</span><br><span class="line">	method_1();</span><br><span class="line">&#125;,</span><br><span class="line">activited() &#123;</span><br><span class="line">	method_2();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/08/30/vue-keepalive/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/30/vue-keepalive/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-idea-serialVersion" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/08/16/idea-serialVersion/">IDEA生成序列化ID</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/08/16/idea-serialVersion/">
-            <time datetime="2017-08-16T13:49:27.000Z" itemprop="datePublished">2017-08-16</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Operations/">Operations</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>File -&gt; setting -&gt; Inspections -&gt; Serializationissues<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">将其展开后将</span><br><span class="line">serialzable class without serialVersionUID</span><br><span class="line">打上勾</span><br></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/08/16/idea-serialVersion/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/16/idea-serialVersion/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-java-zip" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/08/14/java-zip/">使用JAVA压缩文件</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/08/14/java-zip/">
-            <time datetime="2017-08-14T13:44:24.000Z" itemprop="datePublished">2017-08-14</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>如下方法使用Ant版本1.6.5<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.tools.ant.Project;</span><br><span class="line"><span class="keyword">import</span> org.apache.tools.ant.taskdefs.Zip;</span><br><span class="line"><span class="keyword">import</span> org.apache.tools.ant.types.FileSet;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CompressionUtil</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">compress</span><span class="params">(String desPath, String srcPath)</span></span>&#123;</span><br><span class="line">        File desFile = <span class="keyword">new</span> File(desPath);<span class="comment">// 目标文件</span></span><br><span class="line">        File srcFile = <span class="keyword">new</span> File(srcPath);<span class="comment">// 源文件</span></span><br><span class="line">        <span class="keyword">if</span> (!srcFile.exists())</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"需要压缩的文件不存在"</span>);</span><br><span class="line">        Project project = <span class="keyword">new</span> Project();</span><br><span class="line">        Zip zip = <span class="keyword">new</span> Zip();</span><br><span class="line">        zip.setProject(project);</span><br><span class="line">        zip.setDestFile(desFile);</span><br><span class="line">        FileSet fileSet = <span class="keyword">new</span> FileSet();</span><br><span class="line">        fileSet.setProject(project);</span><br><span class="line">        fileSet.setDir(srcFile);</span><br><span class="line">        zip.addFileset(fileSet);</span><br><span class="line">        zip.execute();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/08/14/java-zip/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/14/java-zip/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-gaode-java" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/08/11/gaode-java/">高德地图工具类（原创）</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/08/11/gaode-java/">
-            <time datetime="2017-08-11T13:41:47.000Z" itemprop="datePublished">2017-08-11</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSON;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSONArray;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSONObject;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.HttpEntity;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.client.config.RequestConfig;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.client.methods.CloseableHttpResponse;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.client.methods.HttpGet;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.impl.client.CloseableHttpClient;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.impl.client.HttpClients;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.util.EntityUtils;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取高德地图坐标数据</span></span><br><span class="line"><span class="comment"> * Created by dragon on 2017/8/10.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GaodeMapGeographyUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Logger logger = LoggerFactory.getLogger(<span class="keyword">this</span>.getClass());</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String KEY = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">private</span> RequestConfig requestConfig = RequestConfig.custom()</span><br><span class="line">            .setSocketTimeout(<span class="number">15000</span>)</span><br><span class="line">            .setConnectTimeout(<span class="number">15000</span>)</span><br><span class="line">            .setConnectionRequestTimeout(<span class="number">15000</span>)</span><br><span class="line">            .build();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 方法入口1 : 通过城市名称，详细地址；获取高德地图经纬度</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> city</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> address</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 地理坐标</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getContantGeographical</span><span class="params">(String city,String address)</span> </span>&#123;</span><br><span class="line">        String getUrl = <span class="string">"http://restapi.amap.com/v3/geocode/geo?batch=true&amp;address="</span> + address + <span class="string">"&amp;city="</span> + city + <span class="string">"&amp;output=JSON&amp;key="</span> + KEY;</span><br><span class="line">        String location = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            HttpGet httpGet = <span class="keyword">new</span> HttpGet(getUrl);</span><br><span class="line">            String resultStr = sendHttpGet(httpGet);</span><br><span class="line">            JSONObject resultObj = JSON.parseObject(resultStr);</span><br><span class="line">            JSONArray geocodesArray = resultObj.getJSONArray(<span class="string">"geocodes"</span>);</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">null</span> != geocodesArray &amp;&amp; geocodesArray.size() &gt; <span class="number">0</span>)&#123;</span><br><span class="line">                JSONObject geocodesObj = JSON.parseObject(geocodesArray.get(<span class="number">0</span>).toString());</span><br><span class="line">                location = geocodesObj.get(<span class="string">"location"</span>).toString();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> location;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 方法入口2 : 通过高德地图经纬度，逆向获取地址</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> geographical</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 地址</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getContantAddressByGeographical</span><span class="params">(String geographical)</span></span>&#123;</span><br><span class="line">        String getUrl = <span class="string">"http://restapi.amap.com/v3/geocode/regeo?key="</span> + KEY + <span class="string">"&amp;location="</span> + geographical + <span class="string">"&amp;poitype=&amp;radius=1000&amp;extensions=all&amp;batch=false&amp;roadlevel=0"</span>;</span><br><span class="line">        String address = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            HttpGet httpGet = <span class="keyword">new</span> HttpGet(getUrl);</span><br><span class="line">            String resultStr = sendHttpGet(httpGet);</span><br><span class="line">            JSONObject resultObj = JSON.parseObject(resultStr);</span><br><span class="line">            Object regeocodeObj = resultObj.get(<span class="string">"regeocode"</span>);</span><br><span class="line">            String jsonString = JSON.toJSONString(regeocodeObj);</span><br><span class="line">            JSONObject jsonObj = JSON.parseObject(jsonString);</span><br><span class="line">            address = jsonObj.get(<span class="string">"formatted_address"</span>).toString();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> address;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 方法入口3 : 测试方法，通过高德地图经纬度，逆向获取地址，POIS</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> geographical</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 地址</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getContantAddressByGeographicalPois</span><span class="params">(String geographical)</span></span>&#123;</span><br><span class="line">        String getUrl = <span class="string">"http://restapi.amap.com/v3/geocode/regeo?key="</span> + KEY + <span class="string">"&amp;location="</span> + geographical + <span class="string">"&amp;poitype=&amp;radius=1000&amp;extensions=all&amp;batch=false&amp;roadlevel=0"</span>;</span><br><span class="line">        String address = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">double</span> distance = <span class="number">500</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            HttpGet httpGet = <span class="keyword">new</span> HttpGet(getUrl);</span><br><span class="line">            String resultStr = sendHttpGet(httpGet);</span><br><span class="line">            JSONObject resultObj = JSON.parseObject(resultStr);</span><br><span class="line">            <span class="comment">// 获取 [regeocode]</span></span><br><span class="line">            Object regeocodeObj = resultObj.get(<span class="string">"regeocode"</span>);</span><br><span class="line">            String regeocodeObjToStr = JSON.toJSONString(regeocodeObj);</span><br><span class="line">            JSONObject jsonObj = JSON.parseObject(regeocodeObjToStr);</span><br><span class="line">            <span class="comment">// 获取 [pois]</span></span><br><span class="line">            Object poisObj = jsonObj.get(<span class="string">"pois"</span>);</span><br><span class="line">            String poisObjToStr = JSON.toJSONString(poisObj);</span><br><span class="line">            JSONArray poisArray = JSON.parseArray(poisObjToStr);</span><br><span class="line">            <span class="comment">// 获取最近 [poi]</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; poisArray.size(); i++)&#123;</span><br><span class="line">                Object poiObj = poisArray.get(i);</span><br><span class="line">                String poiStr = JSON.toJSONString(poiObj);</span><br><span class="line">                JSONObject poi = JSON.parseObject(poiStr);</span><br><span class="line">                <span class="keyword">double</span> poiDistance = Double.parseDouble(poi.get(<span class="string">"distance"</span>).toString());</span><br><span class="line">                <span class="keyword">if</span> (poiDistance &lt; distance)&#123;</span><br><span class="line">                    <span class="comment">// 返回地址数据</span></span><br><span class="line">                    distance = poiDistance;</span><br><span class="line">                    address = poi.get(<span class="string">"address"</span>).toString() + poi.get(<span class="string">"name"</span>).toString();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            logger.info(<span class="string">"address = "</span> + address + <span class="string">" , "</span> +<span class="string">"pois.distance = "</span> + distance);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> address;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">sendHttpGet</span><span class="params">(HttpGet httpGet)</span> </span>&#123;</span><br><span class="line">        CloseableHttpClient httpClient = <span class="keyword">null</span>;</span><br><span class="line">        CloseableHttpResponse response = <span class="keyword">null</span>;</span><br><span class="line">        HttpEntity entity = <span class="keyword">null</span>;</span><br><span class="line">        String responseContent = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            httpClient = HttpClients.createDefault();</span><br><span class="line">            httpGet.setConfig(requestConfig);</span><br><span class="line">            response = httpClient.execute(httpGet);</span><br><span class="line">            entity = response.getEntity();</span><br><span class="line">            responseContent = EntityUtils.toString(entity, <span class="string">"UTF-8"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (response != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    response.close();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (httpClient != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    httpClient.close();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> responseContent;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/08/11/gaode-java/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/11/gaode-java/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/11/29/HttpSessionListener/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/11/29/HttpSessionListener/">Comments</a>
     
 
         </footer>

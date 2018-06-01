@@ -248,7 +248,7 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
-    <article id="post-java-mysql-concat" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-yuanzixing" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -256,7 +256,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/10/java-mysql-concat/">MySQL中CONCAT值为空的问题解决办法</a>
+            <a class="article-title" href="/2017/07/22/yuanzixing/">什么是原子性</a>
         </h1>
     
 
@@ -265,8 +265,426 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/07/10/java-mysql-concat/">
-            <time datetime="2017-07-10T14:12:26.000Z" itemprop="datePublished">2017-07-10</time>
+        <a href="/2017/07/22/yuanzixing/">
+            <time datetime="2017-07-22T11:14:26.000Z" itemprop="datePublished">2017-07-22</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>如果把一个事务可看作是一个程序,它要么完整的被执行,要么完全不执行。这种特性就叫原子性。</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/07/22/yuanzixing/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/22/yuanzixing/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-vue-rules" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/07/19/vue-rules/">VueJS中的rules校验</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/19/vue-rules/">
+            <time datetime="2017-07-19T15:00:25.000Z" itemprop="datePublished">2017-07-19</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/web/">web</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">rules: &#123;</span><br><span class="line">    rulesOne: [</span><br><span class="line">        &#123; <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">'请输入'</span>, <span class="attr">trigger</span>: <span class="string">'blur'</span> &#125;</span><br><span class="line">    ],</span><br><span class="line">    rulesTwo: [</span><br><span class="line">        &#123; <span class="attr">max</span>: <span class="number">100</span>, <span class="attr">message</span>: <span class="string">'长度在 100个字符以内'</span>, <span class="attr">trigger</span>: <span class="string">'blur'</span> &#125;</span><br><span class="line">    ],</span><br><span class="line">    rulesThree: [</span><br><span class="line">        &#123; <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">'请选择'</span>, <span class="attr">trigger</span>: <span class="string">'change'</span> &#125;</span><br><span class="line">    ],</span><br><span class="line">    rulesFour: [</span><br><span class="line">        &#123; <span class="attr">type</span>: <span class="string">'array'</span>, <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">'请至少选择一个'</span>, <span class="attr">trigger</span>: <span class="string">'change'</span> &#125;</span><br><span class="line">    ],</span><br><span class="line">    rulesFive: [</span><br><span class="line">        &#123; <span class="attr">validator</span>: checkSomething, <span class="attr">trigger</span>: <span class="string">'blur'</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>trigger: ‘blur’为离开输入框<br>trigger: ‘change’为更换下拉框或多选框<br>validator为自定义规则方法名</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/07/19/vue-rules/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/19/vue-rules/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-mybatis-insert-id" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/07/18/mybatis-insert-id/">MyBatis在insert插入操作时返回主键ID（id为自增）</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/18/mybatis-insert-id/">
+            <time datetime="2017-07-18T14:52:26.000Z" itemprop="datePublished">2017-07-18</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>MySQL用法：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"insert"</span> <span class="attr">parameterType</span>=<span class="string">""</span> <span class="attr">keyProperty</span>=<span class="string">"userId"</span> <span class="attr">useGeneratedKeys</span>=<span class="string">"true"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>上面配置中，keyProperty表示返回的id要保存到对象的那个属性中useGeneratedKeys表示主键id为自增长模式</p>
+<p>Oracle用法：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"insert"</span> <span class="attr">parameterType</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">selectKey</span> <span class="attr">resultType</span>=<span class="string">"INTEGER"</span> <span class="attr">order</span>=<span class="string">"BEFORE"</span> <span class="attr">keyProperty</span>=<span class="string">"userId"</span>&gt;</span>  </span><br><span class="line">       SELECT USER.NEXTVAL as USERID from USER</span><br><span class="line">   <span class="tag">&lt;/<span class="name">selectKey</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>上面配置中，由于Oracle没有自增长，只有序列这种模仿自增的形式，所以不能使用useGeneratedKeys属性</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/07/18/mybatis-insert-id/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/18/mybatis-insert-id/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-array-prototype-slice-call" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/07/18/array-prototype-slice-call/">Array.prototype.slice.call(arguments)</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/18/array-prototype-slice-call/">
+            <time datetime="2017-07-18T14:20:22.000Z" itemprop="datePublished">2017-07-18</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/web/">web</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>首先，slice有两个用法，一个是String.slice,一个是Array.slice，第一个返回的是字符串，<br>第二个返回的是数组。<br>Array.prototype.slice.call(arguments)能够将arguments转成数组。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// length:2</span></span><br><span class="line"><span class="keyword">var</span> a = &#123;<span class="string">'first'</span>,<span class="string">'second'</span>&#125;;</span><br><span class="line"><span class="built_in">Array</span>.prototype.slice.call(a); <span class="comment">//  ["first", "second"]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = &#123;&#125;;</span><br><span class="line"><span class="built_in">Array</span>.prototype.slice.call(a); <span class="comment">//  [undefined, undefined]</span></span><br></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/07/18/array-prototype-slice-call/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/18/array-prototype-slice-call/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-mybatis-mapper" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/07/16/mybatis-mapper/">Mybatis中Mapper.xml映射文件</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/16/mybatis-mapper/">
+            <time datetime="2017-07-16T07:32:21.000Z" itemprop="datePublished">2017-07-16</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>if : Mybatis核心 对sql语句进行灵活操作，通过表达式进行判断，对sql进行灵活拼接、组装。<br>对查询条件进行判断，如果输入参数不为空才进行查询条件拼接。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserList"</span>&gt;</span></span><br><span class="line">  select * from user</span><br><span class="line">  where 1=1</span><br><span class="line">  <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"id!=null and id!=''"</span>&gt;</span></span><br><span class="line">    and id=#&#123;id&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"username!=null and username!=''"</span>&gt;</span></span><br><span class="line">    and username like '%$&#123;username&#125;%'</span><br><span class="line">  <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>where : 也可以把where写成下面的形式 :<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserList"</span>&gt;</span></span><br><span class="line">  select * from user</span><br><span class="line">  <span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"id!=null and id!=''"</span>&gt;</span></span><br><span class="line">  and id=#&#123;id&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"username!=null and username!=''"</span>&gt;</span></span><br><span class="line">  and username like '%$&#123;username&#125;%'</span><br><span class="line">  <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>foreach : 向sql传递数组或List，Mybatis使用foreach解析，如下：如果我们需要传入多个ID<br>来查询多个用户的信息，这也就可以使用foreach。我们先考虑下如果只写sql语句是如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectUserByList"</span> <span class="attr">parameterType</span>=<span class="string">"java.util.List"</span> <span class="attr">resultType</span>=<span class="string">"user"</span>&gt;</span></span><br><span class="line">  select * from user</span><br><span class="line">  <span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"list!=null"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"list"</span> <span class="attr">item</span>=<span class="string">"item"</span> <span class="attr">open</span>=<span class="string">"and id in("</span><span class="attr">separator</span>=<span class="string">","</span><span class="attr">close</span>=<span class="string">")"</span>&gt;</span></span><br><span class="line">        #&#123;item.id&#125;</span><br><span class="line">      <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>如果需要使用到IN关键字，需要传入List并用foreach遍历放入IN中<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;foreach item=<span class="string">"item"</span> index=<span class="string">"index"</span> collection=<span class="string">"list"</span> open=<span class="string">"("</span> separator=<span class="string">","</span> close=<span class="string">")"</span>&gt;</span><br><span class="line">    #&#123;item&#125;</span><br><span class="line">&lt;/foreach&gt;</span><br></pre></td></tr></table></figure></p>
+<p>choose : 标签是按顺序判断其内部when标签中的test条件出否成立，如果有一个成立，则choose<br>结束。当choose中所有when的条件都不满则时，则执行otherwise中的sql类似于Java的switch语句，<br>choose为switch，when为case，otherwise则为default。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"getUserList_choose"</span>&gt;</span>  </span><br><span class="line">    SELECT *  </span><br><span class="line">      FROM User u   </span><br><span class="line">    <span class="tag">&lt;<span class="name">where</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">choose</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">"username !=null "</span>&gt;</span>  </span><br><span class="line">                u.username LIKE CONCAT(CONCAT('%', #&#123;username, jdbcType=VARCHAR&#125;),'%')  </span><br><span class="line">            <span class="tag">&lt;/<span class="name">when</span> &gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">"sex != null and sex != '' "</span>&gt;</span>  </span><br><span class="line">                AND u.sex = #&#123;sex, jdbcType=INTEGER&#125;  </span><br><span class="line">            <span class="tag">&lt;/<span class="name">when</span> &gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">"birthday != null "</span>&gt;</span>  </span><br><span class="line">                AND u.birthday = #&#123;birthday, jdbcType=DATE&#125;  </span><br><span class="line">            <span class="tag">&lt;/<span class="name">when</span> &gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="name">otherwise</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;/<span class="name">otherwise</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;/<span class="name">choose</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;/<span class="name">where</span>&gt;</span>    </span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/07/16/mybatis-mapper/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/16/mybatis-mapper/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-sub-query-sql" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/07/16/sub-query-sql/">MySQL子查询</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/16/sub-query-sql/">
+            <time datetime="2017-07-16T05:50:22.000Z" itemprop="datePublished">2017-07-16</time>
         </a>
     </div>
 
@@ -286,7 +704,8 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在MySQL中concat函数有一个特点就是有一个值为null那么不管第二个字符有多少内容都返回为空了，</span><br><span class="line">这个特性让我们在实例应用中可能觉得不方便，但实现就是这样我们需要使用其它办法来解决。</span><br><span class="line">返回结果为连接参数产生的字符串。如有任何一个参数为NULL，则返回值为NULL。</span><br><span class="line"></span><br><span class="line">使用个IFNULL可以判断一下字段是否为空：</span><br><span class="line">MySQL内置的IFNULL函数可以用在查询时候为NULL值字段给一个默认值：</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CONCAT</span>(<span class="keyword">IFNULL</span>(code,<span class="string">''</span>),telephone) <span class="keyword">FROM</span> info</span><br></pre></td></tr></table></figure>
+            <p>子查询：<br>通常在一个SELECT、UPDATE或DELETE语句的WHERE子句中充当查询、修改或删除的条件。<br>例如：在子查询中使用ORDER BY 子句，将查询结果按照deptno列降序输出。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> empno, ename, sal, d.deptno <span class="keyword">FROM</span> scott.emp <span class="keyword">WHERE</span> deptno <span class="keyword">IN</span></span><br><span class="line">(</span><br><span class="line"><span class="keyword">SELECT</span> deptno <span class="keyword">FROM</span> scott.emp <span class="keyword">WHERE</span> empno&gt;<span class="number">7782</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> empno <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure></p>
+<p>例：<br>查询出每个部门的编号，名称，位置，部门人数，平均工资<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> d.deptno,d.dname,d.loc,</span><br><span class="line">  (<span class="keyword">SELECT</span>  <span class="keyword">COUNT</span>(empno) <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> emp.deptno=d.deptno <span class="keyword">GROUP</span> <span class="keyword">BY</span> deptno)</span><br><span class="line">  con,</span><br><span class="line">  (<span class="keyword">SELECT</span> <span class="keyword">AVG</span>(sal) <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> emp.deptno=d.deptno <span class="keyword">GROUP</span> <span class="keyword">BY</span> deptno)</span><br><span class="line">  avgsal</span><br><span class="line"><span class="keyword">FROM</span> dept d</span><br></pre></td></tr></table></figure></p>
 
         
         </div>
@@ -320,7 +739,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/07/10/java-mysql-concat/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/10/java-mysql-concat/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/07/16/sub-query-sql/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/16/sub-query-sql/">Comments</a>
     
 
         </footer>
@@ -330,7 +749,7 @@ var jiathis_config={
 
 
 
-    <article id="post-java-linux-properties" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-vue-bind" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -338,7 +757,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/04/10/java-linux-properties/">通过JAVA环境监听Linux系统属性</a>
+            <a class="article-title" href="/2017/07/13/vue-bind/">VueJS中的各项绑定(不定期更新)</a>
         </h1>
     
 
@@ -347,8 +766,173 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/04/10/java-linux-properties/">
-            <time datetime="2017-04-10T12:22:26.000Z" itemprop="datePublished">2017-04-10</time>
+        <a href="/2017/07/13/vue-bind/">
+            <time datetime="2017-07-13T15:19:22.000Z" itemprop="datePublished">2017-07-13</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/web/">web</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><1> img的src属性绑定url变量<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">v-bind:src</span>=<span class="string">"imgUrl"</span>/&gt;</span></span><br></pre></td></tr></table></figure></1></p>
+<p><2> DOM元素绑定不可用<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:disabled=<span class="string">"$route.query.type == 'edit'</span></span><br></pre></td></tr></table></figure></2></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/07/13/vue-bind/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/13/vue-bind/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-mysql-convert" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/07/12/mysql-convert/">MySQL中CONVERT</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/12/mysql-convert/">
+            <time datetime="2017-07-12T15:19:22.000Z" itemprop="datePublished">2017-07-12</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/MySQL/">MySQL</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>CONVERT类型转换：CONVERT(VALUE,TYPE)<br>可用的类型：<br>二进制：BINARY<br>字符串，可以带参数：CHAR()<br>日期：DATE<br>时间：TIME<br>日期时间型：DATETIME<br>浮点数：DECIMAL<br>整数：SIGNED<br>无符号整数：UNSIGNED</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/07/12/mysql-convert/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/12/mysql-convert/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-java-AtomicBoolean" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/07/12/java-AtomicBoolean/">AtomicBoolean介绍与使用</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/12/java-AtomicBoolean/">
+            <time datetime="2017-07-12T14:52:26.000Z" itemprop="datePublished">2017-07-12</time>
         </a>
     </div>
 
@@ -368,7 +952,17 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>获取当前系统内存和CPU使用状态<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.hyperic.sigar.Mem;</span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.util.StringTokenizer;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">LinuxSystemTool</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> int[] result</span></span><br><span class="line"><span class="comment">     * result.length==4;int[0]=MemTotal;int[1]=MemFree;int[2]=SwapTotal;int[3]=SwapFree;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] getMemInfo() <span class="keyword">throws</span> IOException, InterruptedException &#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">"/proc/meminfo"</span>);</span><br><span class="line">        BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(</span><br><span class="line">                <span class="keyword">new</span> FileInputStream(file)));</span><br><span class="line">        <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">4</span>];</span><br><span class="line">        String str = <span class="keyword">null</span>;</span><br><span class="line">        StringTokenizer token = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">while</span>((str = br.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">            token = <span class="keyword">new</span> StringTokenizer(str);</span><br><span class="line">            <span class="keyword">if</span>(!token.hasMoreTokens())</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            str = token.nextToken();</span><br><span class="line">            <span class="keyword">if</span>(!token.hasMoreTokens())</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(str.equalsIgnoreCase(<span class="string">"MemTotal:"</span>))</span><br><span class="line">                result[<span class="number">0</span>] = Integer.parseInt(token.nextToken());</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str.equalsIgnoreCase(<span class="string">"MemFree:"</span>))</span><br><span class="line">                result[<span class="number">1</span>] = Integer.parseInt(token.nextToken());</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str.equalsIgnoreCase(<span class="string">"SwapTotal:"</span>))</span><br><span class="line">                result[<span class="number">2</span>] = Integer.parseInt(token.nextToken());</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str.equalsIgnoreCase(<span class="string">"SwapFree:"</span>))</span><br><span class="line">                result[<span class="number">3</span>] = Integer.parseInt(token.nextToken());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">float</span> <span class="title">getCpuInfo</span><span class="params">()</span> <span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">"/proc/stat"</span>);</span><br><span class="line">        BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(</span><br><span class="line">                <span class="keyword">new</span> FileInputStream(file)));</span><br><span class="line">        StringTokenizer token = <span class="keyword">new</span> StringTokenizer(br.readLine());</span><br><span class="line">        token.nextToken();</span><br><span class="line">        <span class="keyword">int</span> user1 = Integer.parseInt(token.nextToken());</span><br><span class="line">        <span class="keyword">int</span> nice1 = Integer.parseInt(token.nextToken());</span><br><span class="line">        <span class="keyword">int</span> sys1 = Integer.parseInt(token.nextToken());</span><br><span class="line">        <span class="keyword">int</span> idle1 = Integer.parseInt(token.nextToken());</span><br><span class="line"></span><br><span class="line">        Thread.sleep(<span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">        br = <span class="keyword">new</span> BufferedReader(</span><br><span class="line">                <span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(file)));</span><br><span class="line">        token = <span class="keyword">new</span> StringTokenizer(br.readLine());</span><br><span class="line">        token.nextToken();</span><br><span class="line">        <span class="keyword">int</span> user2 = Integer.parseInt(token.nextToken());</span><br><span class="line">        <span class="keyword">int</span> nice2 = Integer.parseInt(token.nextToken());</span><br><span class="line">        <span class="keyword">int</span> sys2 = Integer.parseInt(token.nextToken());</span><br><span class="line">        <span class="keyword">int</span> idle2 = Integer.parseInt(token.nextToken());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">float</span>)((user2 + sys2 + nice2) -</span><br><span class="line">              (user1 + sys1 + nice1)) / (<span class="keyword">float</span>)((user2 + nice2 + sys2 + idle2) -</span><br><span class="line">              (user1 + nice1 + sys1 + idle1));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+            <p>AtomicBoolean是Java.util.concurrent.atomic包下的原子变量，这个包里面提供了一组原子类。<br>其基本的特性就是在多线程环境下，当有多个线程同时执行这些类的实例包含的方法时，具有排他性，<br>即当某个线程进入方法，执行其中的指令时，不会被其他线程打断，而别的线程就像自旋锁一样，一<br>直等到该方法执行完成，才由JVM从等待队列中选择一个另一个线程进入，这只是一种逻辑上的理解。<br>实际上是借助硬件的相关指令来实现的，不会阻塞线程(或者说只是在硬件级别上阻塞了)。</p>
+<p>例如AtomicBoolean，在这个Boolean值的变化的时候不允许在之间插入，保持操作的原子性。<br>方法和举例：compareAndSet(boolean expect, boolean update)。<br>这个方法主要两个作用:</p>
+<ol>
+<li>比较AtomicBoolean和expect的值，如果一致，执行方法内的语句。其实就是一个if语句。</li>
+<li>把AtomicBoolean的值设成update。<br>较最要的是这两件事是一气呵成的，这连个动作之间不会被打断，任何内部或者外部的语句都不可能<br>在两个动作之间运行。为多线程的控制提供了解决的方案。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BarWorker</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">	 <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> exists = <span class="keyword">false</span>;  </span><br><span class="line">	 <span class="keyword">private</span> String name;  </span><br><span class="line"></span><br><span class="line">	 <span class="function"><span class="keyword">public</span> <span class="title">BarWorker</span><span class="params">(String name)</span> </span>&#123;   </span><br><span class="line">		  <span class="keyword">this</span>.name = name;  </span><br><span class="line">   &#125;  </span><br><span class="line"></span><br><span class="line">	 <span class="meta">@Override</span>  </span><br><span class="line">	 <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;   </span><br><span class="line">		 <span class="keyword">if</span> (!exists) &#123;  </span><br><span class="line">			     <span class="keyword">try</span> &#123;  </span><br><span class="line">			      TimeUnit.SECONDS.sleep(<span class="number">1</span>);  </span><br><span class="line">			     &#125; <span class="keyword">catch</span> (InterruptedException e1) &#123;  </span><br><span class="line">			      <span class="comment">// do nothing</span></span><br><span class="line">			     &#125;  </span><br><span class="line">			     exists = <span class="keyword">true</span>;  </span><br><span class="line">			     System.out.println(name + <span class="string">" enter"</span>);  </span><br><span class="line">			     <span class="keyword">try</span> &#123;  </span><br><span class="line">			      System.out.println(name + <span class="string">" working"</span>);  </span><br><span class="line">			      TimeUnit.SECONDS.sleep(<span class="number">2</span>);  </span><br><span class="line">			     &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;  </span><br><span class="line">			      <span class="comment">// do nothing  </span></span><br><span class="line">			     &#125;  </span><br><span class="line">			     System.out.println(name + <span class="string">" leave"</span>);  </span><br><span class="line">			     exists = <span class="keyword">false</span>;  </span><br><span class="line">	    &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">	     System.out.println(name + <span class="string">" give up"</span>);  </span><br><span class="line">	    &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">	 <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		 BarWorker bar1 = <span class="keyword">new</span> BarWorker(<span class="string">"bar1"</span>);</span><br><span class="line">		 BarWorker bar2 = <span class="keyword">new</span> BarWorker(<span class="string">"bar2"</span>);</span><br><span class="line">		 <span class="keyword">new</span> Thread(bar1).start();</span><br><span class="line">		 <span class="keyword">new</span> Thread(bar2).start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出如下：<br>bar1 enter<br>bar2 enter<br>bar1 working<br>bar2 working<br>bar1 leave<br>bar2 leave</p>
+<p>用AtomicBoolean进行线程同步，代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.atomic.AtomicBoolean;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BarWorker2</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">	 <span class="keyword">private</span> <span class="keyword">static</span> AtomicBoolean exists = <span class="keyword">new</span> AtomicBoolean(<span class="keyword">false</span>);  </span><br><span class="line">	 <span class="keyword">private</span> String name;  </span><br><span class="line"></span><br><span class="line">	 <span class="function"><span class="keyword">public</span> <span class="title">BarWorker2</span><span class="params">(String name)</span> </span>&#123;   </span><br><span class="line">		  <span class="keyword">this</span>.name = name;  </span><br><span class="line">   &#125;  </span><br><span class="line"></span><br><span class="line">	 <span class="meta">@Override</span>  </span><br><span class="line">	 <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;   </span><br><span class="line">		 <span class="keyword">if</span> (exists.compareAndSet(<span class="keyword">false</span>, <span class="keyword">true</span>)) &#123;     </span><br><span class="line">		     System.out.println(name + <span class="string">" enter"</span>);  </span><br><span class="line">		     <span class="keyword">try</span> &#123;  </span><br><span class="line">			      System.out.println(name + <span class="string">" working"</span>);  </span><br><span class="line">			      TimeUnit.SECONDS.sleep(<span class="number">2</span>);  </span><br><span class="line">		     &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;  </span><br><span class="line">		    	  <span class="comment">// do nothing  </span></span><br><span class="line">		     &#125;  </span><br><span class="line">		     System.out.println(name + <span class="string">" leave"</span>);  </span><br><span class="line">		     exists.set(<span class="keyword">false</span>);    </span><br><span class="line">	    &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">	         System.out.println(name + <span class="string">" give up"</span>);  </span><br><span class="line">	    &#125;  </span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">	 <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		 BarWorker2 bar1 = <span class="keyword">new</span> BarWorker2(<span class="string">"bar1"</span>);</span><br><span class="line">		 BarWorker2 bar2 = <span class="keyword">new</span> BarWorker2(<span class="string">"bar2"</span>);</span><br><span class="line">		 <span class="keyword">new</span> Thread(bar1).start();</span><br><span class="line">		 <span class="keyword">new</span> Thread(bar2).start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>执行结果如下：<br>bar1 enter<br>bar1 working<br>bar2 give up<br>bar1 leave</p>
+<p>可以看出仅仅一个线程进行工作，因为exists.compareAndSet(false, true)提供了原子性操作，<br>比较和赋值操作组成了一个原子操作, 中间不会提供可乘之机。</p>
 
         
         </div>
@@ -402,7 +996,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/04/10/java-linux-properties/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/04/10/java-linux-properties/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/07/12/java-AtomicBoolean/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/12/java-AtomicBoolean/">Comments</a>
     
 
         </footer>
@@ -412,7 +1006,7 @@ var jiathis_config={
 
 
 
-    <article id="post-java-windows-properties" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-java-charqequence" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -420,7 +1014,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/04/10/java-windows-properties/">通过JAVA环境使用sigar监听Windows系统属性</a>
+            <a class="article-title" href="/2017/07/12/java-charqequence/">CharSequence类型</a>
         </h1>
     
 
@@ -429,8 +1023,8 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/04/10/java-windows-properties/">
-            <time datetime="2017-04-10T12:12:26.000Z" itemprop="datePublished">2017-04-10</time>
+        <a href="/2017/07/12/java-charqequence/">
+            <time datetime="2017-07-12T13:52:26.000Z" itemprop="datePublished">2017-07-12</time>
         </a>
     </div>
 
@@ -450,7 +1044,10 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>使用sigar开源组件，获取当前系统各项属性<br>1.下载sigar.jar<br>2.将sigar-amd64-winnt.dll，sigar-x86-winnt.dll，sigar-x86-winnt.lib<br>复制到JDK的bin目录下，使sigar拥有运行依赖。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.hyperic.sigar.*;</span><br><span class="line"><span class="keyword">import</span> java.net.InetAddress;</span><br><span class="line"><span class="keyword">import</span> java.net.UnknownHostException;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WindowsSystemTool</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            property();</span><br><span class="line">            cpu();</span><br><span class="line">            memory();</span><br><span class="line">            os();</span><br><span class="line">            who();</span><br><span class="line">            file();</span><br><span class="line">            net();</span><br><span class="line">            ethernet();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e1) &#123;</span><br><span class="line">            e1.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">property</span><span class="params">()</span> <span class="keyword">throws</span> UnknownHostException </span>&#123;</span><br><span class="line">        Runtime r = Runtime.getRuntime();</span><br><span class="line">        Properties props = System.getProperties();</span><br><span class="line">        InetAddress addr;</span><br><span class="line">        addr = InetAddress.getLocalHost();</span><br><span class="line">        String ip = addr.getHostAddress();</span><br><span class="line">        Map&lt;String, String&gt; map = System.getenv();</span><br><span class="line">        String userName = map.get(<span class="string">"USERNAME"</span>);</span><br><span class="line">        String computerName = map.get(<span class="string">"COMPUTERNAME"</span>);</span><br><span class="line">        String userDomain = map.get(<span class="string">"USERDOMAIN"</span>);</span><br><span class="line">        System.out.println(<span class="string">"用户名:"</span> + userName);</span><br><span class="line">        System.out.println(<span class="string">"计算机名:"</span> + computerName);</span><br><span class="line">        System.out.println(<span class="string">"计算机域名:"</span> + userDomain);</span><br><span class="line">        System.out.println(<span class="string">"本地ip地址:"</span> + ip);</span><br><span class="line">        System.out.println(<span class="string">"本地主机名:"</span> + addr.getHostName());</span><br><span class="line">        System.out.println(<span class="string">"JVM可以使用的总内存:"</span> + r.totalMemory());</span><br><span class="line">        System.out.println(<span class="string">"JVM可以使用的剩余内存:"</span> + r.freeMemory());</span><br><span class="line">        System.out.println(<span class="string">"JVM可以使用的处理器个数:"</span> + r.availableProcessors());</span><br><span class="line">        System.out.println(<span class="string">"Java的运行环境版本："</span> + props.getProperty(<span class="string">"java.version"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java的运行环境供应商："</span> + props.getProperty(<span class="string">"java.vendor"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java供应商的URL："</span> + props.getProperty(<span class="string">"java.vendor.url"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java的安装路径："</span> + props.getProperty(<span class="string">"java.home"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java的虚拟机规范版本："</span> + props.getProperty(<span class="string">"java.vm.specification.version"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java的虚拟机规范供应商：    "</span> + props.getProperty(<span class="string">"java.vm.specification.vendor"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java的虚拟机规范名称："</span> + props.getProperty(<span class="string">"java.vm.specification.name"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java的虚拟机实现版本："</span> + props.getProperty(<span class="string">"java.vm.version"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java的虚拟机实现供应商："</span> + props.getProperty(<span class="string">"java.vm.vendor"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java的虚拟机实现名称："</span> + props.getProperty(<span class="string">"java.vm.name"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java运行时环境规范版本："</span> + props.getProperty(<span class="string">"java.specification.version"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java运行时环境规范供应商："</span> + props.getProperty(<span class="string">"java.specification.vender"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java运行时环境规范名称："</span> + props.getProperty(<span class="string">"java.specification.name"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java的类格式版本号："</span> + props.getProperty(<span class="string">"java.class.version"</span>));</span><br><span class="line">        System.out.println(<span class="string">"Java的类路径："</span> + props.getProperty(<span class="string">"java.class.path"</span>));</span><br><span class="line">        System.out.println(<span class="string">"加载库时搜索的路径列表："</span> + props.getProperty(<span class="string">"java.library.path"</span>));</span><br><span class="line">        System.out.println(<span class="string">"默认的临时文件路径："</span> + props.getProperty(<span class="string">"java.io.tmpdir"</span>));</span><br><span class="line">        System.out.println(<span class="string">"一个或多个扩展目录的路径："</span> + props.getProperty(<span class="string">"java.ext.dirs"</span>));</span><br><span class="line">        System.out.println(<span class="string">"操作系统的名称："</span> + props.getProperty(<span class="string">"os.name"</span>));</span><br><span class="line">        System.out.println(<span class="string">"操作系统的构架："</span> + props.getProperty(<span class="string">"os.arch"</span>));</span><br><span class="line">        System.out.println(<span class="string">"操作系统的版本："</span> + props.getProperty(<span class="string">"os.version"</span>));</span><br><span class="line">        System.out.println(<span class="string">"文件分隔符："</span> + props.getProperty(<span class="string">"file.separator"</span>));</span><br><span class="line">        System.out.println(<span class="string">"路径分隔符："</span> + props.getProperty(<span class="string">"path.separator"</span>));</span><br><span class="line">        System.out.println(<span class="string">"行分隔符："</span> + props.getProperty(<span class="string">"line.separator"</span>));</span><br><span class="line">        System.out.println(<span class="string">"用户的账户名称："</span> + props.getProperty(<span class="string">"user.name"</span>));</span><br><span class="line">        System.out.println(<span class="string">"用户的主目录："</span> + props.getProperty(<span class="string">"user.home"</span>));</span><br><span class="line">        System.out.println(<span class="string">"用户的当前工作目录："</span> + props.getProperty(<span class="string">"user.dir"</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">memory</span><span class="params">()</span> <span class="keyword">throws</span> SigarException </span>&#123;</span><br><span class="line">        Sigar sigar = <span class="keyword">new</span> Sigar();</span><br><span class="line">        Mem mem = sigar.getMem();</span><br><span class="line">        System.out.println(<span class="string">"内存总量:"</span> + mem.getTotal() / <span class="number">1024L</span> + <span class="string">"K av"</span>);</span><br><span class="line">        System.out.println(<span class="string">"当前内存使用量:"</span> + mem.getUsed() / <span class="number">1024L</span> + <span class="string">"K used"</span>);</span><br><span class="line">        System.out.println(<span class="string">"当前内存剩余量:"</span> + mem.getFree() / <span class="number">1024L</span> + <span class="string">"K free"</span>);</span><br><span class="line">        Swap swap = sigar.getSwap();</span><br><span class="line">        System.out.println(<span class="string">"交换区总量:"</span> + swap.getTotal() / <span class="number">1024L</span> + <span class="string">"K av"</span>);</span><br><span class="line">        System.out.println(<span class="string">"当前交换区使用量:"</span> + swap.getUsed() / <span class="number">1024L</span> + <span class="string">"K used"</span>);</span><br><span class="line">        System.out.println(<span class="string">"当前交换区剩余量:"</span> + swap.getFree() / <span class="number">1024L</span> + <span class="string">"K free"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">cpu</span><span class="params">()</span> <span class="keyword">throws</span> SigarException </span>&#123;</span><br><span class="line">        Sigar sigar = <span class="keyword">new</span> Sigar();</span><br><span class="line">        CpuInfo infos[] = sigar.getCpuInfoList();</span><br><span class="line">        CpuPerc cpuList[] = <span class="keyword">null</span>;</span><br><span class="line">        cpuList = sigar.getCpuPercList();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; infos.length; i++) &#123;</span><br><span class="line">            CpuInfo info = infos[i];</span><br><span class="line">            System.out.println(<span class="string">"第"</span> + (i + <span class="number">1</span>) + <span class="string">"块CPU信息"</span>);</span><br><span class="line">            System.out.println(<span class="string">"CPU的总量MHz:"</span> + info.getMhz());</span><br><span class="line">            System.out.println(<span class="string">"CPU生产商:"</span> + info.getVendor());</span><br><span class="line">            System.out.println(<span class="string">"CPU类别:"</span> + info.getModel());</span><br><span class="line">            System.out.println(<span class="string">"CPU缓存数量:"</span> + info.getCacheSize());</span><br><span class="line">            printCpuPerc(cpuList[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printCpuPerc</span><span class="params">(CpuPerc cpu)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"CPU用户使用率:"</span> + CpuPerc.format(cpu.getUser()));</span><br><span class="line">        System.out.println(<span class="string">"CPU系统使用率:"</span> + CpuPerc.format(cpu.getSys()));</span><br><span class="line">        System.out.println(<span class="string">"CPU当前等待率:"</span> + CpuPerc.format(cpu.getWait()));</span><br><span class="line">        System.out.println(<span class="string">"CPU当前错误率:"</span> + CpuPerc.format(cpu.getNice()));</span><br><span class="line">        System.out.println(<span class="string">"CPU当前空闲率:"</span> + CpuPerc.format(cpu.getIdle()));</span><br><span class="line">        System.out.println(<span class="string">"CPU总的使用率:"</span> + CpuPerc.format(cpu.getCombined()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">os</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        OperatingSystem OS = OperatingSystem.getInstance();</span><br><span class="line">        System.out.println(<span class="string">"操作系统:"</span> + OS.getArch());</span><br><span class="line">        System.out.println(<span class="string">"操作系统CpuEndian():"</span> + OS.getCpuEndian());<span class="comment">//</span></span><br><span class="line">        System.out.println(<span class="string">"操作系统DataModel():"</span> + OS.getDataModel());<span class="comment">//</span></span><br><span class="line">        System.out.println(<span class="string">"操作系统的描述:"</span> + OS.getDescription());</span><br><span class="line">        System.out.println(<span class="string">"操作系统名称:"</span> + OS.getVendorName());</span><br><span class="line">        System.out.println(<span class="string">"操作系统的版本号:"</span> + OS.getVersion());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">who</span><span class="params">()</span> <span class="keyword">throws</span> SigarException </span>&#123;</span><br><span class="line">        Sigar sigar = <span class="keyword">new</span> Sigar();</span><br><span class="line">        Who who[] = sigar.getWhoList();</span><br><span class="line">        <span class="keyword">if</span> (who != <span class="keyword">null</span> &amp;&amp; who.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; who.length; i++) &#123;</span><br><span class="line">                Who _who = who[i];</span><br><span class="line">                System.out.println(<span class="string">"用户控制台:"</span> + _who.getDevice());</span><br><span class="line">                System.out.println(<span class="string">"用户host:"</span> + _who.getHost());</span><br><span class="line">                System.out.println(<span class="string">"当前系统进程表中的用户名:"</span> + _who.getUser());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">file</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Sigar sigar = <span class="keyword">new</span> Sigar();</span><br><span class="line">        FileSystem fslist[] = sigar.getFileSystemList();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; fslist.length; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">"分区的盘符名称"</span> + i);</span><br><span class="line">            FileSystem fs = fslist[i];</span><br><span class="line">            System.out.println(<span class="string">"盘符名称:    "</span> + fs.getDevName());</span><br><span class="line">            System.out.println(<span class="string">"盘符路径:    "</span> + fs.getDirName());</span><br><span class="line">            System.out.println(<span class="string">"盘符标志:    "</span> + fs.getFlags());<span class="comment">//</span></span><br><span class="line">            System.out.println(<span class="string">"盘符类型:    "</span> + fs.getSysTypeName());</span><br><span class="line">            System.out.println(<span class="string">"盘符类型名:    "</span> + fs.getTypeName());</span><br><span class="line">            System.out.println(<span class="string">"盘符文件系统类型:    "</span> + fs.getType());</span><br><span class="line">            FileSystemUsage usage = <span class="keyword">null</span>;</span><br><span class="line">            usage = sigar.getFileSystemUsage(fs.getDirName());</span><br><span class="line">            <span class="keyword">switch</span> (fs.getType()) &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">2</span>: <span class="comment">// 本地硬盘</span></span><br><span class="line">                    System.out.println(fs.getDevName() + <span class="string">"总大小:"</span> + usage.getTotal() + <span class="string">"KB"</span>);</span><br><span class="line">                    System.out.println(fs.getDevName() + <span class="string">"剩余大小:"</span> + usage.getFree() + <span class="string">"KB"</span>);</span><br><span class="line">                    System.out.println(fs.getDevName() + <span class="string">"可用大小:"</span> + usage.getAvail() + <span class="string">"KB"</span>);</span><br><span class="line">                    System.out.println(fs.getDevName() + <span class="string">"已经使用量:"</span> + usage.getUsed() + <span class="string">"KB"</span>);</span><br><span class="line">                    <span class="keyword">double</span> usePercent = usage.getUsePercent() * <span class="number">100</span>D;</span><br><span class="line">                    System.out.println(fs.getDevName() + <span class="string">"资源的利用率:"</span> + usePercent + <span class="string">"%"</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">3</span>:<span class="comment">// 网络</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">4</span>:<span class="comment">// 闪存</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">5</span>:<span class="comment">// 光驱</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">6</span>:<span class="comment">// 页面交换</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(fs.getDevName() + <span class="string">"读出："</span> + usage.getDiskReads());</span><br><span class="line">            System.out.println(fs.getDevName() + <span class="string">"写入："</span> + usage.getDiskWrites());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">net</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Sigar sigar = <span class="keyword">new</span> Sigar();</span><br><span class="line">        String ifNames[] = sigar.getNetInterfaceList();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ifNames.length; i++) &#123;</span><br><span class="line">            String name = ifNames[i];</span><br><span class="line">            NetInterfaceConfig ifconfig = sigar.getNetInterfaceConfig(name);</span><br><span class="line">            System.out.println(<span class="string">"网络设备名:"</span> + name);</span><br><span class="line">            System.out.println(<span class="string">"IP地址:"</span> + ifconfig.getAddress());</span><br><span class="line">            System.out.println(<span class="string">"子网掩码:"</span> + ifconfig.getNetmask());</span><br><span class="line">            <span class="keyword">if</span> ((ifconfig.getFlags() &amp; <span class="number">1L</span>) &lt;= <span class="number">0L</span>) &#123;</span><br><span class="line">                System.out.println(<span class="string">"!IFF_UP...skipping getNetInterfaceStat"</span>);</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            NetInterfaceStat ifstat = sigar.getNetInterfaceStat(name);</span><br><span class="line">            System.out.println(name + <span class="string">"接收的总包裹数:"</span> + ifstat.getRxPackets());</span><br><span class="line">            System.out.println(name + <span class="string">"发送的总包裹数:"</span> + ifstat.getTxPackets());</span><br><span class="line">            System.out.println(name + <span class="string">"接收到的总字节数:"</span> + ifstat.getRxBytes());</span><br><span class="line">            System.out.println(name + <span class="string">"发送的总字节数:"</span> + ifstat.getTxBytes());</span><br><span class="line">            System.out.println(name + <span class="string">"接收到的错误包数:"</span> + ifstat.getRxErrors());</span><br><span class="line">            System.out.println(name + <span class="string">"发送数据包时的错误数:"</span> + ifstat.getTxErrors());</span><br><span class="line">            System.out.println(name + <span class="string">"接收时丢弃的包数:"</span> + ifstat.getRxDropped());</span><br><span class="line">            System.out.println(name + <span class="string">"发送时丢弃的包数:"</span> + ifstat.getTxDropped());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ethernet</span><span class="params">()</span> <span class="keyword">throws</span> SigarException </span>&#123;</span><br><span class="line">        Sigar sigar = <span class="keyword">null</span>;</span><br><span class="line">        sigar = <span class="keyword">new</span> Sigar();</span><br><span class="line">        String[] ifaces = sigar.getNetInterfaceList();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ifaces.length; i++) &#123;</span><br><span class="line">            NetInterfaceConfig cfg = sigar.getNetInterfaceConfig(ifaces[i]);</span><br><span class="line">            <span class="keyword">if</span> (NetFlags.LOOPBACK_ADDRESS.equals(cfg.getAddress()) || (cfg.getFlags() &amp; NetFlags.IFF_LOOPBACK) != <span class="number">0</span></span><br><span class="line">                    || NetFlags.NULL_HWADDR.equals(cfg.getHwaddr())) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(cfg.getName() + <span class="string">"IP地址:"</span> + cfg.getAddress());</span><br><span class="line">            System.out.println(cfg.getName() + <span class="string">"网关广播地址:"</span> + cfg.getBroadcast());</span><br><span class="line">            System.out.println(cfg.getName() + <span class="string">"网卡MAC地址:"</span> + cfg.getHwaddr());</span><br><span class="line">            System.out.println(cfg.getName() + <span class="string">"子网掩码:"</span> + cfg.getNetmask());</span><br><span class="line">            System.out.println(cfg.getName() + <span class="string">"网卡描述信息:"</span> + cfg.getDescription());</span><br><span class="line">            System.out.println(cfg.getName() + <span class="string">"网卡类型"</span> + cfg.getType());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+            <p>String是Java中的字符串，它继承于CharSequence。<br>String继承于CharSequence，也就是说String也是CharSequence类型。<br>CharSequence是一个接口，它只包括length(),charAt(int),subSequence(int,int)这几个API接口。<br>除了String实现了CharSequence之外，StringBuffer和StringBuilder也实现了CharSequence接口。<br>需要说明的是，CharSequence就是字符序列。<br>String, StringBuilder和StringBuffer本质上都是通过字符数组实现的。</p>
+<p>对于一个抽象类或者是接口类，不能使用new来进行赋值，但是可通过下面的方式来进行实例的创建：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CharSequence cs=<span class="string">"hello"</span>;</span><br></pre></td></tr></table></figure></p>
+<p>但是不能这样来创建：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CharSequence cs=<span class="keyword">new</span> CharSequence(<span class="string">"hello"</span>);</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 比较字符串是否相等</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(CharSequence cs1, CharSequence cs2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> cs1 == cs2?<span class="keyword">true</span>:(cs1 != <span class="keyword">null</span> &amp;&amp; cs2 != <span class="keyword">null</span>?(cs1 <span class="keyword">instanceof</span> String &amp;&amp; cs2 <span class="keyword">instanceof</span> String?cs1.equals(cs2):CharSequenceUtils.regionMatches(cs1, <span class="keyword">false</span>, <span class="number">0</span>, cs2, <span class="number">0</span>, Math.max(cs1.length(), cs2.length()))):<span class="keyword">false</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         
         </div>
@@ -484,717 +1081,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/04/10/java-windows-properties/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/04/10/java-windows-properties/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-decorators" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/04/07/decorators/">sitemesh布局和修饰框架</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/04/07/decorators/">
-            <time datetime="2017-04-07T10:00:20.000Z" itemprop="datePublished">2017-04-07</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>#简述<br>SiteMesh是一个用来在JSP中实现页面布局和装饰的框架组件，能够较容易实现页面中动态内容和<br>静态装饰外观的分离。</p>
-<p>#说明<br>1.首先通过Maven来管理sitemesh<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>opensymphony<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>sitemesh<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.4.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>2.在web.xml中配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>sitemeshFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.opensymphony.sitemesh.webapp.SiteMeshFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>sitemeshFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>3.decorators.xml<br>装饰器配置文件与web.xml同级放在WEB-INF下。defaultdir为布局文件，pattern表示作用域<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">decorators</span> <span class="attr">defaultdir</span>=<span class="string">"/WEB-INF/layouts/"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 禁用装饰器 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">excludes</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>/static/*<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">excludes</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 加载装饰器 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">decorator</span> <span class="attr">name</span>=<span class="string">"demo"</span> <span class="attr">page</span>=<span class="string">"default_demo.jsp"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>/demo*<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">decorator</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">decorators</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/04/07/decorators/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/04/07/decorators/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-springboot-1" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/04/07/springboot-1/">Spring Boot 优雅的入门篇</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/04/07/springboot-1/">
-            <time datetime="2017-04-07T09:22:44.000Z" itemprop="datePublished">2017-04-07</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>#前言</p>
-<pre>
-Spring一直是很火的一个开源框架，之前使用Struts2+Spring框架居多，Spring Boot在社区中
-热度一直很高，所以决定花时间来了解和学习，为自己做技术储备。
-</pre>
-
-<p>#正文</p>
-<pre>
-Spring Boot其实就是Spring,它做了那些没有它你也会去做的Spring Bean配置。它使用“习惯优
-于配置”（项目中存在大量的配置，此外还内置了一个习惯性的配置，让你无需手动进行配置）的理
-念让你的项目快速运行起来。使用Spring Boot很容易创建一个独立运行（运行jar,内嵌Servlet
-容器）、准生产级别的基于Spring框架的项目，使用Spring Boot你可以不用或者只需要很少的
-Spring配置。
-</pre>
-
-<p>#Maven构建项目<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- SpringBoot --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-autoconfigure<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 添加对jsp视图解析的支持 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-tomcat<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.tomcat.embed<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>tomcat-embed-jasper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javax.servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jstl<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Druid --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>druid<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.29<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 下面两个引入为了操作数据库 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-jpa<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 只需引入spring-boot-devtools 即可实现热部署 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Log4j --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.17<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>#应用注解类</p>
-<pre>
-@SpringBootApplication是Sprnig Boot项目的核心注解，主要目的是开启自动配置。
-@RestController 一般用作与接口方式的Controller，返回值为JSON，等价于@Controller+@ResponseBody的结合
-@Controller 一般用作页面模式的Controller，返回值可为ModelAndView
-@EnableAutoConfiguration 允许自动加载配置
-@EnableScheduling Spring计划任务
-@Autowired 自动注入
-@RequestMapping("/view.do") 请求入口
-@ResponseBody和@RequestParam同时使用，表示接受前端请求值，并响应返回值
-@Repository Dao层注解，用于标注数据访问组件
-@Transactional 事务
-@Service Service层注解，用于标注业务层组件
-</pre>
-
-<p>#写在最后</p>
-<pre>
-Hello World : 初始化一个Spring Boot，添加一个控制类，启动即可。
-</pre>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/04/07/springboot-1/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/04/07/springboot-1/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-js-replace" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/03/27/js-replace/">使用JS转换文件路径</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/03/27/js-replace/">
-            <time datetime="2017-03-27T08:22:26.000Z" itemprop="datePublished">2017-03-27</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <pre>
-将Linux文件路径转换为Windows文件路径
-<code>filePath = filePath.replace(/\\/g, "/");</code>
-</pre>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/03/27/js-replace/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/03/27/js-replace/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-centos-utils" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/03/07/centos-utils/">lsof-top-free命令</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/03/07/centos-utils/">
-            <time datetime="2017-03-07T09:44:49.000Z" itemprop="datePublished">2017-03-07</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Operations/">Operations</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <pre>
-top：查看系统资源使用率
-free：free -h 查看内存资源
-lsof：lsof -i:8080 查看端口使用情况
-</pre>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/03/07/centos-utils/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/03/07/centos-utils/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-js-parsefloat" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/03/07/js-parsefloat/">使用JS保留两位小数</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/03/07/js-parsefloat/">
-            <time datetime="2017-03-07T09:22:26.000Z" itemprop="datePublished">2017-03-07</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <pre>
-由于js显示的值为varchar类型，所以显示小数需要转换成float类型，并用toFixed保留位数
-<code>parseFloat(value).toFixed(2)</code>
-</pre>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/03/07/js-parsefloat/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/03/07/js-parsefloat/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-poi-write-word07" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/02/23/poi-write-word07/">APACHE POI写入Word-07操作</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/02/23/poi-write-word07/">
-            <time datetime="2017-02-23T07:22:26.000Z" itemprop="datePublished">2017-02-23</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <pre>
-// 使用POI读取模版
-MSWordTool changer = new MSWordTool();
-changer.setTemplate(templatePath);
-// 导入书签
-Map<string, string=""> wordContent = getContent();
-// 替换文件
-changer.replaceBookMark(wordContent);
-changer.saveAs("path");
-
-// 获取书签数据
-private Map<string, string=""> getContent(){
-    Map<string, string=""> content = new HashMap<string, string="">();
-      try {
-      content.put("A1", obj);
-    } catch (Exception ex) {
-      ex.printStackTrace();
-    }
-    return content;
-}
-
-/**
-     * 为文档设置模板
-     * @param templatePath  模板文件路径
-   */
-public void setTemplate(String templatePath) {
-        try {
-            this.document = new XWPFDocument(POIXMLDocument.openPackage(templatePath));
-            bookMarks = new BookMarks(document);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-}
-
-/**
-     * 进行标签替换的例子,传入的Map中，key表示标签名称，value是替换的信息
-     * @param indicator
-*/
-public void  replaceBookMark(Map<string,string> indicator) {
-        //循环进行替换
-        Iterator<string> bookMarkIter = bookMarks.getNameIterator();
-        while (bookMarkIter.hasNext()) {
-            String bookMarkName = bookMarkIter.next();
-
-            //得到标签名称
-            BookMark bookMark = bookMarks.getBookmark(bookMarkName);
-
-            //进行替换
-            if (indicator.get(bookMarkName)!=null) {
-                bookMark.insertTextAtBookMark(indicator.get(bookMarkName), BookMark.INSERT_BEFORE);
-            }
-      }
-}
-
-public void saveAs(String path) {
-      File newFile = new File(path);
-        FileOutputStream fos = null;
-        try {
-            fos = new FileOutputStream(newFile);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        try {
-            this.document.write(fos);
-            fos.flush();
-            fos.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-}
-</string></string,string></string,></string,></string,></string,></pre>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/02/23/poi-write-word07/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/02/23/poi-write-word07/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-poi-write-excel" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/02/22/poi-write-excel/">APACHE POI写入Excel-07操作</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/02/22/poi-write-excel/">
-            <time datetime="2017-02-22T06:22:26.000Z" itemprop="datePublished">2017-02-22</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <pre>
-// 创建Excel工作簿
-XSSFWorkbook workBook = new XSSFWorkbook();
-// 创建一个工作薄对象
-XSSFSheet sheet = workBook.createSheet("sheet1");
-// 设置单元格宽度
-sheet.setDefaultColumnWidth(20);
-// 画表
-XSSFRow row_1 = sheet.createRow(0);
-XSSFCell cell_1_0 = row_1.createCell(0);
-XSSFCell cell_1_1 = row_1.createCell(1);
-cell_1_0.setCellValue("value");
-cell_1_1.setCellValue("value");
-// 写入文件
-File file = new File("");
-file.createNewFile();
-FileOutputStream os = FileUtils.openOutputStream(file);
-workBook.write(os);
-os.close();
-</pre>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/02/22/poi-write-excel/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/02/22/poi-write-excel/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/07/12/java-charqequence/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/12/java-charqequence/">Comments</a>
     
 
         </footer>

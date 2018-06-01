@@ -248,7 +248,7 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
-    <article id="post-100" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-java-class-getclass" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -256,7 +256,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/08/10/100/">值得纪念的第一百篇博客</a>
+            <a class="article-title" href="/2017/11/19/java-class-getclass/">Java关于对象的遍历，类的反射</a>
         </h1>
     
 
@@ -265,93 +265,8 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/08/10/100/">
-            <time datetime="2017-08-10T13:00:00.000Z" itemprop="datePublished">2017-08-10</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Reading/">Reading</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>自2015年3月29日第一次注册域名，搭建博客开始不断的积累着。两年半的时间里，从大学到毕业，<br>如今已经积累到整整100篇博文了。希望通过写博客来记录我的技术成长和生活琐事。</p>
-<p>在生活上，希望自己能够摆正心态，从心理学的角度来讲，心态是一个人的心理活动和状态的总和，<br>是人们对社会生活的反映和体验。心态对一个人的思想、情感、需要和欲望有着决定性的影响，它制<br>约着一个人对待工作、对待生活、对待事业的态度。心态是把双刃剑，积极的心态往往能够成就人生<br>，相反消极的心态则往往影响成功。</p>
-<p>从大四的实习，到如今的毕业，有了属于自己的正式工作。在工作上，希望自己能记住这几句话：<br>工资不是用来支付给技能的，不要以为技能越高、工资自然应该越高。 工资是用来支付给责任的，责<br>任越大，工资越高。 涨工资，是因为承担了更大的责任。</p>
-<p>愿自己继续坚持，加油！加油！加油！</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/08/10/100/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/10/100/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-httpclient-get" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/08/09/httpclient-get/">HttpClient中GET请求</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/08/09/httpclient-get/">
-            <time datetime="2017-08-09T13:41:21.000Z" itemprop="datePublished">2017-08-09</time>
+        <a href="/2017/11/19/java-class-getclass/">
+            <time datetime="2017-11-19T09:40:23.000Z" itemprop="datePublished">2017-11-19</time>
         </a>
     </div>
 
@@ -371,10 +286,9 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>HttpClient版本4.5.2<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> RequestConfig requestConfig = RequestConfig.custom()  </span><br><span class="line">        .setSocketTimeout(<span class="number">15000</span>)  </span><br><span class="line">        .setConnectTimeout(<span class="number">15000</span>)  </span><br><span class="line">        .setConnectionRequestTimeout(<span class="number">15000</span>)  </span><br><span class="line">        .build();</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> String <span class="title">sendHttpGet</span><span class="params">(HttpGet httpGet)</span> </span>&#123;</span><br><span class="line">    CloseableHttpClient httpClient = <span class="keyword">null</span>;</span><br><span class="line">    CloseableHttpResponse response = <span class="keyword">null</span>;</span><br><span class="line">    HttpEntity entity = <span class="keyword">null</span>;</span><br><span class="line">    String responseContent = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        httpClient = HttpClients.createDefault();</span><br><span class="line">        httpGet.setConfig(requestConfig);</span><br><span class="line">        response = httpClient.execute(httpGet);</span><br><span class="line">        entity = response.getEntity();</span><br><span class="line">        responseContent = EntityUtils.toString(entity, <span class="string">"UTF-8"</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (response != <span class="keyword">null</span>) &#123;</span><br><span class="line">                response.close();    </span><br><span class="line">            &#125;    </span><br><span class="line">            <span class="keyword">if</span> (httpClient != <span class="keyword">null</span>) &#123;</span><br><span class="line">                httpClient.close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> responseContent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>入口：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HttpGet httpGet = <span class="keyword">new</span> HttpGet(getUrl);</span><br><span class="line">String resultStr = sendHttpGet(httpGet)</span><br></pre></td></tr></table></figure></p>
-
+            <p>Class类是整个Java反射机制的源头，Class类本身表示Java对象的类型，可通过一个Object对象的getClass()方法取得一个对象的类型，此函数返回的就是一个Class类。</p>
+<p>Field提供有关类或接口的属性的信息，以及对他的动态访问权限。<br>Method提供关于类或接口上的方法的信息。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Ojbect obj = <span class="keyword">new</span> Object();</span><br><span class="line">Class&lt;? extends Object&gt; objClass = obj.getClass();</span><br><span class="line">Field[] fields = objClass.getDeclaredFields();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; fields.length; k++) &#123;</span><br><span class="line">	String fieldName = fields[k].getName();</span><br><span class="line">	Method m = obj.getClass().getMethod(<span class="string">"get"</span> + fieldName.substring(<span class="number">0</span>, <span class="number">1</span>).toUpperCase() + fieldName.substring(<span class="number">1</span>));</span><br><span class="line">	Object value = m.invoke(obj);</span><br><span class="line">	System.out.println(fieldName + <span class="string">" : "</span> + value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
         </div>
         <footer class="article-footer">
@@ -407,7 +321,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/08/09/httpclient-get/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/09/httpclient-get/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/11/19/java-class-getclass/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/11/19/java-class-getclass/">Comments</a>
     
 
         </footer>
@@ -417,7 +331,7 @@ var jiathis_config={
 
 
 
-    <article id="post-http-url-connection" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-windows-mongodb" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -425,7 +339,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/08/09/http-url-connection/">HttpURLConnection中GET请求</a>
+            <a class="article-title" href="/2017/10/31/windows-mongodb/">Windows环境下mongodb配置</a>
         </h1>
     
 
@@ -434,8 +348,8 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/08/09/http-url-connection/">
-            <time datetime="2017-08-09T13:11:21.000Z" itemprop="datePublished">2017-08-09</time>
+        <a href="/2017/10/31/windows-mongodb/">
+            <time datetime="2017-10-31T12:30:52.000Z" itemprop="datePublished">2017-10-31</time>
         </a>
     </div>
 
@@ -455,7 +369,12 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">httpURLConectionGET</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        URL url = <span class="keyword">new</span> URL(<span class="string">""</span>);</span><br><span class="line">        HttpURLConnection connection = (HttpURLConnection) url.openConnection();</span><br><span class="line">        connection.connect();</span><br><span class="line">        BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(connection.getInputStream(), <span class="string">"UTF-8"</span>));</span><br><span class="line">        String line;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">while</span> ((line = br.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">            sb.append(line);</span><br><span class="line">        &#125;</span><br><span class="line">        br.close();</span><br><span class="line">        connection.disconnect();</span><br><span class="line">        System.out.println(sb.toString());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <p><1>首先安装mongodb不多说了。</1></p>
+<p><2>配置：<br>1.在自定义的工作空间下新建Data文件夹<br>2.在Data下新建db和log文件夹<br>3.在log文件夹下新建MongoDB.log文件</2></p>
+<p><3>开启Mongodb Service<br>通过cmd找到mongodb的安装路径并进入bin文件夹下<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#".....\Data\db"为配置中第二项的路径</span><br><span class="line">#".....\Data\log\MongoDB.log"为配置中第三项的路径</span><br><span class="line">mongod -dbpath ".....\Data\db" -logpath ".....\Data\log\MongoDB.log" -install -serviceName "MongoDB"</span><br></pre></td></tr></table></figure></3></p>
+<p>开启服务 net start mongodb<br>关闭服务 net stop mongodb</p>
+<p><4>删除Mongodb Service<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#".....\Data\db"为配置中第二项的路径</span><br><span class="line">#".....\Data\log\MongoDB.log"为配置中第三项的路径</span><br><span class="line">mongod -dbpath ".....\Data\db" -logpath ".....\Data\log\MongoDB.log" -remove -serviceName "MongoDB"</span><br></pre></td></tr></table></figure></4></p>
+
         
         </div>
         <footer class="article-footer">
@@ -488,7 +407,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/08/09/http-url-connection/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/09/http-url-connection/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/10/31/windows-mongodb/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/10/31/windows-mongodb/">Comments</a>
     
 
         </footer>
@@ -498,7 +417,7 @@ var jiathis_config={
 
 
 
-    <article id="post-aliyun-video" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-mysql-about-date" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -506,7 +425,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/08/02/aliyun-video/">阿里云直播配置与使用（初体验）</a>
+            <a class="article-title" href="/2017/10/25/mysql-about-date/">关于时间的处理，以及MyBatis中对时间的处理</a>
         </h1>
     
 
@@ -515,8 +434,343 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/08/02/aliyun-video/">
-            <time datetime="2017-08-02T13:39:27.000Z" itemprop="datePublished">2017-08-02</time>
+        <a href="/2017/10/25/mysql-about-date/">
+            <time datetime="2017-10-25T14:04:19.000Z" itemprop="datePublished">2017-10-25</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><code>java</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// String -&gt; Date</span></span><br><span class="line">SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">""</span>);</span><br><span class="line">Date date = sdf.parse(dateString);</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Date -&gt; String</span></span><br><span class="line">Date date = <span class="keyword">new</span> Date();</span><br><span class="line">String dateString = (<span class="keyword">new</span> SimpleDateFormat(<span class="string">""</span>)).format(date);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在日期上增加数个整月</span></span><br><span class="line">Calendar cal = Calendar.getInstance();</span><br><span class="line">cal.setTime(<span class="keyword">new</span> Date());</span><br><span class="line">cal.add(Calendar.MONTH, <span class="number">1</span>);</span><br><span class="line">Date date = cal.getTime();</span><br></pre></td></tr></table></figure>
+<p><code>mysql</code><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 时间转换</span><br><span class="line">DATE_FORMAT(NOW(),'%b %d %Y %h:%i %p')  </span><br><span class="line">DATE_FORMAT(NOW(),'%m-%d-%Y')  </span><br><span class="line">DATE_FORMAT(NOW(),'%d %b %y')  </span><br><span class="line">DATE_FORMAT(NOW(),'%d %b %Y %T:%f')</span><br></pre></td></tr></table></figure></p>
+<p><code>mybatis</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;![CDATA[&gt;]]&gt;</span><br><span class="line">&lt;![CDATA[&gt;=]]&gt;</span><br><span class="line">&lt;![CDATA[&lt;]]&gt;</span><br><span class="line">&lt;![CDATA[&lt;=]]&gt;</span><br></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/10/25/mysql-about-date/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/10/25/mysql-about-date/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-sql-about-date" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/10/23/sql-about-date/">SQL中获取前后一个月</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/10/23/sql-about-date/">
+            <time datetime="2017-10-23T14:07:24.000Z" itemprop="datePublished">2017-10-23</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">date_add(NOW(), interval 1 MONTH)</span><br><span class="line">#date_add()增加</span><br><span class="line">#date_sub()减少</span><br></pre></td></tr></table></figure>
+<p><code>month</code>月份；<code>minute</code>分钟；<code>second</code>秒；</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/10/23/sql-about-date/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/10/23/sql-about-date/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-sql-union" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/10/11/sql-union/">SQL中UNION和UNION ALL操作符</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/10/11/sql-union/">
+            <time datetime="2017-10-11T14:22:29.000Z" itemprop="datePublished">2017-10-11</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>UNION操作符用于合并两个或多个SELECT语句的结果集。<br>UNION内部的SELECT语句必须拥有相同数量的列。列也必须拥有相似的数据类型。<br>同时，每条SELECT语句中的列的顺序必须相同。<br>UNION操作符选取的是不同的值。如需要重复的值，需要用UNION ALL。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name(s) <span class="keyword">FROM</span> table_name1</span><br><span class="line"><span class="keyword">UNION</span></span><br><span class="line"><span class="keyword">SELECT</span> column_name(s) <span class="keyword">FROM</span> table_name2</span><br></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/10/11/sql-union/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/10/11/sql-union/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-java-at-interface" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/09/18/java-at-interface/">Java注释@interface的用法</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/09/18/java-at-interface/">
+            <time datetime="2017-09-18T13:30:59.000Z" itemprop="datePublished">2017-09-18</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>注解大都用在开发框架中。<br>Java用 @interface Annotation{} 定义一个注解 @Annotation，一个注解是一个类。<br>用@Retention(RetentionPolicy.CLASS)修饰的注解，表示注解的信息被保留在class文件(字节码文件)中当程序编译时，<br>但不会被虚拟机读取在运行的时候;<br>用@Retention(RetentionPolicy.SOURCE )修饰的注解,表示注解的信息会被编译器抛弃，不会留在class文件中，注解的<br>信息只会留在源文件中;<br>用@Retention(RetentionPolicy.RUNTIME )修饰的注解，表示注解的信息被保留在class文件(字节码文件)中当程序编译<br>时，会被虚拟机保留在运行时，所以他们可以用反射的方式读取。</p>
+<p>定义个一注解@MyTarget，用RetentionPolicy.RUNTIME修饰;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)  </span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyTarget&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注解@Target也是用来修饰注解的元注解，它有一个属性ElementType也是枚举类型，<br>值为：ANNOTATION_TYPE,CONSTRUCTOR,FIELD,LOCAL_VARIABLE,METHOD,PACKAGE,PARAMETER,TYPE<br>如@Target(ElementType.METHOD) 修饰的注解表示该注解只能用来修饰在方法上。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.METHOD)  </span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)  </span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyTarget&#123;</span><br><span class="line">	<span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> "val"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/09/18/java-at-interface/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/09/18/java-at-interface/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-linux-crontab" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/09/13/linux-crontab/">Linux中crontab定时任务</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/09/13/linux-crontab/">
+            <time datetime="2017-09-13T14:09:17.000Z" itemprop="datePublished">2017-09-13</time>
         </a>
     </div>
 
@@ -536,12 +790,9 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>完整的推流地址：<br>形如：rtmp://video-center.alivecdn.com/{AppName}/{StreamName}?vhost={yourdomain}<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 说明 video-center.alivecdn.com是直播中心服务器，允许自定义</span></span><br><span class="line"><span class="comment">// 例如您的域名是your.example.com（注意：该域名不可以和你的直播加速域名相同）</span></span><br><span class="line"><span class="comment">// 可以设置DNS，将您的 域名CNAME指向video-center.alivecdn.com即可 </span></span><br><span class="line"><span class="comment">// app-name是应用名称，支持自定义，可以更改video-name是流名称，支持自定义</span></span><br><span class="line"><span class="comment">// 可以更改 vhost参数是最终在边缘节点播放的域名，即你的直播加速域名。</span></span><br></pre></td></tr></table></figure></p>
-<p>推流（OBS）：<br>例如：rtmp://video.dragon-yuan.me/live_dragon/dragon?vhost=live.dragon-yuan.me<br>推流则需要配置如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// FMS(URL) 为 rtmp://video.dragon-yuan.me/live_dragon/</span></span><br><span class="line"><span class="comment">// 串流码 为 dragon?vhost=live.dragon-yuan.me</span></span><br></pre></td></tr></table></figure></p>
-<p>鉴权计算：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rtmp:<span class="comment">//video-center.alivecdn.com/&#123;AppName&#125;/&#123;StreamName&#125;?</span></span><br><span class="line">vhost=&#123;yourdomain&#125;&amp;auth_key=&#123;timestamp&#125;-&#123;rand&#125;-&#123;uid&#125;-&#123;hashvalue&#125;</span><br></pre></td></tr></table></figure></p>
-<p>字段描述<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">timestamp：失效时间=时间戳+有效时间，CDN服务器拿到请求后，首先会判断请求中的</span><br><span class="line">失效时间是否小于当前时间，如果小于，则认为过期失效并返回HTTP 403错误。</span><br><span class="line"></span><br><span class="line">rand：随机数，一般设成0</span><br><span class="line"></span><br><span class="line">uid：暂未使用（设置成0)</span><br><span class="line"></span><br><span class="line">hashvalue：通过md5加密算法计算出的32位验证串</span><br></pre></td></tr></table></figure></p>
-<p>推流则需要配置如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// FMS(URL) 为 rtmp://video.dragon-yuan.me/live_dragon/</span></span><br><span class="line"><span class="comment">// 串流码 为 dragon?vhost=live.dragon-yuan.me&amp;auth_key=....</span></span><br></pre></td></tr></table></figure></p>
-<p>收看地址为：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://live.dragon-yuan.me/live_dragon/dragon.flv?auth_key=....</span><br></pre></td></tr></table></figure></p>
+            <p>crontab命令的功能是在一定的时间间隔调度一些命令的执行</p>
+<p>文件/etc/crontab中每行任务的描述格式如下:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">minute - 从0到59的整数 </span><br><span class="line">hour - 从0到23的整数 </span><br><span class="line">day - 从1到31的整数 (必须是指定月份的有效日期)</span><br><span class="line">month - 从1到12的整数 (或如Jan或Feb简写的月份)</span><br><span class="line">dayofweek - 从0到7的整数，0或7用来描述周日 (或用Sun或Mon简写来表示)</span><br><span class="line">command - 需要执行的命令(或执行自定义脚本的命令)</span><br><span class="line"></span><br><span class="line">root表示以root用户身份来运行</span><br><span class="line">run-parts表示后面跟着的是一个文件夹，要执行的是该文件夹下的所有脚本</span><br></pre></td></tr></table></figure></p>
+<p>crontab服务的启动关闭<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sbin/service crond start //启动服务</span><br><span class="line">/sbin/service crond stop //关闭服务</span><br><span class="line">/sbin/service crond restart //重启服务</span><br><span class="line">/sbin/service crond reload //重新载入配置</span><br></pre></td></tr></table></figure></p>
 
         
         </div>
@@ -575,7 +826,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/08/02/aliyun-video/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/02/aliyun-video/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/09/13/linux-crontab/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/09/13/linux-crontab/">Comments</a>
     
 
         </footer>
@@ -585,7 +836,7 @@ var jiathis_config={
 
 
 
-    <article id="post-vue-watch" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-java-native" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -593,7 +844,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/28/vue-watch/">VueJS中watch的使用</a>
+            <a class="article-title" href="/2017/09/12/java-native/">Java中的native关键字</a>
         </h1>
     
 
@@ -602,172 +853,8 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/07/28/vue-watch/">
-            <time datetime="2017-07-28T14:42:30.000Z" itemprop="datePublished">2017-07-28</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/web/">web</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>Watch可谓是 Vue中比较重要的部分，检测数据变动后视图更新的重要环节。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// data中定义一个aShow = false 作为显示变量</span></span><br><span class="line"></span><br><span class="line">watch: &#123;</span><br><span class="line">  <span class="string">'aForm.obj'</span>: <span class="function"><span class="keyword">function</span> (<span class="params">val, oldVal</span>) </span>&#123;</span><br><span class="line">    	<span class="keyword">if</span> (val !== <span class="string">''</span>) &#123;</span><br><span class="line">      		<span class="keyword">this</span>.aShow = <span class="literal">true</span>;</span><br><span class="line">    	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      		<span class="keyword">this</span>.aShow = <span class="literal">false</span>;</span><br><span class="line">    	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/07/28/vue-watch/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/28/vue-watch/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-github-push" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/27/github-push/">GitHub进阶</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/07/27/github-push/">
-            <time datetime="2017-07-27T15:01:26.000Z" itemprop="datePublished">2017-07-27</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Github/">Github</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.postBuffer 524288000</span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git stash #储藏当前工作</span><br><span class="line">git stash list #查看储藏的工作现场</span><br><span class="line">git stash apply #恢复工作现场，stash内容并不删除</span><br><span class="line">git stash pop #恢复工作现场，并删除stash内容</span><br></pre></td></tr></table></figure>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/07/27/github-push/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/27/github-push/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-spring-aop-exception" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/23/spring-aop-exception/">Spring中AOP对异常的处理</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/07/23/spring-aop-exception/">
-            <time datetime="2017-07-23T07:08:01.000Z" itemprop="datePublished">2017-07-23</time>
+        <a href="/2017/09/12/java-native/">
+            <time datetime="2017-09-12T14:32:21.000Z" itemprop="datePublished">2017-09-12</time>
         </a>
     </div>
 
@@ -787,8 +874,11 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.exception.BusinessException;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"><span class="keyword">import</span> org.springframework.aop.ThrowsAdvice;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExceptionInterceptorLog</span> <span class="keyword">implements</span> <span class="title">ThrowsAdvice</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger logger = LoggerFactory.getLogger(ExceptionInterceptorLog.class);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ExceptionInterceptorLog</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterThrowing</span><span class="params">(Method method, Object[] args, Object target, BusinessException ex)</span> </span>&#123;</span><br><span class="line">        logger.error(<span class="string">"==&gt;ExceptionInterceptorLog.BusinessException"</span>);</span><br><span class="line">        logger.error(<span class="string">"==&gt;errCode:"</span> + ex.getCode() + <span class="string">" errMsg:"</span> + ex.getMessage());</span><br><span class="line">        logger.error(<span class="string">"==&gt;"</span> + ex.fillInStackTrace());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterThrowing</span><span class="params">(Method method, Object[] args, Object target, Exception ex)</span> </span>&#123;</span><br><span class="line">        logger.error(<span class="string">"==&gt;ExceptionInterceptorLog.Exception"</span>);</span><br><span class="line">        logger.error(<span class="string">"==&gt;Error class: "</span> + target.getClass().getName());</span><br><span class="line">        logger.error(<span class="string">"==&gt;Error method: "</span> + method.getName());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; args.length; ++i) &#123;</span><br><span class="line">            logger.error(<span class="string">"==&gt;args["</span> + i + <span class="string">"]: "</span> + args[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        logger.error(<span class="string">"==&gt;Exception class: "</span> + ex.getClass().getName());</span><br><span class="line">        logger.error(<span class="string">"==&gt;"</span> + ex.fillInStackTrace());</span><br><span class="line">        logger.error(<span class="string">"==&gt; 堆栈信息&#123;&#125;"</span>, ex.toString(), ex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在spring-config-aop.xml进行配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:aop</span>=<span class="string">"http://www.springframework.org/schema/aop"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 异常信息 拦截 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"exceptionInterceptorLog"</span> <span class="attr">class</span>=<span class="string">"com.xescm.core.exception.ExceptionInterceptorLog"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:config</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">id</span>=<span class="string">"exceptionTrade"</span> <span class="attr">expression</span>=<span class="string">"</span></span></span><br><span class="line"><span class="tag"><span class="string">        execution(* com.controller.*.*(..))</span></span></span><br><span class="line"><span class="tag"><span class="string">        or execution(* com.controller.*.*(..))</span></span></span><br><span class="line"><span class="tag"><span class="string">        "</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">aop:advisor</span> <span class="attr">pointcut-ref</span>=<span class="string">"exceptionTrade"</span> <span class="attr">advice-ref</span>=<span class="string">"exceptionInterceptorLog"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+            <p>Native所定义的方法不能有方法体，他所定义的方法实现是由非java语言实现，比如C语言等。</p>
+<p>例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>标识符native可以与所有其它的java标识符连用，但是abstract除外。这是合理的，因为native暗示这些方法是有实现体的，<br>只不过这些实现体是非java的，但是abstract却显然的指明这些方法无实现体。<br>一个native方法可以返回任何java类型，包括非基本类型，而且同样可以进行异常控制。这些方法的实现体可以自制一个异常并且将其抛出，<br>这一点与java的方法非常相似。native的存在并不会对其他类调用这些本地方法产生任何影响，实际上调用这些方法的其他类甚至不知道它<br>所调用的是一个本地方法。JVM将控制调用本地方法的所有细节。</p>
+<p>当一个类第一次被使用到时，这个类的字节码会被加载到内存，并且只会回载一次。在这个被加载的字节码的入口维持着一个该类所有方法描述<br>符的集合，这些方法描述符包含这样一些信息：方法代码存于何处，它有哪些参数，方法的描述符等等。<br>如果一个方法描述符内有native，这个描述符块将有一个指向该方法的实现的指针。这些实现在一些DLL文件内，但是它们会被操作系统加载<br>到java程序的地址空间。当一个带有本地方法的类被加载时，其相关的DLL并未被加载，因此指向方法实现的指针并不会被设置。<br>当本地方法被调用之前，这些DLL才会被加载，这是通过调用java.system.loadLibrary()实现的。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">本文转载自：http://blog.csdn.net/jiakw_1981/article/details/3073613</span><br></pre></td></tr></table></figure>
 
         
         </div>
@@ -822,7 +912,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/07/23/spring-aop-exception/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/23/spring-aop-exception/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/09/12/java-native/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/09/12/java-native/">Comments</a>
     
 
         </footer>
@@ -832,7 +922,7 @@ var jiathis_config={
 
 
 
-    <article id="post-vue-filters" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-vue-keepalive" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -840,7 +930,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/22/vue-filters/">VueJS中的filters使用</a>
+            <a class="article-title" href="/2017/08/30/vue-keepalive/">Vue中Keep-Alive缓存的使用</a>
         </h1>
     
 
@@ -849,8 +939,8 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/07/22/vue-filters/">
-            <time datetime="2017-07-22T12:02:21.000Z" itemprop="datePublished">2017-07-22</time>
+        <a href="/2017/08/30/vue-keepalive/">
+            <time datetime="2017-08-30T14:59:09.000Z" itemprop="datePublished">2017-08-30</time>
         </a>
     </div>
 
@@ -858,7 +948,7 @@ var jiathis_config={
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/web/">web</a>
+        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
     </div>
 
                         
@@ -870,7 +960,9 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>filters:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">someFilter(way) &#123;</span><br><span class="line">    <span class="keyword">let</span> unitName = <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">switch</span> (way) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'01'</span>: &#123; unitName = <span class="string">'名称1'</span>; <span class="keyword">break</span>; &#125;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'02'</span>: &#123; unitName = <span class="string">'名称2'</span>; <span class="keyword">break</span>; &#125;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'03'</span>: &#123; unitName = <span class="string">'名称3'</span>; <span class="keyword">break</span>; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> unitName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 其他方法调用</span></span><br><span class="line"><span class="keyword">var</span> val = <span class="keyword">this</span>.someFilter(value);</span><br></pre></td></tr></table></figure></p>
+            <p>Vue提供了一个keep-alive组件用来缓存组件。<br>首先在vue的主页路由上添加keep-alive，并且判断是否在路由开启keepAlive<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;keep-alive&gt;</span><br><span class="line">    &lt;router-view v-<span class="keyword">if</span>=<span class="string">"$route.meta.keepAlive"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span></span><br><span class="line">&lt;router-view v-if="!$route.meta.keepAlive"&gt;&lt;/router-view&gt;</span><br></pre></td></tr></table></figure></p>
+<p>在需要缓存的页面路由上添加标志位<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keepAlive: ture</span><br></pre></td></tr></table></figure></p>
+<p>vue中生命周期相关的有：created,mounted,updated,activited,destroyed。<br>在页面上可以添加activited钩子函数。<br>针对keep-alive标签，使用keep-alive在单页中前进后退只触发activited。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">created() &#123;</span><br><span class="line">	method_1();</span><br><span class="line">&#125;,</span><br><span class="line">activited() &#123;</span><br><span class="line">	method_2();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
         
         </div>
@@ -904,7 +996,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/07/22/vue-filters/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/22/vue-filters/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/08/30/vue-keepalive/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/30/vue-keepalive/">Comments</a>
     
 
         </footer>
@@ -914,7 +1006,7 @@ var jiathis_config={
 
 
 
-    <article id="post-yuanzixing" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-idea-serialVersion" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -922,7 +1014,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/22/yuanzixing/">什么是原子性</a>
+            <a class="article-title" href="/2017/08/16/idea-serialVersion/">IDEA生成序列化ID</a>
         </h1>
     
 
@@ -931,8 +1023,8 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/07/22/yuanzixing/">
-            <time datetime="2017-07-22T11:14:26.000Z" itemprop="datePublished">2017-07-22</time>
+        <a href="/2017/08/16/idea-serialVersion/">
+            <time datetime="2017-08-16T13:49:27.000Z" itemprop="datePublished">2017-08-16</time>
         </a>
     </div>
 
@@ -940,7 +1032,7 @@ var jiathis_config={
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
+        <a class="article-category-link" href="/categories/Operations/">Operations</a>
     </div>
 
                         
@@ -952,7 +1044,7 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>如果把一个事务可看作是一个程序,它要么完整的被执行,要么完全不执行。这种特性就叫原子性。</p>
+            <p>File -&gt; setting -&gt; Inspections -&gt; Serializationissues<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">将其展开后将</span><br><span class="line">serialzable class without serialVersionUID</span><br><span class="line">打上勾</span><br></pre></td></tr></table></figure></p>
 
         
         </div>
@@ -986,90 +1078,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/07/22/yuanzixing/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/22/yuanzixing/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-vue-rules" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/19/vue-rules/">VueJS中的rules校验</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/07/19/vue-rules/">
-            <time datetime="2017-07-19T15:00:25.000Z" itemprop="datePublished">2017-07-19</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/web/">web</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">rules: &#123;</span><br><span class="line">    rulesOne: [</span><br><span class="line">        &#123; <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">'请输入'</span>, <span class="attr">trigger</span>: <span class="string">'blur'</span> &#125;</span><br><span class="line">    ],</span><br><span class="line">    rulesTwo: [</span><br><span class="line">        &#123; <span class="attr">max</span>: <span class="number">100</span>, <span class="attr">message</span>: <span class="string">'长度在 100个字符以内'</span>, <span class="attr">trigger</span>: <span class="string">'blur'</span> &#125;</span><br><span class="line">    ],</span><br><span class="line">    rulesThree: [</span><br><span class="line">        &#123; <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">'请选择'</span>, <span class="attr">trigger</span>: <span class="string">'change'</span> &#125;</span><br><span class="line">    ],</span><br><span class="line">    rulesFour: [</span><br><span class="line">        &#123; <span class="attr">type</span>: <span class="string">'array'</span>, <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">'请至少选择一个'</span>, <span class="attr">trigger</span>: <span class="string">'change'</span> &#125;</span><br><span class="line">    ],</span><br><span class="line">    rulesFive: [</span><br><span class="line">        &#123; <span class="attr">validator</span>: checkSomething, <span class="attr">trigger</span>: <span class="string">'blur'</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>trigger: ‘blur’为离开输入框<br>trigger: ‘change’为更换下拉框或多选框<br>validator为自定义规则方法名</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/07/19/vue-rules/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/19/vue-rules/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/08/16/idea-serialVersion/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/16/idea-serialVersion/">Comments</a>
     
 
         </footer>
