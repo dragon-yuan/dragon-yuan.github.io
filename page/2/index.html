@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                134
+                135
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -350,6 +350,97 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2018/06/01/java-md5/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/06/01/java-md5/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-java-list-remove" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/06/01/java-list-remove/">List对于remove操作抛出ConcurrentModificationException</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/06/01/java-list-remove/">
+            <time datetime="2018-06-01T12:58:47.675Z" itemprop="datePublished">2018-06-01</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <pre>
+for(int i=0;i<list.size();i++){ if(list.get(i).equals("del"))="" list.remove(i);="" }="" 这种方式的问题在于，删除某个元素后，list的大小发生了变化，而你的索引也在变化，="" 所以会导致你在遍历的时候漏掉某些元素。比如当你删除第1个元素后，="" 继续根据索引访问第2个元素时，因为删除的关系后面的元素都往前移动了一位，="" 所以实际访问的是第3个元素。因此，这种方式可以用在删除特定的一个元素时使用，="" 但不适合循环删除多个元素时使用。="" for(string="" x:list){="" if(x.equals("del"))="" list.remove(x);="" 这种方式的问题在于，删除元素后继续循环会报错误信息concurrentmodificationexception，="" 因为元素在使用的时候发生了并发的修改，导致异常抛出。="" 但是删除完毕马上使用break跳出，则不会触发报错。="" iterator<string=""> it = list.iterator();
+while(it.hasNext()){
+    String x = it.next();
+    if(x.equals("del")){
+        it.remove();
+    }
+}
+这种方式可以正常的循环及删除。
+</list.size();i++){></pre>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2018/06/01/java-list-remove/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/06/01/java-list-remove/">Comments</a>
     
 
         </footer>
@@ -558,6 +649,91 @@ var jiathis_config={
 
 
 
+    <article id="post-decorators" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/06/01/decorators/">sitemesh布局和修饰框架</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/06/01/decorators/">
+            <time datetime="2018-06-01T12:58:47.662Z" itemprop="datePublished">2018-06-01</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>#简述<br>SiteMesh是一个用来在JSP中实现页面布局和装饰的框架组件，能够较容易实现页面中动态内容和<br>静态装饰外观的分离。</p>
+<p>#说明<br>1.首先通过Maven来管理sitemesh<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>opensymphony<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>sitemesh<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.4.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>2.在web.xml中配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>sitemeshFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.opensymphony.sitemesh.webapp.SiteMeshFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>sitemeshFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>3.decorators.xml<br>装饰器配置文件与web.xml同级放在WEB-INF下。defaultdir为布局文件，pattern表示作用域<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">decorators</span> <span class="attr">defaultdir</span>=<span class="string">"/WEB-INF/layouts/"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 禁用装饰器 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">excludes</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>/static/*<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">excludes</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 加载装饰器 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">decorator</span> <span class="attr">name</span>=<span class="string">"demo"</span> <span class="attr">page</span>=<span class="string">"default_demo.jsp"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>/demo*<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">decorator</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">decorators</span>&gt;</span></div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2018/06/01/decorators/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/06/01/decorators/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-different-arrays" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -641,91 +817,6 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2018/06/01/different-arrays/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/06/01/different-arrays/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-decorators" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/06/01/decorators/">sitemesh布局和修饰框架</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/06/01/decorators/">
-            <time datetime="2018-06-01T12:58:47.662Z" itemprop="datePublished">2018-06-01</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>#简述<br>SiteMesh是一个用来在JSP中实现页面布局和装饰的框架组件，能够较容易实现页面中动态内容和<br>静态装饰外观的分离。</p>
-<p>#说明<br>1.首先通过Maven来管理sitemesh<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>opensymphony<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>sitemesh<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.4.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>2.在web.xml中配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>sitemeshFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.opensymphony.sitemesh.webapp.SiteMeshFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>sitemeshFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>3.decorators.xml<br>装饰器配置文件与web.xml同级放在WEB-INF下。defaultdir为布局文件，pattern表示作用域<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">decorators</span> <span class="attr">defaultdir</span>=<span class="string">"/WEB-INF/layouts/"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 禁用装饰器 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">excludes</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>/static/*<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">excludes</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 加载装饰器 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">decorator</span> <span class="attr">name</span>=<span class="string">"demo"</span> <span class="attr">page</span>=<span class="string">"default_demo.jsp"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>/demo*<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">decorator</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">decorators</span>&gt;</span></div></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2018/06/01/decorators/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/06/01/decorators/">Comments</a>
     
 
         </footer>
@@ -1088,88 +1179,6 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2018/05/17/java-postconstruct-predestroy/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/05/17/java-postconstruct-predestroy/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-druid-utf8mb4" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/05/15/druid-utf8mb4/">Druid连接池配置连接属性utf8mb4</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/05/15/druid-utf8mb4/">
-            <time datetime="2018-05-15T06:52:16.000Z" itemprop="datePublished">2018-05-15</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>由于在配置了MySQL数据库，表的编码类型为utf8mb4以后需要重新启动数据库，可由于线上场景的等一些问题的影响，可用过druid设置编码方式。从而让emoji表情可以保存。😈<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 配置druid支持表情</span></div><div class="line">String connectionInitSqls = <span class="string">"SET NAMES utf8mb4"</span>;</div><div class="line">StringTokenizer tokenizer = <span class="keyword">new</span> StringTokenizer(connectionInitSqls, <span class="string">";"</span>);</div><div class="line">druidDataSource.setConnectionInitSqls(Collections.list(tokenizer));</div></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2018/05/15/druid-utf8mb4/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/05/15/druid-utf8mb4/">Comments</a>
     
 
         </footer>
