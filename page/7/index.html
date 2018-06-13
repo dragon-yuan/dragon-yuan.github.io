@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                134
+                135
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,6 +248,88 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-vue-filters" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/07/22/vue-filters/">VueJS中的filters使用</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/22/vue-filters/">
+            <time datetime="2017-07-22T12:02:21.000Z" itemprop="datePublished">2017-07-22</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/web/">web</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>filters:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">someFilter(way) &#123;</div><div class="line">    <span class="keyword">let</span> unitName = <span class="string">''</span>;</div><div class="line">    <span class="keyword">switch</span> (way) &#123;</div><div class="line">        <span class="keyword">case</span> <span class="string">'01'</span>: &#123; unitName = <span class="string">'名称1'</span>; <span class="keyword">break</span>; &#125;</div><div class="line">        <span class="keyword">case</span> <span class="string">'02'</span>: &#123; unitName = <span class="string">'名称2'</span>; <span class="keyword">break</span>; &#125;</div><div class="line">        <span class="keyword">case</span> <span class="string">'03'</span>: &#123; unitName = <span class="string">'名称3'</span>; <span class="keyword">break</span>; &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> unitName;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 其他方法调用</span></div><div class="line"><span class="keyword">var</span> val = <span class="keyword">this</span>.someFilter(value);</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/07/22/vue-filters/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/22/vue-filters/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-yuanzixing" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -997,91 +1079,6 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2017/07/12/java-AtomicBoolean/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/12/java-AtomicBoolean/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-java-charqequence" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/12/java-charqequence/">CharSequence类型</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/07/12/java-charqequence/">
-            <time datetime="2017-07-12T13:52:26.000Z" itemprop="datePublished">2017-07-12</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>String是Java中的字符串，它继承于CharSequence。<br>String继承于CharSequence，也就是说String也是CharSequence类型。<br>CharSequence是一个接口，它只包括length(),charAt(int),subSequence(int,int)这几个API接口。<br>除了String实现了CharSequence之外，StringBuffer和StringBuilder也实现了CharSequence接口。<br>需要说明的是，CharSequence就是字符序列。<br>String, StringBuilder和StringBuffer本质上都是通过字符数组实现的。</p>
-<p>对于一个抽象类或者是接口类，不能使用new来进行赋值，但是可通过下面的方式来进行实例的创建：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CharSequence cs=<span class="string">"hello"</span>;</div></pre></td></tr></table></figure></p>
-<p>但是不能这样来创建：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CharSequence cs=<span class="keyword">new</span> CharSequence(<span class="string">"hello"</span>);</div></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 比较字符串是否相等</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(CharSequence cs1, CharSequence cs2)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> cs1 == cs2?<span class="keyword">true</span>:(cs1 != <span class="keyword">null</span> &amp;&amp; cs2 != <span class="keyword">null</span>?(cs1 <span class="keyword">instanceof</span> String &amp;&amp; cs2 <span class="keyword">instanceof</span> String?cs1.equals(cs2):CharSequenceUtils.regionMatches(cs1, <span class="keyword">false</span>, <span class="number">0</span>, cs2, <span class="number">0</span>, Math.max(cs1.length(), cs2.length()))):<span class="keyword">false</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/07/12/java-charqequence/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/12/java-charqequence/">Comments</a>
     
 
         </footer>
