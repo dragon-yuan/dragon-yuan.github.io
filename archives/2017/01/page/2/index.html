@@ -26,19 +26,18 @@
 	})();
 	</script>
     
-    <title>初识JAVA倒计时 | DragonBlog</title>
+    <title>Archive: 2017/1 | DragonBlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content=".先获取到服务器的时间var nowTdrCommon =&amp;lt;%=System.currentTimeMillis()%&amp;gt;; //服务器时间var nowTdrCommon1 =&amp;lt;%=System.currentTimeMillis()%&amp;gt;; //服务器时间 .获取到结束时间（结束时间为obj）var EndDateTime_cd = obj;var EndDateTime_">
-<meta property="og:type" content="article">
-<meta property="og:title" content="初识JAVA倒计时">
-<meta property="og:url" content="http://blog.dragon-yuan.me/2018/06/01/countdown/index.html">
+    <meta name="description" content="dragon-yuan">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DragonBlog">
+<meta property="og:url" content="http://blog.dragon-yuan.me/archives/2017/01/page/2/index.html">
 <meta property="og:site_name" content="DragonBlog">
-<meta property="og:description" content=".先获取到服务器的时间var nowTdrCommon =&amp;lt;%=System.currentTimeMillis()%&amp;gt;; //服务器时间var nowTdrCommon1 =&amp;lt;%=System.currentTimeMillis()%&amp;gt;; //服务器时间 .获取到结束时间（结束时间为obj）var EndDateTime_cd = obj;var EndDateTime_">
+<meta property="og:description" content="dragon-yuan">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-01T12:58:47.661Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="初识JAVA倒计时">
-<meta name="twitter:description" content=".先获取到服务器的时间var nowTdrCommon =&amp;lt;%=System.currentTimeMillis()%&amp;gt;; //服务器时间var nowTdrCommon1 =&amp;lt;%=System.currentTimeMillis()%&amp;gt;; //服务器时间 .获取到结束时间（结束时间为obj）var EndDateTime_cd = obj;var EndDateTime_">
+<meta name="twitter:title" content="DragonBlog">
+<meta name="twitter:description" content="dragon-yuan">
     
 
     
@@ -248,146 +247,80 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-countdown" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+            <section id="main"><div class="timeline timeline-wrap">
+    
+            <div class="timeline-row timeline-row-major">
+                <span class="node"><i class="fa fa-calendar"></i></span>
+                <h1 class="title">2017</h1>
+            </div>
         
-        
-            <header class="article-header">
+        <div class="timeline-row">
+            <span class="node"></span>
+            <div class="content">
                 
     
-        <h1 class="article-title" itemprop="name">
-            初识JAVA倒计时
+        <h1 itemprop="name">
+            <a class="timeline-article-title" href="/2017/01/01/gallery-mylife-2017/">2017 - Dragon&#39;s Life</a>
         </h1>
     
 
-                
-                    <div class="article-meta">
-                        
+                <div class="article-meta">
+                    
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/06/01/countdown/">
-            <time datetime="2018-06-01T12:58:47.661Z" itemprop="datePublished">2018-06-01</time>
+        <a href="/2017/01/01/gallery-mylife-2017/">
+            <time datetime="2016-12-31T16:00:00.000Z" itemprop="datePublished">2017-01-01</time>
         </a>
     </div>
 
 
-                        
+                    
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Gallery/">Gallery</a>
+    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    
+        <div class="timeline-row">
+            <span class="node"></span>
+            <div class="content">
+                
+    
+        <h1 itemprop="name">
+            <a class="timeline-article-title" href="/2017/01/01/springboot-1/">Spring Boot 优雅的入门篇</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/01/01/springboot-1/">
+            <time datetime="2016-12-31T16:00:00.000Z" itemprop="datePublished">2017-01-01</time>
+        </a>
+    </div>
+
+
+                    
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/Java/">Java</a>
     </div>
 
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p><1>.先获取到服务器的时间<br>var nowTdrCommon =&lt;%=System.currentTimeMillis()%&gt;; //服务器时间<br>var nowTdrCommon1 =&lt;%=System.currentTimeMillis()%&gt;; //服务器时间</1></p>
-<p><2>.获取到结束时间（结束时间为obj）<br>var EndDateTime_cd = obj;<br>var EndDateTime_s = EndDateTime_cd.replace(/-/g, “/“);<br>nowTdrCommon = nowTdrCommon + 1000;<br>var date1 = new Date(nowTdrCommon); //开始时间<br>var date2 = new Date(EndDateTime_s); //结束时间<br>var date3 = date2.getTime() - date1.getTime(); //时间差的毫秒数</2></p>
-<p>//计算出相差天数<br>var days = Math.floor(date3 / (24 <em> 3600 </em> 1000));</p>
-<p>//计算出小时数<br>var leave1 = date3 % (24 <em> 3600 </em> 1000); //计算天数后剩余的毫秒数<br>var hours = Math.floor(leave1 / (3600 * 1000));</p>
-<p>//计算相差分钟数<br>var leave2 = leave1 % (3600 <em> 1000); //计算小时数后剩余的毫秒数<br>var minutes = Math.floor(leave2 / (60 </em> 1000));</p>
-<p>//计算相差秒数<br>var leave3 = leave2 % (60 * 1000); //计算分钟数后剩余的毫秒数<br>var seconds = Math.round(leave3 / 1000);</p>
-<p><3>.比较时间，并输出显示剩余时间<br>if (date3 &lt; 0) {<br>        return “0”;<br>} else {<br>        return “<span><strong>“ + days + “天</strong></span><span><strong>“</strong></span></3></p>
-<ul>
-<li>hours + “时<span><strong>“ + minutes</strong></span></li>
-<li>“分<span><strong>“ + seconds</strong></span></li>
-<li>“秒“;<br>}</li>
-</ul>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2018/06/01/countdown/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/06/01/countdown/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2018/06/01/decorators/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    sitemesh布局和修饰框架
-                
+                    
+                </div>
             </div>
-        </a>
+        </div>
     
-    
-        <a href="/2018/06/01/SQL-RAND()/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">通过SQL语句实现关于随机选择等功能</div>
-        </a>
-    
-</nav>
+</div>
 
-
-    
-</article>
-
-
-    
-    <section id="comments">
-    
-        <!-- 代码1：放在页面需要展示的位置  -->
-<div id="cyReward" role="cylabs" data-use="reward"></div>
-<!-- 代码2：用来读取评论框配置，此代码需放置在代码1之后。 -->
-<!-- 如果当前页面有评论框，代码2请勿放置在评论框代码之前。 -->
-<!-- 如果页面同时使用多个实验室项目，以下代码只需要引入一次，只配置上面的div标签即可 -->
-<script type="text/javascript" charset="utf-8" src="https://changyan.itc.cn/js/lib/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="https://changyan.sohu.com/js/changyan.labs.https.js?appid=cyt6NLeqm"></script>
-<div id="SOHUCS" ></div>
-<style>
-	.header-skin {display: none !important;}
-	#SOHUCS #SOHU_MAIN .module-cmt-header .section-cbox-w .block-head-w .header-skin {display: none !important;}
-</style>
-<script type="text/javascript"> 
-(function(){ 
-var appid = 'cyt6NLeqm'; 
-var conf = 'prod_ea00622159dfcb4d47e875bcf56d23d7'; 
-var width = window.innerWidth || document.documentElement.clientWidth; 
-if (width < 960) { 
-window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
-
-    
-    </section>
-
+    <nav id="page-nav">
+        <a class="extend prev" rel="prev" href="/archives/2017/01/">&laquo; Prev</a><a class="page-number" href="/archives/2017/01/">1</a><span class="page-number current">2</span>
+    </nav>
 </section>
             
                 <aside id="sidebar">

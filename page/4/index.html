@@ -248,7 +248,7 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
-    <article id="post-swagger" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-windows-mongodb" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -256,7 +256,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/02/02/swagger/">Swagger配置</a>
+            <a class="article-title" href="/2017/10/31/windows-mongodb/">Windows环境下mongodb配置</a>
         </h1>
     
 
@@ -265,8 +265,8 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/02/02/swagger/">
-            <time datetime="2018-02-02T15:54:15.000Z" itemprop="datePublished">2018-02-02</time>
+        <a href="/2017/10/31/windows-mongodb/">
+            <time datetime="2017-10-31T12:30:52.000Z" itemprop="datePublished">2017-10-31</time>
         </a>
     </div>
 
@@ -286,11 +286,11 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>首先在Maven pom中加入Swagger依赖库<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 添加swagger支持 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>SwaggerConfig配置如下即可<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Configuration</span></div><div class="line"><span class="meta">@EnableSwagger</span>2</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfig</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Swagger配置</div><div class="line">     * <span class="doctag">@author</span>: dragon</div><div class="line">     * apiInfo - 自定义Swagger基础信息头</div><div class="line">     * select - 选择哪些路径和API是需要生成document</div><div class="line">     * apis API接口包扫描路径</div><div class="line">     *   - 参数 : RequestHandlerSelectors.any() api接口包扫描路径，对所有api进行监控</div><div class="line">     *   - 参数 : RequestHandlerSelectors.basePackage(...) 过滤其他包，仅对选中包进行监控</div><div class="line">     *   - 参数 : RequestHandlerSelectors.withClassAnnotation(...) 通过类注解形式进行过滤监控</div><div class="line">     *   - 参数 : RequestHandlerSelectors.withMethodAnnotation(...) 通过类注解形式进行过滤监控</div><div class="line">     * paths 可以根据接口url路径设置哪些请求加入文档，忽略哪些请求</div><div class="line">     *   - 参数 : PathSelectors.any() 对所有接口路径进行监控</div><div class="line">     *   - 参数 : PathSelectors.regex("/comm.*") 对接口路径进行过滤监控</div><div class="line">     */</div><div class="line">    <span class="meta">@Bean</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Docket <span class="title">reservationApi</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2).</div><div class="line">                apiInfo(apiInfo())</div><div class="line">                .select()</div><div class="line">                .apis(RequestHandlerSelectors.basePackage(<span class="string">"com.web.restful"</span>))</div><div class="line">                .paths(PathSelectors.any())</div><div class="line">                .build();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">private</span> ApiInfo <span class="title">apiInfo</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> ApiInfoBuilder().title(<span class="string">"Swagger Title"</span>)</div><div class="line">		        .description(<span class="string">"Swaggere Description."</span>).version(<span class="string">"1.0"</span>).build();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>在类前添加：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Api</span>(value = <span class="string">"Controller"</span>, tags = <span class="string">"XX相关接口"</span>, description = <span class="string">"XX描述"</span>, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)</div></pre></td></tr></table></figure></p>
-<p>在方法前添加：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@ApiOperation</span>(notes = <span class="string">"返回类型"</span>, httpMethod = <span class="string">"POST"</span>, value = <span class="string">"XX接口"</span>)</div></pre></td></tr></table></figure></p>
-<p>在传参前添加：<br>注解ModelAttribute可带出DTO中Swagger API注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@ApiParam</span>(name = <span class="string">"xxDTO"</span>,value = <span class="string">"XX请求参数"</span>) <span class="meta">@ModelAttribute</span> xxDTO</div></pre></td></tr></table></figure></p>
+            <p><1>首先安装mongodb不多说了。</1></p>
+<p><2>配置：<br>1.在自定义的工作空间下新建Data文件夹<br>2.在Data下新建db和log文件夹<br>3.在log文件夹下新建MongoDB.log文件</2></p>
+<p><3>开启Mongodb Service<br>通过cmd找到mongodb的安装路径并进入bin文件夹下<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#".....\Data\db"为配置中第二项的路径</div><div class="line">#".....\Data\log\MongoDB.log"为配置中第三项的路径</div><div class="line">mongod -dbpath ".....\Data\db" -logpath ".....\Data\log\MongoDB.log" -install -serviceName "MongoDB"</div></pre></td></tr></table></figure></3></p>
+<p>开启服务 net start mongodb<br>关闭服务 net stop mongodb</p>
+<p><4>删除Mongodb Service<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#".....\Data\db"为配置中第二项的路径</div><div class="line">#".....\Data\log\MongoDB.log"为配置中第三项的路径</div><div class="line">mongod -dbpath ".....\Data\db" -logpath ".....\Data\log\MongoDB.log" -remove -serviceName "MongoDB"</div></pre></td></tr></table></figure></4></p>
 
         
         </div>
@@ -324,7 +324,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2018/02/02/swagger/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/02/02/swagger/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/10/31/windows-mongodb/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/10/31/windows-mongodb/">Comments</a>
     
 
         </footer>
@@ -334,7 +334,7 @@ var jiathis_config={
 
 
 
-    <article id="post-java-builder" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-mysql-about-date" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -342,7 +342,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/01/25/java-builder/">Java Builder设计模式</a>
+            <a class="article-title" href="/2017/10/25/mysql-about-date/">关于时间的处理，以及MyBatis中对时间的处理</a>
         </h1>
     
 
@@ -351,8 +351,8 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/01/25/java-builder/">
-            <time datetime="2018-01-25T15:01:55.000Z" itemprop="datePublished">2018-01-25</time>
+        <a href="/2017/10/25/mysql-about-date/">
+            <time datetime="2017-10-25T14:04:19.000Z" itemprop="datePublished">2017-10-25</time>
         </a>
     </div>
 
@@ -372,7 +372,11 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>适用场景：复杂对象的组装和创建<br>建造者模式，是为了将构建复杂对象的过程和它的部件解耦。<br>它允许用户可以只通过指定复杂对象的类型和内容就可以构建它们。<br>使用者可以在不知道内部的具体构建细节。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Address</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String province;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String city;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String area;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String street;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Builder</span> </span>&#123;</div><div class="line">        <span class="keyword">private</span> String province;</div><div class="line">        <span class="keyword">private</span> String city;</div><div class="line">        <span class="keyword">private</span> String area;</div><div class="line">        <span class="keyword">private</span> String street;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Builder</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> Builder <span class="title">province</span><span class="params">(String province)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.province = province;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> Builder <span class="title">city</span><span class="params">(String city)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.city = city;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> Builder <span class="title">area</span><span class="params">(String area)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.area = area;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> Builder <span class="title">street</span><span class="params">(String street)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.street = street;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> Address <span class="title">build</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Address(<span class="keyword">this</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Address</span><span class="params">(Builder builder)</span> </span>&#123;</div><div class="line">        province = builder.province;</div><div class="line">        city = builder.city;</div><div class="line">        area = builder.area;</div><div class="line">        street = builder.street;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+            <p><code>java</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// String -&gt; Date</span></div><div class="line">SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">""</span>);</div><div class="line">Date date = sdf.parse(dateString);</div></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Date -&gt; String</span></div><div class="line">Date date = <span class="keyword">new</span> Date();</div><div class="line">String dateString = (<span class="keyword">new</span> SimpleDateFormat(<span class="string">""</span>)).format(date);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 在日期上增加数个整月</span></div><div class="line">Calendar cal = Calendar.getInstance();</div><div class="line">cal.setTime(<span class="keyword">new</span> Date());</div><div class="line">cal.add(Calendar.MONTH, <span class="number">1</span>);</div><div class="line">Date date = cal.getTime();</div></pre></td></tr></table></figure>
+<p><code>mysql</code><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 时间转换</div><div class="line">DATE_FORMAT(NOW(),'%b %d %Y %h:%i %p')  </div><div class="line">DATE_FORMAT(NOW(),'%m-%d-%Y')  </div><div class="line">DATE_FORMAT(NOW(),'%d %b %y')  </div><div class="line">DATE_FORMAT(NOW(),'%d %b %Y %T:%f')</div></pre></td></tr></table></figure></p>
+<p><code>mybatis</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;![CDATA[&gt;]]&gt;</div><div class="line">&lt;![CDATA[&gt;=]]&gt;</div><div class="line">&lt;![CDATA[&lt;]]&gt;</div><div class="line">&lt;![CDATA[&lt;=]]&gt;</div></pre></td></tr></table></figure></p>
 
         
         </div>
@@ -406,7 +410,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2018/01/25/java-builder/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/01/25/java-builder/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/10/25/mysql-about-date/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/10/25/mysql-about-date/">Comments</a>
     
 
         </footer>
@@ -416,7 +420,7 @@ var jiathis_config={
 
 
 
-    <article id="post-ConditionalOnExpression" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-sql-about-date" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -424,7 +428,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/01/20/ConditionalOnExpression/">Spring Boot中使用@ConditionalOnExpression注解</a>
+            <a class="article-title" href="/2017/10/23/sql-about-date/">SQL中获取前后一个月</a>
         </h1>
     
 
@@ -433,8 +437,8 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/01/20/ConditionalOnExpression/">
-            <time datetime="2018-01-20T15:18:10.000Z" itemprop="datePublished">2018-01-20</time>
+        <a href="/2017/10/23/sql-about-date/">
+            <time datetime="2017-10-23T14:07:24.000Z" itemprop="datePublished">2017-10-23</time>
         </a>
     </div>
 
@@ -454,7 +458,9 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// properties中可以配置isEnabled的值，true即开启Bean注入，false为不注入</span></div><div class="line"><span class="meta">@Configuration</span></div><div class="line"><span class="meta">@ConditionalOnExpression</span>(<span class="string">"$&#123;isEnabled&#125;"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SomeConfiguration</span> </span>&#123;</div><div class="line">    <span class="meta">@Bean</span></div><div class="line">    <span class="keyword">public</span> ... ...(... ...) &#123;</div><div class="line">        <span class="comment">// 实现</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">date_add(NOW(), interval 1 MONTH)</div><div class="line">#date_add()增加</div><div class="line">#date_sub()减少</div></pre></td></tr></table></figure>
+<p><code>month</code>月份；<code>minute</code>分钟；<code>second</code>秒；</p>
+
         
         </div>
         <footer class="article-footer">
@@ -487,7 +493,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2018/01/20/ConditionalOnExpression/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/01/20/ConditionalOnExpression/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/10/23/sql-about-date/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/10/23/sql-about-date/">Comments</a>
     
 
         </footer>
@@ -497,7 +503,7 @@ var jiathis_config={
 
 
 
-    <article id="post-maven-dependencymanagement" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-sql-union" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -505,7 +511,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/01/20/maven-dependencymanagement/">Maven中的dependencyManagement</a>
+            <a class="article-title" href="/2017/10/11/sql-union/">SQL中UNION和UNION ALL操作符</a>
         </h1>
     
 
@@ -514,8 +520,8 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/01/20/maven-dependencymanagement/">
-            <time datetime="2018-01-20T03:11:33.000Z" itemprop="datePublished">2018-01-20</time>
+        <a href="/2017/10/11/sql-union/">
+            <time datetime="2017-10-11T14:22:29.000Z" itemprop="datePublished">2017-10-11</time>
         </a>
     </div>
 
@@ -535,7 +541,8 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"># pom.xml</div><div class="line"># 只是对版本进行管理，不会实际引入jar包</div><div class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.2.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></div><div class="line"># 实际下载jar包 </div><div class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </div><div class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div></pre></td></tr></table></figure>
+            <p>UNION操作符用于合并两个或多个SELECT语句的结果集。<br>UNION内部的SELECT语句必须拥有相同数量的列。列也必须拥有相似的数据类型。<br>同时，每条SELECT语句中的列的顺序必须相同。<br>UNION操作符选取的是不同的值。如需要重复的值，需要用UNION ALL。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> column_name(s) <span class="keyword">FROM</span> table_name1</div><div class="line"><span class="keyword">UNION</span></div><div class="line"><span class="keyword">SELECT</span> column_name(s) <span class="keyword">FROM</span> table_name2</div></pre></td></tr></table></figure></p>
+
         
         </div>
         <footer class="article-footer">
@@ -568,7 +575,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2018/01/20/maven-dependencymanagement/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/01/20/maven-dependencymanagement/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/10/11/sql-union/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/10/11/sql-union/">Comments</a>
     
 
         </footer>
@@ -578,7 +585,7 @@ var jiathis_config={
 
 
 
-    <article id="post-java-transient" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-java-at-interface" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -586,7 +593,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/01/20/java-transient/">浅析Java关键字 transient</a>
+            <a class="article-title" href="/2017/09/18/java-at-interface/">Java注释@interface的用法</a>
         </h1>
     
 
@@ -595,8 +602,8 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/01/20/java-transient/">
-            <time datetime="2018-01-20T03:11:33.000Z" itemprop="datePublished">2018-01-20</time>
+        <a href="/2017/09/18/java-at-interface/">
+            <time datetime="2017-09-18T13:30:59.000Z" itemprop="datePublished">2017-09-18</time>
         </a>
     </div>
 
@@ -616,8 +623,9 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">transient官方解释：</div><div class="line">Variables may be marked transient to indicate that they are not part of the persistent state of an object.</div><div class="line">变量可以被标记为瞬态，表示它们不是对象的持久状态的一部分。</div></pre></td></tr></table></figure>
-<p>Java中transient关键字可以让被修饰的变量不被序列化，只需要实现Serilizable接口，将不需要<br>序列化的属添加transient，在序列化对象时此属性就不会被序列化到指定的目的地中。</p>
+            <p>注解大都用在开发框架中。<br>Java用 @interface Annotation{} 定义一个注解 @Annotation，一个注解是一个类。<br>用@Retention(RetentionPolicy.CLASS)修饰的注解，表示注解的信息被保留在class文件(字节码文件)中当程序编译时，<br>但不会被虚拟机读取在运行的时候;<br>用@Retention(RetentionPolicy.SOURCE )修饰的注解,表示注解的信息会被编译器抛弃，不会留在class文件中，注解的<br>信息只会留在源文件中;<br>用@Retention(RetentionPolicy.RUNTIME )修饰的注解，表示注解的信息被保留在class文件(字节码文件)中当程序编译<br>时，会被虚拟机保留在运行时，所以他们可以用反射的方式读取。</p>
+<p>定义个一注解@MyTarget，用RetentionPolicy.RUNTIME修饰;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)  </div><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyTarget&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>注解@Target也是用来修饰注解的元注解，它有一个属性ElementType也是枚举类型，<br>值为：ANNOTATION_TYPE,CONSTRUCTOR,FIELD,LOCAL_VARIABLE,METHOD,PACKAGE,PARAMETER,TYPE<br>如@Target(ElementType.METHOD) 修饰的注解表示该注解只能用来修饰在方法上。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Target</span>(ElementType.METHOD)  </div><div class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)  </div><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyTarget&#123;</div><div class="line">	<span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> "val"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
         
         </div>
@@ -651,7 +659,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2018/01/20/java-transient/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/01/20/java-transient/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/09/18/java-at-interface/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/09/18/java-at-interface/">Comments</a>
     
 
         </footer>
@@ -661,7 +669,7 @@ var jiathis_config={
 
 
 
-    <article id="post-transactional-one" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-linux-crontab" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -669,7 +677,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/01/16/transactional-one/">Spring事务的七种传播行为，四种特性</a>
+            <a class="article-title" href="/2017/09/13/linux-crontab/">Linux中crontab定时任务</a>
         </h1>
     
 
@@ -678,805 +686,8 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/01/16/transactional-one/">
-            <time datetime="2018-01-16T14:57:15.000Z" itemprop="datePublished">2018-01-16</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">spring默认传播行为。</div><div class="line">如果有事务，那么加入事务，没有的话新建一个。</div><div class="line">@Transactional(propagation=Propagation.REQUIRED)</div><div class="line"></div><div class="line">容器不为这个方法开启事务</div><div class="line">@Transactional(propagation=Propagation.NOT_SUPPORTED)</div><div class="line"></div><div class="line">创建一个新的事务，原来的挂起，新的执行完毕，继续执行老的事务</div><div class="line">两个事务没有依赖关系，可以实现新事务回滚了，但外部事务继续执行</div><div class="line">@Transactional(propagation=Propagation.REQUIRES_NEW)</div><div class="line"></div><div class="line">必须在一个已有的事务中执行,否则抛出异常</div><div class="line">@Transactional(propagation=Propagation.MANDATORY)</div><div class="line"></div><div class="line">必须在一个没有的事务中执行，否则抛出异常</div><div class="line">@Transactional(propagation=Propagation.NEVER)</div><div class="line"></div><div class="line">如果其他bean调用这个方法，在其他bean中声明事务，那就用事务，如果其他bean没有声明事务，那就不用事务。</div><div class="line">@Transactional(propagation=Propagation.SUPPORTS)</div><div class="line"></div><div class="line">如果当前存在事务，则在嵌套事务内执行，如果当前不存在事务，则创建一个新的事务，嵌套事务使用数据库中的保存点来实现，即嵌套事务回滚不影响外部事务，但外部事务回滚将导致嵌套事务回滚。</div><div class="line">@Transactional(propagation=Propagation.Nested)</div></pre></td></tr></table></figure>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">四种特性：</div><div class="line">1、原子性：事务包含的所有操作要么全部成功，要么全部失败回滚。</div><div class="line">2、一致性：事务必须使数据库从一个一致性状态变换到另一个一致性状态，也就是说一个事务执行之前和执行之后都必须处于一致性状态。</div><div class="line">3、持久性：事务一旦被提交了，那么对数据库中的数据的改变就是永久性的，即便是在数据库系统遇到故障的情况下也不会丢失提交事务的操作。</div><div class="line">4、隔离性：当多个用户并发访问数据库时，比如操作同一张表时，数据库为每一个用户开启的事务，不能被其他事务的操作所干扰，多个并发事务之间要相互隔离。</div></pre></td></tr></table></figure>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2018/01/16/transactional-one/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/01/16/transactional-one/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-mybatis-batch-insert" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/01/03/mybatis-batch-insert/">按指定数量拆分List及Mybatis批量插入</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/01/03/mybatis-batch-insert/">
-            <time datetime="2018-01-03T14:44:15.000Z" itemprop="datePublished">2018-01-03</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>当数据量过多需要插入到数据库时，因为数据库连接需要的时间较长，所以可以选择连接池并批量插入数据，从而提高效率。<br>1.按指定数量拆分List<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">final</span> <span class="keyword">int</span> LIST_SIZE = <span class="number">50</span>;</div><div class="line">List&lt;Object&gt; objList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line"><span class="comment">// 如果小于50个对象，直接插入</span></div><div class="line"><span class="keyword">if</span> (objList.size() &lt;= LIST_SIZE) &#123;</div><div class="line">    <span class="keyword">for</span> (Object obj : objList) &#123;</div><div class="line">        mapper.insert(obj);</div><div class="line">    &#125;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    Object[] params = objList.toArray(<span class="keyword">new</span> Object[]&#123;&#125;);</div><div class="line">    <span class="keyword">int</span> len = params.length;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len / LIST_SIZE; i++) &#123;</div><div class="line">        Object[] tmp = Arrays.copyOfRange(params, (i - <span class="number">1</span>) * LIST_SIZE, i * LIST_SIZE);</div><div class="line">        List&lt;Object&gt; paramList = Arrays.asList(tmp);</div><div class="line">        mapper.insertByBatch(paramList);</div><div class="line">        <span class="keyword">if</span> (len / LIST_SIZE == i &amp;&amp; len % LIST_SIZE &gt; <span class="number">0</span>) &#123;</div><div class="line">            tmp = Arrays.copyOfRange(params, objList.size() / LIST_SIZE * LIST_SIZE, len);</div><div class="line">            paramList = Arrays.asList(tmp);</div><div class="line">            mapper.insertByBatch(paramList);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>2.Mybatis批量插入数据<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"insertByBatch"</span> <span class="attr">parameterType</span>=<span class="string">"java.util.List"</span>&gt;</span></div><div class="line">    INSERT INTO table (id, code, name) VALUES</div><div class="line">    <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"paramList"</span> <span class="attr">item</span>=<span class="string">"param"</span> <span class="attr">index</span>=<span class="string">"index"</span> <span class="attr">separator</span>=<span class="string">","</span>&gt;</span></div><div class="line">        (#&#123;param.id&#125;, #&#123;param.code&#125;, #&#123;param.name&#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></div></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2018/01/03/mybatis-batch-insert/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/01/03/mybatis-batch-insert/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-gallery-mylife-2018" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/01/01/gallery-mylife-2018/">2018 - Dragon&#39;s Life</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/01/01/gallery-mylife-2018/">
-            <time datetime="2017-12-31T16:00:00.000Z" itemprop="datePublished">2018-01-01</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Gallery/">Gallery</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-<div class="article-gallery">
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/0.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/0.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/1.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/1.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/2.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/2.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/3.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/3.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/4.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/4.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/5.png" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/5.png" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/4.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/4.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/6.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/6.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/7.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/7.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/8.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/8.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/9.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/9.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/10.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/10.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/11.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/11.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/12.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/12.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/13.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/13.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/14.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/14.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/15.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/15.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/16.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/16.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/17.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/17.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/18.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/18.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/19.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/19.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/20.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/20.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/21.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/21.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/22.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/22.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/23.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/23.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/24.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/24.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/25.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/25.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/26.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/26.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/27.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/27.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/28.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/28.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/29.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/29.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/30.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/30.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/31.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/31.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/32.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/32.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/33.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/33.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/34.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/34.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/35.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/35.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/36.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/36.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/37.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/37.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/38.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/38.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/39.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/39.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/40.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/40.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/41.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/41.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/42.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/42.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/43.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/43.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/44.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/44.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/45.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/45.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/46.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/46.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/47.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/47.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/48.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/48.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/49.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/49.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/50.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/50.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/51.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/51.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/52.png" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/52.png" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/53.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/53.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/54.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/54.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/55.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/55.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/56.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/56.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/57.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/57.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/58.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/58.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/59.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/59.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/60.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/60.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/61.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/61.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/62.jpg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/62.jpg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/63.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/63.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/64.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/64.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/65.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/65.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/66.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/66.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/67.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/67.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/68.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/68.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/69.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/69.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/70.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/70.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/71.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/71.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/72.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/72.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/73.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/73.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/74.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/74.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/75.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/75.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/76.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/76.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/77.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/77.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/78.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/78.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/79.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/79.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/80.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/80.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/81.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/81.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/82.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/82.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/83.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/83.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/84.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/84.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/85.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/85.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/86.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/86.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/87.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/87.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/88.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/88.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/89.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/89.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/90.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/90.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/91.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/91.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/92.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/92.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/93.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/93.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/94.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/94.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/95.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/95.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/96.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/96.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/97.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/97.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/98.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/98.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/99.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/99.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/100.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/100.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/101.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/101.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/102.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/102.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/103.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/103.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/104.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/104.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/105.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/105.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/106.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/106.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/107.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/107.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/108.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/108.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/109.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/109.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/110.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/110.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/111.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/111.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/112.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/112.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/113.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/113.jpeg" itemprop="image" />
-    </a>
-    
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2018-LIFE/114.jpeg" rel="gallery_cjikb5hnl001zkgith8ps8je3">
-        <img src="http://img-blog.dragon-yuan.me/2018-LIFE/114.jpeg" itemprop="image" />
-    </a>
-    
-</div>
-
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2018/01/01/gallery-mylife-2018/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/01/01/gallery-mylife-2018/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-hello-my-memobird" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/12/13/hello-my-memobird/">为我的新朋友“咕咕”安个家</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/12/13/hello-my-memobird/">
-            <time datetime="2017-12-13T15:17:22.000Z" itemprop="datePublished">2017-12-13</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/notes/">notes</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>Hello my memobird.<br>我的咕咕号：768047。欢迎加好友调戏！<br>很久前就在网上看到有人种草了，今年双十二在JD果断下单了，一天到货，物流还是棒棒的。<br>开机吓了一跳，自动打印了使用方法，2333，连上WIFI开始了正常模式。（要是充电的就更好了唉）<br>知乎上还有一些有趣的玩法！<a href="https://www.zhihu.com/question/39529878" target="_blank" rel="noopener">MEMOBIRD 咕咕机有哪些有趣的玩法？</a><br>因为咕咕有自己的开放平台，准备搞一搞有趣的东西开发一下，顺便也学习学习新的语言喽。<br><img src="http://img-blog.dragon-yuan.me/2017-LIFE/150.jpg" alt="memobird"><br>还有啦，希望在2018年，能找到我咕咕机的另一个伴侣~<br>更新下，2017.12.14日部分咕咕~<br><img src="http://img-blog.dragon-yuan.me/2017-LIFE/151.jpg" alt="memobird"><br><img src="http://img-blog.dragon-yuan.me/2017-LIFE/152.jpg" alt="memobird"><br><img src="http://img-blog.dragon-yuan.me/2017-LIFE/153.jpg" alt="memobird"></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/12/13/hello-my-memobird/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/12/13/hello-my-memobird/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-https-config" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/12/03/https-config/">记录APACHE-HTTPS的配置以及遇到的一些陷阱</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/12/03/https-config/">
-            <time datetime="2017-12-02T17:39:27.000Z" itemprop="datePublished">2017-12-03</time>
+        <a href="/2017/09/13/linux-crontab/">
+            <time datetime="2017-09-13T14:09:17.000Z" itemprop="datePublished">2017-09-13</time>
         </a>
     </div>
 
@@ -1496,11 +707,9 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>在开启HTTPS之前，需要服务器防火墙（如果有使用iptables或firewall）</p>
-<p><1>httpd.conf<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#监听80和443端口</div><div class="line">Listen 80</div><div class="line">Listen 443</div><div class="line"></div><div class="line">#加载mod_ssl模块</div><div class="line">EnableSendfile on</div><div class="line">IncludeOptional conf.d/*.conf</div><div class="line">LoadModule ssl_module modules/mod_ssl.so</div><div class="line">Include conf.d/ssl.conf</div></pre></td></tr></table></figure></1></p>
-<p><2>ssl.conf<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#注意，在此配置文件中不需要监听443，防止重复监听</div><div class="line">#在对443虚拟路径映射的时候，需要填写固定IP，不要使用*代替</div><div class="line"><span class="tag">&lt;<span class="name">VirtualHost</span> <span class="attr">ip:443</span>&gt;</span></div><div class="line">#此处填写域名名称</div><div class="line">ServerName domain</div><div class="line"></div><div class="line">SSLEngine on</div><div class="line">SSLProtocol all -SSLv2 -SSLv3</div><div class="line">SSLCipherSuite HIGH:!RC4:!MD5:!aNULL:!eNULL:!NULL:!DH:!EDH:!EXP:+MEDIUM</div><div class="line">SSLHonorCipherOrder on</div><div class="line"></div><div class="line">#SSL加密密钥，可以在APACHE根路径下新建cert并存放密钥文件</div><div class="line">SSLCertificateFile /etc/httpd/cert/public.pem</div><div class="line">SSLCertificateKeyFile /etc/httpd/cert/214047770560394.key</div><div class="line">SSLCertificateChainFile /etc/httpd/cert/chain.pem</div></pre></td></tr></table></figure></2></p>
-<p>在配置好文件后，需要重新启动APACHE服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">srevice iptables restart</div><div class="line">service httpd restart</div><div class="line">service httpd status</div></pre></td></tr></table></figure></p>
-<p>开启301；HTTP重定向到HTTPS<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#在所需的Directory中，修改AllowOverride为All</div><div class="line">&lt;Directory &quot;/var/www/html&quot;&gt;</div><div class="line">AllowOverride All</div><div class="line">&lt;/Directory&gt;</div><div class="line"></div><div class="line">#在网站跟路径增加.htaccess，并写入下面脚本</div><div class="line">RewriteEngine On</div><div class="line">RewriteBase /</div><div class="line">RewriteCond %&#123;SERVER_PORT&#125; !^443$</div><div class="line">RewriteRule ^(.*)$ https://domain/$1 [R=301,L]</div></pre></td></tr></table></figure></p>
+            <p>crontab命令的功能是在一定的时间间隔调度一些命令的执行</p>
+<p>文件/etc/crontab中每行任务的描述格式如下:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">minute - 从0到59的整数 </div><div class="line">hour - 从0到23的整数 </div><div class="line">day - 从1到31的整数 (必须是指定月份的有效日期)</div><div class="line">month - 从1到12的整数 (或如Jan或Feb简写的月份)</div><div class="line">dayofweek - 从0到7的整数，0或7用来描述周日 (或用Sun或Mon简写来表示)</div><div class="line">command - 需要执行的命令(或执行自定义脚本的命令)</div><div class="line"></div><div class="line">root表示以root用户身份来运行</div><div class="line">run-parts表示后面跟着的是一个文件夹，要执行的是该文件夹下的所有脚本</div></pre></td></tr></table></figure></p>
+<p>crontab服务的启动关闭<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sbin/service crond start //启动服务</div><div class="line">/sbin/service crond stop //关闭服务</div><div class="line">/sbin/service crond restart //重启服务</div><div class="line">/sbin/service crond reload //重新载入配置</div></pre></td></tr></table></figure></p>
 
         
         </div>
@@ -1534,7 +743,341 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/12/03/https-config/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/12/03/https-config/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/09/13/linux-crontab/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/09/13/linux-crontab/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-java-native" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/09/12/java-native/">Java中的native关键字</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/09/12/java-native/">
+            <time datetime="2017-09-12T14:32:21.000Z" itemprop="datePublished">2017-09-12</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>Native所定义的方法不能有方法体，他所定义的方法实现是由非java语言实现，比如C语言等。</p>
+<p>例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>;</div></pre></td></tr></table></figure></p>
+<p>标识符native可以与所有其它的java标识符连用，但是abstract除外。这是合理的，因为native暗示这些方法是有实现体的，<br>只不过这些实现体是非java的，但是abstract却显然的指明这些方法无实现体。<br>一个native方法可以返回任何java类型，包括非基本类型，而且同样可以进行异常控制。这些方法的实现体可以自制一个异常并且将其抛出，<br>这一点与java的方法非常相似。native的存在并不会对其他类调用这些本地方法产生任何影响，实际上调用这些方法的其他类甚至不知道它<br>所调用的是一个本地方法。JVM将控制调用本地方法的所有细节。</p>
+<p>当一个类第一次被使用到时，这个类的字节码会被加载到内存，并且只会回载一次。在这个被加载的字节码的入口维持着一个该类所有方法描述<br>符的集合，这些方法描述符包含这样一些信息：方法代码存于何处，它有哪些参数，方法的描述符等等。<br>如果一个方法描述符内有native，这个描述符块将有一个指向该方法的实现的指针。这些实现在一些DLL文件内，但是它们会被操作系统加载<br>到java程序的地址空间。当一个带有本地方法的类被加载时，其相关的DLL并未被加载，因此指向方法实现的指针并不会被设置。<br>当本地方法被调用之前，这些DLL才会被加载，这是通过调用java.system.loadLibrary()实现的。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">本文转载自：http://blog.csdn.net/jiakw_1981/article/details/3073613</div></pre></td></tr></table></figure>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/09/12/java-native/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/09/12/java-native/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-vue-keepalive" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/08/30/vue-keepalive/">Vue中Keep-Alive缓存的使用</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/08/30/vue-keepalive/">
+            <time datetime="2017-08-30T14:59:09.000Z" itemprop="datePublished">2017-08-30</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>Vue提供了一个keep-alive组件用来缓存组件。<br>首先在vue的主页路由上添加keep-alive，并且判断是否在路由开启keepAlive<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;keep-alive&gt;</div><div class="line">    &lt;router-view v-if="$route.meta.keepAlive"&gt;&lt;/router-view&gt;</div><div class="line">&lt;/keep-alive&gt;</div><div class="line">&lt;router-view v-if="!$route.meta.keepAlive"&gt;&lt;/router-view&gt;</div></pre></td></tr></table></figure></p>
+<p>在需要缓存的页面路由上添加标志位<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">keepAlive: ture</div></pre></td></tr></table></figure></p>
+<p>vue中生命周期相关的有：created,mounted,updated,activited,destroyed。<br>在页面上可以添加activited钩子函数。<br>针对keep-alive标签，使用keep-alive在单页中前进后退只触发activited。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">created() &#123;</div><div class="line">	method_1();</div><div class="line">&#125;,</div><div class="line">activited() &#123;</div><div class="line">	method_2();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/08/30/vue-keepalive/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/30/vue-keepalive/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-idea-serialVersion" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/08/16/idea-serialVersion/">IDEA生成序列化ID</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/08/16/idea-serialVersion/">
+            <time datetime="2017-08-16T13:49:27.000Z" itemprop="datePublished">2017-08-16</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Operations/">Operations</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>File -&gt; setting -&gt; Inspections -&gt; Serializationissues<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">将其展开后将</div><div class="line">serialzable class without serialVersionUID</div><div class="line">打上勾</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/08/16/idea-serialVersion/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/16/idea-serialVersion/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-java-zip" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/08/14/java-zip/">使用JAVA压缩文件</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/08/14/java-zip/">
+            <time datetime="2017-08-14T13:44:24.000Z" itemprop="datePublished">2017-08-14</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>如下方法使用Ant版本1.6.5<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.apache.tools.ant.Project;</div><div class="line"><span class="keyword">import</span> org.apache.tools.ant.taskdefs.Zip;</div><div class="line"><span class="keyword">import</span> org.apache.tools.ant.types.FileSet;</div><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CompressionUtil</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">compress</span><span class="params">(String desPath, String srcPath)</span></span>&#123;</div><div class="line">        File desFile = <span class="keyword">new</span> File(desPath);<span class="comment">// 目标文件</span></div><div class="line">        File srcFile = <span class="keyword">new</span> File(srcPath);<span class="comment">// 源文件</span></div><div class="line">        <span class="keyword">if</span> (!srcFile.exists())</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"需要压缩的文件不存在"</span>);</div><div class="line">        Project project = <span class="keyword">new</span> Project();</div><div class="line">        Zip zip = <span class="keyword">new</span> Zip();</div><div class="line">        zip.setProject(project);</div><div class="line">        zip.setDestFile(desFile);</div><div class="line">        FileSet fileSet = <span class="keyword">new</span> FileSet();</div><div class="line">        fileSet.setProject(project);</div><div class="line">        fileSet.setDir(srcFile);</div><div class="line">        zip.addFileset(fileSet);</div><div class="line">        zip.execute();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/08/14/java-zip/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/14/java-zip/">Comments</a>
     
 
         </footer>
