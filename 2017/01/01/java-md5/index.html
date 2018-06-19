@@ -26,19 +26,19 @@
 	})();
 	</script>
     
-    <title>找出两个数组中不相同的元素 | DragonBlog</title>
+    <title>JAVA中明文转MD5 | DragonBlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="// flagArray为String[]  String existsArray[] = new String[]{}; // 与之进行比对的字符集 List list1 = Arrays.asList(flagArray); List list2 = new ArrayList(); // list2用来装载最终字符集 for (String string : existsArray) {">
+    <meta name="description" content="/*       * @param plainText 明文 * @return 32位密文 */   public static String encryption(String plainText) {         String re_md5 = new String();         try {             MessageDigest md = MessageDigest">
 <meta property="og:type" content="article">
-<meta property="og:title" content="找出两个数组中不相同的元素">
-<meta property="og:url" content="http://blog.dragon-yuan.me/2018/06/01/different-arrays/index.html">
+<meta property="og:title" content="JAVA中明文转MD5">
+<meta property="og:url" content="http://blog.dragon-yuan.me/2017/01/01/java-md5/index.html">
 <meta property="og:site_name" content="DragonBlog">
-<meta property="og:description" content="// flagArray为String[]  String existsArray[] = new String[]{}; // 与之进行比对的字符集 List list1 = Arrays.asList(flagArray); List list2 = new ArrayList(); // list2用来装载最终字符集 for (String string : existsArray) {">
+<meta property="og:description" content="/*       * @param plainText 明文 * @return 32位密文 */   public static String encryption(String plainText) {         String re_md5 = new String();         try {             MessageDigest md = MessageDigest">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-01T12:58:47.662Z">
+<meta property="og:updated_time" content="2018-06-19T08:13:04.960Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="找出两个数组中不相同的元素">
-<meta name="twitter:description" content="// flagArray为String[]  String existsArray[] = new String[]{}; // 与之进行比对的字符集 List list1 = Arrays.asList(flagArray); List list2 = new ArrayList(); // list2用来装载最终字符集 for (String string : existsArray) {">
+<meta name="twitter:title" content="JAVA中明文转MD5">
+<meta name="twitter:description" content="/*       * @param plainText 明文 * @return 32位密文 */   public static String encryption(String plainText) {         String re_md5 = new String();         try {             MessageDigest md = MessageDigest">
     
 
     
@@ -248,7 +248,7 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-different-arrays" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-java-md5" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -256,7 +256,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            找出两个数组中不相同的元素
+            JAVA中明文转MD5
         </h1>
     
 
@@ -265,8 +265,8 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/06/01/different-arrays/">
-            <time datetime="2018-06-01T12:58:47.662Z" itemprop="datePublished">2018-06-01</time>
+        <a href="/2017/01/01/java-md5/">
+            <time datetime="2017-01-01T05:50:33.000Z" itemprop="datePublished">2017-01-01</time>
         </a>
     </div>
 
@@ -286,17 +286,36 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>// flagArray为String[]</p>
+            <p></p><p style="color:#c6c6c6;"><br>/<em>*
+     </em></p>
+<pre><code>* @param plainText 明文
+* @return 32位密文
+*/
+</code></pre><p></p><p></p>
 <pre>
-String existsArray[] = new String[]{}; // 与之进行比对的字符集
-List<string> list1 = Arrays.asList(flagArray);
-List<string> list2 = new ArrayList<string>(); // list2用来装载最终字符集
-for (String string : existsArray) {
-        if (!list1.contains(string)) {
-                list2.add(string);
+public static String encryption(String plainText) {
+        String re_md5 = new String();
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(plainText.getBytes());
+            byte b[] = md.digest();
+            int i;
+            StringBuffer buf = new StringBuffer("");
+            for (int offset = 0; offset < b.length; offset++) {
+                i = b[offset];
+                if (i < 0)
+                    i += 256;
+                if (i < 16)
+                    buf.append("0");
+                buf.append(Integer.toHexString(i));
+            }
+            re_md5 = buf.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
         }
-}
-</string></string></string></pre>
+        return re_md5;
+    }
+</pre>
 
         
         </div>
@@ -330,7 +349,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2018/06/01/different-arrays/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/06/01/different-arrays/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/01/01/java-md5/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/01/01/java-md5/">Comments</a>
     
 
         </footer>
@@ -339,19 +358,19 @@ var jiathis_config={
         
 <nav id="article-nav">
     
-        <a href="/2018/06/01/git-readme/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2017/02/22/poi-read-excel/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    GitHub上README总结（markdown）
+                    APACHE POI读取Excel-07操作
                 
             </div>
         </a>
     
     
-        <a href="/2018/06/01/decorators/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/01/01/java-ConvertUtils/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">sitemesh布局和修饰框架</div>
+            <div class="article-nav-title">ConvertUtils的简单使用</div>
         </a>
     
 </nav>
