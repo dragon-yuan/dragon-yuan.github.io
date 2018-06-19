@@ -26,19 +26,19 @@
 	})();
 	</script>
     
-    <title>JAVA随机抽取对象 | DragonBlog</title>
+    <title>JAVA随机生成6位验证码 | DragonBlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="/**  * @param resultList &quot;最终抽取结果集&quot;  * @param totalFlag &quot;最多抽取数量&quot;  * @param canRandomFlag &quot;可以抽取数量&quot;  * @param personCountNum &quot;当前需要抽取数量&quot;  */  for(int k = 0; k &amp;lt; personCountNum; k++){     double randomNum">
+    <meta name="description" content="初学JAVA时期的代码：12345678public static String createRandomCode() &amp;#123;		String code = &quot;&quot;;		Random r = new Random();		for (int i = 0; i &amp;lt; 6; i++) &amp;#123;			code += r.nextInt(10);		&amp;#125;		return code;&amp;#1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA随机抽取对象">
-<meta property="og:url" content="http://blog.dragon-yuan.me/2018/06/01/java-random4j/index.html">
+<meta property="og:title" content="JAVA随机生成6位验证码">
+<meta property="og:url" content="http://blog.dragon-yuan.me/2016/08/01/java-random/index.html">
 <meta property="og:site_name" content="DragonBlog">
-<meta property="og:description" content="/**  * @param resultList &quot;最终抽取结果集&quot;  * @param totalFlag &quot;最多抽取数量&quot;  * @param canRandomFlag &quot;可以抽取数量&quot;  * @param personCountNum &quot;当前需要抽取数量&quot;  */  for(int k = 0; k &amp;lt; personCountNum; k++){     double randomNum">
+<meta property="og:description" content="初学JAVA时期的代码：12345678public static String createRandomCode() &amp;#123;		String code = &quot;&quot;;		Random r = new Random();		for (int i = 0; i &amp;lt; 6; i++) &amp;#123;			code += r.nextInt(10);		&amp;#125;		return code;&amp;#1">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-01T12:58:47.677Z">
+<meta property="og:updated_time" content="2018-06-19T08:28:03.738Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA随机抽取对象">
-<meta name="twitter:description" content="/**  * @param resultList &quot;最终抽取结果集&quot;  * @param totalFlag &quot;最多抽取数量&quot;  * @param canRandomFlag &quot;可以抽取数量&quot;  * @param personCountNum &quot;当前需要抽取数量&quot;  */  for(int k = 0; k &amp;lt; personCountNum; k++){     double randomNum">
+<meta name="twitter:title" content="JAVA随机生成6位验证码">
+<meta name="twitter:description" content="初学JAVA时期的代码：12345678public static String createRandomCode() &amp;#123;		String code = &quot;&quot;;		Random r = new Random();		for (int i = 0; i &amp;lt; 6; i++) &amp;#123;			code += r.nextInt(10);		&amp;#125;		return code;&amp;#1">
     
 
     
@@ -248,7 +248,7 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-java-random4j" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-java-random" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -256,7 +256,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            JAVA随机抽取对象
+            JAVA随机生成6位验证码
         </h1>
     
 
@@ -265,8 +265,8 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/06/01/java-random4j/">
-            <time datetime="2018-06-01T12:58:47.677Z" itemprop="datePublished">2018-06-01</time>
+        <a href="/2016/08/01/java-random/">
+            <time datetime="2016-08-01T03:22:33.000Z" itemprop="datePublished">2016-08-01</time>
         </a>
     </div>
 
@@ -286,22 +286,7 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <pre>
-/**
- * @param resultList "最终抽取结果集"
- * @param totalFlag "最多抽取数量"
- * @param canRandomFlag "可以抽取数量"
- * @param personCountNum "当前需要抽取数量"
- */
-
-for(int k = 0; k < personCountNum; k++){
-    double randomNum = Math.random();
-    int d = (int)(randomNum * canRandomFlag);
-    Object obj = list.get(d); // 获取抽取对象
-    resultList.add(obj); // 添加对象到结果集
-    list.remove(d); // 移除原始采样组
-}
-</pre>
+            <p>初学JAVA时期的代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">createRandomCode</span><span class="params">()</span> </span>&#123;</div><div class="line">		String code = <span class="string">""</span>;</div><div class="line">		Random r = <span class="keyword">new</span> Random();</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++) &#123;</div><div class="line">			code += r.nextInt(<span class="number">10</span>);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> code;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
         
         </div>
@@ -335,7 +320,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2018/06/01/java-random4j/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/06/01/java-random4j/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2016/08/01/java-random/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2016/08/01/java-random/">Comments</a>
     
 
         </footer>
@@ -344,19 +329,19 @@ var jiathis_config={
         
 <nav id="article-nav">
     
-        <a href="/2018/06/06/call-gaoqiuzi-weibo-video/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2016/08/08/request-getrequestdispatcher-response-sendredirect/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    打call高秋梓走起
+                    request.getRequestDispatcher和response.sendRedirect区别
                 
             </div>
         </a>
     
     
-        <a href="/2018/06/01/java-random/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2016/07/27/js-jsoup/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">JAVA随机生成6位验证码</div>
+            <div class="article-nav-title">网页信息抓取进阶 支持Js生成数据 Jsoup的不足之处</div>
         </a>
     
 </nav>
