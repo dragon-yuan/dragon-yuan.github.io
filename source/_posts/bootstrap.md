@@ -2,9 +2,7 @@
 title: Bootstrap下拉菜单
 categories:
   - Web Design
-id: 127
 date: 2015-09-22 07:31:29
-tags:
 ---
 
 <li class="dropdown">

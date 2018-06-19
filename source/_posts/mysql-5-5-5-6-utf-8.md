@@ -2,9 +2,7 @@
 title: MySQL 5.5/5.6的修改字符集编码为UTF-8
 categories:
   - Operations
-id: 159
 date: 2016-02-10 03:15:48
-tags:
 ---
 
 登录MySQL查看用SHOW VARIABLES LIKE ‘character%’;下字符集

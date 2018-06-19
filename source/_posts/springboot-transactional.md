@@ -2,7 +2,7 @@
 title: Spring Boot事务管理
 categories:
   - Java
-tags:
+date: 2018-01-01 00:00:00
 ---
 #前言
 在开发时，由于数操作在顺序执行的过程中，任何一步操作都有可能发生异常，异常会导致后续操
@@ -34,8 +34,7 @@ public方法将都具有该类型的事务属性，同时，也可以在方法�
 
 #对于查询的注解处理
 不需要事务管理的(只查询的)方法
-@Transactional(propagation=Propagation.NOT_SUPPORTED) 
+@Transactional(propagation=Propagation.NOT_SUPPORTED)
 在整个方法运行前就不会开启事务
 @Transactional(propagation=Propagation.NOT_SUPPORTED,readOnly=true)
 这样就做成一个只读事务，可以提高效率
-

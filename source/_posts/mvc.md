@@ -2,9 +2,7 @@
 title: 浅谈MVC思想
 categories:
   - Java
-id: 155
 date: 2015-12-27 03:52:28
-tags:
 ---
 
 <span style="font-family: arial;"><span style="font-size: 13px; line-height: 20.0200004577637px;">Model    模型层</span></span>

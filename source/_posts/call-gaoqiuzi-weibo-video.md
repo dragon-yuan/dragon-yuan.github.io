@@ -4,7 +4,8 @@ categories:
   - Other
 date: 2018-06-06 22:00:00
 ---
-最近创造101真的很火，从第一期开始就关注上了一位实力派练习生：高秋梓（胖虎，胖梓，球球）哈，都是外号了。然后用自己学习着做些打call视频。加油加油加油！
+最近创造101真的很火，从第一期开始就关注上了一位实力派练习生：高秋梓（胖虎，胖梓，球球）哈，都是外号了。
+超级喜欢她的vocal，自己也动手制作了一些视频哦。
 
 ![image](https://img-dragon-blog.oss-cn-beijing.aliyuncs.com/github/imgs/weibo-gqz-video-1.png)
 

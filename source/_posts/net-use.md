@@ -2,9 +2,7 @@
 title: net use错误原因解决
 categories:
   - Operations
-id: 128
 date: 2015-09-22 09:31:03
-tags:
 ---
 
 (1)"发生系统错误 1326。 登录失败： 未知的用户名或错误密码。" 

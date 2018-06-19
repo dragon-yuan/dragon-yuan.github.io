@@ -2,9 +2,7 @@
 title: Centos中二级域名绑定二级目录的方法
 categories:
   - Operations
-id: 169
 date: 2016-05-05 05:25:26
-tags:
 ---
 
 用文本编辑器打开Apache安装目录/etc/httpd/conf\httpd.conf，找到“#Load[Module](http://www.aliyun.com/zixun/aggregation/72666.html) rewrite_module modules/mod_rewrite.so”这行，去掉[前面](http://www.aliyun.com/zixun/aggregation/54488.html)的“#”;继续[查找](http://www.aliyun.com/zixun/aggregation/20541.html)“AllowOverride None”，修改为“AllowOverride All”，然后，重启Apache即可。

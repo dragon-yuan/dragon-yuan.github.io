@@ -2,9 +2,7 @@
 title: 使用CSS让input标签去掉点击后出现的边框
 categories:
   - Web Design
-id: 162
 date: 2016-03-02 00:42:31
-tags:
 ---
 
 CSS：

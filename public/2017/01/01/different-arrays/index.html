@@ -26,19 +26,19 @@
 	})();
 	</script>
     
-    <title>jQuery解析JSON | DragonBlog</title>
+    <title>找出两个数组中不相同的元素 | DragonBlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="使用全局的JSON对象 function strToJson(str){     return JSON.parse(str); }  eval方式解析 function strToJson(str){      var json = eval(&apos;(&apos; + str + &apos;)&apos;);      return json; }">
+    <meta name="description" content="// flagArray为String[]  String existsArray[] = new String[]{}; // 与之进行比对的字符集 List list1 = Arrays.asList(flagArray); List list2 = new ArrayList(); // list2用来装载最终字符集 for (String string : existsArray) {">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jQuery解析JSON">
-<meta property="og:url" content="http://blog.dragon-yuan.me/2018/06/01/jquery-json/index.html">
+<meta property="og:title" content="找出两个数组中不相同的元素">
+<meta property="og:url" content="http://blog.dragon-yuan.me/2017/01/01/different-arrays/index.html">
 <meta property="og:site_name" content="DragonBlog">
-<meta property="og:description" content="使用全局的JSON对象 function strToJson(str){     return JSON.parse(str); }  eval方式解析 function strToJson(str){      var json = eval(&apos;(&apos; + str + &apos;)&apos;);      return json; }">
+<meta property="og:description" content="// flagArray为String[]  String existsArray[] = new String[]{}; // 与之进行比对的字符集 List list1 = Arrays.asList(flagArray); List list2 = new ArrayList(); // list2用来装载最终字符集 for (String string : existsArray) {">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-01T12:58:47.680Z">
+<meta property="og:updated_time" content="2018-06-19T08:14:17.105Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jQuery解析JSON">
-<meta name="twitter:description" content="使用全局的JSON对象 function strToJson(str){     return JSON.parse(str); }  eval方式解析 function strToJson(str){      var json = eval(&apos;(&apos; + str + &apos;)&apos;);      return json; }">
+<meta name="twitter:title" content="找出两个数组中不相同的元素">
+<meta name="twitter:description" content="// flagArray为String[]  String existsArray[] = new String[]{}; // 与之进行比对的字符集 List list1 = Arrays.asList(flagArray); List list2 = new ArrayList(); // list2用来装载最终字符集 for (String string : existsArray) {">
     
 
     
@@ -248,7 +248,7 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-jquery-json" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-different-arrays" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -256,7 +256,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            jQuery解析JSON
+            找出两个数组中不相同的元素
         </h1>
     
 
@@ -265,8 +265,8 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/06/01/jquery-json/">
-            <time datetime="2018-06-01T12:58:47.680Z" itemprop="datePublished">2018-06-01</time>
+        <a href="/2017/01/01/different-arrays/">
+            <time datetime="2017-01-01T05:50:22.000Z" itemprop="datePublished">2017-01-01</time>
         </a>
     </div>
 
@@ -274,7 +274,7 @@ var _hmt = _hmt || [];
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
     </div>
 
                         
@@ -286,18 +286,17 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <pre>
-使用全局的JSON对象
-function strToJson(str){
-    return JSON.parse(str);
+            <p>// flagArray为String[]</p>
+<pre>
+String existsArray[] = new String[]{}; // 与之进行比对的字符集
+List<string> list1 = Arrays.asList(flagArray);
+List<string> list2 = new ArrayList<string>(); // list2用来装载最终字符集
+for (String string : existsArray) {
+        if (!list1.contains(string)) {
+                list2.add(string);
+        }
 }
-
-eval方式解析
-function strToJson(str){
-     var json = eval('(' + str + ')');
-     return json;
-}
-</pre>
+</string></string></string></pre>
 
         
         </div>
@@ -331,7 +330,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2018/06/01/jquery-json/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/06/01/jquery-json/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/01/01/different-arrays/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/01/01/different-arrays/">Comments</a>
     
 
         </footer>
@@ -340,19 +339,19 @@ var jiathis_config={
         
 <nav id="article-nav">
     
-        <a href="/2018/06/01/regular-expressions/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2017/01/01/decorators/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    正则表达式 总结
+                    sitemesh布局和修饰框架
                 
             </div>
         </a>
     
     
-        <a href="/2018/06/01/java-random/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/01/01/jquery-json/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">JAVA随机生成6位验证码</div>
+            <div class="article-nav-title">jQuery解析JSON</div>
         </a>
     
 </nav>

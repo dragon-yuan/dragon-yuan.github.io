@@ -2,9 +2,7 @@
 title: Ubuntu--apache2+php5+mysql
 categories:
   - Operations
-id: 130
 date: 2015-09-25 14:41:57
-tags:
 ---
 
 sudo apt-get install build-essential autoconf automake1.9 cvs subversion

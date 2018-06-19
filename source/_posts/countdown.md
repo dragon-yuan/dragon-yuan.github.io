@@ -2,6 +2,7 @@
 title: 初识JAVA倒计时
 categories:
   - Java
+date: 2017-01-01 13:50:22
 ---
 <1>.先获取到服务器的时间
 var nowTdrCommon =<%=System.currentTimeMillis()%>; //服务器时间

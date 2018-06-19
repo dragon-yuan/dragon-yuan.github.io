@@ -3,7 +3,6 @@ title: jQuery对DOM元素的操作
 categories:
   - Web Design
 date: 2016-12-07 22:14:26
-tags:
 ---
 <pre>
 获取单选按钮的值

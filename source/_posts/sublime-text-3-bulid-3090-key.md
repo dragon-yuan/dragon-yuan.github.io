@@ -2,9 +2,7 @@
 title: Sublime Text 3  Bulid 3090+ KEY
 categories:
   - Operations
-id: 164
 date: 2016-03-09 11:46:30
-tags:
 ---
 
 1.  <span class="pun" style="box-sizing: border-box; color: #4d4d4c;">—–</span> <span class="kwd" style="box-sizing: border-box; color: #8959a8;">BEGIN</span> <span class="pln" style="box-sizing: border-box; color: #4d4d4c;">LICENSE</span> <span class="pun" style="box-sizing: border-box; color: #4d4d4c;">—–</span>

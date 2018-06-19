@@ -2,7 +2,7 @@
 title: sitemesh布局和修饰框架
 categories:
   - Java
-tags:
+date: 2017-01-01 13:50:22
 ---
 #简述
 SiteMesh是一个用来在JSP中实现页面布局和装饰的框架组件，能够较容易实现页面中动态内容和

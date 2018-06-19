@@ -2,6 +2,7 @@
 title: List对于remove操作抛出ConcurrentModificationException
 categories:
   - Java
+date: 2017-01-01 11:50:22
 ---
 <pre>
 for(int i=0;i<list.size();i++){

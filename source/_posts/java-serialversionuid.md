@@ -2,9 +2,7 @@
 title: 关于Java的序列化和serialVersionUID作用
 categories:
   - Java
-id: 180
 date: 2016-08-10 03:34:42
-tags:
 ---
 
 **Java的序列化**

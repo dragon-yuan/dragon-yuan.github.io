@@ -2,9 +2,7 @@
 title: JDBC常用四大API
 categories:
   - Java
-id: 153
 date: 2015-12-23 10:34:58
-tags:
 ---
 
 1\.  DriverManager  获取数据库的驱动

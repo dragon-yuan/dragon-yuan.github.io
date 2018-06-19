@@ -2,9 +2,7 @@
 title: MySQL中字段类型
 categories:
   - Java
-id: 150
 date: 2015-12-22 12:34:33
-tags:
 ---
 
 <span style="font-size: 14.0pt; font-family: 宋体; mso-ascii-theme-font: minor-fareast; mso-fareast-font-family: 宋体; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast;">基础：</span>

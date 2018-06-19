@@ -2,9 +2,7 @@
 title: Java PATH
 categories:
   - Java
-id: 109
 date: 2015-07-30 05:37:11
-tags:
 ---
 
 新建 JAVA_HOME ： C

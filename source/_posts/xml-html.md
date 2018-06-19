@@ -2,9 +2,7 @@
 title: XML 与 HTML 关联
 categories:
   - Web Design
-id: 105
 date: 2015-07-24 02:15:20
-tags:
 ---
 
 XML ：可扩展标记语言是W3C的推荐标准

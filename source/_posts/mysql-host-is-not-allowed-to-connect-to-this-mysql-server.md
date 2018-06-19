@@ -2,9 +2,7 @@
 title: Mysql远程连接 Host * is not allowed to connect to this MySQL server
 categories:
   - Operations
-id: 158
 date: 2016-02-09 06:49:02
-tags:
 ---
 
 mysql -u root -p

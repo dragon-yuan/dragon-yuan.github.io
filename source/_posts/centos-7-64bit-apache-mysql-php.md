@@ -2,9 +2,7 @@
 title: 'CentOS-7-64bit 配置Apache + MySQL + PHP '
 categories:
   - Operations
-id: 138
 date: 2015-10-17 08:40:51
-tags:
 ---
 
 <span style="word-wrap: break-word; font-size: 16px; color: #000000;">**一、配置防火墙，开启80端口、3306端口**</span>

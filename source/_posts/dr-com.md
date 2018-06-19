@@ -2,9 +2,7 @@
 title: 基于DR.COM端口弱口令的研究
 categories:
   - Operations
-id: 19
 date: 2015-04-17 03:52:55
-tags:
 ---
 
 <span style="margin: 0px; padding: 0px; font-family: 宋体;">由于校园网采用</span><span style="margin: 0px; padding: 0px;">DR.COM</span><span style="margin: 0px; padding: 0px; font-family: 宋体;">城市热点服务端，加上校园网速未能像往常一样快速畅通。以至于萌发突破校园网终端的想法。研究方法通过服务器后台突破，端口突破，数据库突破，以及管理员加密算法方式的研究。</span>

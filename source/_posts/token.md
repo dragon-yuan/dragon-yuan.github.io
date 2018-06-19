@@ -2,9 +2,7 @@
 title: 微信二次开发第一弹（开发者中心TOKEN配置与服务器连接）
 categories:
   - Operations
-id: 30
 date: 2015-04-22 14:19:27
-tags:
 ---
 
 <pre style="margin: 0px; padding: 0px; color: #000000; font-family: Helvetica, Tahoma, Arial, sans-serif; font-size: 14px; line-height: 25.2000007629395px;">本文目标：学习一种比较安全的服务器间互相验证身份的方式。  

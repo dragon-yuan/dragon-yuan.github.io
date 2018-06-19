@@ -2,9 +2,7 @@
 title: Linux部署Java Web项目
 categories:
   - Operations
-id: 160
 date: 2016-02-10 11:36:03
-tags:
 ---
 
 下载java - jdk，地址：<span style="font-size: 12.1599998474121px; line-height: 1.3em;">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</span>

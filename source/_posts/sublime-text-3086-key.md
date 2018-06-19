@@ -2,9 +2,7 @@
 title: Sublime Text 3086 KEY
 categories:
   - Operations
-id: 96
 date: 2015-07-14 02:19:38
-tags:
 ---
 
 <span style="color: #777777; font-family: 'Century Gothic', 'Lucida Grande', 'Microsoft YaHei', 'Trebuchet Ms', Helvetica, Georgia, sans-serif;"><span style="font-size: 13px; line-height: 27.2999992370605px;">—– BEGIN LICENSE —–</span></span>

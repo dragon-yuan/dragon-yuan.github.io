@@ -2,6 +2,7 @@
 title: JAVA中明文转MD5
 categories:
   - Java
+date: 2017-01-01 13:50:33
 ---
 <p style="color:#c6c6c6;">
 /**

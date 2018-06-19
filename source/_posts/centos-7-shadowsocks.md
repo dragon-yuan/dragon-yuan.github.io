@@ -2,9 +2,7 @@
 title: Centos 7安装配置Shadowsocks
 categories:
   - Operations
-id: 137
 date: 2015-10-17 07:52:38
-tags:
 ---
 
 ## [源网页](源网页https:/www.ifshow.com/centos-7-installation-and-configuration-shadowsocks/)

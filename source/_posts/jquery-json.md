@@ -2,7 +2,7 @@
 title: jQuery解析JSON
 categories:
   - Web Design
-tags:
+date: 2017-01-01 13:50:22
 ---
 <pre>
 使用全局的JSON对象

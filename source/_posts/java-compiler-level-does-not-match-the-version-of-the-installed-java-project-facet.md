@@ -1,12 +1,8 @@
 ---
-title: >-
-  解决java compiler level does not match the version of the installed java project
-  facet
+title: 解决java compiler level does not match the version of the installed java project facet
 categories:
   - Java
-id: 172
 date: 2016-06-21 13:14:08
-tags:
 ---
 
 <span style="text-align: center;">其实要解决也很简单，在资源管理器下，找到项目所在的目录，在.settings子目录里面，用文本编辑器打开org.eclipse.wst.common.project.facet.core.xml配置文件，如图所示：</span>

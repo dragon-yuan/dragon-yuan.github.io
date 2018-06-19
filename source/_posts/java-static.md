@@ -2,9 +2,7 @@
 title: 在Java中对static的理解
 categories:
   - Java
-id: 174
 date: 2016-06-27 03:46:53
-tags:
 ---
 
 <span style="color: rgb(255, 0, 0);">static是不允许用来修饰局部变量</span>。不要问为什么，这是Java语法的规定。

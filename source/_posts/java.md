@@ -2,9 +2,7 @@
 title: Java基本数据类型
 categories:
   - Java
-id: 171
 date: 2016-06-21 02:29:25
-tags:
 ---
 
 <span style="font-family: 'Microsoft YaHei';">[Java](http://lib.csdn.net/base/17 "Java EE知识库")语言是静态类型的（statical typed)，也就是说所有变量和表达式的类型再编译时就已经完全确定。由于是statical typed，导致Java语言也是强类型（Strong typed）的。强类型意味着每个变量都具有一种类型，每个表达式具有一种类型，并且每种类型都是严格定义的，类型限制了变量可以hold哪些值，表达式最终产生什么值。同时限制了这些值可以进行的操作类型以及操作的具体方式。所有的赋值操作，无论是显式的还是在方法调用中通过参数传递，都要进行类型兼容性检查。</span>

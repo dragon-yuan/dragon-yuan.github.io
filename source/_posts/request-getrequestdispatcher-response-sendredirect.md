@@ -2,9 +2,7 @@
 title: request.getRequestDispatcher和response.sendRedirect区别
 categories:
   - Java
-id: 179
 date: 2016-08-08 03:55:53
-tags:
 ---
 
 request.getRequestDispatcher(String arg0)是"转向"的意思

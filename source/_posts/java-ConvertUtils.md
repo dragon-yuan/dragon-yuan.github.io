@@ -2,6 +2,7 @@
 title: ConvertUtils的简单使用
 categories:
   - Java
+date: 2017-01-01 13:50:22
 ---
 <pre>
 import org.apache.commons.beanutils.ConvertUtils;

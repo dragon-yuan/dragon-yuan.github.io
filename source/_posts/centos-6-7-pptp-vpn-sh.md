@@ -2,9 +2,7 @@
 title: CentOS 6、7下PPTP VPN.sh
 categories:
   - Operations
-id: 144
 date: 2015-11-20 05:44:16
-tags:
 ---
 
 <pre class="prettyprint lang-bsh" style="box-sizing: inherit; border-width: 0px 0px 0px 3px; border-left-style: solid; border-left-color: #cccccc; padding: 0.5em; overflow: auto; word-wrap: normal; font-size: 15.3999996185303px; line-height: 1.55; font-family: Consolas, Monaco, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace; background-color: #f0f0f0;"><span class="com" style="box-sizing: inherit; color: #880000;">#!/bin/bash</span>
