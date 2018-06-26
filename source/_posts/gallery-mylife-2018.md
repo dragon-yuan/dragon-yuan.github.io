@@ -125,4 +125,11 @@ photos:
   - http://img-blog.dragon-yuan.me/2018-LIFE/117.jpeg
   - http://img-blog.dragon-yuan.me/2018-LIFE/118.jpeg
   - http://img-blog.dragon-yuan.me/2018-LIFE/119.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/120.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/121.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/122.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/123.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/124.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/125.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/126.jpeg
 ---
