@@ -132,4 +132,19 @@ photos:
   - http://img-blog.dragon-yuan.me/2018-LIFE/124.jpeg
   - http://img-blog.dragon-yuan.me/2018-LIFE/125.jpeg
   - http://img-blog.dragon-yuan.me/2018-LIFE/126.jpeg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/127.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/128.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/129.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/130.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/131.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/132.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/133.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/134.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/135.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/136.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/137.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/138.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/139.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/140.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/141.jpg
 ---
