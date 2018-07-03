@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                135
+                134
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,7 +248,7 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
-    <article id="post-mybatis-mapper" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-sub-query-sql" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -256,7 +256,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/16/mybatis-mapper/">Mybatis中Mapper.xml映射文件</a>
+            <a class="article-title" href="/2017/07/16/sub-query-sql/">MySQL子查询</a>
         </h1>
     
 
@@ -265,8 +265,8 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/07/16/mybatis-mapper/">
-            <time datetime="2017-07-16T07:32:21.000Z" itemprop="datePublished">2017-07-16</time>
+        <a href="/2017/07/16/sub-query-sql/">
+            <time datetime="2017-07-16T05:50:22.000Z" itemprop="datePublished">2017-07-16</time>
         </a>
     </div>
 
@@ -274,7 +274,7 @@ var _hmt = _hmt || [];
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
+        <a class="article-category-link" href="/categories/MySQL/">MySQL</a>
     </div>
 
                         
@@ -286,11 +286,8 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>if : Mybatis核心 对sql语句进行灵活操作，通过表达式进行判断，对sql进行灵活拼接、组装。<br>对查询条件进行判断，如果输入参数不为空才进行查询条件拼接。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserList"</span>&gt;</span></div><div class="line">  select * from user</div><div class="line">  where 1=1</div><div class="line">  <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"id!=null and id!=''"</span>&gt;</span></div><div class="line">    and id=#&#123;id&#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">if</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"username!=null and username!=''"</span>&gt;</span></div><div class="line">    and username like '%$&#123;username&#125;%'</div><div class="line">  <span class="tag">&lt;/<span class="name">if</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>where : 也可以把where写成下面的形式 :<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserList"</span>&gt;</span></div><div class="line">  select * from user</div><div class="line">  <span class="tag">&lt;<span class="name">where</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"id!=null and id!=''"</span>&gt;</span></div><div class="line">  and id=#&#123;id&#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">if</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"username!=null and username!=''"</span>&gt;</span></div><div class="line">  and username like '%$&#123;username&#125;%'</div><div class="line">  <span class="tag">&lt;/<span class="name">if</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">where</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>foreach : 向sql传递数组或List，Mybatis使用foreach解析，如下：如果我们需要传入多个ID<br>来查询多个用户的信息，这也就可以使用foreach。我们先考虑下如果只写sql语句是如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectUserByList"</span> <span class="attr">parameterType</span>=<span class="string">"java.util.List"</span> <span class="attr">resultType</span>=<span class="string">"user"</span>&gt;</span></div><div class="line">  select * from user</div><div class="line">  <span class="tag">&lt;<span class="name">where</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"list!=null"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"list"</span> <span class="attr">item</span>=<span class="string">"item"</span> <span class="attr">open</span>=<span class="string">"and id in("</span><span class="attr">separator</span>=<span class="string">","</span><span class="attr">close</span>=<span class="string">")"</span>&gt;</span></div><div class="line">        #&#123;item.id&#125;</div><div class="line">      <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">if</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">where</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>如果需要使用到IN关键字，需要传入List并用foreach遍历放入IN中<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;foreach item="item" index="index" collection="list" open="(" separator="," close=")"&gt;</div><div class="line">    #&#123;item&#125;</div><div class="line">&lt;/foreach&gt;</div></pre></td></tr></table></figure></p>
-<p>choose : 标签是按顺序判断其内部when标签中的test条件出否成立，如果有一个成立，则choose<br>结束。当choose中所有when的条件都不满则时，则执行otherwise中的sql类似于Java的switch语句，<br>choose为switch，when为case，otherwise则为default。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"getUserList_choose"</span>&gt;</span>  </div><div class="line">    SELECT *  </div><div class="line">      FROM User u   </div><div class="line">    <span class="tag">&lt;<span class="name">where</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">choose</span>&gt;</span>  </div><div class="line">            <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">"username !=null "</span>&gt;</span>  </div><div class="line">                u.username LIKE CONCAT(CONCAT('%', #&#123;username, jdbcType=VARCHAR&#125;),'%')  </div><div class="line">            <span class="tag">&lt;/<span class="name">when</span> &gt;</span>  </div><div class="line">            <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">"sex != null and sex != '' "</span>&gt;</span>  </div><div class="line">                AND u.sex = #&#123;sex, jdbcType=INTEGER&#125;  </div><div class="line">            <span class="tag">&lt;/<span class="name">when</span> &gt;</span>  </div><div class="line">            <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">"birthday != null "</span>&gt;</span>  </div><div class="line">                AND u.birthday = #&#123;birthday, jdbcType=DATE&#125;  </div><div class="line">            <span class="tag">&lt;/<span class="name">when</span> &gt;</span>  </div><div class="line">            <span class="tag">&lt;<span class="name">otherwise</span>&gt;</span>  </div><div class="line">            <span class="tag">&lt;/<span class="name">otherwise</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;/<span class="name">choose</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;/<span class="name">where</span>&gt;</span>    </div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure></p>
+            <p>子查询：<br>通常在一个SELECT、UPDATE或DELETE语句的WHERE子句中充当查询、修改或删除的条件。<br>例如：在子查询中使用ORDER BY 子句，将查询结果按照deptno列降序输出。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> empno, ename, sal, d.deptno <span class="keyword">FROM</span> scott.emp <span class="keyword">WHERE</span> deptno <span class="keyword">IN</span></div><div class="line">(</div><div class="line"><span class="keyword">SELECT</span> deptno <span class="keyword">FROM</span> scott.emp <span class="keyword">WHERE</span> empno&gt;<span class="number">7782</span></div><div class="line">)</div><div class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> empno <span class="keyword">DESC</span>;</div></pre></td></tr></table></figure></p>
+<p>例：<br>查询出每个部门的编号，名称，位置，部门人数，平均工资<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> d.deptno,d.dname,d.loc,</div><div class="line">  (<span class="keyword">SELECT</span>  <span class="keyword">COUNT</span>(empno) <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> emp.deptno=d.deptno <span class="keyword">GROUP</span> <span class="keyword">BY</span> deptno)</div><div class="line">  con,</div><div class="line">  (<span class="keyword">SELECT</span> <span class="keyword">AVG</span>(sal) <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> emp.deptno=d.deptno <span class="keyword">GROUP</span> <span class="keyword">BY</span> deptno)</div><div class="line">  avgsal</div><div class="line"><span class="keyword">FROM</span> dept d</div></pre></td></tr></table></figure></p>
 
         
         </div>
@@ -324,7 +321,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/07/16/mybatis-mapper/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/16/mybatis-mapper/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/07/16/sub-query-sql/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/16/sub-query-sql/">Comments</a>
     
 
         </footer>
@@ -411,89 +408,6 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2017/07/16/SQL-RAND()/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/16/SQL-RAND()/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-sub-query-sql" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/16/sub-query-sql/">MySQL子查询</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/07/16/sub-query-sql/">
-            <time datetime="2017-07-16T05:50:22.000Z" itemprop="datePublished">2017-07-16</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/MySQL/">MySQL</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>子查询：<br>通常在一个SELECT、UPDATE或DELETE语句的WHERE子句中充当查询、修改或删除的条件。<br>例如：在子查询中使用ORDER BY 子句，将查询结果按照deptno列降序输出。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> empno, ename, sal, d.deptno <span class="keyword">FROM</span> scott.emp <span class="keyword">WHERE</span> deptno <span class="keyword">IN</span></div><div class="line">(</div><div class="line"><span class="keyword">SELECT</span> deptno <span class="keyword">FROM</span> scott.emp <span class="keyword">WHERE</span> empno&gt;<span class="number">7782</span></div><div class="line">)</div><div class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> empno <span class="keyword">DESC</span>;</div></pre></td></tr></table></figure></p>
-<p>例：<br>查询出每个部门的编号，名称，位置，部门人数，平均工资<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> d.deptno,d.dname,d.loc,</div><div class="line">  (<span class="keyword">SELECT</span>  <span class="keyword">COUNT</span>(empno) <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> emp.deptno=d.deptno <span class="keyword">GROUP</span> <span class="keyword">BY</span> deptno)</div><div class="line">  con,</div><div class="line">  (<span class="keyword">SELECT</span> <span class="keyword">AVG</span>(sal) <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> emp.deptno=d.deptno <span class="keyword">GROUP</span> <span class="keyword">BY</span> deptno)</div><div class="line">  avgsal</div><div class="line"><span class="keyword">FROM</span> dept d</div></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/07/16/sub-query-sql/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/16/sub-query-sql/">Comments</a>
     
 
         </footer>
@@ -1097,6 +1011,88 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2017/07/10/java-mysql-concat/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/10/java-mysql-concat/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-java-linux-properties" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/04/10/java-linux-properties/">通过JAVA环境监听Linux系统属性</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/04/10/java-linux-properties/">
+            <time datetime="2017-04-10T12:22:26.000Z" itemprop="datePublished">2017-04-10</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>获取当前系统内存和CPU使用状态<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.hyperic.sigar.Mem;</div><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"><span class="keyword">import</span> java.util.StringTokenizer;</div><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">LinuxSystemTool</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@return</span> int[] result</div><div class="line">     * result.length==4;int[0]=MemTotal;int[1]=MemFree;int[2]=SwapTotal;int[3]=SwapFree;</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] getMemInfo() <span class="keyword">throws</span> IOException, InterruptedException &#123;</div><div class="line">        File file = <span class="keyword">new</span> File(<span class="string">"/proc/meminfo"</span>);</div><div class="line">        BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(</div><div class="line">                <span class="keyword">new</span> FileInputStream(file)));</div><div class="line">        <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">4</span>];</div><div class="line">        String str = <span class="keyword">null</span>;</div><div class="line">        StringTokenizer token = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">while</span>((str = br.readLine()) != <span class="keyword">null</span>) &#123;</div><div class="line">            token = <span class="keyword">new</span> StringTokenizer(str);</div><div class="line">            <span class="keyword">if</span>(!token.hasMoreTokens())</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line"></div><div class="line">            str = token.nextToken();</div><div class="line">            <span class="keyword">if</span>(!token.hasMoreTokens())</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line"></div><div class="line">            <span class="keyword">if</span>(str.equalsIgnoreCase(<span class="string">"MemTotal:"</span>))</div><div class="line">                result[<span class="number">0</span>] = Integer.parseInt(token.nextToken());</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str.equalsIgnoreCase(<span class="string">"MemFree:"</span>))</div><div class="line">                result[<span class="number">1</span>] = Integer.parseInt(token.nextToken());</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str.equalsIgnoreCase(<span class="string">"SwapTotal:"</span>))</div><div class="line">                result[<span class="number">2</span>] = Integer.parseInt(token.nextToken());</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(str.equalsIgnoreCase(<span class="string">"SwapFree:"</span>))</div><div class="line">                result[<span class="number">3</span>] = Integer.parseInt(token.nextToken());</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">float</span> <span class="title">getCpuInfo</span><span class="params">()</span> <span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</div><div class="line">        File file = <span class="keyword">new</span> File(<span class="string">"/proc/stat"</span>);</div><div class="line">        BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(</div><div class="line">                <span class="keyword">new</span> FileInputStream(file)));</div><div class="line">        StringTokenizer token = <span class="keyword">new</span> StringTokenizer(br.readLine());</div><div class="line">        token.nextToken();</div><div class="line">        <span class="keyword">int</span> user1 = Integer.parseInt(token.nextToken());</div><div class="line">        <span class="keyword">int</span> nice1 = Integer.parseInt(token.nextToken());</div><div class="line">        <span class="keyword">int</span> sys1 = Integer.parseInt(token.nextToken());</div><div class="line">        <span class="keyword">int</span> idle1 = Integer.parseInt(token.nextToken());</div><div class="line"></div><div class="line">        Thread.sleep(<span class="number">1000</span>);</div><div class="line"></div><div class="line">        br = <span class="keyword">new</span> BufferedReader(</div><div class="line">                <span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(file)));</div><div class="line">        token = <span class="keyword">new</span> StringTokenizer(br.readLine());</div><div class="line">        token.nextToken();</div><div class="line">        <span class="keyword">int</span> user2 = Integer.parseInt(token.nextToken());</div><div class="line">        <span class="keyword">int</span> nice2 = Integer.parseInt(token.nextToken());</div><div class="line">        <span class="keyword">int</span> sys2 = Integer.parseInt(token.nextToken());</div><div class="line">        <span class="keyword">int</span> idle2 = Integer.parseInt(token.nextToken());</div><div class="line"></div><div class="line">        <span class="keyword">return</span> (<span class="keyword">float</span>)((user2 + sys2 + nice2) -</div><div class="line">              (user1 + sys1 + nice1)) / (<span class="keyword">float</span>)((user2 + nice2 + sys2 + idle2) -</div><div class="line">              (user1 + nice1 + sys1 + idle1));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/04/10/java-linux-properties/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/04/10/java-linux-properties/">Comments</a>
     
 
         </footer>

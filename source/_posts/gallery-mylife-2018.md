@@ -147,4 +147,8 @@ photos:
   - http://img-blog.dragon-yuan.me/2018-LIFE/139.jpg
   - http://img-blog.dragon-yuan.me/2018-LIFE/140.jpg
   - http://img-blog.dragon-yuan.me/2018-LIFE/141.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/142.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/143.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/144.jpg
+  - http://img-blog.dragon-yuan.me/2018-LIFE/145.jpg
 ---
