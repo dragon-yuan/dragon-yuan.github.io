@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                134
+                133
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,90 +248,6 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
-    <article id="post-java-at-interface" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/09/18/java-at-interface/">Java注释@interface的用法</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/09/18/java-at-interface/">
-            <time datetime="2017-09-18T13:30:59.000Z" itemprop="datePublished">2017-09-18</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>注解大都用在开发框架中。<br>Java用 @interface Annotation{} 定义一个注解 @Annotation，一个注解是一个类。<br>用@Retention(RetentionPolicy.CLASS)修饰的注解，表示注解的信息被保留在class文件(字节码文件)中当程序编译时，<br>但不会被虚拟机读取在运行的时候;<br>用@Retention(RetentionPolicy.SOURCE )修饰的注解,表示注解的信息会被编译器抛弃，不会留在class文件中，注解的<br>信息只会留在源文件中;<br>用@Retention(RetentionPolicy.RUNTIME )修饰的注解，表示注解的信息被保留在class文件(字节码文件)中当程序编译<br>时，会被虚拟机保留在运行时，所以他们可以用反射的方式读取。</p>
-<p>定义个一注解@MyTarget，用RetentionPolicy.RUNTIME修饰;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)  </div><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyTarget&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>注解@Target也是用来修饰注解的元注解，它有一个属性ElementType也是枚举类型，<br>值为：ANNOTATION_TYPE,CONSTRUCTOR,FIELD,LOCAL_VARIABLE,METHOD,PACKAGE,PARAMETER,TYPE<br>如@Target(ElementType.METHOD) 修饰的注解表示该注解只能用来修饰在方法上。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Target</span>(ElementType.METHOD)  </div><div class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)  </div><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyTarget&#123;</div><div class="line">	<span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> "val"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/09/18/java-at-interface/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/09/18/java-at-interface/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <article id="post-linux-crontab" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1072,6 +988,93 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2017/08/09/http-url-connection/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/09/http-url-connection/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-aliyun-video" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/08/02/aliyun-video/">阿里云直播配置与使用（初体验）</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/08/02/aliyun-video/">
+            <time datetime="2017-08-02T13:39:27.000Z" itemprop="datePublished">2017-08-02</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Operations/">Operations</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>完整的推流地址：<br>形如：rtmp://video-center.alivecdn.com/{AppName}/{StreamName}?vhost={yourdomain}<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 说明 video-center.alivecdn.com是直播中心服务器，允许自定义</span></div><div class="line"><span class="comment">// 例如您的域名是your.example.com（注意：该域名不可以和你的直播加速域名相同）</span></div><div class="line"><span class="comment">// 可以设置DNS，将您的 域名CNAME指向video-center.alivecdn.com即可 </span></div><div class="line"><span class="comment">// app-name是应用名称，支持自定义，可以更改video-name是流名称，支持自定义</span></div><div class="line"><span class="comment">// 可以更改 vhost参数是最终在边缘节点播放的域名，即你的直播加速域名。</span></div></pre></td></tr></table></figure></p>
+<p>推流（OBS）：<br>例如：rtmp://video.dragon-yuan.me/live_dragon/dragon?vhost=live.dragon-yuan.me<br>推流则需要配置如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// FMS(URL) 为 rtmp://video.dragon-yuan.me/live_dragon/</span></div><div class="line"><span class="comment">// 串流码 为 dragon?vhost=live.dragon-yuan.me</span></div></pre></td></tr></table></figure></p>
+<p>鉴权计算：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rtmp:<span class="comment">//video-center.alivecdn.com/&#123;AppName&#125;/&#123;StreamName&#125;?</span></div><div class="line">vhost=&#123;yourdomain&#125;&amp;auth_key=&#123;timestamp&#125;-&#123;rand&#125;-&#123;uid&#125;-&#123;hashvalue&#125;</div></pre></td></tr></table></figure></p>
+<p>字段描述<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">timestamp：失效时间=时间戳+有效时间，CDN服务器拿到请求后，首先会判断请求中的</div><div class="line">失效时间是否小于当前时间，如果小于，则认为过期失效并返回HTTP 403错误。</div><div class="line"></div><div class="line">rand：随机数，一般设成0</div><div class="line"></div><div class="line">uid：暂未使用（设置成0)</div><div class="line"></div><div class="line">hashvalue：通过md5加密算法计算出的32位验证串</div></pre></td></tr></table></figure></p>
+<p>推流则需要配置如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// FMS(URL) 为 rtmp://video.dragon-yuan.me/live_dragon/</span></div><div class="line"><span class="comment">// 串流码 为 dragon?vhost=live.dragon-yuan.me&amp;auth_key=....</span></div></pre></td></tr></table></figure></p>
+<p>收看地址为：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://live.dragon-yuan.me/live_dragon/dragon.flv?auth_key=....</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/08/02/aliyun-video/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/08/02/aliyun-video/">Comments</a>
     
 
         </footer>

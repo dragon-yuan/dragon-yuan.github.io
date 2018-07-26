@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                134
+                133
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,88 +248,6 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
-    <article id="post-20180302" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/03/02/20180302/">2018年3月2日</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/03/02/20180302/">
-            <time datetime="2018-03-02T13:18:10.000Z" itemprop="datePublished">2018-03-02</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Life/">Life</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>2018年，元宵节快乐。<br>这应该是第二年在北京过十五了，最近项目进度紧张，从年后开始，也第一次这么快的转换假期综合症。刚刚给爸妈打电话，给姥姥买的座机铃声放大器也到了，老爸也给安装上了，心想这回姥姥应该会很开心吧。家里的网在临走的时候也给升级到50M了，不知道爸妈有没有感觉到网速变得快了。<br>紧张的工作之后，晚上看几集赵丽颖的电视剧（陆贞传奇）心里也是美滋滋的，自从看了女儿国电影，突然间就路转粉了赵丽颖。现在也变成了她的小迷弟。<br>写一写最近的心感，每次回家过完年都感觉自己突然间就成长了好多，对于生活更加珍惜了，还是那么喜欢找自己的回忆，等忙过这一段时间，帝都的天气也暖和了，一定要去过去去过的地方再次追忆下，感受时间的变化。<br>还有几天也快过生日了，愿一切顺利。</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2018/03/02/20180302/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/03/02/20180302/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <article id="post-spring-boot-mybatis-mapper-druid" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1066,6 +984,95 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2018/01/03/mybatis-batch-insert/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/01/03/mybatis-batch-insert/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-springboot-transactional" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/01/01/springboot-transactional/">Spring Boot事务管理</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/01/01/springboot-transactional/">
+            <time datetime="2017-12-31T16:00:00.000Z" itemprop="datePublished">2018-01-01</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>#前言<br>在开发时，由于数操作在顺序执行的过程中，任何一步操作都有可能发生异常，异常会导致后续操<br>作无法完成，此时由于业务逻辑并未正确的完成，之前成功操作数据的并不可靠，需要在这种情况<br>下进行回退。事务的作用就是为了保证用户的每一个操作都是可靠的，事务中的每一步操作都必须<br>成功执行，只要有发生异常就回退到事务开始未进行操作的状态。事务管理是Spring框架中最为常<br>用的功能之一，在开发应用时，大部分情况下也都需要使用事务。</p>
+<p>#事务回滚规则<br>事务管理器回滚一个事务的推荐方法是在当前事务的上下文内抛出异常。事务管理器会捕捉任何未<br>处理的异常，然后依据规则决定是否回滚抛出异常的事务。</p>
+<p>#操作<br>用@Transactional注解来声明一个函数需要被事务管理，一般在service层使用@Transactional<br>来对各个业务逻辑进行事务管理的配置。</p>
+<p>@Transactional 可以作用于接口、接口方法、类以及类方法上。当作用于类上时，该类的所有<br>public方法将都具有该类型的事务属性，同时，也可以在方法级别使用该标注来覆盖类级别的定义。</p>
+<p>虽然@Transactional 注解可以作用于接口、接口方法、类以及类方法上，但是 Spring建议不<br>要在接口或者接口方法上使用该注解，因为这只有在使用基于接口的代理时它才会生效。</p>
+<p>@Transactional 注解应该只被应用到public方法上，这是由Spring AOP的本质决定的。<br>如果在protected、private或者默认可见性的方法上使用@Transactional注解，这将被忽略，<br>也不会抛出任何异常。</p>
+<p>@EnableTransactionManagement<br>开启注解事务管理，等同于xml配置文件中的 <tx:annotation-driven></tx:annotation-driven></p>
+<p>#对于查询的注解处理<br>不需要事务管理的(只查询的)方法<br>@Transactional(propagation=Propagation.NOT_SUPPORTED)<br>在整个方法运行前就不会开启事务<br>@Transactional(propagation=Propagation.NOT_SUPPORTED,readOnly=true)<br>这样就做成一个只读事务，可以提高效率</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2018/01/01/springboot-transactional/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/01/01/springboot-transactional/">Comments</a>
     
 
         </footer>
