@@ -976,7 +976,7 @@ var jiathis_config={
 
 
 
-    <article id="post-jquery-json" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-different-arrays" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -984,7 +984,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/01/jquery-json/">jQuery解析JSON</a>
+            <a class="article-title" href="/2017/01/01/different-arrays/">找出两个数组中不相同的元素</a>
         </h1>
     
 
@@ -993,7 +993,7 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/01/01/jquery-json/">
+        <a href="/2017/01/01/different-arrays/">
             <time datetime="2017-01-01T05:50:22.000Z" itemprop="datePublished">2017-01-01</time>
         </a>
     </div>
@@ -1002,7 +1002,7 @@ var jiathis_config={
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
     </div>
 
                         
@@ -1014,18 +1014,17 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <pre>
-使用全局的JSON对象
-function strToJson(str){
-    return JSON.parse(str);
+            <p>// flagArray为String[]</p>
+<pre>
+String existsArray[] = new String[]{}; // 与之进行比对的字符集
+List<string> list1 = Arrays.asList(flagArray);
+List<string> list2 = new ArrayList<string>(); // list2用来装载最终字符集
+for (String string : existsArray) {
+        if (!list1.contains(string)) {
+                list2.add(string);
+        }
 }
-
-eval方式解析
-function strToJson(str){
-     var json = eval('(' + str + ')');
-     return json;
-}
-</pre>
+</string></string></string></pre>
 
         
         </div>
@@ -1059,7 +1058,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/01/01/jquery-json/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/01/01/jquery-json/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/01/01/different-arrays/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/01/01/different-arrays/">Comments</a>
     
 
         </footer>
@@ -1162,7 +1161,7 @@ var jiathis_config={
 
 
 
-    <article id="post-decorators" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-java-ConvertUtils" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -1170,7 +1169,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/01/decorators/">sitemesh布局和修饰框架</a>
+            <a class="article-title" href="/2017/01/01/java-ConvertUtils/">ConvertUtils的简单使用</a>
         </h1>
     
 
@@ -1179,7 +1178,7 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/01/01/decorators/">
+        <a href="/2017/01/01/java-ConvertUtils/">
             <time datetime="2017-01-01T05:50:22.000Z" itemprop="datePublished">2017-01-01</time>
         </a>
     </div>
@@ -1200,10 +1199,12 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>#简述<br>SiteMesh是一个用来在JSP中实现页面布局和装饰的框架组件，能够较容易实现页面中动态内容和<br>静态装饰外观的分离。</p>
-<p>#说明<br>1.首先通过Maven来管理sitemesh<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>opensymphony<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>sitemesh<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.4.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>2.在web.xml中配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>sitemeshFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.opensymphony.sitemesh.webapp.SiteMeshFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>sitemeshFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>3.decorators.xml<br>装饰器配置文件与web.xml同级放在WEB-INF下。defaultdir为布局文件，pattern表示作用域<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">decorators</span> <span class="attr">defaultdir</span>=<span class="string">"/WEB-INF/layouts/"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 禁用装饰器 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">excludes</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>/static/*<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">excludes</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 加载装饰器 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">decorator</span> <span class="attr">name</span>=<span class="string">"demo"</span> <span class="attr">page</span>=<span class="string">"default_demo.jsp"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>/demo*<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">decorator</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">decorators</span>&gt;</span></div></pre></td></tr></table></figure></p>
+            <pre>
+import org.apache.commons.beanutils.ConvertUtils;
+// 将字符串转换为指定类型
+String[] idStringArray = new String[] { "1", "2", "3", "4", "5" };
+Long[] idLongArray = (Long[]) ConvertUtils.convert(idString, Long.class);
+</pre>
 
         
         </div>
@@ -1237,7 +1238,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/01/01/decorators/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/01/01/decorators/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/01/01/java-ConvertUtils/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/01/01/java-ConvertUtils/">Comments</a>
     
 
         </footer>
