@@ -995,7 +995,7 @@ var jiathis_config={
 
 
 
-    <article id="post-sub-query-sql" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SQL-RAND()" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -1003,7 +1003,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/16/sub-query-sql/">MySQL子查询</a>
+            <a class="article-title" href="/2017/07/16/SQL-RAND()/">通过SQL语句实现关于随机选择等功能</a>
         </h1>
     
 
@@ -1012,7 +1012,7 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/07/16/sub-query-sql/">
+        <a href="/2017/07/16/SQL-RAND()/">
             <time datetime="2017-07-16T05:50:22.000Z" itemprop="datePublished">2017-07-16</time>
         </a>
     </div>
@@ -1021,7 +1021,7 @@ var jiathis_config={
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/MySQL/">MySQL</a>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
     </div>
 
                         
@@ -1033,8 +1033,11 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>子查询：<br>通常在一个SELECT、UPDATE或DELETE语句的WHERE子句中充当查询、修改或删除的条件。<br>例如：在子查询中使用ORDER BY 子句，将查询结果按照deptno列降序输出。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> empno, ename, sal, d.deptno <span class="keyword">FROM</span> scott.emp <span class="keyword">WHERE</span> deptno <span class="keyword">IN</span></div><div class="line">(</div><div class="line"><span class="keyword">SELECT</span> deptno <span class="keyword">FROM</span> scott.emp <span class="keyword">WHERE</span> empno&gt;<span class="number">7782</span></div><div class="line">)</div><div class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> empno <span class="keyword">DESC</span>;</div></pre></td></tr></table></figure></p>
-<p>例：<br>查询出每个部门的编号，名称，位置，部门人数，平均工资<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> d.deptno,d.dname,d.loc,</div><div class="line">  (<span class="keyword">SELECT</span>  <span class="keyword">COUNT</span>(empno) <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> emp.deptno=d.deptno <span class="keyword">GROUP</span> <span class="keyword">BY</span> deptno)</div><div class="line">  con,</div><div class="line">  (<span class="keyword">SELECT</span> <span class="keyword">AVG</span>(sal) <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> emp.deptno=d.deptno <span class="keyword">GROUP</span> <span class="keyword">BY</span> deptno)</div><div class="line">  avgsal</div><div class="line"><span class="keyword">FROM</span> dept d</div></pre></td></tr></table></figure></p>
+            <p>SQL：SELECT * FROM TABLENAME WHERE ??? ORDER BY rand() LIMIT (TIMES);</p>
+<p><span style="color:#857F6B;font-style:italic;"><br>/**</span></p>
+<ul>
+<li>TIMES : 从多少条数据中随机查询<br>*/<br></li>
+</ul>
 
         
         </div>
@@ -1068,7 +1071,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/07/16/sub-query-sql/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/16/sub-query-sql/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/07/16/SQL-RAND()/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/16/SQL-RAND()/">Comments</a>
     
 
         </footer>

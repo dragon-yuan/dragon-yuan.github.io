@@ -347,88 +347,6 @@ var jiathis_config={
 
 
 
-    <article id="post-java-random4j" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/08/08/java-random4j/">JAVA随机抽取对象</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/08/08/java-random4j/">
-            <time datetime="2016-08-08T03:22:33.000Z" itemprop="datePublished">2016-08-08</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@param</span> resultList "最终抽取结果集"</div><div class="line"> * <span class="doctag">@param</span> totalFlag "最多抽取数量"</div><div class="line"> * <span class="doctag">@param</span> canRandomFlag "可以抽取数量"</div><div class="line"> * <span class="doctag">@param</span> personCountNum "当前需要抽取数量"</div><div class="line"> */</div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; personCountNum; k++) &#123;</div><div class="line">    <span class="keyword">double</span> randomNum = Math.random();</div><div class="line">    <span class="keyword">int</span> d = (<span class="keyword">int</span>)(randomNum * canRandomFlag);</div><div class="line">    Object obj = list.get(d); <span class="comment">// 获取抽取对象</span></div><div class="line">    resultList.add(obj); <span class="comment">// 添加对象到结果集</span></div><div class="line">    list.remove(d); <span class="comment">// 移除原始采样组</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2016/08/08/java-random4j/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2016/08/08/java-random4j/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <article id="post-java-pattern-matcher" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -502,6 +420,88 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2016/08/08/java-pattern-matcher/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2016/08/08/java-pattern-matcher/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-java-random4j" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/08/08/java-random4j/">JAVA随机抽取对象</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/08/08/java-random4j/">
+            <time datetime="2016-08-08T03:22:33.000Z" itemprop="datePublished">2016-08-08</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@param</span> resultList "最终抽取结果集"</div><div class="line"> * <span class="doctag">@param</span> totalFlag "最多抽取数量"</div><div class="line"> * <span class="doctag">@param</span> canRandomFlag "可以抽取数量"</div><div class="line"> * <span class="doctag">@param</span> personCountNum "当前需要抽取数量"</div><div class="line"> */</div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; personCountNum; k++) &#123;</div><div class="line">    <span class="keyword">double</span> randomNum = Math.random();</div><div class="line">    <span class="keyword">int</span> d = (<span class="keyword">int</span>)(randomNum * canRandomFlag);</div><div class="line">    Object obj = list.get(d); <span class="comment">// 获取抽取对象</span></div><div class="line">    resultList.add(obj); <span class="comment">// 添加对象到结果集</span></div><div class="line">    list.remove(d); <span class="comment">// 移除原始采样组</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2016/08/08/java-random4j/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2016/08/08/java-random4j/">Comments</a>
     
 
         </footer>

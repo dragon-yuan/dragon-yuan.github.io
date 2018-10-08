@@ -234,4 +234,16 @@ photos:
   - http://img-blog.dragon-yuan.me/2018-LIFE/225.jpg?x-oss-process=style/webp
   - http://img-blog.dragon-yuan.me/2018-LIFE/226.jpg?x-oss-process=style/webp
   - http://img-blog.dragon-yuan.me/2018-LIFE/227.jpg?x-oss-process=style/webp
+  - http://img-blog.dragon-yuan.me/2018-LIFE/228.jpg?x-oss-process=style/webp
+  - http://img-blog.dragon-yuan.me/2018-LIFE/229.jpg?x-oss-process=style/webp
+  - http://img-blog.dragon-yuan.me/2018-LIFE/230.jpg?x-oss-process=style/webp
+  - http://img-blog.dragon-yuan.me/2018-LIFE/231.jpg?x-oss-process=style/webp
+  - http://img-blog.dragon-yuan.me/2018-LIFE/232.jpg?x-oss-process=style/webp
+  - http://img-blog.dragon-yuan.me/2018-LIFE/233.jpg?x-oss-process=style/webp
+  - http://img-blog.dragon-yuan.me/2018-LIFE/234.jpg?x-oss-process=style/webp
+  - http://img-blog.dragon-yuan.me/2018-LIFE/235.jpg?x-oss-process=style/webp
+  - http://img-blog.dragon-yuan.me/2018-LIFE/236.jpg?x-oss-process=style/webp
+  - http://img-blog.dragon-yuan.me/2018-LIFE/237.jpg?x-oss-process=style/webp
+  - http://img-blog.dragon-yuan.me/2018-LIFE/238.jpg?x-oss-process=style/webp
+  - http://img-blog.dragon-yuan.me/2018-LIFE/239.jpg?x-oss-process=style/webp
 ---
