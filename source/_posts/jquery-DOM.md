@@ -27,4 +27,19 @@ $(":radio[name='name'][value='"+value+"']").attr("checked",'checked');
 $("input:checkbox[name='supplyCheckBox']:checked").each(function(i) {
 
 });
+
+通过text选中Select组
+$("#object option:contains('"+paramsName+"')").attr("selected", true);
+
+通过ID取消Select选中
+$('#object').find('option:selected').removeAttr('selected');
 </pre>
+
+<code>
+// 获取问号传参数据
+function getQuery(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return decodeURI(r[2]); return null;
+}
+</code>
