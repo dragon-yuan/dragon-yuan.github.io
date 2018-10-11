@@ -35,7 +35,7 @@
 <meta property="og:site_name" content="DragonBlog">
 <meta property="og:description" content="获取单选按钮的值 $(&apos;input[name=&quot;object&quot;]:checked&apos;).val();  获取select选中的值 $(&quot;#object&quot;).find(&quot;option:selected&quot;).val();  判断是不是空 $.trim($(&quot;#object&quot;).val()) == &quot;&quot;)  通过Value选择单选按钮 $(&quot;:radio[name=&apos;object&apos;][value=&apos;&quot;+">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-19T08:12:20.617Z">
+<meta property="og:updated_time" content="2018-10-11T14:47:37.859Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery对DOM元素的操作">
 <meta name="twitter:description" content="获取单选按钮的值 $(&apos;input[name=&quot;object&quot;]:checked&apos;).val();  获取select选中的值 $(&quot;#object&quot;).find(&quot;option:selected&quot;).val();  判断是不是空 $.trim($(&quot;#object&quot;).val()) == &quot;&quot;)  通过Value选择单选按钮 $(&quot;:radio[name=&apos;object&apos;][value=&apos;&quot;+">
@@ -309,7 +309,15 @@ $(":radio[name='name'][value='"+value+"']").attr("checked",'checked');
 $("input:checkbox[name='supplyCheckBox']:checked").each(function(i) {
 
 });
+
+通过text选中Select组
+$("#object option:contains('"+paramsName+"')").attr("selected", true);
+
+通过ID取消Select选中
+$('#object').find('option:selected').removeAttr('selected');
 </pre>
+
+<p><code><br>// 获取问号传参数据<br>function getQuery(name) {<br>    var reg = new RegExp(“(^|&amp;)” + name + “=([^&amp;]*)(&amp;|$)”, “i”);<br>    var r = window.location.search.substr(1).match(reg);<br>    if (r != null) return decodeURI(r[2]); return null;<br>}<br></code></p>
 
         
         </div>
@@ -352,11 +360,11 @@ var jiathis_config={
         
 <nav id="article-nav">
     
-        <a href="/2017/01/01/gallery-mylife-2017/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2017/01/01/springboot-1/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    2017 - Dragon&#39;s Life
+                    Spring Boot 优雅的入门篇
                 
             </div>
         </a>
