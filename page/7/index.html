@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                133
+                134
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,6 +248,88 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-java-windows-properties" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/04/10/java-windows-properties/">通过JAVA环境使用sigar监听Windows系统属性</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/04/10/java-windows-properties/">
+            <time datetime="2017-04-10T12:12:26.000Z" itemprop="datePublished">2017-04-10</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>使用sigar开源组件，获取当前系统各项属性<br>1.下载sigar.jar<br>2.将sigar-amd64-winnt.dll，sigar-x86-winnt.dll，sigar-x86-winnt.lib<br>复制到JDK的bin目录下，使sigar拥有运行依赖。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.hyperic.sigar.*;</div><div class="line"><span class="keyword">import</span> java.net.InetAddress;</div><div class="line"><span class="keyword">import</span> java.net.UnknownHostException;</div><div class="line"><span class="keyword">import</span> java.util.Map;</div><div class="line"><span class="keyword">import</span> java.util.Properties;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WindowsSystemTool</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            property();</div><div class="line">            cpu();</div><div class="line">            memory();</div><div class="line">            os();</div><div class="line">            who();</div><div class="line">            file();</div><div class="line">            net();</div><div class="line">            ethernet();</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e1) &#123;</div><div class="line">            e1.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">property</span><span class="params">()</span> <span class="keyword">throws</span> UnknownHostException </span>&#123;</div><div class="line">        Runtime r = Runtime.getRuntime();</div><div class="line">        Properties props = System.getProperties();</div><div class="line">        InetAddress addr;</div><div class="line">        addr = InetAddress.getLocalHost();</div><div class="line">        String ip = addr.getHostAddress();</div><div class="line">        Map&lt;String, String&gt; map = System.getenv();</div><div class="line">        String userName = map.get(<span class="string">"USERNAME"</span>);</div><div class="line">        String computerName = map.get(<span class="string">"COMPUTERNAME"</span>);</div><div class="line">        String userDomain = map.get(<span class="string">"USERDOMAIN"</span>);</div><div class="line">        System.out.println(<span class="string">"用户名:"</span> + userName);</div><div class="line">        System.out.println(<span class="string">"计算机名:"</span> + computerName);</div><div class="line">        System.out.println(<span class="string">"计算机域名:"</span> + userDomain);</div><div class="line">        System.out.println(<span class="string">"本地ip地址:"</span> + ip);</div><div class="line">        System.out.println(<span class="string">"本地主机名:"</span> + addr.getHostName());</div><div class="line">        System.out.println(<span class="string">"JVM可以使用的总内存:"</span> + r.totalMemory());</div><div class="line">        System.out.println(<span class="string">"JVM可以使用的剩余内存:"</span> + r.freeMemory());</div><div class="line">        System.out.println(<span class="string">"JVM可以使用的处理器个数:"</span> + r.availableProcessors());</div><div class="line">        System.out.println(<span class="string">"Java的运行环境版本："</span> + props.getProperty(<span class="string">"java.version"</span>));</div><div class="line">        System.out.println(<span class="string">"Java的运行环境供应商："</span> + props.getProperty(<span class="string">"java.vendor"</span>));</div><div class="line">        System.out.println(<span class="string">"Java供应商的URL："</span> + props.getProperty(<span class="string">"java.vendor.url"</span>));</div><div class="line">        System.out.println(<span class="string">"Java的安装路径："</span> + props.getProperty(<span class="string">"java.home"</span>));</div><div class="line">        System.out.println(<span class="string">"Java的虚拟机规范版本："</span> + props.getProperty(<span class="string">"java.vm.specification.version"</span>));</div><div class="line">        System.out.println(<span class="string">"Java的虚拟机规范供应商：    "</span> + props.getProperty(<span class="string">"java.vm.specification.vendor"</span>));</div><div class="line">        System.out.println(<span class="string">"Java的虚拟机规范名称："</span> + props.getProperty(<span class="string">"java.vm.specification.name"</span>));</div><div class="line">        System.out.println(<span class="string">"Java的虚拟机实现版本："</span> + props.getProperty(<span class="string">"java.vm.version"</span>));</div><div class="line">        System.out.println(<span class="string">"Java的虚拟机实现供应商："</span> + props.getProperty(<span class="string">"java.vm.vendor"</span>));</div><div class="line">        System.out.println(<span class="string">"Java的虚拟机实现名称："</span> + props.getProperty(<span class="string">"java.vm.name"</span>));</div><div class="line">        System.out.println(<span class="string">"Java运行时环境规范版本："</span> + props.getProperty(<span class="string">"java.specification.version"</span>));</div><div class="line">        System.out.println(<span class="string">"Java运行时环境规范供应商："</span> + props.getProperty(<span class="string">"java.specification.vender"</span>));</div><div class="line">        System.out.println(<span class="string">"Java运行时环境规范名称："</span> + props.getProperty(<span class="string">"java.specification.name"</span>));</div><div class="line">        System.out.println(<span class="string">"Java的类格式版本号："</span> + props.getProperty(<span class="string">"java.class.version"</span>));</div><div class="line">        System.out.println(<span class="string">"Java的类路径："</span> + props.getProperty(<span class="string">"java.class.path"</span>));</div><div class="line">        System.out.println(<span class="string">"加载库时搜索的路径列表："</span> + props.getProperty(<span class="string">"java.library.path"</span>));</div><div class="line">        System.out.println(<span class="string">"默认的临时文件路径："</span> + props.getProperty(<span class="string">"java.io.tmpdir"</span>));</div><div class="line">        System.out.println(<span class="string">"一个或多个扩展目录的路径："</span> + props.getProperty(<span class="string">"java.ext.dirs"</span>));</div><div class="line">        System.out.println(<span class="string">"操作系统的名称："</span> + props.getProperty(<span class="string">"os.name"</span>));</div><div class="line">        System.out.println(<span class="string">"操作系统的构架："</span> + props.getProperty(<span class="string">"os.arch"</span>));</div><div class="line">        System.out.println(<span class="string">"操作系统的版本："</span> + props.getProperty(<span class="string">"os.version"</span>));</div><div class="line">        System.out.println(<span class="string">"文件分隔符："</span> + props.getProperty(<span class="string">"file.separator"</span>));</div><div class="line">        System.out.println(<span class="string">"路径分隔符："</span> + props.getProperty(<span class="string">"path.separator"</span>));</div><div class="line">        System.out.println(<span class="string">"行分隔符："</span> + props.getProperty(<span class="string">"line.separator"</span>));</div><div class="line">        System.out.println(<span class="string">"用户的账户名称："</span> + props.getProperty(<span class="string">"user.name"</span>));</div><div class="line">        System.out.println(<span class="string">"用户的主目录："</span> + props.getProperty(<span class="string">"user.home"</span>));</div><div class="line">        System.out.println(<span class="string">"用户的当前工作目录："</span> + props.getProperty(<span class="string">"user.dir"</span>));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">memory</span><span class="params">()</span> <span class="keyword">throws</span> SigarException </span>&#123;</div><div class="line">        Sigar sigar = <span class="keyword">new</span> Sigar();</div><div class="line">        Mem mem = sigar.getMem();</div><div class="line">        System.out.println(<span class="string">"内存总量:"</span> + mem.getTotal() / <span class="number">1024L</span> + <span class="string">"K av"</span>);</div><div class="line">        System.out.println(<span class="string">"当前内存使用量:"</span> + mem.getUsed() / <span class="number">1024L</span> + <span class="string">"K used"</span>);</div><div class="line">        System.out.println(<span class="string">"当前内存剩余量:"</span> + mem.getFree() / <span class="number">1024L</span> + <span class="string">"K free"</span>);</div><div class="line">        Swap swap = sigar.getSwap();</div><div class="line">        System.out.println(<span class="string">"交换区总量:"</span> + swap.getTotal() / <span class="number">1024L</span> + <span class="string">"K av"</span>);</div><div class="line">        System.out.println(<span class="string">"当前交换区使用量:"</span> + swap.getUsed() / <span class="number">1024L</span> + <span class="string">"K used"</span>);</div><div class="line">        System.out.println(<span class="string">"当前交换区剩余量:"</span> + swap.getFree() / <span class="number">1024L</span> + <span class="string">"K free"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">cpu</span><span class="params">()</span> <span class="keyword">throws</span> SigarException </span>&#123;</div><div class="line">        Sigar sigar = <span class="keyword">new</span> Sigar();</div><div class="line">        CpuInfo infos[] = sigar.getCpuInfoList();</div><div class="line">        CpuPerc cpuList[] = <span class="keyword">null</span>;</div><div class="line">        cpuList = sigar.getCpuPercList();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; infos.length; i++) &#123;</div><div class="line">            CpuInfo info = infos[i];</div><div class="line">            System.out.println(<span class="string">"第"</span> + (i + <span class="number">1</span>) + <span class="string">"块CPU信息"</span>);</div><div class="line">            System.out.println(<span class="string">"CPU的总量MHz:"</span> + info.getMhz());</div><div class="line">            System.out.println(<span class="string">"CPU生产商:"</span> + info.getVendor());</div><div class="line">            System.out.println(<span class="string">"CPU类别:"</span> + info.getModel());</div><div class="line">            System.out.println(<span class="string">"CPU缓存数量:"</span> + info.getCacheSize());</div><div class="line">            printCpuPerc(cpuList[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printCpuPerc</span><span class="params">(CpuPerc cpu)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"CPU用户使用率:"</span> + CpuPerc.format(cpu.getUser()));</div><div class="line">        System.out.println(<span class="string">"CPU系统使用率:"</span> + CpuPerc.format(cpu.getSys()));</div><div class="line">        System.out.println(<span class="string">"CPU当前等待率:"</span> + CpuPerc.format(cpu.getWait()));</div><div class="line">        System.out.println(<span class="string">"CPU当前错误率:"</span> + CpuPerc.format(cpu.getNice()));</div><div class="line">        System.out.println(<span class="string">"CPU当前空闲率:"</span> + CpuPerc.format(cpu.getIdle()));</div><div class="line">        System.out.println(<span class="string">"CPU总的使用率:"</span> + CpuPerc.format(cpu.getCombined()));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">os</span><span class="params">()</span> </span>&#123;</div><div class="line">        OperatingSystem OS = OperatingSystem.getInstance();</div><div class="line">        System.out.println(<span class="string">"操作系统:"</span> + OS.getArch());</div><div class="line">        System.out.println(<span class="string">"操作系统CpuEndian():"</span> + OS.getCpuEndian());<span class="comment">//</span></div><div class="line">        System.out.println(<span class="string">"操作系统DataModel():"</span> + OS.getDataModel());<span class="comment">//</span></div><div class="line">        System.out.println(<span class="string">"操作系统的描述:"</span> + OS.getDescription());</div><div class="line">        System.out.println(<span class="string">"操作系统名称:"</span> + OS.getVendorName());</div><div class="line">        System.out.println(<span class="string">"操作系统的版本号:"</span> + OS.getVersion());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">who</span><span class="params">()</span> <span class="keyword">throws</span> SigarException </span>&#123;</div><div class="line">        Sigar sigar = <span class="keyword">new</span> Sigar();</div><div class="line">        Who who[] = sigar.getWhoList();</div><div class="line">        <span class="keyword">if</span> (who != <span class="keyword">null</span> &amp;&amp; who.length &gt; <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; who.length; i++) &#123;</div><div class="line">                Who _who = who[i];</div><div class="line">                System.out.println(<span class="string">"用户控制台:"</span> + _who.getDevice());</div><div class="line">                System.out.println(<span class="string">"用户host:"</span> + _who.getHost());</div><div class="line">                System.out.println(<span class="string">"当前系统进程表中的用户名:"</span> + _who.getUser());</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">file</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        Sigar sigar = <span class="keyword">new</span> Sigar();</div><div class="line">        FileSystem fslist[] = sigar.getFileSystemList();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; fslist.length; i++) &#123;</div><div class="line">            System.out.println(<span class="string">"分区的盘符名称"</span> + i);</div><div class="line">            FileSystem fs = fslist[i];</div><div class="line">            System.out.println(<span class="string">"盘符名称:    "</span> + fs.getDevName());</div><div class="line">            System.out.println(<span class="string">"盘符路径:    "</span> + fs.getDirName());</div><div class="line">            System.out.println(<span class="string">"盘符标志:    "</span> + fs.getFlags());<span class="comment">//</span></div><div class="line">            System.out.println(<span class="string">"盘符类型:    "</span> + fs.getSysTypeName());</div><div class="line">            System.out.println(<span class="string">"盘符类型名:    "</span> + fs.getTypeName());</div><div class="line">            System.out.println(<span class="string">"盘符文件系统类型:    "</span> + fs.getType());</div><div class="line">            FileSystemUsage usage = <span class="keyword">null</span>;</div><div class="line">            usage = sigar.getFileSystemUsage(fs.getDirName());</div><div class="line">            <span class="keyword">switch</span> (fs.getType()) &#123;</div><div class="line">                <span class="keyword">case</span> <span class="number">0</span>:</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="number">2</span>: <span class="comment">// 本地硬盘</span></div><div class="line">                    System.out.println(fs.getDevName() + <span class="string">"总大小:"</span> + usage.getTotal() + <span class="string">"KB"</span>);</div><div class="line">                    System.out.println(fs.getDevName() + <span class="string">"剩余大小:"</span> + usage.getFree() + <span class="string">"KB"</span>);</div><div class="line">                    System.out.println(fs.getDevName() + <span class="string">"可用大小:"</span> + usage.getAvail() + <span class="string">"KB"</span>);</div><div class="line">                    System.out.println(fs.getDevName() + <span class="string">"已经使用量:"</span> + usage.getUsed() + <span class="string">"KB"</span>);</div><div class="line">                    <span class="keyword">double</span> usePercent = usage.getUsePercent() * <span class="number">100</span>D;</div><div class="line">                    System.out.println(fs.getDevName() + <span class="string">"资源的利用率:"</span> + usePercent + <span class="string">"%"</span>);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="number">3</span>:<span class="comment">// 网络</span></div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="number">4</span>:<span class="comment">// 闪存</span></div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="number">5</span>:<span class="comment">// 光驱</span></div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="number">6</span>:<span class="comment">// 页面交换</span></div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            System.out.println(fs.getDevName() + <span class="string">"读出："</span> + usage.getDiskReads());</div><div class="line">            System.out.println(fs.getDevName() + <span class="string">"写入："</span> + usage.getDiskWrites());</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">net</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        Sigar sigar = <span class="keyword">new</span> Sigar();</div><div class="line">        String ifNames[] = sigar.getNetInterfaceList();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ifNames.length; i++) &#123;</div><div class="line">            String name = ifNames[i];</div><div class="line">            NetInterfaceConfig ifconfig = sigar.getNetInterfaceConfig(name);</div><div class="line">            System.out.println(<span class="string">"网络设备名:"</span> + name);</div><div class="line">            System.out.println(<span class="string">"IP地址:"</span> + ifconfig.getAddress());</div><div class="line">            System.out.println(<span class="string">"子网掩码:"</span> + ifconfig.getNetmask());</div><div class="line">            <span class="keyword">if</span> ((ifconfig.getFlags() &amp; <span class="number">1L</span>) &lt;= <span class="number">0L</span>) &#123;</div><div class="line">                System.out.println(<span class="string">"!IFF_UP...skipping getNetInterfaceStat"</span>);</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            &#125;</div><div class="line">            NetInterfaceStat ifstat = sigar.getNetInterfaceStat(name);</div><div class="line">            System.out.println(name + <span class="string">"接收的总包裹数:"</span> + ifstat.getRxPackets());</div><div class="line">            System.out.println(name + <span class="string">"发送的总包裹数:"</span> + ifstat.getTxPackets());</div><div class="line">            System.out.println(name + <span class="string">"接收到的总字节数:"</span> + ifstat.getRxBytes());</div><div class="line">            System.out.println(name + <span class="string">"发送的总字节数:"</span> + ifstat.getTxBytes());</div><div class="line">            System.out.println(name + <span class="string">"接收到的错误包数:"</span> + ifstat.getRxErrors());</div><div class="line">            System.out.println(name + <span class="string">"发送数据包时的错误数:"</span> + ifstat.getTxErrors());</div><div class="line">            System.out.println(name + <span class="string">"接收时丢弃的包数:"</span> + ifstat.getRxDropped());</div><div class="line">            System.out.println(name + <span class="string">"发送时丢弃的包数:"</span> + ifstat.getTxDropped());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ethernet</span><span class="params">()</span> <span class="keyword">throws</span> SigarException </span>&#123;</div><div class="line">        Sigar sigar = <span class="keyword">null</span>;</div><div class="line">        sigar = <span class="keyword">new</span> Sigar();</div><div class="line">        String[] ifaces = sigar.getNetInterfaceList();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ifaces.length; i++) &#123;</div><div class="line">            NetInterfaceConfig cfg = sigar.getNetInterfaceConfig(ifaces[i]);</div><div class="line">            <span class="keyword">if</span> (NetFlags.LOOPBACK_ADDRESS.equals(cfg.getAddress()) || (cfg.getFlags() &amp; NetFlags.IFF_LOOPBACK) != <span class="number">0</span></div><div class="line">                    || NetFlags.NULL_HWADDR.equals(cfg.getHwaddr())) &#123;</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            &#125;</div><div class="line">            System.out.println(cfg.getName() + <span class="string">"IP地址:"</span> + cfg.getAddress());</div><div class="line">            System.out.println(cfg.getName() + <span class="string">"网关广播地址:"</span> + cfg.getBroadcast());</div><div class="line">            System.out.println(cfg.getName() + <span class="string">"网卡MAC地址:"</span> + cfg.getHwaddr());</div><div class="line">            System.out.println(cfg.getName() + <span class="string">"子网掩码:"</span> + cfg.getNetmask());</div><div class="line">            System.out.println(cfg.getName() + <span class="string">"网卡描述信息:"</span> + cfg.getDescription());</div><div class="line">            System.out.println(cfg.getName() + <span class="string">"网卡类型"</span> + cfg.getType());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/04/10/java-windows-properties/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/04/10/java-windows-properties/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-js-replace" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1069,7 +1151,7 @@ var jiathis_config={
 
 
 
-    <article id="post-countdown" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-regular-expressions" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -1077,7 +1159,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/01/countdown/">初识JAVA倒计时</a>
+            <a class="article-title" href="/2017/01/01/regular-expressions/">正则表达式 总结</a>
         </h1>
     
 
@@ -1086,7 +1168,7 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/01/01/countdown/">
+        <a href="/2017/01/01/regular-expressions/">
             <time datetime="2017-01-01T05:50:22.000Z" itemprop="datePublished">2017-01-01</time>
         </a>
     </div>
@@ -1107,18 +1189,26 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p><1>.先获取到服务器的时间<br>var nowTdrCommon =&lt;%=System.currentTimeMillis()%&gt;; //服务器时间<br>var nowTdrCommon1 =&lt;%=System.currentTimeMillis()%&gt;; //服务器时间</1></p>
-<p><2>.获取到结束时间（结束时间为obj）<br>var EndDateTime_cd = obj;<br>var EndDateTime_s = EndDateTime_cd.replace(/-/g, “/“);<br>nowTdrCommon = nowTdrCommon + 1000;<br>var date1 = new Date(nowTdrCommon); //开始时间<br>var date2 = new Date(EndDateTime_s); //结束时间<br>var date3 = date2.getTime() - date1.getTime(); //时间差的毫秒数</2></p>
-<p>//计算出相差天数<br>var days = Math.floor(date3 / (24 <em> 3600 </em> 1000));</p>
-<p>//计算出小时数<br>var leave1 = date3 % (24 <em> 3600 </em> 1000); //计算天数后剩余的毫秒数<br>var hours = Math.floor(leave1 / (3600 * 1000));</p>
-<p>//计算相差分钟数<br>var leave2 = leave1 % (3600 <em> 1000); //计算小时数后剩余的毫秒数<br>var minutes = Math.floor(leave2 / (60 </em> 1000));</p>
-<p>//计算相差秒数<br>var leave3 = leave2 % (60 * 1000); //计算分钟数后剩余的毫秒数<br>var seconds = Math.round(leave3 / 1000);</p>
-<p><3>.比较时间，并输出显示剩余时间<br>if (date3 &lt; 0) {<br>        return “0”;<br>} else {<br>        return “<span><strong>“ + days + “天</strong></span><span><strong>“</strong></span></3></p>
-<ul>
-<li>hours + “时<span><strong>“ + minutes</strong></span></li>
-<li>“分<span><strong>“ + seconds</strong></span></li>
-<li>“秒“;<br>}</li>
-</ul>
+            <p>网络总结-全部可用</p>
+
+<p>匹配中文：<br>[\u4e00-\u9fa5]</p>
+<p>匹配双字节字符(包括汉字在内)：<br>[^\x00-\xff]</p>
+<p>匹配空白行：<br>\n\s*\r</p>
+<p>匹配Email地址：<br>/^[^.@]+@[^.@]+.[a-z]+$/</p>
+<p>匹配手机号：<br>/^1(3|4|5|7|8)\d{9}$/</p>
+<p>匹配网址URL：<br>[a-zA-z]+://[^\s]*</p>
+<p>匹配国内电话号码：<br>\d{3}-\d{8}|\d{4}-{7,8}</p>
+<p>匹配腾讯QQ号：<br>[1-9][0-9]{4,}</p>
+<p>匹配中国邮政编码：<br>[1-9]\d{5}(?!\d)</p>
+<p>匹配18位身份证号：<br>^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]|X)$</p>
+<p>匹配(年-月-日)格式日期：<br>([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3})-(((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01]))|((0[469]|11)-(0[1-9]|[12][0-9]|30))|(02-(0[1-9]|[1][0-9]|2[0-8])))</p>
+<p>匹配正整数：<br>^[1-9]\d*$</p>
+<p>匹配负整数：<br>^-[1-9]\d*$</p>
+<p>匹配整数：<br>^-?[1-9]\d*$</p>
+<p>匹配非负整数（正整数 + 0）：<br>^[1-9]\d*|0$</p>
+<p>匹配非正整数（负整数 + 0）：<br>^-[1-9]\d*|0$</p>
+<p>匹配正浮点数：<br>^[1-9]\d<em>.\d</em>|0.\d<em>[1-9]\d</em>$</p>
+<p>匹配负浮点数：<br>^-[1-9]\d<em>.\d</em>|-0.\d<em>[1-9]\d</em>$</p>
 
         
         </div>
@@ -1152,92 +1242,7 @@ var jiathis_config={
 
             
     
-        <a href="http://blog.dragon-yuan.me/2017/01/01/countdown/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/01/01/countdown/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-decorators" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/01/decorators/">sitemesh布局和修饰框架</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/01/01/decorators/">
-            <time datetime="2017-01-01T05:50:22.000Z" itemprop="datePublished">2017-01-01</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>#简述<br>SiteMesh是一个用来在JSP中实现页面布局和装饰的框架组件，能够较容易实现页面中动态内容和<br>静态装饰外观的分离。</p>
-<p>#说明<br>1.首先通过Maven来管理sitemesh<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>opensymphony<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>sitemesh<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.4.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>2.在web.xml中配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>sitemeshFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.opensymphony.sitemesh.webapp.SiteMeshFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>sitemeshFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>3.decorators.xml<br>装饰器配置文件与web.xml同级放在WEB-INF下。defaultdir为布局文件，pattern表示作用域<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">decorators</span> <span class="attr">defaultdir</span>=<span class="string">"/WEB-INF/layouts/"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 禁用装饰器 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">excludes</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>/static/*<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">excludes</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 加载装饰器 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">decorator</span> <span class="attr">name</span>=<span class="string">"demo"</span> <span class="attr">page</span>=<span class="string">"default_demo.jsp"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>/demo*<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">decorator</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">decorators</span>&gt;</span></div></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/01/01/decorators/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/01/01/decorators/">Comments</a>
+        <a href="http://blog.dragon-yuan.me/2017/01/01/regular-expressions/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/01/01/regular-expressions/">Comments</a>
     
 
         </footer>
@@ -1279,7 +1284,7 @@ for (var v = 0; v < Agents.length; v++) {
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2018 dragon<br>
+            &copy; 2019 dragon<br>
         </div>
     </div>
 </footer>
