@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                134
+                135
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,6 +248,119 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-jquery-DOM" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/12/07/jquery-DOM/">jQuery对DOM元素的操作</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/12/07/jquery-DOM/">
+            <time datetime="2016-12-07T14:14:26.000Z" itemprop="datePublished">2016-12-07</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <pre>
+获取单选按钮的值
+$('input[name="object"]:checked').val();
+
+获取select选中的值
+$("#object").find("option:selected").val();
+
+判断是不是空
+$.trim($("#object").val()) == "")
+
+通过Value选择单选按钮
+$(":radio[name='object'][value='"+object+"']").attr("checked",'checked');
+
+通过Value选择Select组
+$("#object option[value='"+object+"']").attr("selected","selected");
+
+通过name选择单选按钮
+$(":radio[name='name'][value='"+value+"']").attr("checked",'checked');
+
+通过name遍历获取复选框选中元素
+$("input:checkbox[name='supplyCheckBox']:checked").each(function(i) {
+
+});
+
+通过text选中Select组
+$("#object option:contains('"+paramsName+"')").attr("selected", true);
+
+通过ID取消Select选中
+$('#object').find('option:selected').removeAttr('selected');
+</pre>
+
+<p><code><br>// 获取问号传参数据<br>function getQuery(name) {<br>    var reg = new RegExp(“(^|&amp;)” + name + “=([^&amp;]*)(&amp;|$)”, “i”);<br>    var r = window.location.search.substr(1).match(reg);<br>    if (r != null) return decodeURI(r[2]); return null;<br>}<br></code></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2016/12/07/jquery-DOM/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2016/12/07/jquery-DOM/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-2016-08-10-07-47-12" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1058,91 +1171,6 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2016/07/03/2016-07-03-09-07-31/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2016/07/03/2016-07-03-09-07-31/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-vector-list" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/06/30/vector-list/">ArrayList和LinkedList何时使用</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/06/30/vector-list/">
-            <time datetime="2016-06-29T22:05:11.000Z" itemprop="datePublished">2016-06-30</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>1、如果你需要高效的查询，而不在乎插入和删除的效率，使用ArrayList(不同步JDK1.2) Vector(同步 JDK1.0,过时不用)</p>
-<p>2、如果你需要大量的插入和删除，而不关心查询，则应使用LinkedList</p>
-<p>ArrayList：对象数量变化少，简单对象，随机访问元素频繁 (查找)</p>
-<p>LinkedList：对象数量变化大，对象复杂，插入和删除频繁 (插入，删除)</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2016/06/30/vector-list/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2016/06/30/vector-list/">Comments</a>
     
 
         </footer>
