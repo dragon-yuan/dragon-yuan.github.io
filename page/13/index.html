@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                135
+                137
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,6 +248,181 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-ubuntu-apache2-php5-mysql" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2015/09/25/ubuntu-apache2-php5-mysql/">Ubuntu--apache2+php5+mysql</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2015/09/25/ubuntu-apache2-php5-mysql/">
+            <time datetime="2015-09-25T06:41:57.000Z" itemprop="datePublished">2015-09-25</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Operations/">Operations</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>sudo apt-get install build-essential autoconf automake1.9 cvs subversion</p>
+<p>sudo apt-get install apache2</p>
+<p>sudo apt-get install php5</p>
+<p>sudo apt-get install mysql-server libapache2-mod-auth-mysql php5-mysql</p>
+<p>Mysql的启动/停止/重启<br>sudo /etc/init.d/mysql start<br>sudo /etc/init.d/mysql stop<br>sudo /etc/init.d/mysql restart</p>
+<p>/*</p>
+<p>Mysql 安装完后设置root密码<br>mysql -uroot    (一开始root用户的密码为空所以可以进去， 如果在安装的时候您在界面中设置了password<br>可跳过此步)<br>进入mysql控制台：<br>set password for ‘root’@’localhost’=PASSWORD(‘yourpassword’);<br>如果成功， mysql提示 ： Query OK 0rows affected（0.00sec）</p>
+<p>*/</p>
+<p>安装完成配置<br>//    sudo gedit /etc/apach2/apach2.conf配置apache服务器<br>//    sudo gedit  /etc/php5/apach2/php.ini 配置php在文本框中找到”; extension=mysql.so”， 去掉；表示apache启动时加载与mysql连接的模块， 然后保存，</p>
+<p>重启apache服务器。sudo /etc/init.d/apache2 restart</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2015/09/25/ubuntu-apache2-php5-mysql/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2015/09/25/ubuntu-apache2-php5-mysql/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-mstsc" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2015/09/23/mstsc/">mstsc端口修改</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2015/09/23/mstsc/">
+            <time datetime="2015-09-23T07:01:49.000Z" itemprop="datePublished">2015-09-23</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Operations/">Operations</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><span style="font-family: 'Microsoft Yahei', 微软雅黑, arial, 宋体, sans-serif; font-size: 16px; line-height: 28px; text-align: justify;">1.HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\Wds\rdpwd\Tds\tcp</span></p>
+<p><span style="font-family: 'Microsoft Yahei', 微软雅黑, arial, 宋体, sans-serif; font-size: 16px; line-height: 28px; text-align: justify;">2.HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TerminalServer\WinStations\RDP-TCP</span></p>
+<p><span style="font-family: 'Microsoft Yahei', 微软雅黑, arial, 宋体, sans-serif; font-size: 16px; line-height: 28px; text-align: justify;">右侧PortNumber</span></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2015/09/23/mstsc/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2015/09/23/mstsc/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-net-use" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1083,175 +1258,6 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2015/04/22/token/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2015/04/22/token/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-2015-04-21-08-50-39" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2015/04/21/2015-04-21-08-50-39/">人生最高感知能力</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2015/04/21/2015-04-21-08-50-39/">
-            <time datetime="2015-04-21T00:50:39.000Z" itemprop="datePublished">2015-04-21</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Reading/">Reading</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p><span lang="EN-US">1.</span> <span style="font-family: 宋体; mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: 宋体; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin;">不只讲功能，还重设计。</span></p>
-<p><span lang="EN-US">2.</span> <span style="font-family: 宋体; mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: 宋体; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin;">不只有论点，还说故事。</span></p>
-<p><span lang="EN-US">3.</span> <span style="font-family: 宋体; mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: 宋体; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin;">不只谈专业，还须整合。</span></p>
-<p><span lang="EN-US">4.</span> <span style="font-family: 宋体; mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: 宋体; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin;">不只讲逻辑，还给关怀。</span></p>
-<p><span lang="EN-US">5.</span> <span style="font-family: 宋体; mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: 宋体; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin;">不只能正经，还会玩乐。</span></p>
-<p><span lang="EN-US">6.</span> <span style="font-family: 宋体; mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: 宋体; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin;">不只顾赚钱，还重意义。</span></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2015/04/21/2015-04-21-08-50-39/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2015/04/21/2015-04-21-08-50-39/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-2015-04-21-08-50-06" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2015/04/21/2015-04-21-08-50-06/">颠覆式的伟大想法</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2015/04/21/2015-04-21-08-50-06/">
-            <time datetime="2015-04-21T00:50:06.000Z" itemprop="datePublished">2015-04-21</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Reading/">Reading</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p><span style="font-family: 宋体; mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: 宋体; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin;">    王东岳曾经有一个理想，他说如果有可能，希望能够有这样的一所大学：在这所大学里，没有必修课，全是选修课；没有专业，每个人根据自己的禀赋，去选想学的专业，组合起来成为个人独一无二的专业。</span></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2015/04/21/2015-04-21-08-50-06/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2015/04/21/2015-04-21-08-50-06/">Comments</a>
     
 
         </footer>
