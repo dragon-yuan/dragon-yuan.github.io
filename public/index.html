@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                135
+                137
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,6 +248,170 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-java-self-transaction-rollback" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2019/02/21/java-self-transaction-rollback/">Service手动回滚事务</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2019/02/21/java-self-transaction-rollback/">
+            <time datetime="2019-02-21T14:32:11.000Z" itemprop="datePublished">2019-02-21</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>很多业务场景下，可以使用自动回滚事务。<br>如在一个Service中，可以使用注解形式整体回滚事务。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Transactional</span>(rollbackFor = Exception.class)</div><div class="line"><span class="function"><span class="keyword">public</span> Boolean <span class="title">xxx</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</div><div class="line">	<span class="keyword">if</span> (flag) &#123;</div><div class="line">		<span class="comment">// 正确处理业务</span></div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"xxx"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>但也可能遇到如果对外提供API方法（RPC）需要捕获异常的处理业务的话，对于接口调用方仅需要知道错误信息即可，无需了解堆栈信息，此时try-catch后可以手动回滚事务。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2019/02/21/java-self-transaction-rollback/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2019/02/21/java-self-transaction-rollback/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-java-thread-pool-future" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2019/02/20/java-thread-pool-future/">线程池中Feture使用</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2019/02/20/java-thread-pool-future/">
+            <time datetime="2019-02-20T14:00:26.000Z" itemprop="datePublished">2019-02-20</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2019/02/20/java-thread-pool-future/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2019/02/20/java-thread-pool-future/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-2019-new-year" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -367,175 +531,175 @@ var jiathis_config={
         
 <div class="article-gallery">
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/0.jpeg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/0.jpeg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/0.jpeg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/1.jpeg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/1.jpeg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/1.jpeg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/2.jpeg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/2.jpeg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/2.jpeg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/3.jpeg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/3.jpeg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/3.jpeg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/4.jpeg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/4.jpeg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/4.jpeg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/5.jpeg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/5.jpeg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/5.jpeg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/6.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/6.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/6.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/7.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/7.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/7.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/8.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/8.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/8.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/9.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/9.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/9.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/10.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/10.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/10.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/11.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/11.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/11.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/12.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/12.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/12.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/13.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/13.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/13.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/14.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/14.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/14.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/15.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/15.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/15.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/16.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/16.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/16.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/17.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/17.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/17.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/18.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/18.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/18.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/19.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/19.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/19.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/20.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/20.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/20.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/21.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/21.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/21.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/22.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/22.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/22.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/23.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/23.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/23.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/24.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/24.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/24.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/25.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/25.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/25.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/26.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/26.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/26.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/27.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/27.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/27.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/28.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/28.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/28.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/29.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/29.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/29.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/30.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/30.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/30.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/31.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/31.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/31.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/32.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/32.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/32.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/33.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/33.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/33.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/34.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/34.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/34.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/35.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/35.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/35.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/36.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/36.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/36.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/37.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/37.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/37.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/38.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/38.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/38.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/39.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/39.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/39.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/40.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/40.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/40.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/41.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/41.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/41.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
-    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/42.jpg?x-oss-process=style/webp" rel="gallery_cjs36rnaq0021gtitj25d7ow0">
+    <a class="gallery-item" href="http://img-blog.dragon-yuan.me/2019-LIFE/42.jpg?x-oss-process=style/webp" rel="gallery_cjseptxvn00206fitjti3jrgm">
         <img src="http://img-blog.dragon-yuan.me/2019-LIFE/42.jpg?x-oss-process=style/webp" itemprop="image" />
     </a>
     
@@ -1118,173 +1282,6 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2018/05/06/life-to-myselef-2017-2018/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/05/06/life-to-myselef-2017-2018/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-ico-wallet" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/03/22/ico-wallet/">This is ICO Wallet</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/03/22/ico-wallet/">
-            <time datetime="2018-03-22T15:59:09.000Z" itemprop="datePublished">2018-03-22</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Other/">Other</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">BTC:<span class="number">18</span>SopfAEbGqosgUw8oTHSv5xTVYxLXziVy</div><div class="line">ETH:<span class="number">0xfaeA5Db637f902451Ce173bf0DC08FDBF86C2dd9</span></div></pre></td></tr></table></figure>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2018/03/22/ico-wallet/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/03/22/ico-wallet/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-mapstrut" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/03/16/mapstrut/">MapStruct实体与模型之间的映射（初体验）</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/03/16/mapstrut/">
-            <time datetime="2018-03-16T09:23:27.000Z" itemprop="datePublished">2018-03-16</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>工程中引入mapstruct依赖<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mapstruct<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mapstruct<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.0.Final<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>首先对于注解@Mapper(uses = Info.class)这个注解用于表示需要对什么类进行映射。<br>比如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Mapper</span>(uses = Info.class)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OrderMapper</span> </span>&#123;</div><div class="line">    OrderMapper INSTANCE = Mappers.getMapper(OrderMapper.class);</div><div class="line">    <span class="meta">@Mappings</span>(&#123;</div><div class="line">        <span class="meta">@Mapping</span>(target = <span class="string">"orderCode"</span>, source = <span class="string">"resourceCode"</span>,</div><div class="line">        <span class="meta">@Mapping</span>(target = <span class="string">"businessType"</span>, constant = <span class="string">"10"</span>),</div><div class="line">        <span class="meta">@Mapping</span>(target = <span class="string">"weight"</span>,</div><div class="line">            expression = <span class="string">"java(MapStructConvertor.convertTonToKg(info.getWeight()))"</span>)</div><div class="line">    )&#125;)</div><div class="line">    <span class="function">Object <span class="title">infoToObject</span><span class="params">(Info info)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">其中@Mapper(uses = Info.class)为需要被转换的类</div><div class="line"></div><div class="line">#单例模式获取实例对象</div><div class="line">OrderMapper INSTANCE = Mappers.getMapper(OrderMapper.class);</div><div class="line">#其源代码：</div><div class="line">T mapper = classLoader.loadClass(clazz.getName() + "Impl").newInstance();</div><div class="line"></div><div class="line">@Mappings,@Mapping为映射对应字段。</div><div class="line">target为转换字段，source为源字段，constant，定义常量值，expression可以自定义方法转换</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MapStructConvertor</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">convertTonToKg</span><span class="params">(BigDecimal ton)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (ton == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="string">"0.00"</span>;</div><div class="line">        &#125;</div><div class="line">        DecimalFormat df = <span class="keyword">new</span> DecimalFormat(<span class="string">"#.00"</span>);</div><div class="line">        <span class="keyword">return</span> df.format(ton.multiply(<span class="keyword">new</span> BigDecimal(<span class="number">1000</span>)));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2018/03/16/mapstrut/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2018/03/16/mapstrut/">Comments</a>
     
 
         </footer>
