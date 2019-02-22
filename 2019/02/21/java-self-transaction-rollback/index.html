@@ -28,17 +28,17 @@
     
     <title>Service手动回滚事务 | DragonBlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="很多业务场景下，可以使用自动回滚事务。如在一个Service中，可以使用注解形式整体回滚事务。123456789@Transactional(rollbackFor = Exception.class)public Boolean xxx() &amp;#123;	boolean flag = true;	if (flag) &amp;#123;		// 正确处理业务	&amp;#125; else &amp;#123;		th">
+    <meta name="description" content="很多业务场景下，可以使用自动回滚事务。如在一个Service中，可以使用注解形式整体回滚事务。12345678910@Transactional(rollbackFor = Exception.class)public Boolean methodName() &amp;#123;	boolean flag = true;	if (flag) &amp;#123;		// 处理业务	&amp;#125; else &amp;#1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Service手动回滚事务">
 <meta property="og:url" content="http://blog.dragon-yuan.me/2019/02/21/java-self-transaction-rollback/index.html">
 <meta property="og:site_name" content="DragonBlog">
-<meta property="og:description" content="很多业务场景下，可以使用自动回滚事务。如在一个Service中，可以使用注解形式整体回滚事务。123456789@Transactional(rollbackFor = Exception.class)public Boolean xxx() &amp;#123;	boolean flag = true;	if (flag) &amp;#123;		// 正确处理业务	&amp;#125; else &amp;#123;		th">
+<meta property="og:description" content="很多业务场景下，可以使用自动回滚事务。如在一个Service中，可以使用注解形式整体回滚事务。12345678910@Transactional(rollbackFor = Exception.class)public Boolean methodName() &amp;#123;	boolean flag = true;	if (flag) &amp;#123;		// 处理业务	&amp;#125; else &amp;#1">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-21T14:21:42.651Z">
+<meta property="og:updated_time" content="2019-02-21T15:13:52.944Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Service手动回滚事务">
-<meta name="twitter:description" content="很多业务场景下，可以使用自动回滚事务。如在一个Service中，可以使用注解形式整体回滚事务。123456789@Transactional(rollbackFor = Exception.class)public Boolean xxx() &amp;#123;	boolean flag = true;	if (flag) &amp;#123;		// 正确处理业务	&amp;#125; else &amp;#123;		th">
+<meta name="twitter:description" content="很多业务场景下，可以使用自动回滚事务。如在一个Service中，可以使用注解形式整体回滚事务。12345678910@Transactional(rollbackFor = Exception.class)public Boolean methodName() &amp;#123;	boolean flag = true;	if (flag) &amp;#123;		// 处理业务	&amp;#125; else &amp;#1">
     
 
     
@@ -286,9 +286,9 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>很多业务场景下，可以使用自动回滚事务。<br>如在一个Service中，可以使用注解形式整体回滚事务。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Transactional</span>(rollbackFor = Exception.class)</div><div class="line"><span class="function"><span class="keyword">public</span> Boolean <span class="title">xxx</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</div><div class="line">	<span class="keyword">if</span> (flag) &#123;</div><div class="line">		<span class="comment">// 正确处理业务</span></div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"xxx"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+            <p>很多业务场景下，可以使用自动回滚事务。<br>如在一个Service中，可以使用注解形式整体回滚事务。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Transactional</span>(rollbackFor = Exception.class)</div><div class="line"><span class="function"><span class="keyword">public</span> Boolean <span class="title">methodName</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</div><div class="line">	<span class="keyword">if</span> (flag) &#123;</div><div class="line">		<span class="comment">// 处理业务</span></div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"xxx"</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> flag;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>但也可能遇到如果对外提供API方法（RPC）需要捕获异常的处理业务的话，对于接口调用方仅需要知道错误信息即可，无需了解堆栈信息，此时try-catch后可以手动回滚事务。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();</div></pre></td></tr></table></figure></p>
-
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Transactional</span></div><div class="line"><span class="function"><span class="keyword">public</span> Boolean <span class="title">methodName</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</div><div class="line">	<span class="keyword">try</span> &#123;</div><div class="line">		<span class="comment">// 处理业务</span></div><div class="line">	&#125; <span class="keyword">catch</span>(Exception e) &#123;</div><div class="line">		<span class="comment">// log</span></div><div class="line">		TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> flag;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
         
         </div>
         <footer class="article-footer">
