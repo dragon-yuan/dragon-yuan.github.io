@@ -8,17 +8,31 @@ date: 2019-02-21 22:32:11
 如在一个Service中，可以使用注解形式整体回滚事务。
 ```java
 @Transactional(rollbackFor = Exception.class)
-public Boolean xxx() {
+public Boolean methodName() {
 	boolean flag = true;
 	if (flag) {
-		// 正确处理业务
+		// 处理业务
 	} else {
 		throw new RuntimeException("xxx");
 	}
+	return flag;
 }
 ```
 
 但也可能遇到如果对外提供API方法（RPC）需要捕获异常的处理业务的话，对于接口调用方仅需要知道错误信息即可，无需了解堆栈信息，此时try-catch后可以手动回滚事务。
 ```java
 TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+```
+```java
+@Transactional
+public Boolean methodName() {
+	boolean flag = true;
+	try {
+		// 处理业务
+	} catch(Exception e) {
+		// log
+		TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+	}
+	return flag;
+}
 ```
