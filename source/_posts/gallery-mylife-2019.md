@@ -47,4 +47,15 @@ photos:
   - http://img-blog.dragon-yuan.me/2019-LIFE/40.jpg?x-oss-process=style/webp
   - http://img-blog.dragon-yuan.me/2019-LIFE/41.jpg?x-oss-process=style/webp
   - http://img-blog.dragon-yuan.me/2019-LIFE/42.jpg?x-oss-process=style/webp
+  - http://img-blog.dragon-yuan.me/2019-LIFE/43.jpeg?x-oss-process=style/webp
+  - http://img-blog.dragon-yuan.me/2019-LIFE/44.jpeg?x-oss-process=style/webp
+  - http://img-blog.dragon-yuan.me/2019-LIFE/45.jpeg?x-oss-process=style/webp
+  - http://img-blog.dragon-yuan.me/2019-LIFE/46.jpeg?x-oss-process=style/webp
+  - http://img-blog.dragon-yuan.me/2019-LIFE/47.jpeg?x-oss-process=style/webp
+  - http://img-blog.dragon-yuan.me/2019-LIFE/48.jpeg?x-oss-process=style/webp
+  - http://img-blog.dragon-yuan.me/2019-LIFE/49.jpeg?x-oss-process=style/webp
+  - http://img-blog.dragon-yuan.me/2019-LIFE/50.jpeg?x-oss-process=style/webp
+  - http://img-blog.dragon-yuan.me/2019-LIFE/51.jpeg?x-oss-process=style/webp
+  - http://img-blog.dragon-yuan.me/2019-LIFE/52.jpeg?x-oss-process=style/webp
+  - http://img-blog.dragon-yuan.me/2019-LIFE/53.jpeg?x-oss-process=style/webp
 ---
