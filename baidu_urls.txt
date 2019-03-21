@@ -1,1 +1,1 @@
-http://blog.dragon-yuan.me/2019/02/21/java-self-transaction-rollback/
+http://blog.dragon-yuan.me/2019/03/22/idea-live-templete/
