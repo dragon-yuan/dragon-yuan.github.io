@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                137
+                138
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,6 +248,114 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-poi-read-excel" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/02/22/poi-read-excel/">APACHE POI读取Excel-07操作</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/02/22/poi-read-excel/">
+            <time datetime="2017-02-22T06:14:26.000Z" itemprop="datePublished">2017-02-22</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <pre>
+// 得到Excel工作簿对象
+XSSFWorkbook workbook = new XSSFWorkbook(new FileInputStream(file));
+// 得到Excel工作表对象
+XSSFSheet sheet = workbook.getSheetAt(0);
+// 遍历工作表中行
+for (Row row : sheet) {
+    // 获取当行数
+    int rowNum = row.getRowNum();
+    // 跳过第一行，如导入Excel模版
+    if (rowNum != 0) {
+    // 获取此行上的单元格
+          Cell cell = row.getCell(0);
+      // 得到Excel工作表指定行的单元格，并设置读取编码方式
+            cell.setCellType(HSSFCell.CELL_TYPE_STRING);
+            row.getCell(1).setCellType(HSSFCell.CELL_TYPE_STRING);
+          row.getCell(2).setCellType(HSSFCell.CELL_TYPE_STRING);
+            row.getCell(3).setCellType(HSSFCell.CELL_TYPE_STRING);
+      // 获取内容
+      String str1 = cell.getStringCellValue();
+            String str2 = row.getCell(1).getStringCellValue();
+            String str3 = row.getCell(2).getStringCellValue();
+    }
+}
+
+此方法没有处理异常，请自行添加
+</pre>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/02/22/poi-read-excel/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/02/22/poi-read-excel/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-java-md5" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -350,183 +458,6 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2017/01/01/java-md5/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/01/01/java-md5/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-countdown" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/01/countdown/">初识JAVA倒计时</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/01/01/countdown/">
-            <time datetime="2017-01-01T05:50:22.000Z" itemprop="datePublished">2017-01-01</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p><1>.先获取到服务器的时间<br>var nowTdrCommon =&lt;%=System.currentTimeMillis()%&gt;; //服务器时间<br>var nowTdrCommon1 =&lt;%=System.currentTimeMillis()%&gt;; //服务器时间</1></p>
-<p><2>.获取到结束时间（结束时间为obj）<br>var EndDateTime_cd = obj;<br>var EndDateTime_s = EndDateTime_cd.replace(/-/g, “/“);<br>nowTdrCommon = nowTdrCommon + 1000;<br>var date1 = new Date(nowTdrCommon); //开始时间<br>var date2 = new Date(EndDateTime_s); //结束时间<br>var date3 = date2.getTime() - date1.getTime(); //时间差的毫秒数</2></p>
-<p>//计算出相差天数<br>var days = Math.floor(date3 / (24 <em> 3600 </em> 1000));</p>
-<p>//计算出小时数<br>var leave1 = date3 % (24 <em> 3600 </em> 1000); //计算天数后剩余的毫秒数<br>var hours = Math.floor(leave1 / (3600 * 1000));</p>
-<p>//计算相差分钟数<br>var leave2 = leave1 % (3600 <em> 1000); //计算小时数后剩余的毫秒数<br>var minutes = Math.floor(leave2 / (60 </em> 1000));</p>
-<p>//计算相差秒数<br>var leave3 = leave2 % (60 * 1000); //计算分钟数后剩余的毫秒数<br>var seconds = Math.round(leave3 / 1000);</p>
-<p><3>.比较时间，并输出显示剩余时间<br>if (date3 &lt; 0) {<br>        return “0”;<br>} else {<br>        return “<span><strong>“ + days + “天</strong></span><span><strong>“</strong></span></3></p>
-<ul>
-<li>hours + “时<span><strong>“ + minutes</strong></span></li>
-<li>“分<span><strong>“ + seconds</strong></span></li>
-<li>“秒“;<br>}</li>
-</ul>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/01/01/countdown/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/01/01/countdown/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-span-name-attr" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/01/span-name-attr/">jQuery通过内容获取span属性</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/01/01/span-name-attr/">
-            <time datetime="2017-01-01T05:50:22.000Z" itemprop="datePublished">2017-01-01</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <pre>
-$("span:contains('......')").attr("class");
-</pre>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/01/01/span-name-attr/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/01/01/span-name-attr/">Comments</a>
     
 
         </footer>
@@ -639,6 +570,363 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2017/01/01/git-readme/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/01/01/git-readme/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-jquery-json" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/01/01/jquery-json/">jQuery解析JSON</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/01/01/jquery-json/">
+            <time datetime="2017-01-01T05:50:22.000Z" itemprop="datePublished">2017-01-01</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <pre>
+使用全局的JSON对象
+function strToJson(str){
+    return JSON.parse(str);
+}
+
+eval方式解析
+function strToJson(str){
+     var json = eval('(' + str + ')');
+     return json;
+}
+</pre>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/01/01/jquery-json/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/01/01/jquery-json/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-span-name-attr" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/01/01/span-name-attr/">jQuery通过内容获取span属性</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/01/01/span-name-attr/">
+            <time datetime="2017-01-01T05:50:22.000Z" itemprop="datePublished">2017-01-01</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <pre>
+$("span:contains('......')").attr("class");
+</pre>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/01/01/span-name-attr/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/01/01/span-name-attr/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-java-ConvertUtils" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/01/01/java-ConvertUtils/">ConvertUtils的简单使用</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/01/01/java-ConvertUtils/">
+            <time datetime="2017-01-01T05:50:22.000Z" itemprop="datePublished">2017-01-01</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <pre>
+import org.apache.commons.beanutils.ConvertUtils;
+// 将字符串转换为指定类型
+String[] idStringArray = new String[] { "1", "2", "3", "4", "5" };
+Long[] idLongArray = (Long[]) ConvertUtils.convert(idString, Long.class);
+</pre>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/01/01/java-ConvertUtils/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/01/01/java-ConvertUtils/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-countdown" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/01/01/countdown/">初识JAVA倒计时</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/01/01/countdown/">
+            <time datetime="2017-01-01T05:50:22.000Z" itemprop="datePublished">2017-01-01</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><1>.先获取到服务器的时间<br>var nowTdrCommon =&lt;%=System.currentTimeMillis()%&gt;; //服务器时间<br>var nowTdrCommon1 =&lt;%=System.currentTimeMillis()%&gt;; //服务器时间</1></p>
+<p><2>.获取到结束时间（结束时间为obj）<br>var EndDateTime_cd = obj;<br>var EndDateTime_s = EndDateTime_cd.replace(/-/g, “/“);<br>nowTdrCommon = nowTdrCommon + 1000;<br>var date1 = new Date(nowTdrCommon); //开始时间<br>var date2 = new Date(EndDateTime_s); //结束时间<br>var date3 = date2.getTime() - date1.getTime(); //时间差的毫秒数</2></p>
+<p>//计算出相差天数<br>var days = Math.floor(date3 / (24 <em> 3600 </em> 1000));</p>
+<p>//计算出小时数<br>var leave1 = date3 % (24 <em> 3600 </em> 1000); //计算天数后剩余的毫秒数<br>var hours = Math.floor(leave1 / (3600 * 1000));</p>
+<p>//计算相差分钟数<br>var leave2 = leave1 % (3600 <em> 1000); //计算小时数后剩余的毫秒数<br>var minutes = Math.floor(leave2 / (60 </em> 1000));</p>
+<p>//计算相差秒数<br>var leave3 = leave2 % (60 * 1000); //计算分钟数后剩余的毫秒数<br>var seconds = Math.round(leave3 / 1000);</p>
+<p><3>.比较时间，并输出显示剩余时间<br>if (date3 &lt; 0) {<br>        return “0”;<br>} else {<br>        return “<span><strong>“ + days + “天</strong></span><span><strong>“</strong></span></3></p>
+<ul>
+<li>hours + “时<span><strong>“ + minutes</strong></span></li>
+<li>“分<span><strong>“ + seconds</strong></span></li>
+<li>“秒“;<br>}</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/01/01/countdown/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/01/01/countdown/">Comments</a>
     
 
         </footer>
@@ -825,186 +1113,6 @@ var jiathis_config={
 
 
 
-    <article id="post-jquery-json" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/01/jquery-json/">jQuery解析JSON</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/01/01/jquery-json/">
-            <time datetime="2017-01-01T05:50:22.000Z" itemprop="datePublished">2017-01-01</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <pre>
-使用全局的JSON对象
-function strToJson(str){
-    return JSON.parse(str);
-}
-
-eval方式解析
-function strToJson(str){
-     var json = eval('(' + str + ')');
-     return json;
-}
-</pre>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/01/01/jquery-json/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/01/01/jquery-json/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-java-ConvertUtils" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/01/java-ConvertUtils/">ConvertUtils的简单使用</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/01/01/java-ConvertUtils/">
-            <time datetime="2017-01-01T05:50:22.000Z" itemprop="datePublished">2017-01-01</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <pre>
-import org.apache.commons.beanutils.ConvertUtils;
-// 将字符串转换为指定类型
-String[] idStringArray = new String[] { "1", "2", "3", "4", "5" };
-Long[] idLongArray = (Long[]) ConvertUtils.convert(idString, Long.class);
-</pre>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/01/01/java-ConvertUtils/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/01/01/java-ConvertUtils/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <article id="post-regular-expressions" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1097,97 +1205,6 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2017/01/01/regular-expressions/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/01/01/regular-expressions/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-java-list-remove" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/01/java-list-remove/">List对于remove操作抛出ConcurrentModificationException</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/01/01/java-list-remove/">
-            <time datetime="2017-01-01T03:50:22.000Z" itemprop="datePublished">2017-01-01</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <pre>
-for(int i=0;i<list.size();i++){ if(list.get(i).equals("del"))="" list.remove(i);="" }="" 这种方式的问题在于，删除某个元素后，list的大小发生了变化，而你的索引也在变化，="" 所以会导致你在遍历的时候漏掉某些元素。比如当你删除第1个元素后，="" 继续根据索引访问第2个元素时，因为删除的关系后面的元素都往前移动了一位，="" 所以实际访问的是第3个元素。因此，这种方式可以用在删除特定的一个元素时使用，="" 但不适合循环删除多个元素时使用。="" for(string="" x:list){="" if(x.equals("del"))="" list.remove(x);="" 这种方式的问题在于，删除元素后继续循环会报错误信息concurrentmodificationexception，="" 因为元素在使用的时候发生了并发的修改，导致异常抛出。="" 但是删除完毕马上使用break跳出，则不会触发报错。="" iterator<string=""> it = list.iterator();
-while(it.hasNext()){
-    String x = it.next();
-    if(x.equals("del")){
-        it.remove();
-    }
-}
-这种方式可以正常的循环及删除。
-</list.size();i++){></pre>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/01/01/java-list-remove/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/01/01/java-list-remove/">Comments</a>
     
 
         </footer>

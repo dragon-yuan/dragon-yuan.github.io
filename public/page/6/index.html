@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                137
+                138
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,6 +248,89 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-vue-rules" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/07/19/vue-rules/">VueJS中的rules校验</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/19/vue-rules/">
+            <time datetime="2017-07-19T15:00:25.000Z" itemprop="datePublished">2017-07-19</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/web/">web</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">rules: &#123;</div><div class="line">    <span class="attr">rulesOne</span>: [</div><div class="line">        &#123; <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">'请输入'</span>, <span class="attr">trigger</span>: <span class="string">'blur'</span> &#125;</div><div class="line">    ],</div><div class="line">    <span class="attr">rulesTwo</span>: [</div><div class="line">        &#123; <span class="attr">max</span>: <span class="number">100</span>, <span class="attr">message</span>: <span class="string">'长度在 100个字符以内'</span>, <span class="attr">trigger</span>: <span class="string">'blur'</span> &#125;</div><div class="line">    ],</div><div class="line">    <span class="attr">rulesThree</span>: [</div><div class="line">        &#123; <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">'请选择'</span>, <span class="attr">trigger</span>: <span class="string">'change'</span> &#125;</div><div class="line">    ],</div><div class="line">    <span class="attr">rulesFour</span>: [</div><div class="line">        &#123; <span class="attr">type</span>: <span class="string">'array'</span>, <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">'请至少选择一个'</span>, <span class="attr">trigger</span>: <span class="string">'change'</span> &#125;</div><div class="line">    ],</div><div class="line">    <span class="attr">rulesFive</span>: [</div><div class="line">        &#123; <span class="attr">validator</span>: checkSomething, <span class="attr">trigger</span>: <span class="string">'blur'</span> &#125;</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>trigger: ‘blur’为离开输入框<br>trigger: ‘change’为更换下拉框或多选框<br>validator为自定义规则方法名</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/07/19/vue-rules/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/19/vue-rules/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-mybatis-insert-id" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -501,6 +584,89 @@ var jiathis_config={
 
 
 
+    <article id="post-sub-query-sql" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/07/16/sub-query-sql/">MySQL子查询</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/16/sub-query-sql/">
+            <time datetime="2017-07-16T05:50:22.000Z" itemprop="datePublished">2017-07-16</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/MySQL/">MySQL</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>子查询：<br>通常在一个SELECT、UPDATE或DELETE语句的WHERE子句中充当查询、修改或删除的条件。<br>例如：在子查询中使用ORDER BY 子句，将查询结果按照deptno列降序输出。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> empno, ename, sal, d.deptno <span class="keyword">FROM</span> scott.emp <span class="keyword">WHERE</span> deptno <span class="keyword">IN</span></div><div class="line">(</div><div class="line"><span class="keyword">SELECT</span> deptno <span class="keyword">FROM</span> scott.emp <span class="keyword">WHERE</span> empno&gt;<span class="number">7782</span></div><div class="line">)</div><div class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> empno <span class="keyword">DESC</span>;</div></pre></td></tr></table></figure></p>
+<p>例：<br>查询出每个部门的编号，名称，位置，部门人数，平均工资<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> d.deptno,d.dname,d.loc,</div><div class="line">  (<span class="keyword">SELECT</span>  <span class="keyword">COUNT</span>(empno) <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> emp.deptno=d.deptno <span class="keyword">GROUP</span> <span class="keyword">BY</span> deptno)</div><div class="line">  con,</div><div class="line">  (<span class="keyword">SELECT</span> <span class="keyword">AVG</span>(sal) <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> emp.deptno=d.deptno <span class="keyword">GROUP</span> <span class="keyword">BY</span> deptno)</div><div class="line">  avgsal</div><div class="line"><span class="keyword">FROM</span> dept d</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+        <a href="http://blog.dragon-yuan.me/2017/07/16/sub-query-sql/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/16/sub-query-sql/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-SQL-RAND()" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -578,89 +744,6 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2017/07/16/SQL-RAND()/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/16/SQL-RAND()/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-sub-query-sql" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/16/sub-query-sql/">MySQL子查询</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/07/16/sub-query-sql/">
-            <time datetime="2017-07-16T05:50:22.000Z" itemprop="datePublished">2017-07-16</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/MySQL/">MySQL</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>子查询：<br>通常在一个SELECT、UPDATE或DELETE语句的WHERE子句中充当查询、修改或删除的条件。<br>例如：在子查询中使用ORDER BY 子句，将查询结果按照deptno列降序输出。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> empno, ename, sal, d.deptno <span class="keyword">FROM</span> scott.emp <span class="keyword">WHERE</span> deptno <span class="keyword">IN</span></div><div class="line">(</div><div class="line"><span class="keyword">SELECT</span> deptno <span class="keyword">FROM</span> scott.emp <span class="keyword">WHERE</span> empno&gt;<span class="number">7782</span></div><div class="line">)</div><div class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> empno <span class="keyword">DESC</span>;</div></pre></td></tr></table></figure></p>
-<p>例：<br>查询出每个部门的编号，名称，位置，部门人数，平均工资<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> d.deptno,d.dname,d.loc,</div><div class="line">  (<span class="keyword">SELECT</span>  <span class="keyword">COUNT</span>(empno) <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> emp.deptno=d.deptno <span class="keyword">GROUP</span> <span class="keyword">BY</span> deptno)</div><div class="line">  con,</div><div class="line">  (<span class="keyword">SELECT</span> <span class="keyword">AVG</span>(sal) <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> emp.deptno=d.deptno <span class="keyword">GROUP</span> <span class="keyword">BY</span> deptno)</div><div class="line">  avgsal</div><div class="line"><span class="keyword">FROM</span> dept d</div></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/07/16/sub-query-sql/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/16/sub-query-sql/">Comments</a>
     
 
         </footer>
@@ -1003,92 +1086,6 @@ var jiathis_config={
             
     
         <a href="http://blog.dragon-yuan.me/2017/07/12/java-charqequence/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/12/java-charqequence/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-java-dto-vo" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/11/java-dto-vo/">浅析VO、DTO、DO、PO的概念、区别和用处</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/07/11/java-dto-vo/">
-            <time datetime="2017-07-11T13:52:26.000Z" itemprop="datePublished">2017-07-11</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>VO（View Object）：视图对象，用于展示层，它的作用是把某个指定页面（或组件）的所有数据<br>封装起来。</p>
-<p>DTO（Data Transfer Object）：数据传输对象，这个概念来源于J2EE的设计模式，原来的目的<br>是为了EJB的分布式应用提供粗粒度的数据实体，以减少分布式调用的次数，从而提高分布式调用<br>的性能和降低网络负载，但在这里，我泛指用于展示层与服务层之间的数据传输对象。</p>
-<p>DO（Domain Object）：领域对象，就是从现实世界中抽象出来的有形或无形的业务实体。</p>
-<p>PO（Persistent Object）：持久化对象，它跟持久层（通常是关系型数据库）的数据结构形成一<br>一对应的映射关系，如果持久层是关系型数据库，那么，数据表中的每个字段（或若干个）就对应<br>PO的一个（或若干个）属性。</p>
-<p>DTO和VO：<br>DTO和VO的属性值基本是一致的，而且他们通常都是POJO，因此没必要多此一举，但不要忘记这是<br>实现层面的思维，对于设计层面来说，概念上还是应该存在VO和DTO，因为两者有着本质的区别，<br>DTO代表服务层需要接收的数据和返回的数据，而VO代表展示层需要显示的数据。</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-        <a href="http://blog.dragon-yuan.me/2017/07/11/java-dto-vo/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://blog.dragon-yuan.me/2017/07/11/java-dto-vo/">Comments</a>
     
 
         </footer>
