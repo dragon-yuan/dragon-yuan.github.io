@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                139
+                140
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,6 +248,102 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-centos" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/05/05/centos/">Centos中二级域名绑定二级目录的方法</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/05/05/centos/">
+            <time datetime="2016-05-04T21:25:26.000Z" itemprop="datePublished">2016-05-05</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Operations/">Operations</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>用文本编辑器打开Apache安装目录/etc/httpd/conf\httpd.conf，找到“#Load<a href="http://www.aliyun.com/zixun/aggregation/72666.html" target="_blank" rel="noopener">Module</a> rewrite_module modules/mod_rewrite.so”这行，去掉<a href="http://www.aliyun.com/zixun/aggregation/54488.html" target="_blank" rel="noopener">前面</a>的“#”;继续<a href="http://www.aliyun.com/zixun/aggregation/20541.html" target="_blank" rel="noopener">查找</a>“AllowOverride None”，修改为“AllowOverride All”，然后，重启Apache即可。</p>
+<p>如此，就打开了mod_rewrite模块，其功能非常的强大，这里我只讲如何绑定二级域名。</p>
+<p><a href="http://www.aliyun.com/zixun/aggregation/53635.html" target="_blank" rel="noopener">同样</a>，我们在httpd.conf文件最后输入以下语句：</p>
+<p>RewriteEngine on</p>
+<p>RewriteMap lowercase int:tolower</p>
+<p>RewriteMap vhost txt:/etc/httpd/vhost.map</p>
+<p>RewriteCond ${lowercase:%{SERVER_NAME}} ^(.+)$</p>
+<p>RewriteCond ${vhost:%1} ^(/.*)$</p>
+<p>RewriteRule ^/(.*)$ %1/$1</p>
+<p>然后重启Apache</p>
+<p>这样，我们就能够自由设置绑定二级域名了。</p>
+<p>温馨提示：这个httpd.conf大家注意备份，我就曾经不小心误删，弄的极其的凄惨呀!!</p>
+<p>之后在/etc/httpd(即Apache安装目录)下新建一个vhost.map，用文本编辑器来绑定，极其简单，我的是这样写的：</p>
+<p>bbs.xxx.com /var/www/html/bbs</p>
+<p>home.xxx.com /var/www/html/home</p>
+<p>potplayer.xxx.com /var/www/html/potplayer</p>
+<p>我们可以随意把二级域名与目录绑定，保存就行，并且<a href="http://www.aliyun.com/zixun/aggregation/20432.html" target="_blank" rel="noopener">不用</a>重启Apache，非常方便。</p>
+<h4 id="本文章全部来源于互联网，版权归属于原作者。本站所有转载文章言论不代表本站观点，如是侵犯了原作者的权利请发邮件联系站长（plu-huajuan-163-com），收到后立即删除。"><a href="#本文章全部来源于互联网，版权归属于原作者。本站所有转载文章言论不代表本站观点，如是侵犯了原作者的权利请发邮件联系站长（plu-huajuan-163-com），收到后立即删除。" class="headerlink" title="本文章全部来源于互联网，版权归属于原作者。本站所有转载文章言论不代表本站观点，如是侵犯了原作者的权利请发邮件联系站长（plu_huajuan@163.com），收到后立即删除。"></a>本文章全部来源于互联网，版权归属于原作者。本站所有转载文章言论不代表本站观点，如是侵犯了原作者的权利请发邮件联系站长（plu_huajuan@163.com），收到后立即删除。</h4>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-mediadrop" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1057,86 +1153,6 @@ var jiathis_config={
 <p><span style="color: #444444;">需要select host from user where user = ‘root’;</span></p>
 <p><span style="color: #444444;">查看一下host是否已经有了%这个值，如果有了直接执行下面的flush privileges;</span></p>
 <p><span style="color: #444444;">quit</span></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-tomcat-not-allowed-to-load-local-resource" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/01/06/tomcat-not-allowed-to-load-local-resource/">Tomcat针对读取文件问题 Not allowed to load local resource解决办法</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/01/06/tomcat-not-allowed-to-load-local-resource/">
-            <time datetime="2016-01-06T01:54:21.000Z" itemprop="datePublished">2016-01-06</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>Servlet转发到JSP页面后不允许用文件的绝对路径 而需要这样写 src=”/students/“+studentBasic.photo+”</p>
 
         
         </div>
