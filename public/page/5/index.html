@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                140
+                141
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,6 +248,88 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-vue-keepalive" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/08/30/vue-keepalive/">Vue中Keep-Alive缓存的使用</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/08/30/vue-keepalive/">
+            <time datetime="2017-08-30T14:59:09.000Z" itemprop="datePublished">2017-08-30</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>Vue提供了一个keep-alive组件用来缓存组件。<br>首先在vue的主页路由上添加keep-alive，并且判断是否在路由开启keepAlive<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;keep-alive&gt;</div><div class="line">    &lt;router-view v-if="$route.meta.keepAlive"&gt;&lt;/router-view&gt;</div><div class="line">&lt;/keep-alive&gt;</div><div class="line">&lt;router-view v-if="!$route.meta.keepAlive"&gt;&lt;/router-view&gt;</div></pre></td></tr></table></figure></p>
+<p>在需要缓存的页面路由上添加标志位<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">keepAlive: ture</div></pre></td></tr></table></figure></p>
+<p>vue中生命周期相关的有：created,mounted,updated,activited,destroyed。<br>在页面上可以添加activited钩子函数。<br>针对keep-alive标签，使用keep-alive在单页中前进后退只触发activited。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">created() &#123;</div><div class="line">	method_1();</div><div class="line">&#125;,</div><div class="line">activited() &#123;</div><div class="line">	method_2();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-idea-serialVersion" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -976,89 +1058,8 @@ var jiathis_config={
 
 
 
-    <article id="post-spring-aop-exception" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/07/23/spring-aop-exception/">Spring中AOP对异常的处理</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/07/23/spring-aop-exception/">
-            <time datetime="2017-07-23T07:08:01.000Z" itemprop="datePublished">2017-07-23</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> com.exception.BusinessException;</div><div class="line"><span class="keyword">import</span> java.lang.reflect.Method;</div><div class="line"><span class="keyword">import</span> org.slf4j.Logger;</div><div class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</div><div class="line"><span class="keyword">import</span> org.springframework.aop.ThrowsAdvice;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExceptionInterceptorLog</span> <span class="keyword">implements</span> <span class="title">ThrowsAdvice</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger logger = LoggerFactory.getLogger(ExceptionInterceptorLog.class);</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ExceptionInterceptorLog</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterThrowing</span><span class="params">(Method method, Object[] args, Object target, BusinessException ex)</span> </span>&#123;</div><div class="line">        logger.error(<span class="string">"==&gt;ExceptionInterceptorLog.BusinessException"</span>);</div><div class="line">        logger.error(<span class="string">"==&gt;errCode:"</span> + ex.getCode() + <span class="string">" errMsg:"</span> + ex.getMessage());</div><div class="line">        logger.error(<span class="string">"==&gt;"</span> + ex.fillInStackTrace());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterThrowing</span><span class="params">(Method method, Object[] args, Object target, Exception ex)</span> </span>&#123;</div><div class="line">        logger.error(<span class="string">"==&gt;ExceptionInterceptorLog.Exception"</span>);</div><div class="line">        logger.error(<span class="string">"==&gt;Error class: "</span> + target.getClass().getName());</div><div class="line">        logger.error(<span class="string">"==&gt;Error method: "</span> + method.getName());</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; args.length; ++i) &#123;</div><div class="line">            logger.error(<span class="string">"==&gt;args["</span> + i + <span class="string">"]: "</span> + args[i]);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        logger.error(<span class="string">"==&gt;Exception class: "</span> + ex.getClass().getName());</div><div class="line">        logger.error(<span class="string">"==&gt;"</span> + ex.fillInStackTrace());</div><div class="line">        logger.error(<span class="string">"==&gt; 堆栈信息&#123;&#125;"</span>, ex.toString(), ex);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>在spring-config-aop.xml进行配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">       <span class="attr">xmlns:aop</span>=<span class="string">"http://www.springframework.org/schema/aop"</span></div><div class="line">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd</span></div><div class="line">      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd"&gt;</div><div class="line">    <span class="comment">&lt;!-- 异常信息 拦截 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"exceptionInterceptorLog"</span> <span class="attr">class</span>=<span class="string">"com.xescm.core.exception.ExceptionInterceptorLog"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">aop:config</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">id</span>=<span class="string">"exceptionTrade"</span> <span class="attr">expression</span>=<span class="string">"</span></span></div><div class="line">        execution(* com.controller.*.*(..))</div><div class="line">        or execution(* com.controller.*.*(..))</div><div class="line">        "/&gt;</div><div class="line">        <span class="tag">&lt;<span class="name">aop:advisor</span> <span class="attr">pointcut-ref</span>=<span class="string">"exceptionTrade"</span> <span class="attr">advice-ref</span>=<span class="string">"exceptionInterceptorLog"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
     </nav>
 </section>
             
@@ -1089,7 +1090,7 @@ for (var v = 0; v < Agents.length; v++) {
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2019 dragon<br>
+            &copy; 2020 dragon<br>
         </div>
     </div>
 </footer>

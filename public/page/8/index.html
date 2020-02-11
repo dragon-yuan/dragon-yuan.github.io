@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                140
+                141
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -248,6 +248,89 @@ var _hmt = _hmt || [];
 
             
             <section id="main">
+    <article id="post-js-parsefloat" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/03/07/js-parsefloat/">使用JS保留两位小数</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/03/07/js-parsefloat/">
+            <time datetime="2017-03-07T09:22:26.000Z" itemprop="datePublished">2017-03-07</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <pre>
+由于js显示的值为varchar类型，所以显示小数需要转换成float类型，并用toFixed保留位数
+<code>parseFloat(value).toFixed(2)</code>
+</pre>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-poi-write-word07" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -712,7 +795,7 @@ var jiathis_config={
 
 
 
-    <article id="post-countdown" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-different-arrays" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -720,7 +803,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/01/countdown/">初识JAVA倒计时</a>
+            <a class="article-title" href="/2017/01/01/different-arrays/">找出两个数组中不相同的元素</a>
         </h1>
     
 
@@ -729,7 +812,7 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/01/01/countdown/">
+        <a href="/2017/01/01/different-arrays/">
             <time datetime="2017-01-01T05:50:22.000Z" itemprop="datePublished">2017-01-01</time>
         </a>
     </div>
@@ -750,191 +833,17 @@ var jiathis_config={
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p><1>.先获取到服务器的时间<br>var nowTdrCommon =&lt;%=System.currentTimeMillis()%&gt;; //服务器时间<br>var nowTdrCommon1 =&lt;%=System.currentTimeMillis()%&gt;; //服务器时间</1></p>
-<p><2>.获取到结束时间（结束时间为obj）<br>var EndDateTime_cd = obj;<br>var EndDateTime_s = EndDateTime_cd.replace(/-/g, “/“);<br>nowTdrCommon = nowTdrCommon + 1000;<br>var date1 = new Date(nowTdrCommon); //开始时间<br>var date2 = new Date(EndDateTime_s); //结束时间<br>var date3 = date2.getTime() - date1.getTime(); //时间差的毫秒数</2></p>
-<p>//计算出相差天数<br>var days = Math.floor(date3 / (24 <em> 3600 </em> 1000));</p>
-<p>//计算出小时数<br>var leave1 = date3 % (24 <em> 3600 </em> 1000); //计算天数后剩余的毫秒数<br>var hours = Math.floor(leave1 / (3600 * 1000));</p>
-<p>//计算相差分钟数<br>var leave2 = leave1 % (3600 <em> 1000); //计算小时数后剩余的毫秒数<br>var minutes = Math.floor(leave2 / (60 </em> 1000));</p>
-<p>//计算相差秒数<br>var leave3 = leave2 % (60 * 1000); //计算分钟数后剩余的毫秒数<br>var seconds = Math.round(leave3 / 1000);</p>
-<p><3>.比较时间，并输出显示剩余时间<br>if (date3 &lt; 0) {<br>        return “0”;<br>} else {<br>        return “<span><strong>“ + days + “天</strong></span><span><strong>“</strong></span></3></p>
-<ul>
-<li>hours + “时<span><strong>“ + minutes</strong></span></li>
-<li>“分<span><strong>“ + seconds</strong></span></li>
-<li>“秒“;<br>}</li>
-</ul>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
+            <p>// flagArray为String[]</p>
+<pre>
+String existsArray[] = new String[]{}; // 与之进行比对的字符集
+List<string> list1 = Arrays.asList(flagArray);
+List<string> list2 = new ArrayList<string>(); // list2用来装载最终字符集
+for (String string : existsArray) {
+        if (!list1.contains(string)) {
+                list2.add(string);
+        }
 }
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-span-name-attr" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/01/span-name-attr/">jQuery通过内容获取span属性</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/01/01/span-name-attr/">
-            <time datetime="2017-01-01T05:50:22.000Z" itemprop="datePublished">2017-01-01</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <pre>
-$("span:contains('......')").attr("class");
-</pre>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<a class="jiathis_button_tsina"></a>
-<a class="jiathis_button_tqq"></a>
-<a class="jiathis_button_qzone"></a>
-<a class="jiathis_button_weixin"></a>
-<a class="jiathis_button_linkedin"></a>
-<a class="jiathis_button_copy"></a>
-<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-	data_track_clickback:true,
-	summary:"",
-	shortUrl:false,
-	hideMore:true
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-</div>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-jquery-json" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/01/jquery-json/">jQuery解析JSON</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/01/01/jquery-json/">
-            <time datetime="2017-01-01T05:50:22.000Z" itemprop="datePublished">2017-01-01</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
-    </div>
-
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <pre>
-使用全局的JSON对象
-function strToJson(str){
-    return JSON.parse(str);
-}
-
-eval方式解析
-function strToJson(str){
-     var json = eval('(' + str + ')');
-     return json;
-}
-</pre>
+</string></string></string></pre>
 
         
         </div>
@@ -1075,7 +984,7 @@ var jiathis_config={
 
 
 
-    <article id="post-git-readme" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-countdown" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -1083,7 +992,7 @@ var jiathis_config={
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/01/git-readme/">GitHub上README总结（markdown）</a>
+            <a class="article-title" href="/2017/01/01/countdown/">初识JAVA倒计时</a>
         </h1>
     
 
@@ -1092,7 +1001,7 @@ var jiathis_config={
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/01/01/git-readme/">
+        <a href="/2017/01/01/countdown/">
             <time datetime="2017-01-01T05:50:22.000Z" itemprop="datePublished">2017-01-01</time>
         </a>
     </div>
@@ -1101,7 +1010,98 @@ var jiathis_config={
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/GitHub/">GitHub</a>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><1>.先获取到服务器的时间<br>var nowTdrCommon =&lt;%=System.currentTimeMillis()%&gt;; //服务器时间<br>var nowTdrCommon1 =&lt;%=System.currentTimeMillis()%&gt;; //服务器时间</1></p>
+<p><2>.获取到结束时间（结束时间为obj）<br>var EndDateTime_cd = obj;<br>var EndDateTime_s = EndDateTime_cd.replace(/-/g, “/“);<br>nowTdrCommon = nowTdrCommon + 1000;<br>var date1 = new Date(nowTdrCommon); //开始时间<br>var date2 = new Date(EndDateTime_s); //结束时间<br>var date3 = date2.getTime() - date1.getTime(); //时间差的毫秒数</2></p>
+<p>//计算出相差天数<br>var days = Math.floor(date3 / (24 <em> 3600 </em> 1000));</p>
+<p>//计算出小时数<br>var leave1 = date3 % (24 <em> 3600 </em> 1000); //计算天数后剩余的毫秒数<br>var hours = Math.floor(leave1 / (3600 * 1000));</p>
+<p>//计算相差分钟数<br>var leave2 = leave1 % (3600 <em> 1000); //计算小时数后剩余的毫秒数<br>var minutes = Math.floor(leave2 / (60 </em> 1000));</p>
+<p>//计算相差秒数<br>var leave3 = leave2 % (60 * 1000); //计算分钟数后剩余的毫秒数<br>var seconds = Math.round(leave3 / 1000);</p>
+<p><3>.比较时间，并输出显示剩余时间<br>if (date3 &lt; 0) {<br>        return “0”;<br>} else {<br>        return “<span><strong>“ + days + “天</strong></span><span><strong>“</strong></span></3></p>
+<ul>
+<li>hours + “时<span><strong>“ + minutes</strong></span></li>
+<li>“分<span><strong>“ + seconds</strong></span></li>
+<li>“秒“;<br>}</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_linkedin"></a>
+<a class="jiathis_button_copy"></a>
+<a href="http://www.jiathis.com/share?uid=2120749" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:true
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120749" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+</div>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-jquery-json" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/01/01/jquery-json/">jQuery解析JSON</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/01/01/jquery-json/">
+            <time datetime="2017-01-01T05:50:22.000Z" itemprop="datePublished">2017-01-01</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Web-Design/">Web Design</a>
     </div>
 
                         
@@ -1114,35 +1114,16 @@ var jiathis_config={
         
             
             <pre>
-1.关于标题
-#一级标题
-##二级标题
-###三级标题
-####四级标题
-#####五级标题
-######六级标题
+使用全局的JSON对象
+function strToJson(str){
+    return JSON.parse(str);
+}
 
-2.部分文字的高亮
-Thank `You` . Please `Call` Me `Dragon`
-
-3.文字超链接
-[我的博客](http://blog.dragon-yuan.me)
-
-4.圆点符
-* 一级圆点
-    * 二级圆点
-        * 三级圆点
-
-5.缩进
->数据结构
->>树
->>>二叉树
->>>>平衡二叉树
->>>>>满二叉树
-
-6.插入图片
-![](https://pic-href)
-https://github.com/ 你的用户名 / 你的项目名 / raw / 分支名 / 存放图片的文件夹 / 该文件夹下的图片
+eval方式解析
+function strToJson(str){
+     var json = eval('(' + str + ')');
+     return json;
+}
 </pre>
 
         
@@ -1271,7 +1252,7 @@ var jiathis_config={
 
 
     <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
     </nav>
 </section>
             
@@ -1302,7 +1283,7 @@ for (var v = 0; v < Agents.length; v++) {
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2019 dragon<br>
+            &copy; 2020 dragon<br>
         </div>
     </div>
 </footer>
